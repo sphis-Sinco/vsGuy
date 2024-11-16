@@ -1,0 +1,8 @@
+{
+	"antialiasing": true,
+	"confirm_anim": "story",
+	"idle_anim": "story",
+	"position": [40, 80],
+	"scale": 0.5,
+	"image": "Menu_Guy"
+}

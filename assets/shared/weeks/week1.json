@@ -1,0 +1,27 @@
+{
+	"songs": [
+		[
+			"guy",
+			"guy",
+			[
+				106,
+				133,
+				253
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "",
+	"weekCharacters": [
+		"guy",
+		"bf",
+		"gf"
+	],
+	"storyName": "guy",
+	"weekName": "week1",
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

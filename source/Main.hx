@@ -118,7 +118,7 @@ class Main extends Sprite
 		#end
 		Mods.loadTopMod();
 
-		FlxG.save.bind('funkin', CoolUtil.getSavePath());
+		FlxG.save.bind('guy+', CoolUtil.getSavePath());
 
 		Highscore.load();
 
