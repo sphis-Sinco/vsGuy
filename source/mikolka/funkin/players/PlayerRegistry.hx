@@ -41,6 +41,13 @@ class PlayerRegistry extends PsliceRegistry{
     }
     // This is only used to check if we should allow the player to open charSelect
     public function countUnlockedCharacters():Int {
-        return 2;
+        var files:Array<String> = [];
+        try { 
+            files = FileSystem.readDirectory(Paths.getPath('registry/players'));
+        } catch(e){
+            files = ['bf'];
+        }
+        trace('Freeplay Players Registery: $files');
+        return files.length;
     }
 }
