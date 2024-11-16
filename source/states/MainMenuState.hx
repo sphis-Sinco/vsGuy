@@ -13,7 +13,7 @@ class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '1.0'; // This is also used for Discord RPC
 	public static var pSliceVersion:String = '2.1'; 
-	public static var modVer:String = Application.current.meta.get('version'); 
+	public static var modVer:String = '1.0'; 
 	public static var funkinVersion:String = '0.5.1'; // Version of funkin' we are emulating
 	public static var curSelected:Int = 0;
 
@@ -30,11 +30,18 @@ class MainMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+
 	public function new(isDisplayingRank:Bool = false) {
 
 		//TODO
 		super();
 	}
+
+	public static function modVerInit()
+	{
+		modVer = Application.current.meta.get('version');
+	}
+
 	override function create()
 	{
 		Paths.clearUnusedMemory();
