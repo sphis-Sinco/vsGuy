@@ -42,8 +42,8 @@ class PlayerRegistry extends PsliceRegistry{
             for (i in 0...chars.length) {
                 if (!files.contains(chars[i]))
                 {
-                    chars.remove(chars[i]);
                     newEntrys.push(chars[i].split('.json')[0]);
+                    chars.remove(chars[i]);
                     newEntryAm++;
                 }
             }
