@@ -56,11 +56,11 @@ class ModsHelper {
 	public inline static function collectVideos():String{
 		var dirsToList = new Array<String>();
 		dirsToList.push('assets/videos/commercials/');
-		if(FileSystem.exists('mods/videos/commercials'))dirsToList.push('mods/videos/commercials/');
+		if(FileSystem.exists('dlcs/videos/commercials'))dirsToList.push('dlcs/videos/commercials/');
 		Mods.loadTopMod();
 		var modsToSearch = Mods.getGlobalMods();
 		modsToSearch.pushUnique(Mods.currentModDirectory);
-		modsToSearch = modsToSearch.filter(s -> FileSystem.exists('mods/$s/videos/commercials')).map(s -> 'mods/$s/videos/commercials');
+		modsToSearch = modsToSearch.filter(s -> FileSystem.exists('dlcs/$s/videos/commercials')).map(s -> 'dlcs/$s/videos/commercials');
 		
 		dirsToList = dirsToList.concat(modsToSearch);
 		var commercialsToSelect = new Array<String>();

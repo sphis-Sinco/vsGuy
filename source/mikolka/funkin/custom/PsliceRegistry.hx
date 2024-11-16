@@ -18,7 +18,7 @@ class PsliceRegistry {
     function listJsons():Array<String> {
         var char_path = FunkinPath.getPath(regPath);
         var basedCharFiles = FileSystem.readDirectory(char_path);
-        if(char_path == 'mods/$regPath'){
+        if(char_path == 'dlcs/$regPath'){
             var nativeChars = FileSystem.readDirectory(FunkinPath.getPath(regPath,true));
             basedCharFiles = basedCharFiles.concat(nativeChars);
         }

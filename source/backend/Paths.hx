@@ -394,7 +394,7 @@ class Paths
 
 	#if MODS_ALLOWED
 	inline static public function mods(key:String = '')
-		return #if mobile Sys.getCwd() + #end 'mods/' + key;
+		return #if mobile Sys.getCwd() + #end 'dlcs/' + key;
 
 	inline static public function modsFont(key:String)
 		return modFolders('fonts/' + key);
@@ -451,7 +451,7 @@ class Paths
 				}
 				#end
 			}
-			return #if mobile Sys.getCwd() + #end 'mods/' + key;
+			return #if mobile Sys.getCwd() + #end 'dlcs/' + key;
 		}
 	
 		#if linux
