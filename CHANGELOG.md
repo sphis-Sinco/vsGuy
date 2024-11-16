@@ -2,6 +2,7 @@
 ## v1.1 - November 16th 2024
 ### Changed
 - OutdatedState now checks for if the Current Version is lower than the online (github) Version
+- Preloader now says "GUY+" instead of "FNF"
 ### Fixed
 - PlayerRegistry no longer traces a blank removed registries array after removing old Player Registries
 ### Removed
