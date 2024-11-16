@@ -9,7 +9,6 @@
 - openfl shader traces on debug builds
 ### Added
 - vs Guy Plus Team Credits
-- Animated credit icon Support (animation name has to be the character icon name)
 
 ## v1.0 - November 16th 2024
 ### Added

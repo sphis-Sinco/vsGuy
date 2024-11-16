@@ -67,7 +67,7 @@ class CreditsState extends MusicBeatState
 				'ogfoxer',
 				'Artist, Animator, Composer',
 				'https://www.youtube.com/@OgFoxerEpic',
-				'66ff00'
+				'ff6600'
 			],
 			['P-Slice Engine Team'],
 			[
