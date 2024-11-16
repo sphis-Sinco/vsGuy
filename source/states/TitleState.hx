@@ -95,10 +95,14 @@ class TitleState extends MusicBeatState
 				updateVersion = data.split('\n')[0].trim();
 				var curVersion:String = MainMenuState.modVer.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
-				if (updateVersion != curVersion)
+				if (Std.parseFloat(updateVersion) > Std.parseFloat(curVersion))
 				{
-					trace('versions arent matching!');
+					trace('$updateVersion > $curVersion');
 					mustUpdate = true;
+				}
+				else
+				{
+					trace('$updateVersion ${updateVersion == curVersion ? '=' : '<'} $curVersion')
 				}
 			}
 
