@@ -201,28 +201,28 @@ class CreditsState extends MusicBeatState
 			[
 				"ninjamuffin99",
 				"ninjamuffin99",
-				"Programmer of Friday Night Funkin'",
+				"Lead Programmer of Friday Night Funkin'",
 				"https://x.com/ninja_muffin99",
 				"CF2D2D"
 			],
 			[
 				"PhantomArcade",
 				"phantomarcade",
-				"Animator of Friday Night Funkin'",
+				"Lead Animator of Friday Night Funkin'",
 				"https://x.com/PhantomArcade3K",
 				"FADC45"
 			],
 			[
 				"evilsk8r",
 				"evilsk8r",
-				"Artist of Friday Night Funkin'",
+				"Lead Artist of Friday Night Funkin'",
 				"https://x.com/evilsk8r",
 				"5ABD4B"
 			],
 			[
 				"kawaisprite",
 				"kawaisprite",
-				"Composer of Friday Night Funkin'",
+				"Lead Composer of Friday Night Funkin'",
 				"https://x.com/kawaisprite",
 				"378FC7"
 			],
@@ -251,16 +251,21 @@ class CreditsState extends MusicBeatState
 					Mods.currentModDirectory = credit[5];
 
 				var str:String = 'credits/missing_icon';
+				var animated:Bool = false;
 				if (credit[1] != null && credit[1].length > 0)
 				{
 					var fileName = 'credits/' + credit[1];
+
+					if (Paths.fileExists('images/$fileName.xml', TEXT))
+						animated = true;
+
 					if (Paths.fileExists('images/$fileName.png', IMAGE))
 						str = fileName;
 					else if (Paths.fileExists('images/$fileName-pixel.png', IMAGE))
 						str = fileName + '-pixel';
 				}
 
-				var icon:AttachedSprite = new AttachedSprite(str);
+				var icon:AttachedSprite = new AttachedSprite(str, (animated ? str : null));
 				if (str.endsWith('-pixel'))
 					icon.antialiasing = false;
 				icon.xAdd = optionText.width + 10;

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="djotta.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="djotta0000" x="4" y="4" width="177" height="206"/>
+	<SubTexture name="djotta0001" x="4" y="4" width="177" height="206"/>
+	<SubTexture name="djotta0002" x="189" y="4" width="177" height="206"/>
+	<SubTexture name="djotta0003" x="189" y="4" width="177" height="206"/>
+</TextureAtlas>

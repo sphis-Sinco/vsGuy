@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tj.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="tj0000" x="4" y="4" width="162" height="176"/>
+	<SubTexture name="tj0001" x="4" y="4" width="162" height="176"/>
+	<SubTexture name="tj0002" x="174" y="4" width="160" height="174" frameX="0" frameY="-2" frameWidth="162" frameHeight="176"/>
+	<SubTexture name="tj0003" x="174" y="4" width="160" height="174" frameX="0" frameY="-2" frameWidth="162" frameHeight="176"/>
+</TextureAtlas>
