@@ -168,7 +168,7 @@ class Mods
 
 		#if MODS_ALLOWED
 		try {
-			for (mod in CoolUtil.coolTextFile('modsList.txt'))
+			for (mod in CoolUtil.coolTextFile('dlcsList.txt'))
 			{
 				//trace('Mod: $mod');
 				if(mod.trim().length < 1) continue;
@@ -194,7 +194,7 @@ class Mods
 		var list:Array<Array<Dynamic>> = [];
 		var added:Array<String> = [];
 		try {
-			for (mod in CoolUtil.coolTextFile('modsList.txt'))
+			for (mod in CoolUtil.coolTextFile('dlcsList.txt'))
 			{
 				var dat:Array<String> = mod.split("|");
 				var folder:String = dat[0];
@@ -208,7 +208,7 @@ class Mods
 			trace(e);
 		}
 		
-		// Scan for folders that aren't on modsList.txt yet
+		// Scan for folders that aren't on dlcsList.txt yet
 		for (folder in getModDirectories())
 		{
 			if(folder.trim().length > 0 && FileSystem.exists(Paths.mods(folder)) && FileSystem.isDirectory(Paths.mods(folder)) &&
@@ -228,9 +228,8 @@ class Mods
 			fileStr += values[0] + '|' + (values[1] ? '1' : '0');
 		}
 
-		File.saveContent('modsList.txt', fileStr);
+		File.saveContent('dlcsList.txt', fileStr);
 		updatedOnState = true;
-		//trace('Saved modsList.txt');
 		#end
 	}
 
