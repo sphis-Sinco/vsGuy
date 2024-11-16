@@ -3,7 +3,7 @@
 ### Changed
 - OutdatedState now checks for if the Current Version is lower than the online (github) Version
 ### Fixed
-- PlayerRegistry no longer traces a blank array after removing old Player Registries
+- PlayerRegistry no longer traces a blank removed registries array after removing old Player Registries
 ### Removed
 - openfl shader traces on debug builds
 
