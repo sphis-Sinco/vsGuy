@@ -97,7 +97,7 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
-		var registery:PlayerRegistry;
+		var registery:PlayerRegistry = new PlayerRegistry();
 
 		#if (openfl <= "9.2.0")
 		var stageWidth:Int = Lib.current.stage.stageWidth;
