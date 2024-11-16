@@ -40,6 +40,24 @@ class Album
   }
 
   /**
+   * Return the scale of the album title.
+   * @
+   */
+  public function getAlbumTitleScale():Float
+  {
+    return _data.titlescale;
+  }
+
+  /**
+   * Return the offsets of the album title.
+   * @
+   */
+  public function getAlbumTitleOffsets():Array<Float>
+  {
+    return _data.titleoffsets;
+  }
+
+  /**
    * Return the artists of the album.
    * @return The list of artists
    */

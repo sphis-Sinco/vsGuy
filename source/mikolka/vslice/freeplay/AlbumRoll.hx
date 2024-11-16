@@ -47,6 +47,9 @@ class AlbumRoll extends FlxSpriteGroup
 
     newAlbumArt = new FlxAtlasSprite(640, 360, Paths.animateAtlas("freeplay/albumRoll/freeplayAlbum"));
     newAlbumArt.visible = false;
+    newAlbumArt.scale.set(1, 1);
+    newAlbumArt.x += 0;
+    newAlbumArt.y += 0;
     newAlbumArt.onAnimationComplete.add(onAlbumFinish);
 
     add(newAlbumArt);
@@ -201,6 +204,24 @@ class AlbumRoll extends FlxSpriteGroup
     albumTitle.animation.addByPrefix('idle', 'idle0', 24, true);
     albumTitle.animation.addByPrefix('switch', 'switch0', 24, false);
     add(albumTitle);
+
+    
+    try  {
+      albumTitle.scale.set(albumData.getAlbumTitleScale(), albumData.getAlbumTitleScale());
+    } catch(e) {
+      trace('$assetKey Album Title Scale: '+e);
+      albumTitle.scale.set(1, 1);
+    }
+
+    try {
+      albumTitle.x += albumData.getAlbumTitleOffsets()[0];
+      albumTitle.y += albumData.getAlbumTitleOffsets()[1];
+    } catch(e) {
+      trace('$assetKey Album Title Offsets: '+e);
+      albumTitle.x += 0;
+      albumTitle.y += 0;
+    }
+
 
     albumTitle.animation.finishCallback = (function(name) {
       if (name == 'switch') albumTitle.animation.play('idle');

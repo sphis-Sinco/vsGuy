@@ -15,6 +15,16 @@ class AlbumData //? making this a class lets us define some defaults
   public var version:String = "1.0";
 
   /**
+   * Scale of the album title.
+   */
+  public var titlescale:Float = 1.0;
+
+  /**
+   * x and y offsets of the album title.
+   */
+  public var titleoffsets:Array<Float> = [0, 0];
+
+  /**
    * Readable name of the album.
    */
   public var name:String = "";

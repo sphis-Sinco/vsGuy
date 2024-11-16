@@ -3,6 +3,8 @@
     "name": "Guy Volume 1",
     "artists": ["Sinco"],
     "albumArtAsset": "freeplay/albumRoll/guy1",
-    "albumTitleAsset": "freeplay/albumRoll/guy1-text"
+    "albumTitleAsset": "freeplay/albumRoll/guy1-text",
+    "titlescale": 0.5,
+    "titleoffsets": [-200, -100]
 }
   
