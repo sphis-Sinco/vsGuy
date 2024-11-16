@@ -35,7 +35,6 @@ class PlayerRegistry extends PsliceRegistry{
         newchar = chars != files;
 
         if (newchar){
-            var Continue:Bool = false;
             var newEntry:Bool = false;
             var newEntryAm:Int = 0;
             var newEntrys:Array<String> = [];
@@ -65,7 +64,7 @@ class PlayerRegistry extends PsliceRegistry{
                 }
             }
 
-            if (!Continue && !newEntry && newEntryAm == 0) return false;
+            if (!newEntry && newEntryAm == 0) return false;
 
             ClientPrefs.data.unlockedCharacters = files; // TODO: make this based off of the unlocked key in the JSON
             chars = ClientPrefs.data.unlockedCharacters;

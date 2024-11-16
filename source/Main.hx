@@ -97,6 +97,8 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
+		var registery:PlayerRegistry;
+
 		#if (openfl <= "9.2.0")
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
@@ -127,6 +129,7 @@ class Main extends Sprite
 		ClientPrefs.loadDefaultKeys();
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
 		
+		registery.hasNewCharacter(); // init it
 		var gameObject = new FlxGame(game.width, game.height, #if COPYSTATE_ALLOWED !CopyState.checkExistingFiles() ? CopyState : #end game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
 		// FlxG.game._customSoundTray wants just the class, it calls new from
     	// create() in there, which gets called when it's added to stage
