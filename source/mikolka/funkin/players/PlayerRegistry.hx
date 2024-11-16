@@ -9,6 +9,10 @@ using StringTools;
 //TODO softcode this soon
 class PlayerRegistry extends PsliceRegistry{
     public static var instance:PlayerRegistry = new PlayerRegistry();
+
+    var chars:Array<String> = ClientPrefs.data.unlockedCharacters;
+    var files:Array<String> = [];
+
     public function new() {
         super('players');
     }
@@ -17,6 +21,59 @@ class PlayerRegistry extends PsliceRegistry{
         return true;
     }
     public function hasNewCharacter():Bool {
+        var newchar:Bool = false;
+        chars = ClientPrefs.data.unlockedCharacters;
+
+        try { 
+            files = FileSystem.readDirectory(Paths.getPath('registry/players'));
+        } catch(e){
+            files = ['bf'];
+        }
+        // trace('Savedata Players Registery$chars');
+        // trace('Freeplay Players Registery: $files');
+
+        newchar = chars != files;
+
+        if (newchar){
+            var Continue:Bool = false;
+            var newEntry:Bool = false;
+            var newEntryAm:Int = 0;
+            var newEntrys:Array<String> = [];
+
+            for (i in 0...chars.length) {
+                if (!files.contains(chars[i]))
+                {
+                    chars.remove(chars[i]);
+                    newEntrys.push(chars[i].split('.json')[0]);
+                    newEntryAm++;
+                }
+            }
+
+            if (newEntryAm > 0) {
+                trace('Removed $newEntryAm old Player Registries from Save data');
+                trace(newEntrys);
+            }
+            newEntryAm = 0;
+            newEntrys = [];
+
+            for (i in 0...files.length) {
+                if (!chars.contains(files[i]))
+                {
+                    newEntry = true;
+                    newEntryAm++;
+                    newEntrys.push(files[i].split('.json')[0]);
+                }
+            }
+
+            if (!Continue && !newEntry && newEntryAm == 0) return false;
+
+            ClientPrefs.data.unlockedCharacters = files; // TODO: make this based off of the unlocked key in the JSON
+            chars = ClientPrefs.data.unlockedCharacters;
+            trace('$newEntryAm new Player Registeries');
+            trace(newEntrys);
+            return true;
+        }
+        
         return false;
     }
     public function fetchEntry(playableCharId:String):Null<PlayableCharacter> {
@@ -41,13 +98,7 @@ class PlayerRegistry extends PsliceRegistry{
     }
     // This is only used to check if we should allow the player to open charSelect
     public function countUnlockedCharacters():Int {
-        var files:Array<String> = [];
-        try { 
-            files = FileSystem.readDirectory(Paths.getPath('registry/players'));
-        } catch(e){
-            files = ['bf'];
-        }
-        trace('Freeplay Players Registery: $files');
-        return files.length;
+        chars = ClientPrefs.data.unlockedCharacters;
+        return chars.length;
     }
 }

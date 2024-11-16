@@ -239,7 +239,8 @@ class FreeplayState extends MusicBeatSubstate
 		currentCharacter = result;
 
 		styleData = FreeplayStyleRegistry.instance.fetchEntry(currentCharacter.getFreeplayStyleID());
-		if (styleData == null) styleData = FreeplayStyleRegistry.instance.fetchEntry("bf");
+		if (styleData == null)
+			styleData = FreeplayStyleRegistry.instance.fetchEntry("bf");
 
 		fromCharSelect = params?.fromCharSelect;
 
@@ -256,38 +257,39 @@ class FreeplayState extends MusicBeatSubstate
 		{
 			stickerSubState = stickers;
 		}
-
-		
-
-		
 	}
 
 	var fadeShader:BlueFade = new BlueFade();
 
 	public var angleMaskShader:AngleMask = new AngleMask();
+	var newChar:Bool = false;
 
 	override function create():Void
 	{
-		//? Psych might've reloaded the mod list. Make sure we select current character's mod for the style
+
+		// ? Psych might've reloaded the mod list. Make sure we select current character's mod for the style
 		var saveBox = VsliceOptions.LAST_MOD;
 		if (ModsHelper.isModDirEnabled(saveBox.mod_dir))
 			ModsHelper.loadModDir(saveBox.mod_dir);
 		// We build a bunch of sprites BEFORE create() so we can guarantee they aren't null later on.
-		//? but doing it here, because psych 0.6.3 can destroy graphics created in the constructor
-		if(VsliceOptions.FP_CARDS){
-			switch (currentCharacterId)
+		// ? but doing it here, because psych 0.6.3 can destroy graphics created in the constructor
+		if (VsliceOptions.FP_CARDS)
 		{
-			case(PlayerRegistry.instance.hasNewCharacter()) => true:
-				backingCard = new NewCharacterCard(currentCharacter);
-			case 'bf':
-				backingCard = new BoyfriendCard(currentCharacter);
-			case 'pico':
-				backingCard = new PicoCard(currentCharacter);
-			default:
-				backingCard = new BackingCard(currentCharacter);
+			switch (currentCharacterId)
+			{
+				case(PlayerRegistry.instance.hasNewCharacter()) => true:
+					backingCard = new NewCharacterCard(currentCharacter);
+					newChar = true;
+				case 'bf':
+					backingCard = new BoyfriendCard(currentCharacter);
+				case 'pico':
+					backingCard = new PicoCard(currentCharacter);
+				default:
+					backingCard = new BackingCard(currentCharacter);
+			}
 		}
-		}
-		else backingCard = new BoyfriendCard(currentCharacter);
+		else
+			backingCard = new BoyfriendCard(currentCharacter);
 
 		albumRoll = new AlbumRoll();
 		fp = new FreeplayScore(460, 60, 7, 100, styleData);
@@ -303,13 +305,13 @@ class FreeplayState extends MusicBeatSubstate
 		sparksADD = new FlxSprite(0, 0);
 		txtCompletion = new AtlasText(1185, 87, '69', AtlasFont.FREEPLAY_CLEAR);
 
-		ostName = new FlxText(8, 8, FlxG.width - 8 - 8, 'OFFICIAL OST', 48);
+		ostName = new FlxText(8, 8, FlxG.width - 8 - 8, 'OFFICIAL VS GUY OST', 48);
 		charSelectHint = new FlxText(-40, 18, FlxG.width - 8 - 8, 'Press [ LOL ] to change characters', 32);
 
 		bgDad = new FlxSprite(backingCard.pinkBack.width * 0.74, 0).loadGraphic(styleData == null ? 'freeplay/freeplayBGdad' : styleData.getBgAssetGraphic());
 
 		BPMCache.instance.clearCache(); // for good measure
-		//? end of init
+		// ? end of init
 
 		super.create();
 		var diffIdsTotalModBinds:Map<String, String> = ["easy" => "", "normal" => "", "hard" => ""];
@@ -319,7 +321,7 @@ class FreeplayState extends MusicBeatSubstate
 		FlxTransitionableState.skipNextTransIn = true;
 
 		var fadeShaderFilter:ShaderFilter = new ShaderFilter(fadeShader);
-		ModsHelper.setFiltersOnCam(funnyCam,[fadeShaderFilter]);
+		ModsHelper.setFiltersOnCam(funnyCam, [fadeShaderFilter]);
 
 		if (stickerSubState != null)
 		{
@@ -350,11 +352,15 @@ class FreeplayState extends MusicBeatSubstate
 		PlayState.isStoryMode = false;
 		for (sngCard in FreeplayHelpers.loadSongs())
 		{
-			if(currentCharacter.shouldShowUnownedChars()){
-				if(sngCard.songPlayer != '' && sngCard.songPlayer != currentCharacterId) continue;
+			if (currentCharacter.shouldShowUnownedChars())
+			{
+				if (sngCard.songPlayer != '' && sngCard.songPlayer != currentCharacterId)
+					continue;
 			}
-			else{
-				if(sngCard.songPlayer == '' || sngCard.songPlayer != currentCharacterId) continue;
+			else
+			{
+				if (sngCard.songPlayer == '' || sngCard.songPlayer != currentCharacterId)
+					continue;
 			}
 			songs.push(sngCard);
 			for (difficulty in sngCard.songDifficulties)
@@ -371,10 +377,10 @@ class FreeplayState extends MusicBeatSubstate
 
 		// LOAD CHARACTERS
 
-		trace(FlxG.width);
-		trace(FlxG.camera.zoom);
-		trace(FlxG.camera.initialZoom);
-		trace(FlxCamera.defaultZoom);
+		///trace(FlxG.width);
+		// trace(FlxG.camera.zoom);
+		// trace(FlxG.camera.initialZoom);
+		// trace(FlxCamera.defaultZoom);
 
 		if (backingCard != null)
 		{
@@ -386,7 +392,7 @@ class FreeplayState extends MusicBeatSubstate
 
 		if (currentCharacter?.getFreeplayDJData() != null)
 		{
-			ModsHelper.loadModDir(VsliceOptions.LAST_MOD.mod_dir); //? make sure to load a mod dir of this character!
+			ModsHelper.loadModDir(VsliceOptions.LAST_MOD.mod_dir); // ? make sure to load a mod dir of this character!
 			dj = new FreeplayDJ(640, 366, currentCharacter);
 			exitMovers.set([dj], {
 				x: -dj.width * 1.6,
@@ -471,7 +477,7 @@ class FreeplayState extends MusicBeatSubstate
 			diffSprite.difficultyId = diffId;
 			grpDifficulties.add(diffSprite);
 		}
-		ModsHelper.loadModDir(VsliceOptions.LAST_MOD.mod_dir); //? load stuff for this Char's mod
+		ModsHelper.loadModDir(VsliceOptions.LAST_MOD.mod_dir); // ? load stuff for this Char's mod
 
 		grpDifficulties.group.forEach(function(spr)
 		{
@@ -496,7 +502,7 @@ class FreeplayState extends MusicBeatSubstate
 		// ? changed offsets
 		if (fromCharSelect == true)
 		{
-			blackOverlayBullshitLOLXD.x = black_X+220;
+			blackOverlayBullshitLOLXD.x = black_X + 220;
 			overhangStuff.y = -100;
 			backingCard?.skipIntroTween();
 		}
@@ -504,7 +510,7 @@ class FreeplayState extends MusicBeatSubstate
 		{
 			albumRoll.applyExitMovers(exitMovers, exitMoversCharSel);
 			FlxTween.tween(overhangStuff, {y: -100}, 0.3, {ease: FlxEase.quartOut});
-			var target = black_X-30;
+			var target = black_X - 30;
 			FlxTween.tween(blackOverlayBullshitLOLXD, {x: target}, 0.7, {ease: FlxEase.quintOut});
 		}
 
@@ -637,17 +643,27 @@ class FreeplayState extends MusicBeatSubstate
 		// otherwise it won't be properly attatched to funnyCamera (relavent code should be at the bottom of create())
 		var onDJIntroDone = function()
 		{
+			
+
+			if (newChar)
+			{
+				dj.currentState = NewUnlock;
+				dj.onFinishAnim('newUnlock');
+				newChar = false;
+			}
+
 			busy = false;
 
 			// when boyfriend hits dat shiii
 
-			if (curCapsule != null) //? prevent "random" song from stealing our albums!
+			if (curCapsule != null) // ? prevent "random" song from stealing our albums!
 			{
 				albumRoll.playIntro();
 				var daSong = grpCapsules.members[curSelected].songData;
 				albumRoll.albumId = daSong?.albumId;
 			}
-			else albumRoll.albumId = '';
+			else
+				albumRoll.albumId = '';
 
 			if (fromCharSelect == null)
 			{
@@ -1284,7 +1300,6 @@ class FreeplayState extends MusicBeatSubstate
 	function tryOpenCharSelect():Void
 	{
 		// Check if we have ACCESS to character select!
-		trace('Is Pico unlocked? ${PlayerRegistry.instance.fetchEntry('pico')?.isUnlocked()}');
 		trace('Number of characters: ${PlayerRegistry.instance.countUnlockedCharacters()}');
 
 		if (PlayerRegistry.instance.countUnlockedCharacters() > 1)
@@ -1509,7 +1524,7 @@ class FreeplayState extends MusicBeatSubstate
 		}
 		#end // ^<-- FEATURE_DEBUG_FUNCTIONS
 
-		if (FunkinControls.FREEPLAY_CHAR || (TouchUtil.overlaps(djTouchHitbox) && TouchUtil.justReleased && !SwipeUtil.swipeAny) && !busy) 
+		if (FunkinControls.FREEPLAY_CHAR || (TouchUtil.overlaps(djTouchHitbox) && TouchUtil.justReleased && !SwipeUtil.swipeAny) && !busy)
 		{
 			tryOpenCharSelect();
 		}
@@ -1692,7 +1707,8 @@ class FreeplayState extends MusicBeatSubstate
 			changeDiff(-1);
 			rememberedDifficulty = currentDifficulty; // ? make sure to remember it, because otherwise we'll forget about it
 			generateSongList(currentFilter, true);
-			if (diffSelLeft != null) diffSelLeft.setPress(true);
+			if (diffSelLeft != null)
+				diffSelLeft.setPress(true);
 		}
 		if (controls.UI_RIGHT_P || (TouchUtil.overlapsComplex(diffSelRight) && TouchUtil.justPressed))
 		{
@@ -1701,7 +1717,8 @@ class FreeplayState extends MusicBeatSubstate
 			changeDiff(1);
 			rememberedDifficulty = currentDifficulty; // ? make sure to remember it, because otherwise we'll forget about it
 			generateSongList(currentFilter, true);
-			if (diffSelLeft != null) diffSelRight.setPress(true);
+			if (diffSelLeft != null)
+				diffSelRight.setPress(true);
 		}
 
 		if (diffSelLeft != null && diffSelRight != null && TouchUtil.justReleased)
@@ -2211,6 +2228,12 @@ class FreeplayState extends MusicBeatSubstate
 		result.persistentUpdate = false;
 		result.persistentDraw = true;
 		return result;
+	}
+
+	public function djFinished(anim:String)
+	{
+		if (dj.currentState == Intro && dj.animation.finished)
+			dj.currentState = NewUnlock;
 	}
 }
 

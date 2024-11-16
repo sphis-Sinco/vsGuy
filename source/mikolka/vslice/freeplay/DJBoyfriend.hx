@@ -13,7 +13,7 @@ class FreeplayDJ extends FlxAtlasSprite
   // Without state machines I would have driven myself crazy years ago.
   // Made this PRIVATE so we can keep track of everything that can alter the state!
   //   Add a function to this class if you want to edit this value from outside.
-  private var currentState:FreeplayDJState = Intro;
+  public var currentState:FreeplayDJState = Intro;
 
   // A callback activated when the intro animation finishes.
   public var onIntroDone:FlxSignal = new FlxSignal();
@@ -228,20 +228,13 @@ class FreeplayDJ extends FlxAtlasSprite
     #end
   }
 
-  function onFinishAnim(name:String):Void
+  public function onFinishAnim(name:String):Void
   {
     // var name = anim.curSymbol.name;
 
     if (name == playableCharData.getAnimationPrefix('intro'))
     {
-      if (PlayerRegistry.instance.hasNewCharacter())
-      {
-        currentState = NewUnlock;
-      }
-      else
-      {
-        currentState = Idle;
-      }
+      currentState = Idle;
       onIntroDone.dispatch();
     }
     else if (name == playableCharData.getAnimationPrefix('idle'))
@@ -286,11 +279,25 @@ class FreeplayDJ extends FlxAtlasSprite
     }
     else if (name == playableCharData.getAnimationPrefix('newUnlock'))
     {
-      // Animation should loop.
+      // should loop
     }
     else if (name == playableCharData.getAnimationPrefix('charSelect'))
     {
       onCharSelectComplete();
+    }
+    else if (name == 'newUnlock')
+    {
+      currentState = NewUnlock;
+      var animPrefix = playableCharData.getAnimationPrefix('newUnlock');
+      if (!hasAnimation(animPrefix))
+      {
+        trace('nonexistant, WHat!?');
+        currentState = Idle;
+      }
+      if (getCurrentAnimation() != animPrefix)
+      {
+        playFlashAnimation(animPrefix, true, false, true);
+      }
     }
     else
     {

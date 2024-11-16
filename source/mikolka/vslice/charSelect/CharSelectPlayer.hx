@@ -27,8 +27,7 @@ class CharSelectPlayer extends FlxAtlasSprite
 
         case "slidein idle point", "cannot select Label", "unlock":
           playAnimation("idle", true, false, false);
-        case "idle":
-          trace('Waiting for onBeatHit');
+
       }
     });
   }

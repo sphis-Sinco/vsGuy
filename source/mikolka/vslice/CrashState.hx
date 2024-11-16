@@ -152,7 +152,7 @@ class CrashState extends FlxState
 			var date_split = error.date.split(" ");
 			printToTrace('TIME:${date_split[1].rpad(" ",9)} DATE:${date_split[0]}');
 			printSpaceToTrace();
-			printToTrace('REPORT TO github.com/sphis-Sinco/vsGuyPlusE');
+			printToTrace('REPORT TO github.com/sphis-Sinco/vsGuyPlus');
 			printToTrace('PRESS ENTER TO RESTART');
 		});
 	}
