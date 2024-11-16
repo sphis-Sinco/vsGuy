@@ -245,42 +245,45 @@ class CreditsState extends MusicBeatState
 			optionText.snapToPosition();
 			grpOptions.add(optionText);
 
-			if (isSelectable)
-			{
-				if (credit[5] != null)
-					Mods.currentModDirectory = credit[5];
-
-				var str:String = 'credits/missing_icon';
-				var animated:Bool = false;
-				if (credit[1] != null && credit[1].length > 0)
-				{
-					var fileName = 'credits/' + credit[1];
-
-					if (Paths.fileExists('images/$fileName.xml', TEXT))
-						animated = true;
-
-					if (Paths.fileExists('images/$fileName.png', IMAGE))
-						str = fileName;
-					else if (Paths.fileExists('images/$fileName-pixel.png', IMAGE))
-						str = fileName + '-pixel';
-				}
-
-				var icon:AttachedSprite = new AttachedSprite(str, (animated ? str : null));
-				if (str.endsWith('-pixel'))
-					icon.antialiasing = false;
-				icon.xAdd = optionText.width + 10;
-				icon.sprTracker = optionText;
-
-				// using a FlxGroup is too much fuss!
-				iconArray.push(icon);
-				add(icon);
-				Mods.currentModDirectory = '';
-
-				if (curSelected == -1)
-					curSelected = i;
-			}
-			else
+			if (!isSelectable) {
 				optionText.alignment = CENTERED;
+				continue;
+			}
+
+			if (credit[5] != null)
+				Mods.currentModDirectory = credit[5];
+			var cred = credit[1];
+			var str:String = 'credits/missing_icon';
+			var animated:Bool = false;
+			var scale:Float = 1;
+			if (cred != null && cred.length > 0)
+			{
+				var fileName = 'credits/' + cred;
+				if (cred == 'sinco' || cred == 'djotta' || cred == 'tj' || cred == 'ogfoxer')
+					scale = 0.5;
+				if (Paths.fileExists('images/$fileName.xml', TEXT))
+					animated = true;
+				if (Paths.fileExists('images/$fileName.png', IMAGE))
+					str = fileName;
+				else if (Paths.fileExists('images/$fileName-pixel.png', IMAGE))
+					str = fileName + '-pixel';
+			}
+			var icon:AttachedSprite = new AttachedSprite(str, (animated ? cred : null));
+			if (str.endsWith('-pixel'))
+				icon.antialiasing = false;
+			icon.xAdd = optionText.width + 10;
+			if (cred == 'sinco') {
+				icon.xAdd -= 40;
+				icon.yAdd -= 20;
+			}
+			icon.scale.set(scale, scale);
+			icon.sprTracker = optionText;
+			// using a FlxGroup is too much fuss!
+			iconArray.push(icon);
+			add(icon);
+			Mods.currentModDirectory = '';
+			if (curSelected == -1)
+				curSelected = i;
 		}
 
 		descBox = new AttachedSprite();
