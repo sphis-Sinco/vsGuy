@@ -102,7 +102,7 @@ class TitleState extends MusicBeatState
 				}
 				else
 				{
-					trace('$updateVersion ${updateVersion == curVersion ? '=' : '<'} $curVersion')
+					trace('$updateVersion ${updateVersion == curVersion ? '=' : '<'} $curVersion');
 				}
 			}
 
