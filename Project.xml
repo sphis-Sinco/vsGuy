@@ -49,11 +49,12 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 	<!-- Displays a "Touch here to play" screen-->
 	<define name="TOUCH_HERE_TO_PLAY" if="TOUCH_CONTROLS_ALLOWED"/>
 
+	<!-- Not yet -->
+	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> -->
+	<!-- <define name="TRANSLATIONS_ALLOWED" /> -->
+
 	<!-- Other stuff -->
-	<define name="ACHIEVEMENTS_ALLOWED" />
-	<define name="TRANSLATIONS_ALLOWED" />
 	<define name="SHOW_LOADING_SCREEN" />
-	<define name="TITLE_SCREEN_EASTER_EGG"/>
 	<define name="COPYSTATE_ALLOWED" if="MODS_ALLOWED mobile"/>
 
 	<!-- ____________________________ Window Settings ___________________________ -->
