@@ -803,7 +803,7 @@ class ResultState extends MusicBeatSubState
       }
       else
       {
-        var rankanim:Bool = params.prevScoreRank.getValue(params.prevScoreRank) < rank.getValue(rank);
+        var rankanim:Bool = ScoringRank.getValue(params.prevScoreRank) < ScoringRank.getValue(rank);
         if (rankanim) //? refactor this??? // okay
         {
           trace('THE RANK IS Higher.....');
