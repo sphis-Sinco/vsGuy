@@ -4,6 +4,10 @@
 - ElomentoPlayz
 ### Changed
 - modVer text no longer has the `v` for version. In similar style to the `PSlice 2.1` version text
+### Fixed
+- Fixed Animated Credit Icons
+### Added
+- Animated Credit Icon Support (requires the animation name to be the icon name)
 
 ## v1.2 [ElomentoPlayz Build] - November 16th 2024
 ### Added

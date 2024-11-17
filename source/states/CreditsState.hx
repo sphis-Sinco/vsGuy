@@ -268,7 +268,13 @@ class CreditsState extends MusicBeatState
 				else if (Paths.fileExists('images/$fileName-pixel.png', IMAGE))
 					str = fileName + '-pixel';
 			}
-			var icon:AttachedSprite = new AttachedSprite(str, (animated ? cred : null));
+			var icon:AttachedSprite;
+			
+			if (animated)
+				icon = new AttachedSprite(str, cred, null, true);
+			else
+				icon = new AttachedSprite(str);
+
 			if (str.endsWith('-pixel'))
 				icon.antialiasing = false;
 			icon.xAdd = optionText.width + 10;
