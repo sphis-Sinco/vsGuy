@@ -11,6 +11,8 @@
 - Naughtyness option in Gameplay
 ### Removed
 - Pico Week 1 from Story menu
+### Changed
+- Removed some notes from Guy (Pico Mix)
 
 ## v1.2-1 [v1.2 Serious Build] - November 17th 2024
 ### Removed
