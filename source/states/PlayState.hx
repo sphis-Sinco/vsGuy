@@ -2738,7 +2738,10 @@ class PlayState extends MusicBeatState
 
 	  vocals.stop();
 	  camHUD.alpha = 1;
-  
+ 
+	  if (!ClientPrefs.data.playedSongs.contains(curSong))
+		ClientPrefs.data.playedSongs.push(curSong);
+	  
 	  var res:ResultState = new ResultState(
 		{
 		  storyMode: isStoryMode,
