@@ -5,6 +5,7 @@
 ### Added
 - playedSongs Save data
 - New Song Symbol
+- "-indev" version suffix for when compiling in a Debug version
 
 ## v1.2-1 [v1.2 Serious Build] - November 17th 2024
 ### Removed
