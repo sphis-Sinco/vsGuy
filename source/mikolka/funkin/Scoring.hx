@@ -106,7 +106,7 @@ enum abstract ScoringRank(String)
 	 * Converts ScoringRank to an integer value for comparison.
 	 * Better ranks should be tied to a higher value.
 	 */
-	static function getValue(rank:Null<ScoringRank>):Int
+	public function getValue(rank:Null<ScoringRank>):Int
 	{
 		if (rank == null)
 			return -1;

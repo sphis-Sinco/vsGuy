@@ -803,7 +803,8 @@ class ResultState extends MusicBeatSubState
       }
       else
       {
-        if (rank > params.prevScoreRank) //? refactor this???
+        var rankanim:Bool = params.prevScoreRank.getValue(params.prevScoreRank) < rank.getValue(rank);
+        if (rankanim) //? refactor this??? // okay
         {
           trace('THE RANK IS Higher.....');
 
@@ -818,7 +819,7 @@ class ResultState extends MusicBeatSubState
                     newRank: rank,
                     songId: params.songId,
                     difficultyId: params.difficultyId,
-                    playRankAnim: true
+                    playRankAnim: rankanim
                   }
               }
             });
