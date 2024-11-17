@@ -1,5 +1,5 @@
 # vs Guy plus
-## v1.3 - November 17th 2024
+## v1.2-2 - November 17th 2024
 ### Fixed
 - OutdatedState New release URL
 ### Added
