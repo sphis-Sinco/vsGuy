@@ -1,4 +1,10 @@
 # vs Guy plus
+## v1.21 [v1.2 Serious Build] - November 16th 2024
+### Removed
+- ElomentoPlayz
+### Changed
+- modVer text no longer has the `v` for version. In similar style to the `PSlice 2.1` version text
+
 ## v1.2 [ElomentoPlayz Build] - November 16th 2024
 ### Added
 - NEW SONG: Vex
