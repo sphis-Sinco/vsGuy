@@ -1,7 +1,9 @@
 # vs Guy plus
-## v1.2 - November 17th 2024
+## v1.2 [ElomentoPlayz Build] - November 17th 2024
 ### Added
 - NEW SONG: Vex
+### Removed
+
 
 ## v1.1 - November 16th 2024
 ### Changed
