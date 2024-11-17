@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.screenCenter(X);
 		}
 
-		var modVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer}${#if debug '-indev' #end} (P-slice ${pSliceVersion})', 12);
+		var modVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer + #if debug '-indev' #else '' #end} (P-slice ${pSliceVersion})', 12);
 		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		modVer.scrollFactor.set();
 		add(modVer);
