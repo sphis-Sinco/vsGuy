@@ -1,4 +1,8 @@
 # vs Guy plus
+## v1.2 - November 17th 2024
+### Added
+- NEW SONG: Vex
+
 ## v1.1 - November 16th 2024
 ### Changed
 - OutdatedState now checks for if the Current Version is lower than the online (github) Version
