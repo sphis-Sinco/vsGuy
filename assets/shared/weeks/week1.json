@@ -1,4 +1,11 @@
 {
+	"storyName": "guy",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"guy",
@@ -8,20 +15,22 @@
 				133,
 				253
 			]
+		],
+		[
+			"vex",
+			"guy",
+			[
+				106,
+				133,
+				253
+			]
 		]
 	],
-	"hiddenUntilUnlocked": false,
-	"hideFreeplay": false,
-	"weekBackground": "",
-	"difficulties": "",
 	"weekCharacters": [
 		"guy",
 		"bf",
 		"gf"
 	],
-	"storyName": "guy",
-	"weekName": "week1",
-	"hideStoryMode": false,
-	"weekBefore": "tutorial",
-	"startUnlocked": true
+	"hiddenUntilUnlocked": false,
+	"weekName": "week1"
 }
