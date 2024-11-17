@@ -2533,10 +2533,12 @@ class PlayState extends MusicBeatState
 				return false;
 			}
 
-			if (!ClientPrefs.data.playedSongs.contains(curSong.toLowerCase()))
+			var playedSong = curSong.toLowerCase().replace(' ', '-');
+
+			if (!ClientPrefs.data.playedSongs.contains(playedSong))
 			{
-				ClientPrefs.data.playedSongs.push(curSong.toLowerCase().replace(' ', '-'));
-				trace('Newly played song: $curSong');
+				ClientPrefs.data.playedSongs.push(playedSong);
+				trace('Newly played song: $playedSong');
 			}
 
 			if (isStoryMode)
