@@ -1,4 +1,7 @@
 # vs Guy plus
+## v1.3 - November 17th 2024
+
+
 ## v1.2-1 [v1.2 Serious Build] - November 17th 2024
 ### Removed
 - ElomentoPlayz
