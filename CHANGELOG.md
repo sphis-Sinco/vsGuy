@@ -5,6 +5,7 @@
 ### Changed
 - modVer text no longer has the `v` for version. In similar style to the `PSlice 2.1` version text
 - Update checking to support patch updates (like 1.2-1)
+- Zoom event (ease is automatically sinein)
 ### Fixed
 - Fixed Animated Credit Icons
 - ResultsScreen Results (No longer get like 80% and somehow get perfect)

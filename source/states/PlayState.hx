@@ -2350,25 +2350,15 @@ class PlayState extends MusicBeatState
 				camZoomingMult = !Math.isNaN(val2) ? val2 : 1;
 				camZoomingFrequency = !Math.isNaN(val1) ? val1 : 4;
 			case 'ZoomCamera': //defaultCamZoom
-				var keyValues = value1.split(",");
-				if(keyValues.length != 2) {
-					trace("INVALID EVENT VALUE");
-					return;
-				}
-				var floaties = keyValues.map(s -> Std.parseFloat(s));
-				if(mikolka.funkin.utils.ArrayTools.findIndex(floaties,s -> Math.isNaN(s)) != -1) {
-					trace("INVALID FLOATIES");
-					return;
-				}
-				var easeFunc = LuaUtils.getTweenEaseByString(value2);
+				var keyValues = Std.parseInt(value1);
 				if(zoomTween != null) zoomTween.cancel();
-				var targetZoom = floaties[1]*defaultStageZoom;
-				zoomTween = FlxTween.tween(this,{ defaultCamZoom:targetZoom},(Conductor.stepCrochet/1000)*floaties[0],{
+				var targetZoom = keyValues*defaultStageZoom;
+				zoomTween = FlxTween.tween(this,{ defaultCamZoom:targetZoom},(Conductor.stepCrochet/1000)*Std.parseFloat(value2),{
 					onStart: (x) ->{
 						//camZooming = false;
 						camZoomingDecay = 7;
 					},
-					ease: easeFunc,
+					ease: LuaUtils.getTweenEaseByString('sinein'),
 					onComplete: (x) ->{
 						defaultCamZoom = targetZoom;
 						camZoomingDecay = 1;
