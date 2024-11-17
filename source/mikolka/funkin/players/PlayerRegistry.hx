@@ -34,6 +34,16 @@ class PlayerRegistry extends PsliceRegistry{
 
         newchar = chars != files;
 
+        if (!newchar){
+            try { 
+                files = FileSystem.readDirectory(Paths.modsJson('registry/players/'));
+            } catch(e){
+                files = ['bf'];
+            }
+
+            newchar = chars != files;
+        }
+
         if (newchar){
             var newEntry:Bool = false;
             var newEntryAm:Int = 0;
