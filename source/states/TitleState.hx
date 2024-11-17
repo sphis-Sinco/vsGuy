@@ -664,7 +664,7 @@ class TitleState extends MusicBeatState
 					ngSpr.visible = false;
 				case 10:
 					// createCoolText([curWacky[0]]);
-					createCoolText('hello');
+					createCoolText(['hello']);
 				case 12:
 					// addMoreText(curWacky[1]);
 					addMoreText('elomentoplayz');
