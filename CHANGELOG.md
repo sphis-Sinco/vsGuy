@@ -3,6 +3,7 @@
 ### Fixed
 - OutdatedState New release URL
 - Lua scripts double folder
+- Bug where Results Music would play in freeplay
 ### Added
 - playedSongs Save data
 - New Song Symbol

@@ -769,6 +769,8 @@ class ResultState extends MusicBeatSubState
           });
       }
 
+      FlxG.sound.music.stop();
+
       // Determining the target state(s) to go to.
       // Default to main menu because that's better than `null`.
       var targetState:flixel.FlxState = new MainMenuState(); //TODO Why do we create a state here???
