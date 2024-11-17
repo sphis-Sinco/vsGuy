@@ -575,6 +575,9 @@ class TitleState extends MusicBeatState
 				swagShader.hue += elapsed * 0.1;
 		}
 
+		if (Controls.instance.RESET)
+			ClientPrefs.resetSettings();
+
 		super.update(elapsed);
 	}
 

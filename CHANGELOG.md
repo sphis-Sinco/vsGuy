@@ -15,6 +15,7 @@
 - PICO PLAYABLE CHARACTER
 - NEW SONG: Guy (Pico Mix)
 - Readded New symbol for songs
+- Settings Reset (not to keybinds) to TitleState (press your reset keybind)
 
 ## v1.2 [ElomentoPlayz Build] - November 16th 2024
 ### Added
