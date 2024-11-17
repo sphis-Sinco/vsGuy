@@ -7,6 +7,7 @@
 - Update checking to support patch updates (like 1.2-1)
 ### Fixed
 - Fixed Animated Credit Icons
+- ResultsScreen Results (No longer get like 80% and somehow get perfect)
 ### Added
 - Animated Credit Icon Support (requires the animation name to be the icon name)
 
