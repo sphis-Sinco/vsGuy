@@ -2,6 +2,7 @@
 ## v1.2-2 - November 17th 2024
 ### Fixed
 - OutdatedState New release URL
+- Lua scripts double folder
 ### Added
 - playedSongs Save data
 - New Song Symbol
