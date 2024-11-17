@@ -55,7 +55,7 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 
 	<!-- Other stuff -->
 	<define name="SHOW_LOADING_SCREEN" />
-	<define name="COPYSTATE_ALLOWED" if="MODS_ALLOWED mobile"/>
+	<define name="COPYSTATE_ALLOWED" if=""/>
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 
