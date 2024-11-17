@@ -10,6 +10,8 @@
 - ResultsScreen Results (No longer get like 80% and somehow get perfect)
 ### Added
 - Animated Credit Icon Support (requires the animation name to be the icon name)
+- PICO PLAYABLE CHARACTER
+- NEW SONG: Guy (Pico Mix)
 
 ## v1.2 [ElomentoPlayz Build] - November 16th 2024
 ### Added

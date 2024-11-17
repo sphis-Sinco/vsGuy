@@ -1,0 +1,27 @@
+{
+	"songs": [
+		[
+			"guy (pico mix)",
+			"guy",
+			[
+				66,
+				215,
+				195
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "",
+	"weekCharacters": [
+		"guy",
+		"pico-player",
+		"nene"
+	],
+	"storyName": "guy but pico",
+	"weekName": "week1-pico",
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
