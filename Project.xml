@@ -119,6 +119,10 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 
 	<section if="MODS_ALLOWED">
 		<assets path='dlc_folder' rename='dlcs' exclude="*.zip" embed='false' />
+
+		<!-- Pico Mixes-->
+		<assets path='built_dlcs/pico_mixes' rename='dlcs/pico_mixes' exclude="*.ogg" if="web" embed='false' />
+		<assets path='built_dlcs/pico_mixes' rename='dlcs/pico_mixes' exclude="*.mp3" unless="web" embed='false' />
 	</section>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' unless="mobile" />
 
