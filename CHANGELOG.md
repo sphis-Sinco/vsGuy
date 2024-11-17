@@ -2,6 +2,7 @@
 ## v1.2-1 [v1.2 Serious Build] - November 16th 2024
 ### Removed
 - ElomentoPlayz
+- DLC Folder
 ### Changed
 - modVer text no longer has the `v` for version. In similar style to the `PSlice 2.1` version text
 - Update checking to support patch updates (like 1.2-1)
