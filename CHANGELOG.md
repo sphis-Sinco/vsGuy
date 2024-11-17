@@ -1,5 +1,5 @@
 # vs Guy plus
-## v1.2-1 [v1.2 Serious Build] - November 16th 2024
+## v1.2-1 [v1.2 Serious Build] - November 17th 2024
 ### Removed
 - ElomentoPlayz
 - DLC Folder
@@ -14,7 +14,6 @@
 - Animated Credit Icon Support (requires the animation name to be the icon name)
 - PICO PLAYABLE CHARACTER
 - NEW SONG: Guy (Pico Mix)
-- Readded New symbol for songs
 - Settings Reset (not to keybinds) to TitleState (press your reset keybind)
 
 ## v1.2 [ElomentoPlayz Build] - November 16th 2024
