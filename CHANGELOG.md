@@ -12,7 +12,8 @@
 ### Removed
 - Pico Week 1 from Story menu
 ### Changed
-- Removed some notes from Guy (Pico Mix)
+- Removed some notes from Guy (Pico Mix) Hard Difficulty
+- Hard parts of Vex Hard Difficulty
 
 ## v1.2-1 [v1.2 Serious Build] - November 17th 2024
 ### Removed
