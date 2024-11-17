@@ -18,6 +18,8 @@ import states.MainMenuState;
 import mikolka.vslice.components.ScreenshotPlugin;
 import mikolka.vslice.AttractState;
 
+using StringTools;
+
 typedef TitleData =
 {
 	var titlex:Float;
@@ -94,15 +96,28 @@ class TitleState extends MusicBeatState
 			{
 				updateVersion = data.split('\n')[0].trim();
 				var curVersion:String = MainMenuState.modVer.trim();
+				var ogcurVersion:String = curVersion;
+				var ogupdateVersion:String = updateVersion;
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
+
+				if (curVersion.contains('-'))
+				{
+					if (updateVersion.contains('-')) {
+						updateVersion = updateVersion.split('-')[1];
+						curVersion = curVersion.split('-')[1];
+					} else {
+						curVersion = curVersion.split('-')[0];
+					}
+				}
+
 				if (Std.parseFloat(updateVersion) > Std.parseFloat(curVersion))
 				{
-					trace('$updateVersion > $curVersion');
+					trace('$ogupdateVersion > $ogcurVersion');
 					mustUpdate = true;
 				}
 				else
 				{
-					trace('$updateVersion ${updateVersion == curVersion ? '=' : '<'} $curVersion');
+					trace('$ogupdateVersion ${ogupdateVersion == ogcurVersion ? '=' : '<'} $ogcurVersion');
 				}
 			}
 
