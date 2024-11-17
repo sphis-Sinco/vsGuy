@@ -1,9 +1,0 @@
-{
-	"name": "Pico Mixes",
-	"description": "Adds pico mixes to vs Guy plus",
-	"restart":false,
-	"runsGlobally": false,
-	"color": [0, 0, 255],
-	"discordRPC": "",
-	"iconFramerate": 10
-}
