@@ -2,7 +2,7 @@
 ## v1.2 [ElomentoPlayz Build] - November 17th 2024
 ### Added
 - NEW SONG: Vex
-### Removed
+- ElomentoPlayz everywhere
 
 
 ## v1.1 - November 16th 2024
