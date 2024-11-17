@@ -2523,6 +2523,7 @@ class PlayState extends MusicBeatState
               	totalNotes: 69,
             		
         	};
+			
 
 			playbackRate = 1;
 
@@ -2530,6 +2531,12 @@ class PlayState extends MusicBeatState
 			{
 				openChartEditor();
 				return false;
+			}
+
+			if (!ClientPrefs.data.playedSongs.contains(curSong.toLowerCase()))
+			{
+				ClientPrefs.data.playedSongs.push(curSong.toLowerCase());
+				trace('Newly played song: $curSong');
 			}
 
 			if (isStoryMode)
@@ -2738,9 +2745,6 @@ class PlayState extends MusicBeatState
 
 	  vocals.stop();
 	  camHUD.alpha = 1;
- 
-	  if (!ClientPrefs.data.playedSongs.contains(curSong))
-		ClientPrefs.data.playedSongs.push(curSong);
 	  
 	  var res:ResultState = new ResultState(
 		{

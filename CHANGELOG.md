@@ -2,6 +2,8 @@
 ## v1.3 - November 17th 2024
 ### Fixed
 - OutdatedState New release URL
+### Added
+- New Song Symbol
 
 ## v1.2-1 [v1.2 Serious Build] - November 17th 2024
 ### Removed
