@@ -14,6 +14,7 @@
 - Animated Credit Icon Support (requires the animation name to be the icon name)
 - PICO PLAYABLE CHARACTER
 - NEW SONG: Guy (Pico Mix)
+- Readded New symbol for songs
 
 ## v1.2 [ElomentoPlayz Build] - November 16th 2024
 ### Added
