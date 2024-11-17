@@ -2535,7 +2535,7 @@ class PlayState extends MusicBeatState
 
 			if (!ClientPrefs.data.playedSongs.contains(curSong.toLowerCase()))
 			{
-				ClientPrefs.data.playedSongs.push(curSong.toLowerCase());
+				ClientPrefs.data.playedSongs.push(curSong.toLowerCase().replace(' ', '-'));
 				trace('Newly played song: $curSong');
 			}
 
