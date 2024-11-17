@@ -1,24 +1,25 @@
 {
-	"position": [
-		0,
-		0
-	],
 	"dialogue_pos": "left",
+	"position": [
+		200,
+		90
+	],
+	"no_antialiasing": false,
 	"scale": 1,
-	"image": "Dialogue_Guy",
 	"animations": [
 		{
-			"idle_offsets": [
-				0,
-				0
-			],
+			"anim": "idle",
 			"loop_offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
-			"idle_name": "idle",
-			"loop_name": "idle"
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "idle",
+			"idle_name": "idle"
 		}
-	]
+	],
+	"image": "Dialogue_Guy"
 }
