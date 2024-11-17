@@ -6,6 +6,10 @@
 - playedSongs Save data
 - New Song Symbol
 - "-indev" version suffix for when compiling in a Debug version
+- Dialogue to Week 1 (only the song guy)
+- Naughtyness option in Gameplay
+### Removed
+- Pico Week 1 from Story menu
 
 ## v1.2-1 [v1.2 Serious Build] - November 17th 2024
 ### Removed

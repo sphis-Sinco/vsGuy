@@ -104,6 +104,8 @@ import states.TitleState;
 	public var loadingScreen:Bool = true;
 	public var language:String = 'en-US';
 
+	public var naughtyness:Bool = true;
+
 	// unchangeables
 	public var unlockedCharacters:Array<String> = ['bf'];
 	public var playedSongs:Array<String> = [];
@@ -311,6 +313,7 @@ class ClientPrefs
 		data.discordRPC = true;
 		data.loadingScreen = true;
 		data.language = 'en-US';
+		data.naughtyness = true;
 
 		data.unlockedCharacters = ['bf'];
 		data.playedSongs = [''];

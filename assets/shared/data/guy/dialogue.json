@@ -1,0 +1,52 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "angry",
+			"expression": "pissed",
+			"text": "HEY!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "guy",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "The fuck?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "angry",
+			"expression": "pissed",
+			"text": "Rap me you stupid bitch!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "guy",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Why"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Why not?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "guy",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Touche"
+		}
+	]
+}

@@ -8,6 +8,13 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
 
 		//I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
+		var option:Option = new Option('Naughtyness', //Name
+			'If unchecked, anything that checks for naughtyness will have a different result than normal', //Description
+			'naughtyness', //Save data variable name
+			BOOL); //Variable type
+		addOption(option);
+		
+		//I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
 		var option:Option = new Option('Downscroll', //Name
 			'If checked, notes go Down instead of Up, simple enough.', //Description
 			'downScroll', //Save data variable name

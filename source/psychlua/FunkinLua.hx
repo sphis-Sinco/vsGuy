@@ -89,7 +89,7 @@ class FunkinLua {
 		set('Function_Continue', LuaUtils.Function_Continue);
 		set('luaDebugMode', false);
 		set('luaDeprecatedWarnings', true);
-		set('version', MainMenuState.psychEngineVersion.trim());
+		set('version', MainMenuState.modVer.trim());
 		set('modFolder', this.modFolder);
 
 		// Song/Week shit
@@ -200,6 +200,8 @@ class FunkinLua {
 		set('noResetButton', ClientPrefs.data.noReset);
 		set('lowQuality', ClientPrefs.data.lowQuality);
 		set('shadersEnabled', ClientPrefs.data.shaders);
+		set('naughtyness', ClientPrefs.data.naughtyness);
+
 		set('scriptName', scriptName);
 		set('currentModDirectory', Mods.currentModDirectory);
 
@@ -1594,10 +1596,10 @@ class FunkinLua {
 			var resultStr:String = Lua.tostring(lua, result);
 			if(resultStr != null && result != 0) {
 				trace(resultStr);
-				#if (desktop || mobile)
+				#if (desktop && debug || mobile && debug)
 				CoolUtil.showPopUp(resultStr, 'Error on lua script!');
 				#else
-				luaTrace('$scriptName\n$resultStr', true, false, FlxColor.RED);
+				#if debug luaTrace('$scriptName\n$resultStr', true, false, FlxColor.RED); #end
 				#end
 				lua = null;
 				return;

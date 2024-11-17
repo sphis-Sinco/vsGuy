@@ -21,7 +21,7 @@
 	],
 	"storyName": "guy but pico",
 	"weekName": "week1-pico",
-	"hideStoryMode": false,
+	"hideStoryMode": true,
 	"weekBefore": "tutorial",
 	"startUnlocked": true
 }
