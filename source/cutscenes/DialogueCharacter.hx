@@ -73,7 +73,7 @@ class DialogueCharacter extends FlxSprite
 			
 			jsonFile = cast Json.parse(rawJson);
 		} catch(e) {
-			trace(e);
+			// trace(e);
 		}
 	}
 
