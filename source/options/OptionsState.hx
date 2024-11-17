@@ -38,6 +38,8 @@ class OptionsState extends MusicBeatState
 
 		switch(label)
 		{
+			case 'Game':
+				openSubState(new options.GameSettingsSubState());
 			case 'Note Colors':
 				openSubState(new options.NotesColorSubState());
 			case 'Controls':
