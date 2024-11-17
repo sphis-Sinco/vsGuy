@@ -13,7 +13,7 @@ import flixel.util.FlxStringUtil;
 class DiscordClient
 {
 	public static var isInitialized:Bool = false;
-	private inline static final _defaultID:String = "1272667686081527838";
+	private inline static final _defaultID:String = "1299921499095830639";
 	public static var clientID(default, set):String = _defaultID;
 	private static var presence:DiscordPresence = new DiscordPresence();
 	// hides this field from scripts and reflection in general
@@ -145,7 +145,7 @@ class DiscordClient
 	public static function loadModRPC()
 	{
 		var pack:Dynamic = Mods.getPack();
-		if(pack != null && pack.discordRPC != null && pack.discordRPC != clientID)
+		if(pack != null && pack.discordRPC != null && pack.discordRPC != clientID && pack.discordRPC != "")
 		{
 			clientID = pack.discordRPC;
 			//trace('Changing clientID! $clientID, $_defaultID');
