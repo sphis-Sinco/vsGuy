@@ -15,6 +15,6 @@ class GameSettingsSubState extends BaseOptionsMenu
 			BOOL); //Variable type
 		if (!OptionsState.onPlayState) addOption(option);
 
-		super();
+		super(); 
 	}
 }
