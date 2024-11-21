@@ -195,7 +195,7 @@ class ScoreNum extends FlxSprite
 
     var spritesheet = 'resultScreen/score-digital-numbers$suffix';
 
-    if (!Paths.fileExists(spritesheet, IMAGE))
+    if (!Paths.fileExists(Paths.getSharedPath('images/$spritesheet'), IMAGE))
       spritesheet.replace(suffix, '');
 
     frames = Paths.getSparrowAtlas(spritesheet);
