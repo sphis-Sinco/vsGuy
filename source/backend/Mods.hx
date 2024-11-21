@@ -166,19 +166,24 @@ class Mods
 	public static var updatedOnState:Bool = false;
 
 	inline public static function readParsedMods(diff:Modlistdiffs = ALL) {
-		trace('Reading currently ${diff != ALL ? 'all $diff' : '$diff'} Parsed Dlcs');
-
 		var list = parsedMods.all;
 
 		if (diff == ENABLED)
 			list = parsedMods.enabled;
 		if (diff == DISABLED)
 			list = parsedMods.disabled;
+		
+		if (list.length > 0)
+		{
+			trace('reading ${diff != ALL ? 'all $diff' : '$diff'} parsed DLCS');
 
-		var modlistlen = list.length;
-		for (i in 0...list.length) {
-			var mod = list[i];
-			trace('* ${diff != ALL ? diff : '' } dlc ($i / $modlistlen): ${mod}');
+			var modlistlen = list.length;
+			for (i in 0...list.length) {
+				var mod = list[i];
+				trace('* ${diff != ALL ? diff : '' } dlc (${i + 1} / $modlistlen): ${mod}');
+			}
+		} else {
+			trace('there are no DLCS parsed');
 		}
 	}
 
