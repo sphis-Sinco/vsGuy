@@ -19,17 +19,12 @@ class MainMenuState extends MusicBeatState
 
 	public static var curSelected:Int = 0;
 
-	public static var unlockedDLCS:Bool = false;
-	var previouslyLockedDLCS:Bool = true;
-
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	var optionShit:Array<String> = [];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
-
-	var lock:FlxAtlasSprite = new FlxAtlasSprite(0, 0, FunkinPath.animateAtlas('mainmenu/lock'));
 
 	public function new(isDisplayingRank:Bool = false) 
 	{
@@ -52,17 +47,8 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED
 		// manually put in the menuShit for this
 		var list = Mods.parseList();
-		if (list.enabled.length > 0) {
-			if (!unlockedDLCS) {
-				unlockedDLCS = true;
-				previouslyLockedDLCS = true;
-			}
-			
+		if (list.enabled.length > 0)
 			optionShit.push('dlcs');
-		} else {
-			if (unlockedDLCS)
-				unlockedDLCS = false;
-		}
 		#end
 		#end
 		optionShit.push('credits');
@@ -111,9 +97,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.screenCenter(X);
 			if (optionShit[i] == 'dlcs')
 			{
-				lock.setPosition(menuItem.x, menuItem.y);
-				lock.scrollFactor.set(0, scr);
-				lock.visible = true;
 				offset += 10*7;
 			}
 		}
@@ -144,13 +127,6 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		add(modVerTXT);
-
-		#if MODS_ALLOWED
-		if (optionShit.contains('dlcs') && previouslyLockedDLCS) {
-			add(lock);
-			lock.onAnimationComplete.add(lockFinishAnim);
-		}
-		#end
 	
 		changeItem();
 
@@ -173,13 +149,6 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 	}
-
-	#if MODS_ALLOWED
-	public function lockFinishAnim(name:String):Void
-	{
-		lock.visible = false;
-	}
-	#end
 
 	var selectedSomethin:Bool = false;
 
