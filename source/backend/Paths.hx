@@ -399,8 +399,11 @@ class Paths
 	inline static public function modsFont(key:String)
 		return modFolders('fonts/' + key);
 
-	inline static public function modsregistry(key:String)
-		return modFolders('registry/' + key + '.json');
+	inline static public function modsRegistry(key:String)
+		return modFolders('registry/' + key);
+
+	inline static public function modsPlayerRegistry(key:String)
+		return modsRegistry('player/$key.json');
 
 	inline static public function modsJson(key:String)
 		return modFolders('data/' + key + '.json');

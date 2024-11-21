@@ -26,8 +26,8 @@ class PlayerRegistry extends PsliceRegistry{
 
         try { 
             files = FileSystem.readDirectory(Paths.getPath('registry/players'));
-            trace(Paths.modFolders('registry/players'));
-            for (file in FileSystem.readDirectory(Paths.modFolders('registry/players')))
+            trace(Paths.modsRegistry('players/'));
+            for (file in FileSystem.readDirectory(Paths.modsRegistry('players/')))
             {
                 trace(file);
                 files.push(file);
