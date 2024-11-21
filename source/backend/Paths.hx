@@ -452,6 +452,7 @@ class Paths
 				}
 				#end
 			}
+			
 			return mods(key);
 		}
 	
