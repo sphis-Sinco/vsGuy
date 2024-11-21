@@ -170,15 +170,17 @@ class Mods
 		try {
 			for (mod in CoolUtil.coolTextFile('dlcsList.txt'))
 			{
-				//trace('Mod: $mod');
 				if(mod.trim().length < 1) continue;
 
 				var dat = mod.split("|");
 				list.all.push(dat[0]);
-				if (dat[1] == "1")
+				if (dat[1] == "1") {
+					trace('Parsed Enabled Mod: $mod');
 					list.enabled.push(dat[0]);
-				else
+				} else {
+					trace('Parsed Disabled Mod: $mod');
 					list.disabled.push(dat[0]);
+				}
 			}
 		} catch(e) {
 			trace(e);

@@ -19,14 +19,7 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		#if debug #if MODS_ALLOWED 'dlcs', #end #end
-		'credits',
-		#if !switch 'donate', #end
-		'options'
-	];
+	var optionShit:Array<String> = [];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -56,6 +49,31 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+
+		/**
+			'story_mode',
+			'freeplay',
+			#if debug #if MODS_ALLOWED 'dlcs', #end #end
+			'credits',
+			#if !switch 'donate', #end
+			'options'
+		 */
+
+		optionShit.push('story_mode');
+		optionShit.push('freeplay');
+		#if debug
+		#if MODS_ALLOWED
+		// manually put in the menuShit for this
+		var list = Mods.parseList();
+		if (list.enabled.length > 0)
+			optionShit.push('dlcs');
+		#end
+		#end
+		optionShit.push('credits');
+		#if !switch
+		optionShit.push('donate');
+		#end
+		optionShit.push('options');
 
 
 		persistentUpdate = persistentDraw = true;
