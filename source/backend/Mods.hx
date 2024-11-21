@@ -33,6 +33,8 @@ class Mods
 
 	private static var globalMods:Array<String> = [];
 
+	private static var parsedMods:ModsList = {enabled: [], disabled: [], all: []};
+
 	inline public static function getGlobalMods()
 		return globalMods;
 
@@ -173,12 +175,18 @@ class Mods
 				if(mod.trim().length < 1) continue;
 
 				var dat = mod.split("|");
+				var traceMod = false;
 				list.all.push(dat[0]);
+
+				if (!parsedMods.all.contains(dat[0])) {
+					traceMod = true;
+					if (traceMod) trace('Parsed Mod: ${dat[0]}');
+					parsedMods.all.push(dat[0]);
+				}
+
 				if (dat[1] == "1") {
-					trace('Parsed Enabled Mod: ${dat[0]}');
 					list.enabled.push(dat[0]);
 				} else {
-					trace('Parsed Disabled Mod: ${dat[0]}');
 					list.disabled.push(dat[0]);
 				}
 			}
