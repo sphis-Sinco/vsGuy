@@ -179,9 +179,11 @@ class ModsMenuState extends MusicBeatState
 
 			var myX = bgList.x + bgList.width + 20;
 			noModsTxt = new FlxText(myX, 0, FlxG.width - myX - 20,
-				Language.getPhrase('no_mods_installed', "NO MODS INSTALLED\nPRESS " + daButton + " TO EXIT OR INSTALL A MOD"), 48);
+				Language.getPhrase('no_mods_installed', "NO DLCS INSTALLED\nPRESS " + daButton + " TO EXIT OR INSTALL A DLC FROM THE GAMEBANANA"), 48);
 			if (FlxG.random.bool(0.1))
 				noModsTxt.text += '\nBITCH.'; // meanie
+			else if (FlxG.random.bool(0.5))
+				noModsTxt.text += '\nMaybe make your own?';
 			noModsTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			noModsTxt.borderSize = 2;
 			add(noModsTxt);
@@ -226,7 +228,7 @@ class ModsMenuState extends MusicBeatState
 
 		var myHeight = 100;
 		modRestartText = new FlxText(bgDescription.x + 15, bgDescription.y + bgDescription.height - myHeight - 25, bgDescription.width - 30,
-			Language.getPhrase('mod_restart', '* Moving or Toggling On/Off this Mod will restart the game.'), 16);
+			Language.getPhrase('mod_restart', '* Moving or Toggling On/Off this DLC will restart the game.'), 16);
 		modRestartText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
 		add(modRestartText);
 
@@ -610,7 +612,7 @@ class ModsMenuState extends MusicBeatState
 				modsList = Mods.parseList();
 				if (modsList.all.length > 0)
 				{
-					trace('mod(s) found! reloading');
+					trace('DLC(S) found! reloading');
 					reload();
 				}
 			}
@@ -782,7 +784,7 @@ class ModsMenuState extends MusicBeatState
 		{
 			if (mod == null)
 			{
-				trace('Mod #$i is null, maybe it was ' + modsList.all[i]);
+				trace('DLC #$i is null, maybe it was ' + modsList.all[i]);
 				continue;
 			}
 
@@ -808,7 +810,7 @@ class ModsMenuState extends MusicBeatState
 		else if (position < 0)
 			position = modsList.all.length - 1;
 
-		trace('Moved mod $mod to position $position');
+		trace('Moved dlc $mod to position $position');
 		var id:Int = modsList.all.indexOf(mod);
 		if (position == id)
 			return;
@@ -887,7 +889,7 @@ class ModItem extends FlxSpriteGroup
 	public var totalFrames:Int = 0;
 
 	// options
-	public var name:String = 'Unknown Mod';
+	public var name:String = 'Unknown Dlc';
 	public var desc:String = 'No description provided.';
 	public var iconFps:Int = 10;
 	public var bgColor:FlxColor = 0xFF665AFF;
@@ -913,7 +915,7 @@ class ModItem extends FlxSpriteGroup
 			}
 			catch (e:Dynamic)
 			{
-				var errorTitle = 'Mod name: ' + Mods.currentModDirectory;
+				var errorTitle = 'DLC name: ' + Mods.currentModDirectory;
 				var errorMsg = 'An error occurred: $e';
 				CoolUtil.showPopUp(errorMsg, errorTitle);
 			}
