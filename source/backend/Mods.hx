@@ -251,11 +251,11 @@ class Mods
 			!ignoreModFolders.contains(folder.toLowerCase()) && !added.contains(folder))
 			{
 				var addFolder = false;
-				for (file in FileSystem.readDirectory(folder))
+				try {for (file in FileSystem.readDirectory(folder))
 				{
 					if (file == 'pack.json')
 						addFolder = true;
-				}
+				}} catch(e) {trace(e);}
 
 				if (addFolder){
 					added.push(folder);
