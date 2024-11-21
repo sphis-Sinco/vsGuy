@@ -227,6 +227,7 @@ class FreeplayState extends MusicBeatSubstate
 		var saveBox = VsliceOptions.LAST_MOD;
 		currentCharacterId = saveBox.char_name;
 		// switch to the character's mod to load her registry
+		// HER?
 		if (ModsHelper.isModDirEnabled(saveBox.mod_dir))
 			ModsHelper.loadModDir(saveBox.mod_dir);
 
