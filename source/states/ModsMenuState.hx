@@ -64,6 +64,7 @@ class ModsMenuState extends MusicBeatState
 
 		modsList = Mods.parseList();
 		Mods.loadTopMod();
+		Mods.readParsedMods(ALL);
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence

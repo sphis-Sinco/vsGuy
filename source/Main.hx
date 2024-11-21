@@ -137,6 +137,8 @@ class Main extends Sprite
     	@:privateAccess
     	gameObject._customSoundTray = mikolka.vslice.components.FunkinSoundTray;
 
+		Mods.readParsedMods(ALL);
+
 		addChild(gameObject);
 
 		fpsVar = new FPS(10, 3, 0xFFFFFF);

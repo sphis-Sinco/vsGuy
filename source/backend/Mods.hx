@@ -164,6 +164,24 @@ class Mods
 	}
 
 	public static var updatedOnState:Bool = false;
+
+	inline public static function readParsedMods(diff:Modlistdiffs = ALL) {
+		trace('Reading currently ${diff != ALL ? 'all $diff' : '$diff'} Parsed Dlcs');
+
+		var list = parsedMods.all;
+
+		if (diff == ENABLED)
+			list = parsedMods.enabled;
+		if (diff == DISABLED)
+			list = parsedMods.disabled;
+
+		var modlistlen = list.length;
+		for (i in 0...list.length) {
+			var mod = list[i];
+			trace('* ${diff != ALL ? diff : '' } dlc ($i / $modlistlen): ${mod}');
+		}
+	}
+
 	inline public static function parseList():ModsList {
 		if(!updatedOnState) updateModList();
 		var list:ModsList = {enabled: [], disabled: [], all: []};
@@ -175,18 +193,21 @@ class Mods
 				if(mod.trim().length < 1) continue;
 
 				var dat = mod.split("|");
-				var traceMod = false;
 				list.all.push(dat[0]);
 
 				if (!parsedMods.all.contains(dat[0])) {
-					traceMod = true;
-					if (traceMod) trace('Parsed Mod: ${dat[0]}');
 					parsedMods.all.push(dat[0]);
 				}
 
 				if (dat[1] == "1") {
+					if (!parsedMods.enabled.contains(dat[0])) {
+						parsedMods.enabled.push(dat[0]);
+					}
 					list.enabled.push(dat[0]);
 				} else {
+					if (!parsedMods.disabled.contains(dat[0])) {
+						parsedMods.disabled.push(dat[0]);
+					}
 					list.disabled.push(dat[0]);
 				}
 			}
@@ -253,4 +274,11 @@ class Mods
 			Mods.currentModDirectory = list[0];
 		#end
 	}
+}
+
+enum abstract Modlistdiffs(String) from String to String
+{
+	public var ALL:String = 'all';
+	public var ENABLED:String = 'enabled';
+	public var DISABLED:String = 'disabled';
 }
