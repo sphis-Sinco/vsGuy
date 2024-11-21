@@ -29,19 +29,6 @@ class MainMenuState extends MusicBeatState
 
 	public function new(isDisplayingRank:Bool = false) 
 	{
-		Paths.clearUnusedMemory();
-		ModsHelper.clearStoredWithoutStickers();
-		
-		#if MODS_ALLOWED
-		Mods.pushGlobalMods();
-		#end
-		Mods.loadTopMod();
-
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
-		#end
-
 		optionShit.push('story_mode');
 		optionShit.push('freeplay');
 		#if debug
@@ -100,16 +87,10 @@ class MainMenuState extends MusicBeatState
 				offset += 10*7;
 		}
 
-		modVerTXT = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer + #if debug '-indev' #else '' #end} (P-slice ${pSliceVersion})', 12);
-		modVerTXT.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		modVerTXT.scrollFactor.set();
-
 		super();
 	}
 
 	var bg:FlxSprite;
-	var modVerTXT:FlxText;
-
 	public static function modVerInit()
 	{
 		modVer = Application.current.meta.get('version');
@@ -117,15 +98,33 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+		Paths.clearUnusedMemory();
+		ModsHelper.clearStoredWithoutStickers();
+		
+		#if MODS_ALLOWED
+		Mods.pushGlobalMods();
+		#end
+		Mods.loadTopMod();
+
+		#if DISCORD_ALLOWED
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("In the Menus", null);
+		#end
+
 		persistentUpdate = persistentDraw = true;
 
+		
 		add(bg);
 		add(camFollow);
 		add(magenta);
 
 		add(menuItems);
 
-		add(modVerTXT);
+		var modVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer + #if debug '-indev' #else '' #end} (P-slice ${pSliceVersion})', 12);
+		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		modVer.scrollFactor.set();
+		add(modVer);
+		//var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' ", 12);
 	
 		changeItem();
 
