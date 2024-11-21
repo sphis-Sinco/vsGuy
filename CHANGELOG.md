@@ -2,6 +2,9 @@
 ## [Unreleased] - November 25th 2024
 ### Changed
 - Depending on the character, the ResultScore text can change asset as long as it has the suffix of `-[char]`
+### Added
+- Game Option Substate
+- Reset Save Option (only accessable through main menu)
 
 ## v1.2-2 - November 17th 2024
 ### Fixed
