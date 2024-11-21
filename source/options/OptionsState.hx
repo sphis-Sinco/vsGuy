@@ -1,5 +1,6 @@
 package options;
 
+import states.TitleState;
 import states.MainMenuState;
 import backend.StageData;
 import flixel.FlxObject;
@@ -182,7 +183,13 @@ class OptionsState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new PlayState());
 				FlxG.sound.music.volume = 0;
 			}
-			else MusicBeatState.switchState(new MainMenuState());
+			else {
+				if (ClientPrefs.data.resetSave) {
+					trace('Resetting Save...');
+					MusicBeatState.switchState(new TitleState());
+				} else
+					MusicBeatState.switchState(new MainMenuState());
+			}
 		}
 		else if (controls.ACCEPT) openSelectedSubstate(options[curSelected]);
 	}

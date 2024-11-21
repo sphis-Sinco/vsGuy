@@ -109,6 +109,9 @@ import states.TitleState;
 	// unchangeables
 	public var unlockedCharacters:Array<String> = ['bf'];
 	public var playedSongs:Array<String> = [];
+
+	// changes and then gets reset
+	public var resetSave:Bool = false;
 }
 
 class ClientPrefs
@@ -317,6 +320,8 @@ class ClientPrefs
 
 		data.unlockedCharacters = ['bf'];
 		data.playedSongs = [''];
+
+		data.resetSave = false;
 
 		trace('Reset Settings!');
 

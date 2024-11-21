@@ -9,11 +9,11 @@ class GameSettingsSubState extends BaseOptionsMenu
 
 		// todo
 
-		var option:Option = new Option('Downscroll', //Name
-			'If checked, notes go Down instead of Up, simple enough.', //Description
-			'downScroll', //Save data variable name
+		var option:Option = new Option('Reset Save (READ DESCRIPTION)', //Name
+			'THIS WILL RESET YOUR ENTIRE SAVE.', //Description
+			'resetSave', //Save data variable name
 			BOOL); //Variable type
-		addOption(option);
+		if (!OptionsState.onPlayState) addOption(option);
 
 		super();
 	}
