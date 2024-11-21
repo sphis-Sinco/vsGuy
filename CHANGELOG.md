@@ -4,6 +4,7 @@
 - Depending on the character, the ResultScore text can change asset as long as it has the suffix of `-[char]`
 - Loading DLCS
   - DLC must have a `pack.json`
+- Pico mixes are now a DLC
 ### Added
 - Game Option Substate
 - Reset Save Option (only accessable through main menu)
