@@ -9,24 +9,12 @@ class GameSettingsSubState extends BaseOptionsMenu
 
 		// todo
 
-		var option:Option = new Option('Reset Save (READ DESCRIPTION)', //Name
+		var option:Option = new Option('Reset Save (READ DESC)', //Name
 			'THIS WILL RESET YOUR ENTIRE SAVE.', //Description
 			'resetSave', //Save data variable name
 			BOOL); //Variable type
 		if (!OptionsState.onPlayState) addOption(option);
 
 		super();
-	}
-
-	function onChangeHitsoundVolume()
-		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.data.hitsoundVolume);
-
-	function onChangeAutoPause()
-		FlxG.autoPause = ClientPrefs.data.autoPause;
-
-	function onChangeVibration()
-	{
-		if(ClientPrefs.data.vibrating)
-			lime.ui.Haptic.vibrate(0, 500);
 	}
 }
