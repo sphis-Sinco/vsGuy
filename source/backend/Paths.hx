@@ -451,7 +451,7 @@ class Paths
 				}
 				#end
 			}
-			return #if mobile Sys.getCwd() + #end 'dlcs/' + key;
+			return mods(key);
 		}
 	
 		#if linux
