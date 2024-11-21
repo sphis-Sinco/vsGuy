@@ -1,5 +1,7 @@
 # vs Guy plus
 ## [Unreleased] - November 25th 2024
+### Changed
+- Depending on the character, the ResultScore text can change asset as long as it has the suffix of `-[char]`
 
 ## v1.2-2 - November 17th 2024
 ### Fixed
