@@ -96,7 +96,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.scale.set(1,1);
 			if (optionShit[i] == 'dlcs')
-				menuItem.scale.set(0,5,0.5);
+				menuItem.scale.set(0.5,0.5);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if (optionShit.length < 6)
