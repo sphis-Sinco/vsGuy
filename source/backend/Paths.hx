@@ -425,6 +425,7 @@ class Paths
 			if (Mods.currentModDirectory != null && Mods.currentModDirectory.length > 0)
 			{
 				var fileToCheck:String = mods(Mods.currentModDirectory + '/' + key);
+				trace(fileToCheck);
 				if (FileSystem.exists(fileToCheck))
 					return fileToCheck;
 				#if linux
