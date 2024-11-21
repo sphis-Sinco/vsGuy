@@ -250,9 +250,11 @@ class Mods
 			if(folder.trim().length > 0 && FileSystem.exists(Paths.mods(folder)) && FileSystem.isDirectory(Paths.mods(folder)) &&
 			!ignoreModFolders.contains(folder.toLowerCase()) && !added.contains(folder))
 			{
-				added.push(folder);
-				list.push([folder, true]); //i like it false by default. -bb //Well, i like it True! -Shadow Mario (2022)
-				//Shadow Mario (2023): What the fuck was bb thinking
+				if (FileSystem.exists(Paths.mods('$folder/pack.json'))){
+					added.push(folder);
+					list.push([folder, true]); //i like it false by default. -bb //Well, i like it True! -Shadow Mario (2022)
+					//Shadow Mario (2023): What the fuck was bb thinking
+				}
 			}
 		}
 
