@@ -27,41 +27,8 @@ class MainMenuState extends MusicBeatState
 
 	var lock:FlxAtlasSprite = new FlxAtlasSprite(0, 0, FunkinPath.animateAtlas('mainmenu/lock'));
 
-	public function new(isDisplayingRank:Bool = false) {
-
-		//TODO
-		super();
-	}
-
-	public static function modVerInit()
+	public function new(isDisplayingRank:Bool = false) 
 	{
-		modVer = Application.current.meta.get('version');
-	}
-
-	override function create()
-	{
-		Paths.clearUnusedMemory();
-		ModsHelper.clearStoredWithoutStickers();
-		
-		#if MODS_ALLOWED
-		Mods.pushGlobalMods();
-		#end
-		Mods.loadTopMod();
-
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
-		#end
-
-		/**
-			'story_mode',
-			'freeplay',
-			#if debug #if MODS_ALLOWED 'dlcs', #end #end
-			'credits',
-			#if !switch 'donate', #end
-			'options'
-		 */
-
 		optionShit.push('story_mode');
 		optionShit.push('freeplay');
 		#if debug
@@ -78,20 +45,15 @@ class MainMenuState extends MusicBeatState
 		#end
 		optionShit.push('options');
 
-
-		persistentUpdate = persistentDraw = true;
-
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
-		add(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
@@ -101,10 +63,8 @@ class MainMenuState extends MusicBeatState
 		magenta.screenCenter();
 		magenta.visible = false;
 		magenta.color = 0xFFfd719b;
-		add(magenta);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
-		add(menuItems);
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 		for (i in 0...optionShit.length)
@@ -126,6 +86,39 @@ class MainMenuState extends MusicBeatState
 			if (optionShit[i] == 'dlcs')
 				offset += 10*7;
 		}
+
+		super();
+	}
+
+	var bg:FlxSprite;
+	public static function modVerInit()
+	{
+		modVer = Application.current.meta.get('version');
+	}
+
+	override function create()
+	{
+		Paths.clearUnusedMemory();
+		ModsHelper.clearStoredWithoutStickers();
+		
+		#if MODS_ALLOWED
+		Mods.pushGlobalMods();
+		#end
+		Mods.loadTopMod();
+
+		#if DISCORD_ALLOWED
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("In the Menus", null);
+		#end
+
+		persistentUpdate = persistentDraw = true;
+
+		
+		add(bg);
+		add(camFollow);
+		add(magenta);
+
+		add(menuItems);
 
 		var modVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer + #if debug '-indev' #else '' #end} (P-slice ${pSliceVersion})', 12);
 		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
