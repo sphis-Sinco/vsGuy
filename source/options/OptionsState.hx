@@ -12,6 +12,7 @@ import sys.thread.Thread;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [
+		'Game',
 		'Note Colors',
 		'Controls',
 		'Adjust Delay and Combo',
