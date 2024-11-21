@@ -175,10 +175,10 @@ class Mods
 				var dat = mod.split("|");
 				list.all.push(dat[0]);
 				if (dat[1] == "1") {
-					trace('Parsed Enabled Mod: $mod');
+					trace('Parsed Enabled Mod: ${dat[0]}');
 					list.enabled.push(dat[0]);
 				} else {
-					trace('Parsed Disabled Mod: $mod');
+					trace('Parsed Disabled Mod: ${dat[0]}');
 					list.disabled.push(dat[0]);
 				}
 			}
