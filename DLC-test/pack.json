@@ -1,0 +1,7 @@
+{
+	"name": "DLC-test",
+	"description": "dlc test",
+	"restart":false,
+	"runsGlobally": false,
+	"color": [255, 255, 255]
+}

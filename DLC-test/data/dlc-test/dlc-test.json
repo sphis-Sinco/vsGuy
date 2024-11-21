@@ -1,0 +1,45 @@
+{
+	"speed": 1,
+	"stage": "mainStageErect",
+	"player1": "bf",
+	"player2": "pico",
+	"events": [],
+	"notes": [
+		{
+			"gfSection": false,
+			"altAnim": false,
+			"sectionNotes": [
+				[0, 0, 0],
+				[272.727272727273, 3, 0],
+				[681.818181818182, 2, 0],
+				[1227.27272727273, 1, 0],
+				[1227.27272727273, 0, 0]
+			],
+			"bpm": 150,
+			"sectionBeats": 4,
+			"changeBPM": false,
+			"mustHitSection": true
+		},
+		{
+			"gfSection": false,
+			"altAnim": false,
+			"sectionNotes": [
+				[2181.81818181818, 5, 0],
+				[2727.27272727273, 4, 0],
+				[3000, 5, 0],
+				[3272.72727272727, 6, 0],
+				[3545.45454545455, 7, 0]
+			],
+			"bpm": 150,
+			"sectionBeats": 4,
+			"changeBPM": false,
+			"mustHitSection": false
+		}
+	],
+	"gfVersion": "nene",
+	"format": "psych_v1",
+	"bpm": 110,
+	"needsVoices": false,
+	"song": "DLC-test",
+	"offset": 0
+}
