@@ -1,5 +1,6 @@
 package states;
 
+import mikolka.compatibility.FunkinPath;
 import mikolka.compatibility.ModsHelper;
 import mikolka.vslice.freeplay.FreeplayState;
 import flixel.FlxObject;
@@ -23,6 +24,8 @@ class MainMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+
+	var lock:FlxAtlasSprite = new FlxAtlasSprite(0, 0, FunkinPath.animateAtlas('mainmenu/lock'));
 
 	public function new(isDisplayingRank:Bool = false) {
 
