@@ -63,13 +63,13 @@ class ResultScore extends FlxTypedSpriteGroup<ScoreNum>
     }
   }
 
-  public function new(x:Float, y:Float, digitCount:Int, scoreShit:Int = 100)
+  public function new(x:Float, y:Float, digitCount:Int, scoreShit:Int = 100, ?suffix:String = '')
   {
     super(x, y);
 
     for (i in 0...digitCount)
     {
-      add(new ScoreNum(x + (65 * i), y));
+      add(new ScoreNum(x + (65 * i), y, suffix));
     }
 
     this.scoreShit = scoreShit;
@@ -186,14 +186,14 @@ class ScoreNum extends FlxSprite
     shuffleTimer = new FlxTimer().start(interval, shuffleProgress, Std.int(duration / interval));
   }
 
-  public function new(x:Float, y:Float)
+  public function new(x:Float, y:Float, ?suffix:String = '')
   {
     super(x, y);
 
     baseY = y;
     baseX = x;
 
-    frames = Paths.getSparrowAtlas('resultScreen/score-digital-numbers');
+    frames = Paths.getSparrowAtlas('resultScreen/score-digital-numbers$suffix');
 
     for (i in 0...10)
     {

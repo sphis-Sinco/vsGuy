@@ -128,7 +128,7 @@ class ResultState extends MusicBeatSubState
 
     highscoreNew = new FlxSprite(44, 557);
 
-    score = new ResultScore(35, 305, 10, params.scoreData.score);
+    // score = new ResultScore(35, 305, 10, params.scoreData.score, );
 
     rankBg = new FunkinSprite(0, 0);
 
@@ -143,7 +143,11 @@ class ResultState extends MusicBeatSubState
       ModsHelper.loadModDir(mod_char.mod_dir);
     }
     //? moved this line so we can edit it in debug options
+
+    // moved this line to get the playerCharacterId variable
+    score = new ResultScore(35, 305, 10, params.scoreData.score, ((playerCharacterId != 'bf') ? '-${playerCharacterId}' : ''));
   }
+
 
   override function create():Void
   {
