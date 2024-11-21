@@ -399,6 +399,9 @@ class Paths
 	inline static public function modsFont(key:String)
 		return modFolders('fonts/' + key);
 
+	inline static public function modsregistry(key:String)
+		return modFolders('registry/' + key + '.json');
+
 	inline static public function modsJson(key:String)
 		return modFolders('data/' + key + '.json');
 
@@ -452,7 +455,7 @@ class Paths
 				}
 				#end
 			}
-			
+
 			return mods(key);
 		}
 	
