@@ -179,7 +179,7 @@ class ModsMenuState extends MusicBeatState
 
 			var myX = bgList.x + bgList.width + 20;
 			noModsTxt = new FlxText(myX, 0, FlxG.width - myX - 20,
-				Language.getPhrase('no_mods_installed', "NO DLCS INSTALLED\nPRESS " + daButton + " TO EXIT OR INSTALL A DLC FROM THE GAMEBANANA"), 48);
+				Language.getPhrase('no_mods_installed', "NO DLCS INSTALLED\nPRESS " + daButton + " TO EXIT\nOR INSTALL A DLC FROM THE GAMEBANANA"), 48);
 			if (FlxG.random.bool(0.1))
 				noModsTxt.text += '\nBITCH.'; // meanie
 			else if (FlxG.random.bool(0.5))
@@ -189,7 +189,7 @@ class ModsMenuState extends MusicBeatState
 			add(noModsTxt);
 			noModsTxt.screenCenter(Y);
 
-			var txt = new FlxText(bgList.x + 15, bgList.y + 15, bgList.width - 30, Language.getPhrase('no_mods_found', "No Mods found."), 16);
+			var txt = new FlxText(bgList.x + 15, bgList.y + 15, bgList.width - 30, Language.getPhrase('no_mods_found', "No DLCS found."), 16);
 			txt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE);
 			add(txt);
 
