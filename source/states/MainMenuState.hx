@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 			menuItem.screenCenter(X);
 			if (optionShit[i] == 'dlcs')
-				offset += 10*6;
+				offset += 10*7;
 		}
 
 		var modVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer + #if debug '-indev' #else '' #end} (P-slice ${pSliceVersion})', 12);
