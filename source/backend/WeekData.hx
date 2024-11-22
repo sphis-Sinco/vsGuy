@@ -135,6 +135,9 @@ class WeekData {
 			}
 		}
 		#end
+
+		trace(weeksList);
+		trace(weeksLoaded);
 	}
 
 	private static function addWeek(weekToCheck:String, path:String, directory:String, i:Int, originalLength:Int)
