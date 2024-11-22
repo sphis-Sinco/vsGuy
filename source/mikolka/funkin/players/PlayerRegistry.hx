@@ -23,13 +23,14 @@ class PlayerRegistry extends PsliceRegistry{
     public function hasNewCharacter():Bool {
         var newchar:Bool = false;
         chars = ClientPrefs.data.unlockedCharacters;
+        var oldchars = chars;
 
         try { 
             files = FileSystem.readDirectory(Paths.getPath('registry/players'));
-            for (file in FileSystem.readDirectory(Paths.modsRegistry('players/')))
+            /**for (file in FileSystem.readDirectory(Mods.directoriesWithFilerwyhn ('players')))
             {
                 files.push(file);
-            }
+            }**/
             trace(files);
         } catch(e){
             files = ['bf'];
@@ -54,7 +55,7 @@ class PlayerRegistry extends PsliceRegistry{
             }
 
             if (newEntryAm > 0) {
-                trace('Removed $newEntryAm old Player Registries from Save data');
+                trace('Removed $newEntryAm unused Player Registries from Save data');
                 trace(newEntrys);
             }
 
