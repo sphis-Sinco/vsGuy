@@ -25,7 +25,7 @@ class PlayerRegistry extends PsliceRegistry{
         chars = ClientPrefs.data.unlockedCharacters;
 
         try { 
-            files = FileSystem.readDirectory(Paths.mergeWithJson('registry/players'));
+            files = FileSystem.readDirectory(Paths.getPath('registry/players'));
             for (file in FileSystem.readDirectory(Paths.modsRegistry('players/')))
             {
                 files.push(file);
