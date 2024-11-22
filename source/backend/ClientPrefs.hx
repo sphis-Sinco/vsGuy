@@ -327,6 +327,7 @@ class ClientPrefs
 
 		for (week in WeekData.weeksList)
 		{
+			trace(week);
 			try{
 				Highscore.resetWeek(week, 0);
 				Highscore.resetWeek(week, 1);
