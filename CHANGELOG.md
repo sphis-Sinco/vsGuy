@@ -5,7 +5,6 @@
 - Loading DLCS
   - DLCS must have a `pack.json`
 - Preloader Color from light green to light blue
-- When resetting your Save it removes your week data now 
 ### Added
 - Game Option Substate
 - Reset Save Option (only accessable through main menu)
