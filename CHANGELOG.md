@@ -1,5 +1,5 @@
 # vs Guy plus
-## [Unreleased] - November 25th 2024
+## v1.3 [Song Pack 1] - November 22nd 2024
 ### Changed
 - Depending on the character, the ResultScore text can change asset as long as it has the suffix of `-[char]`
 - Loading DLCS
@@ -29,7 +29,7 @@
 - Removed some notes from Guy (Pico Mix) Hard Difficulty
 - Hard parts of Vex Hard Difficulty
 
-## v1.2-1 [v1.2 Serious Build] - November 17th 2024
+## v1.2-1 [Playable Pico] - November 17th 2024
 ### Removed
 - ElomentoPlayz
 - DLC Folder
