@@ -65,7 +65,7 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED
 		// manually put in the menuShit for this
 		var list = Mods.parseList();
-		if (list.enabled.length > 0)
+		if (list.all.length > 0)
 			optionShit.push('dlcs');
 		#end
 		#end
