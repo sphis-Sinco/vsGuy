@@ -23,20 +23,17 @@ class PlayerRegistry extends PsliceRegistry{
     public function hasNewCharacter():Bool {
         var newchar:Bool = false;
         chars = ClientPrefs.data.unlockedCharacters;
-        var oldchars = chars;
 
         try { 
             files = FileSystem.readDirectory(Paths.getPath('registry/players'));
-            /**for (file in FileSystem.readDirectory(Mods.directoriesWithFilerwyhn ('players')))
-            {
-                files.push(file);
-            }**/
-            trace(files);
         } catch(e){
             files = ['bf'];
         }
         // trace('Savedata Players Registery$chars');
         // trace('Freeplay Players Registery: $files');
+
+        trace(chars);
+        trace(files);
 
         newchar = chars != files;
 
