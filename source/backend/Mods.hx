@@ -183,7 +183,7 @@ class Mods
 				trace('* ${diff != ALL ? diff : '' } dlc (${i + 1} / $modlistlen): ${mod}');
 			}
 		} else {
-			trace('there are no DLCS parsed');
+			trace('there are no ${diff != ALL ? diff : ''} DLCS parsed');
 		}
 	}
 
