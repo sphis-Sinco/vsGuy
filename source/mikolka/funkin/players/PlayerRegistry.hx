@@ -32,6 +32,13 @@ class PlayerRegistry extends PsliceRegistry{
         // trace('Savedata Players Registery$chars');
         // trace('Freeplay Players Registery: $files');
 
+        var array = [];
+        for (file in files)
+        {
+           array.push(file.split('.json')[0]);
+        }
+        files = array;
+
         trace(chars);
         trace(files);
 
