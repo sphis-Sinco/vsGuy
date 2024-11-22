@@ -178,19 +178,19 @@ class FunkinPreloader extends FlxBasePreloader
     var pieceGap:Int = 8;
 
     progressLines = new openfl.display.Sprite();
-    progressLines.graphics.lineStyle(2, 0xFFA4FF11);
+    progressLines.graphics.lineStyle(2, 0xFF1194FF);
     progressLines.graphics.drawRect(-2, this._height - BAR_PADDING - BAR_HEIGHT - 208, this._width + 4, 30);
     addChild(progressLines);
 
     var progressBarPiece = new Sprite();
-    progressBarPiece.graphics.beginFill(0xFFA4FF11);
+    progressBarPiece.graphics.beginFill(0xFF1194FF);
     progressBarPiece.graphics.drawRoundRect(0, 0, pieceWidth - pieceGap, BAR_HEIGHT, 4, 4);
     progressBarPiece.graphics.endFill();
 
     for (i in 0...amountOfPieces)
     {
       var piece = new Sprite();
-      piece.graphics.beginFill(0xFFA4FF11);
+      piece.graphics.beginFill(0xFF1194FF);
       piece.graphics.drawRoundRect(0, 0, pieceWidth - pieceGap, BAR_HEIGHT, 4, 4);
       piece.graphics.endFill();
 
@@ -205,7 +205,7 @@ class FunkinPreloader extends FlxBasePreloader
     enhancedText = new TextField();
     stereoText = new TextField();
 
-    var progressLeftTextFormat = new TextFormat("DS-Digital", 32, 0xFFA4FF11, true);
+    var progressLeftTextFormat = new TextFormat("DS-Digital", 32, 0xFF1194FF, true);
     progressLeftTextFormat.align = TextFormatAlign.LEFT;
     progressLeftText.defaultTextFormat = progressLeftTextFormat;
 
@@ -220,7 +220,7 @@ class FunkinPreloader extends FlxBasePreloader
     // Create the progress %.
     progressRightText = new TextField();
 
-    var progressRightTextFormat = new TextFormat("DS-Digital", 16, 0xFFA4FF11, true);
+    var progressRightTextFormat = new TextFormat("DS-Digital", 16, 0xFF1194FF, true);
     progressRightTextFormat.align = TextFormatAlign.RIGHT;
     progressRightText.defaultTextFormat = progressRightTextFormat;
 
@@ -232,11 +232,11 @@ class FunkinPreloader extends FlxBasePreloader
     addChild(progressRightText);
 
     box = new Sprite();
-    box.graphics.beginFill(0xFFA4FF11, 1);
+    box.graphics.beginFill(0xFF1194FF, 1);
     box.graphics.drawRoundRect(0, 0, 64, 20, 5, 5);
     box.graphics.drawRoundRect(70, 0, 58, 20, 5, 5);
     box.graphics.endFill();
-    box.graphics.beginFill(0xFFA4FF11, 0.1);
+    box.graphics.beginFill(0xFF1194FF, 0.1);
     box.graphics.drawRoundRect(0, 0, 128, 20, 5, 5);
     box.graphics.endFill();
     box.x = this._width - BAR_PADDING - BAR_HEIGHT - 432;
@@ -262,7 +262,7 @@ class FunkinPreloader extends FlxBasePreloader
     box.addChild(fnfText);
 
     enhancedText.selectable = false;
-    enhancedText.textColor = 0xFFA4FF11;
+    enhancedText.textColor = 0xFF1194FF;
     enhancedText.width = this._width;
     enhancedText.height = 100;
     enhancedText.text = 'ENHANCED';
@@ -271,7 +271,7 @@ class FunkinPreloader extends FlxBasePreloader
     box.addChild(enhancedText);
 
     stereoText.selectable = false;
-    stereoText.textColor = 0xFFA4FF11;
+    stereoText.textColor = 0xFF1194FF;
     stereoText.width = this._width;
     stereoText.height = 100;
     stereoText.text = 'STEREO';
@@ -981,24 +981,21 @@ class FunkinPreloader extends FlxBasePreloader
       else if (progressLeftText.text != text)
       {
         // We have to keep updating the text format, because the font can take a frame or two to load.
-        var progressLeftTextFormat = new TextFormat("DS-Digital", 32, 0xFFA4FF11, true);
+        var progressLeftTextFormat = new TextFormat("DS-Digital", 32, 0xFF1194FF, true);
         progressLeftTextFormat.align = TextFormatAlign.LEFT;
         progressLeftText.defaultTextFormat = progressLeftTextFormat;
         progressLeftText.text = text;
 
         dspText.defaultTextFormat = new TextFormat("Quantico", 20, 0x000000, false);
-        dspText.text = 'DSP'; // fukin dum....
         dspText.textColor = 0x000000;
 
         fnfText.defaultTextFormat = new TextFormat("Quantico", 20, 0x000000, false);
         fnfText.textColor = 0x000000;
 
-        enhancedText.defaultTextFormat = new TextFormat("Inconsolata Black", 16, 0xFFA4FF11, false);
-        enhancedText.text = 'ENHANCED';
-        enhancedText.textColor = 0xFFA4FF11;
+        enhancedText.defaultTextFormat = new TextFormat("Inconsolata Black", 16, 0xFF1194FF, false);
+        enhancedText.textColor = 0xFF1194FF;
 
-        stereoText.defaultTextFormat = new TextFormat("Inconsolata Bold", 36, 0xFFA4FF11, false);
-        stereoText.text = 'NATURAL STEREO';
+        stereoText.defaultTextFormat = new TextFormat("Inconsolata Bold", 36, 0xFF1194FF, false);
       }
     }
   }
