@@ -332,7 +332,7 @@ class ClientPrefs
 				Highscore.resetWeek(week, 1);
 				Highscore.resetWeek(week, 2);
 			}catch(e){
-				//trace(e);
+				trace('$week save couldnt be reset');
 			}
 		}
 
