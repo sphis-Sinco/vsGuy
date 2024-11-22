@@ -219,7 +219,7 @@ class ClientPrefs
 		defaultMobileBinds = mobileBinds.copy();
 	}
 
-	public static function resetSettings()
+	public static function resetSave()
 	{
 		// Mobile and Mobile Controls Releated
 		data.extraHints = "NONE"; // hitbox extra hint option
@@ -336,7 +336,7 @@ class ClientPrefs
 			}
 		}
 
-		trace('Reset Settings!');
+		trace('Reset Save!');
 
 		saveSettings();
 	}

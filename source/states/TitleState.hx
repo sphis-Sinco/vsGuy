@@ -75,7 +75,7 @@ class TitleState extends MusicBeatState
 	override public function create():Void
 	{
 		if (ClientPrefs.data.resetSave)
-			ClientPrefs.resetSettings();
+			ClientPrefs.resetSave();
 
 		Paths.clearStoredMemory();
 		super.create();
@@ -579,7 +579,7 @@ class TitleState extends MusicBeatState
 		}
 
 		if (Controls.instance.RESET)
-			ClientPrefs.resetSettings();
+			ClientPrefs.resetSave();
 
 		super.update(elapsed);
 	}
