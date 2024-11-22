@@ -323,6 +323,19 @@ class ClientPrefs
 
 		data.resetSave = false;
 
+		
+		WeekData.reloadWeekFiles(true);
+		for (week in WeekData.weeksList)
+		{
+			try{
+				Highscore.resetWeek(week, 0);
+				Highscore.resetWeek(week, 1);
+				Highscore.resetWeek(week, 2);
+			}catch(e){
+				//trace(e);
+			}
+		}
+
 		trace('Reset Settings!');
 
 		saveSettings();
