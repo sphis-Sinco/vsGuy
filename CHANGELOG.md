@@ -8,7 +8,7 @@
 - Game Option Substate
 - Reset Save Option (only accessable through main menu)
 ### Fixed
-- Removing player registries that exist
+- Removing player registries that aren't unused
 
 ## v1.2-2 - November 17th 2024
 ### Fixed
