@@ -9,6 +9,7 @@
 - Game Option Substate
 - Reset Save Option (only accessable through main menu)
 - NEW SONG: Nerve
+- Update nickname to changelog (example: v1.2-1 is Playable Pico)
 ### Fixed
 - Removing player registries that aren't unused
 
