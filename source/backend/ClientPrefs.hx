@@ -221,6 +221,8 @@ class ClientPrefs
 
 	public static function resetSave()
 	{
+		WeekData.reloadWeekFiles(false);
+
 		// Mobile and Mobile Controls Releated
 		data.extraHints = "NONE"; // hitbox extra hint option
 		data.hitbox2 = true; // hitbox extra button position option
@@ -323,8 +325,6 @@ class ClientPrefs
 
 		data.resetSave = false;
 
-		
-		WeekData.reloadWeekFiles(true);
 		for (week in WeekData.weeksList)
 		{
 			try{
