@@ -8,6 +8,7 @@
 ### Added
 - Game Option Substate
 - Reset Save Option (only accessable through main menu)
+- NEW SONG: Nerve
 ### Fixed
 - Removing player registries that aren't unused
 
