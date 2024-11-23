@@ -31,31 +31,27 @@ class DLC
 
 		for (folder in dlc_folders)
 		{
+            var valid:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
 
 			try {
-                if (FileSystem.readDirectory(path).contains('dlc.json'))
+                var dir = FileSystem.readDirectory(path);
+                if (dir.contains('dlc.json'))
 				{
-                    trace(path+'dlc.json');
                     try {
                         var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
-                        trace(dlcfile);
 
-                        if (dlcfile.api_version == DLC_APIVER)
+                        if (dlcfile.api_version == DLC_APIVER) {
+                            valid = true;
                             trace('$folder is a valid DLC');
+                        }
 
-                    } catch(e) {
-                        dlc_folders.remove(folder);
-                    }
+                    } catch(e) {}
 				}
-				else
-				{
-					dlc_folders.remove(folder);
-				}
-            } catch(e) {
-                trace(path+'\n$e');
-                dlc_folders.remove(folder);
-            }
+            } catch(e) {}
+
+            if (!valid)
+				dlc_folders.remove(folder);
 		}
 
 		for (folder in dlc_folders)
