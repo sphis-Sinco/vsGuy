@@ -29,8 +29,9 @@ class DLC
 			}
 		}
 
-        trace(dlc_folders);
-		for (folder in dlc_folders)
+        // trace(dlc_folders);
+		
+        for (folder in dlc_folders)
 		{
             var valid:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
@@ -53,7 +54,7 @@ class DLC
 				dlc_folders.remove(folder);
 		}
         
-        trace(dlc_folders);
+        // trace(dlc_folders);
 
 		for (folder in dlc_folders)
 		{
