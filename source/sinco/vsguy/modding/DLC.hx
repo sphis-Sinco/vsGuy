@@ -37,6 +37,7 @@ class DLC
             var folder = dlc_folders[i];
             var valid:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
+            var state:String = null;
 
 			try {
                 var dir = FileSystem.readDirectory(path);
@@ -44,13 +45,14 @@ class DLC
                 var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
 
                 if (dlcfile.api_version == DLC_APIVER) {
-                    valid = true;
+                    state = 'alive';
                 }
             } catch(e)
             {
-                valid = false;
                 trace(e);
             }
+
+            valid = (state != null);
 
             if (valid == true)
 				dlc_folders.remove(folder);
