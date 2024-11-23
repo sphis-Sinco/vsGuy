@@ -1,0 +1,10 @@
+{
+    "version": "1.0.0",
+    "name": "DLC Pack 1",
+    "artists": ["Sinco"],
+    "albumArtAsset": "freeplay/albumRoll/dlcset1",
+    "albumTitleAsset": "freeplay/albumRoll/dlcset1-text",
+    "titlescale": 0.5,
+    "titleoffsets": [-200, -100]
+}
+  
