@@ -20,6 +20,7 @@ class PsliceRegistry {
         if (results == null)
         {
             char_path = Paths.modsJson('$regPath/$id');
+            trace(char_path);
             if(!FileSystem.exists(char_path)) return null;
 
             text = File.getContent(char_path);
