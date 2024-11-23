@@ -740,7 +740,7 @@ class PlayState extends MusicBeatState
 				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
 				if(shit.dialogue.length > 0)
 				{
-					paused = true;
+					pauseStuff();
 					startDialogue(shit, music);
 				}
 			}
@@ -2002,10 +2002,21 @@ class PlayState extends MusicBeatState
 
 	function openPauseMenu()
 	{
+		pauseStuff();
+		openSubState(new PauseSubState());
+
+		#if DISCORD_ALLOWED
+		if(autoUpdateRPC) DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+		#end
+	}
+
+	function pauseStuff()
+	{
 		FlxG.camera.followLerp = 0;
 		persistentUpdate = false;
 		persistentDraw = true;
 		paused = true;
+		canPause = false;
 
 		if(FlxG.sound.music != null) {
 			FlxG.sound.music.pause();
@@ -2021,11 +2032,6 @@ class PlayState extends MusicBeatState
 					note.resetAnim = 0;
 				}
 		}
-		openSubState(new PauseSubState());
-
-		#if DISCORD_ALLOWED
-		if(autoUpdateRPC) DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-		#end
 	}
 
 	public function openChartEditor()
