@@ -290,7 +290,7 @@ class PlayState extends MusicBeatState
 		}
 		nextReloadAll = false;
 
-		startCallback = startCountdown;
+		startCallback = diaCheck;
 		endCallback = endSong;
 
 		// for lua
@@ -471,8 +471,6 @@ class PlayState extends MusicBeatState
 				#end
 			}
 		#end
-
-		diaCheck();
 			
 		var camPos:FlxPoint = FlxPoint.get(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
 		if(gf != null)
