@@ -20,7 +20,9 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	var optionShit:Array<String> = [];
+	var optionShit:Array<String> = [
+		
+	];
 
 	var magenta:MenuBG;
 	var camFollow:FlxObject;
@@ -62,13 +64,11 @@ class MainMenuState extends MusicBeatState
 
 		optionShit.push('story_mode');
 		optionShit.push('freeplay');
-		#if debug
 		#if MODS_ALLOWED
 		// manually put in the menuShit for this
 		var list = Mods.parseList();
 		if (list.all.length > 0)
 			optionShit.push('dlcs');
-		#end
 		#end
 		optionShit.push('credits');
 		#if !switch
