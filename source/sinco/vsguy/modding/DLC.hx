@@ -57,7 +57,10 @@ class DLC
 
 		for (folder in dlc_folders)
 		{
-			newlist.push(folder);
+			if (!folder.contains('.') || folder != 'readme.txt')
+                {
+                    newlist.push(folder);
+                }
 		}
 		#end
 
