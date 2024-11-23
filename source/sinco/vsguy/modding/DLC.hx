@@ -32,7 +32,6 @@ class DLC
 
 		for (folder in dlc_folders)
 		{
-			var isfolder:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
 			try {
                 if (FileSystem.readDirectory(path).contains('dlc.json'))
