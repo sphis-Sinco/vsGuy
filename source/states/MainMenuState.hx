@@ -1,5 +1,6 @@
 package states;
 
+import objects.MenuBG;
 import mikolka.compatibility.ModsHelper;
 import mikolka.vslice.freeplay.FreeplayState;
 import flixel.FlxObject;
@@ -21,7 +22,7 @@ class MainMenuState extends MusicBeatState
 
 	var optionShit:Array<String> = [];
 
-	var magenta:FlxSprite;
+	var magenta:MenuBG;
 	var camFollow:FlxObject;
 
 	public function new(isDisplayingRank:Bool = false) {
@@ -79,24 +80,13 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scrollFactor.set(0, yScroll);
-		bg.setGraphicSize(Std.int(bg.width * 1.175));
-		bg.updateHitbox();
-		bg.screenCenter();
+		var bg:MenuBG = new MenuBG('menuBG', yScroll);
 		add(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
-		magenta.antialiasing = ClientPrefs.data.antialiasing;
-		magenta.scrollFactor.set(0, yScroll);
-		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
-		magenta.updateHitbox();
-		magenta.screenCenter();
-		magenta.visible = false;
+		magenta = new MenuBG('menuDesat');
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
