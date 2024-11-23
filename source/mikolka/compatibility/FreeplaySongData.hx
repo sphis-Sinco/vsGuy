@@ -44,7 +44,11 @@ using mikolka.funkin.utils.ArrayTools;
      function set_currentDifficulty(value:String):String
      {
          currentDifficulty = value;
-         updateValues();
+         try {
+            updateValues();
+        } catch(e) {
+            trace(e);
+        }
          return value;
      }
  
