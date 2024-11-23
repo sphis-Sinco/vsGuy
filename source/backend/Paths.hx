@@ -20,7 +20,6 @@ import haxe.Json;
 
 
 #if MODS_ALLOWED
-import backend.Mods;
 #end
 
 @:access(openfl.display.BitmapData)
@@ -248,20 +247,6 @@ class Paths
 
 	public static function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?parentFolder:String = null)
 	{
-		#if MODS_ALLOWED
-		if(!ignoreMods)
-		{
-			var modKey:String = key;
-			if(parentFolder == 'songs') modKey = 'songs/$key';
-
-			for(mod in Mods.getGlobalMods())
-				if (FileSystem.exists(mods('$mod/$modKey')))
-					return true;
-
-			if (FileSystem.exists(mods(Mods.currentModDirectory + '/' + modKey)) || FileSystem.exists(mods(modKey)))
-				return true;
-		}
-		#end
 		return (OpenFlAssets.exists(getPath(key, type, parentFolder, false)));
 	}
 
@@ -428,37 +413,6 @@ class Paths
 
 	static public function modFolders(key:String)
 		{
-			if (Mods.currentModDirectory != null && Mods.currentModDirectory.length > 0)
-			{
-				var fileToCheck:String = mods(Mods.currentModDirectory + '/' + key);
-				// trace(fileToCheck);
-				if (FileSystem.exists(fileToCheck))
-					return fileToCheck;
-				#if linux
-				else
-				{
-					var newPath:String = findFile(key);
-					if (newPath != null)
-						return newPath;
-				}
-				#end
-			}
-	
-			for (mod in Mods.getGlobalMods())
-			{
-				var fileToCheck:String = mods(mod + '/' + key);
-				if (FileSystem.exists(fileToCheck))
-					return fileToCheck;
-				#if linux
-				else
-				{
-					var newPath:String = findFile(key);
-					if (newPath != null)
-						return newPath;
-				}
-				#end
-			}
-
 			return mods(key);
 		}
 	

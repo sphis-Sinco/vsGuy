@@ -1,7 +1,6 @@
 package states;
 
 import objects.MenuBG;
-import mikolka.compatibility.ModsHelper;
 import mikolka.vslice.freeplay.FreeplayState;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
@@ -40,11 +39,6 @@ class MainMenuState extends MusicBeatState
 	{
 		Paths.clearUnusedMemory();
 		ModsHelper.clearStoredWithoutStickers();
-		
-		#if MODS_ALLOWED
-		Mods.pushGlobalMods();
-		#end
-		Mods.loadTopMod();
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
@@ -65,8 +59,8 @@ class MainMenuState extends MusicBeatState
 		#if debug
 		#if MODS_ALLOWED
 		// manually put in the menuShit for this
-		var list = Mods.parseList();
-		if (list.all.length > 0)
+		var list = [];
+		if (list.length > 0)
 			optionShit.push('dlcs');
 		#end
 		#end
@@ -212,7 +206,7 @@ class MainMenuState extends MusicBeatState
 
 							#if MODS_ALLOWED
 							case 'dlcs':
-								MusicBeatState.switchState(new ModsMenuState());
+								// MusicBeatState.switchState(new ModsMenuState());
 							#end
 
 							#if ACHIEVEMENTS_ALLOWED
