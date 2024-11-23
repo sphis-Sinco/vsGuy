@@ -35,27 +35,21 @@ class DLC
         for (i in 0...dlc_folders.length)
 		{
             var folder = dlc_folders[i];
-            var valid:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
-            var state:String = null;
 
 			try {
                 var dir = FileSystem.readDirectory(path);
                 
                 var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
 
-                if (dlcfile.api_version == DLC_APIVER) {
-                    state = 'alive';
+                if (dlcfile.api_version != DLC_APIVER) {
+                    dlc_folders.remove(folder);
                 }
             } catch(e)
             {
                 trace(e);
-            }
-
-            valid = (state != null);
-
-            if (valid == true)
 				dlc_folders.remove(folder);
+            }
 		}
         
         // trace(dlc_folders);
