@@ -86,8 +86,9 @@ class MainMenuState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		magenta = new MenuBG('menuDesat');
+		magenta = new MenuBG('menuDesat', yScroll);
 		magenta.color = 0xFFfd719b;
+		magenta.visible = false;
 		add(magenta);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
