@@ -1145,6 +1145,7 @@ class PlayState extends MusicBeatState
 						tick = GO;
 					case 4:
 						tick = START;
+						canPause = true;
 				}
 
 				if(!skipArrowStartTween)
@@ -1167,6 +1168,7 @@ class PlayState extends MusicBeatState
 				swagCounter += 1;
 			}, 5);
 		}
+		canPause = true;
 		return true;
 	}
 
