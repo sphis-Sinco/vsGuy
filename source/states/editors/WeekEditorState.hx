@@ -1,5 +1,6 @@
 package states.editors;
 
+import objects.MenuBG;
 import backend.WeekData;
 
 import openfl.utils.Assets;
@@ -562,15 +563,14 @@ class WeekEditorFreeplayState extends MusicBeatState implements PsychUIEventHand
 		if(weekFile != null) this.weekFile = weekFile;
 	}
 
-	var bg:FlxSprite;
+	var bg:MenuBG;
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var iconArray:Array<HealthIcon> = [];
 
 	var curSelected = 0;
 
 	override function create() {
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg = new MenuBG('menuDesat');
 		bg.color = FlxColor.WHITE;
 		add(bg);
 
