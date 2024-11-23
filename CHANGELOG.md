@@ -10,6 +10,8 @@
   - `dialogueMusic` (String (default: "breakfast")) - controls the background music of the dialogue
 ### Fixed
 - Guy Week Dialogue
+### Changed
+- Dialogue functionality (more hardcoded with softcoded elements)
 
 ## v1.3 [Song Pack 1] - November 22nd 2024
 ### Changed
