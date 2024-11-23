@@ -16,18 +16,6 @@ class PsliceRegistry {
         var text = File.getContent(char_path);
         var results = Json.parse(text);
 
-        #if MODS_ALLOWED
-        if (results == null)
-        {
-            char_path = Paths.modsJson('$regPath/$id');
-            trace(char_path);
-            if(!FileSystem.exists(char_path)) return null;
-
-            text = File.getContent(char_path);
-            results = Json.parse(text);
-        }
-        #end
-
         return results;// new PlayerData();
     }
     function listJsons():Array<String> {
