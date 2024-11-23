@@ -752,6 +752,10 @@ class PlayState extends MusicBeatState
 				startAndEnd();
 			}
 		}
+		else
+		{
+			startAndEnd();
+		}
 	}
 
 	function set_songSpeed(value:Float):Float
