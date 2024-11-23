@@ -1,10 +1,14 @@
 package sinco.vsguy.testing.dlc;
 
+import sinco.vsguy.modding.DLC;
+
 class DLCSelector extends MusicBeatState
 {
 	override public function create()
 	{
-		trace(Mods.parseList().all);
+		trace('Old Mod System: '+Mods.parseList().all);
+
+		trace('New DLC System: ' + DLC.dlcs);
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
