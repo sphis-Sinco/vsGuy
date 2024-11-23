@@ -34,7 +34,7 @@ class DLC
 		
         for (i in 0...dlc_folders.length)
 		{
-            var folder = dlc_folder[i];
+            var folder = dlc_folders[i];
             var valid:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
 
