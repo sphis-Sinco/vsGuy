@@ -1,7 +1,7 @@
 local doDialogue = true
 function onStartCountdown()
 	if doDialogue and not seenCutscene and isStoryMode then
-		if naughtyness == true then
+		if naughtyness then
 			startDialogue('dialogue', 'breakfast') --breakfast is the dialogue music
 		else
 			startDialogue('dialogue-censored', 'breakfast')
