@@ -155,6 +155,9 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
+			if (controls.RESET)
+				FlxG.resetState();
+
 			if (controls.UI_UP_P)
 				changeItem(-1);
 
