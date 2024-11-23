@@ -999,8 +999,11 @@ class PlayState extends MusicBeatState
 	{
 		if(endingSong)
 			endSong();
-		else
+		else {
+			canPause = true;
 			startCountdown();
+		}
+
 	}
 
 	var dialogueCount:Int = 0;
