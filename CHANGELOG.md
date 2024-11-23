@@ -11,7 +11,8 @@
 - Background to OutdatedState
 - Text gags to OutdatedState when you press enter to update your game and when you press escape to continue anyway
 - Custom Application Icons
-- Censored Results Screen "Shit"
+- Censored Results Screen "Shit" (when naughtyness is off)
+- Censored "Shit" popup (when naughtyness is off)
 ### Fixed
 - Guy Week Dialogue
 ### Changed
