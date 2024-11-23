@@ -135,7 +135,7 @@ class Main extends Sprite
 
 		#if DLC_TESTING
 		trace('DLC Testing');
-		game.initialState = DLCSelector;
+		// game.initialState = DLCSelector;
 		#end
 
 		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
@@ -143,7 +143,7 @@ class Main extends Sprite
 		var copyStateCheck = !CopyState.checkExistingFiles();
 		#end
 
-		var gameObject = new FlxGame(game.width, game.height, initState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
+		var gameObject = new FlxGame(game.width, game.height, DLCSelector, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
 		// FlxG.game._customSoundTray wants just the class, it calls new from
     	// create() in there, which gets called when it's added to stage
     	// which is why it needs to be added before addChild(game) here
