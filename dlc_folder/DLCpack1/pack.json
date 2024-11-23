@@ -1,0 +1,9 @@
+{
+	"name": "DLC Pack 1 - Jery",
+	"description": "The first Official DLC Pack of the mod! Being the retired Rapper jery come back to battle you again!",
+	"restart":false,
+	"runsGlobally": false,
+	"color": [170, 0, 200],
+	"discordRPC": "863222024192262205",
+	"iconFramerate": 10
+}

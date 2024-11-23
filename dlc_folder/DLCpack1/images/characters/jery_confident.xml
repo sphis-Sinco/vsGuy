@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="jery_confident.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Confident Jery Idle0000" x="4" y="4" width="208" height="408" frameX="-5" frameY="-2" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0001" x="220" y="4" width="203" height="407" frameX="-5" frameY="-3" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0002" x="220" y="4" width="203" height="407" frameX="-5" frameY="-3" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0003" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0004" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0005" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0006" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0007" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0008" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0009" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0010" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0011" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0012" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery Idle0013" x="431" y="4" width="197" height="410" frameX="0" frameY="0" frameWidth="213" frameHeight="410"/>
+	<SubTexture name="Confident Jery NOTE down0000" x="636" y="4" width="312" height="356" frameX="0" frameY="-17" frameWidth="313" frameHeight="373"/>
+	<SubTexture name="Confident Jery NOTE down0001" x="956" y="4" width="309" height="363" frameX="0" frameY="-10" frameWidth="313" frameHeight="373"/>
+	<SubTexture name="Confident Jery NOTE down0002" x="1273" y="4" width="311" height="362" frameX="0" frameY="-10" frameWidth="313" frameHeight="373"/>
+	<SubTexture name="Confident Jery NOTE down0003" x="1592" y="4" width="313" height="373"/>
+	<SubTexture name="Confident Jery NOTE down0004" x="1592" y="4" width="313" height="373"/>
+	<SubTexture name="Confident Jery NOTE down0005" x="1592" y="4" width="313" height="373"/>
+	<SubTexture name="Confident Jery NOTE down0006" x="1592" y="4" width="313" height="373"/>
+	<SubTexture name="Confident Jery NOTE down0007" x="1592" y="4" width="313" height="373"/>
+	<SubTexture name="Confident Jery NOTE down0008" x="1592" y="4" width="313" height="373"/>
+	<SubTexture name="Confident Jery NOTE down0009" x="1592" y="4" width="313" height="373"/>
+	<SubTexture name="Confident Jery NOTE left0000" x="4" y="422" width="242" height="398" frameX="0" frameY="-7" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0001" x="254" y="422" width="240" height="403" frameX="-2" frameY="-2" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0002" x="502" y="422" width="243" height="403" frameX="-2" frameY="-2" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0003" x="753" y="422" width="246" height="405" frameX="-2" frameY="0" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0004" x="753" y="422" width="246" height="405" frameX="-2" frameY="0" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0005" x="753" y="422" width="246" height="405" frameX="-2" frameY="0" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0006" x="753" y="422" width="246" height="405" frameX="-2" frameY="0" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0007" x="753" y="422" width="246" height="405" frameX="-2" frameY="0" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0008" x="753" y="422" width="246" height="405" frameX="-2" frameY="0" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE left0009" x="753" y="422" width="246" height="405" frameX="-2" frameY="0" frameWidth="248" frameHeight="405"/>
+	<SubTexture name="Confident Jery NOTE right0000" x="1007" y="422" width="315" height="408" frameX="0" frameY="-6" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0001" x="1330" y="422" width="315" height="409" frameX="0" frameY="-5" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0002" x="1653" y="422" width="300" height="409" frameX="-14" frameY="-5" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0003" x="4" y="839" width="291" height="414" frameX="-20" frameY="0" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0004" x="4" y="839" width="291" height="414" frameX="-20" frameY="0" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0005" x="4" y="839" width="291" height="414" frameX="-20" frameY="0" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0006" x="4" y="839" width="291" height="414" frameX="-20" frameY="0" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0007" x="4" y="839" width="291" height="414" frameX="-20" frameY="0" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0008" x="4" y="839" width="291" height="414" frameX="-20" frameY="0" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE right0009" x="4" y="839" width="291" height="414" frameX="-20" frameY="0" frameWidth="315" frameHeight="414"/>
+	<SubTexture name="Confident Jery NOTE up0000" x="303" y="839" width="288" height="444" frameX="0" frameY="0" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0001" x="599" y="839" width="288" height="441" frameX="0" frameY="-3" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0002" x="895" y="839" width="288" height="440" frameX="-2" frameY="-3" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0003" x="1191" y="839" width="291" height="436" frameX="-9" frameY="-7" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0004" x="1191" y="839" width="291" height="436" frameX="-9" frameY="-7" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0005" x="1191" y="839" width="291" height="436" frameX="-9" frameY="-7" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0006" x="1191" y="839" width="291" height="436" frameX="-9" frameY="-7" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0007" x="1191" y="839" width="291" height="436" frameX="-9" frameY="-7" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0008" x="1191" y="839" width="291" height="436" frameX="-9" frameY="-7" frameWidth="300" frameHeight="444"/>
+	<SubTexture name="Confident Jery NOTE up0009" x="1191" y="839" width="291" height="436" frameX="-9" frameY="-7" frameWidth="300" frameHeight="444"/>
+</TextureAtlas>

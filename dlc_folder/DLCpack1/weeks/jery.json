@@ -1,0 +1,27 @@
+{
+	"songs": [
+		[
+			"Jerith",
+			"jery",
+			[
+				146,
+				73,
+				215
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "",
+	"weekCharacters": [
+		"pico",
+		"bf",
+		"gf"
+	],
+	"storyName": "Your New Week",
+	"weekName": "jery",
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

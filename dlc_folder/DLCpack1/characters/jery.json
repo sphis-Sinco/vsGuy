@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Confident Jery Idle"
+		},
+		{
+			"loop": false,
+			"offsets": [10, -10],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Confident Jery NOTE left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [30, -50],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Confident Jery NOTE down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [50, 30],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Confident Jery NOTE up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [40, 0],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Confident Jery NOTE right",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/jery_confident",
+	"position": [70, 320],
+	"healthicon": "jery",
+	"flip_x": false,
+	"healthbar_colors": [204, 51, 204],
+	"camera_position": [-40, 40],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}
