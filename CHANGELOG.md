@@ -19,6 +19,8 @@
 - Guy Week Dialogue
 ### Changed
 - Dialogue functionality (more hardcoded with softcoded elements)
+### Removed
+- Conditional for DLCS Menu to appear
 
 ## v1.3 [Song Pack 1] - November 22nd 2024
 ### Changed
