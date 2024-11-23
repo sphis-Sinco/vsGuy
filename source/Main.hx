@@ -139,7 +139,7 @@ class Main extends Sprite
 		#end
 
 		#if DLC_TESTING
-		initState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : DLCSelector;
+		initState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end DLCSelector;
 		#else
 		initState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
 		#end
