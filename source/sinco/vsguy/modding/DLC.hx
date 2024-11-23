@@ -26,13 +26,20 @@ class DLC
         for (folder in dlc_folders)
         {
             var isfolder:Bool = false;
+            var path:String = '$DLC_FOLDER/$folder/';
             try {
-                isfolder = FileSystem.isDirectory('$DLC_FOLDER/$folder/');
+                isfolder = FileSystem.isDirectory(path);
             } catch(e) {}
 
-            if (isfolder)
+            if (isfolder) {
                 trace('$folder is a folder (with something in it)!');
-            else {
+                if (FileSystem.readDirectory(path).contains('dlc.json')) {
+                    trace('$folder is a valid DLC');
+                } else {
+                    trace('$folder is not a valid DLC');
+                    dlc_folders.remove(folder);
+                }
+            } else {
                 trace('$folder is not a folder (with anything in it)!');
                 dlc_folders.remove(folder);
             }
