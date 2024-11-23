@@ -1,5 +1,6 @@
 package states;
 
+import objects.MenuBG;
 import objects.AttachedSprite;
 
 class CreditsState extends MusicBeatState
@@ -10,7 +11,7 @@ class CreditsState extends MusicBeatState
 	private var iconArray:Array<AttachedSprite> = [];
 	private var creditsStuff:Array<Array<String>> = [];
 
-	var bg:FlxSprite;
+	var bg:MenuBG;
 	var descText:FlxText;
 	var intendedColor:FlxColor;
 	var descBox:AttachedSprite;
@@ -25,10 +26,8 @@ class CreditsState extends MusicBeatState
 		#end
 
 		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg = new MenuBG('menuDesat');
 		add(bg);
-		bg.screenCenter();
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
