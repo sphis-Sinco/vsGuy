@@ -45,14 +45,13 @@ class DLC
 
                 if (dlcfile.api_version == DLC_APIVER) {
                     valid = true;
-                    trace('$folder is a valid DLC');
                 }
             } catch(e)
             {
                 trace(e);
             }
 
-            if (!valid)
+            if (valid == true)
 				dlc_folders.remove(folder);
 		}
         
