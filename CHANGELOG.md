@@ -1,4 +1,6 @@
 # vs Guy plus
+## v1.3-1 - November 22nd 2024
+
 ## v1.3 [Song Pack 1] - November 22nd 2024
 ### Changed
 - Depending on the character, the ResultScore text can change asset as long as it has the suffix of `-[char]`
