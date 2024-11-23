@@ -27,6 +27,9 @@ class DLCSelector extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		if (FlxG.keys.justReleased.R)
+			FlxG.resetState();
+
 		super.update(elapsed);
 	}
 }
