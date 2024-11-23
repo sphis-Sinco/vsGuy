@@ -1,5 +1,6 @@
 package states.editors;
 
+import objects.MenuBG;
 import mikolka.funkin.custom.FreeplayMeta.FreeplayMetaJSON;
 import openfl.net.FileReference;
 import flixel.FlxSubState;
@@ -204,7 +205,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		super();
 	}
 
-	var bg:FlxSprite;
+	var bg:MenuBG;
 	var theme:ChartingTheme = DEFAULT;
 
 	var copiedNotes:Array<Dynamic> = [];
@@ -243,8 +244,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		chartEditorSave = new FlxSave();
 		chartEditorSave.bind('chart_editor_data', CoolUtil.getSavePath());
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg = new MenuBG('menuDesat');
 		bg.scrollFactor.set();
 		add(bg);
 

@@ -1,5 +1,6 @@
 package states.editors;
 
+import objects.MenuBG;
 import openfl.events.UncaughtErrorEvent;
 import mikolka.compatibility.VsliceOptions;
 import flixel.math.FlxRandom;
@@ -44,7 +45,7 @@ class MasterEditorMenu extends MusicBeatState
 		DiscordClient.changePresence("Editors Main Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		var bg:MenuBG = new MenuBG('menuDesat');
 		bg.scrollFactor.set();
 		bg.color = 0xFF4CAF50;
 		add(bg);
