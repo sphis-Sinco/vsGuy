@@ -740,6 +740,7 @@ class PlayState extends MusicBeatState
 				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
 				if(shit.dialogue.length > 0)
 				{
+					paused = true;
 					startDialogue(shit, music);
 				}
 			}
