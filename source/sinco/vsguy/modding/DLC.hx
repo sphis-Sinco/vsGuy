@@ -48,6 +48,7 @@ class DLC
 				{
                     try {
                         var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
+                        trace(dlcfile);
 
                         if (dlcfile.api_version == DLC_APIVER)
                             trace('$folder is a valid DLC');
