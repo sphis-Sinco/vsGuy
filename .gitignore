@@ -33,3 +33,4 @@ art/build_html-debug.bat
 # mainly stuff for file size
 **.swf
 **.mp4
+**.zip
