@@ -1,5 +1,7 @@
 # vs Guy plus
 ## v1.3-1 - November 22nd 2024
+### Added
+- `source/objects/MenuBG.hx` - a QOL file to make adding menu backgrounds easier (this is now used in any menu (i remembered) that has a menuBG)
 
 ## v1.3 [Song Pack 1] - November 22nd 2024
 ### Changed
