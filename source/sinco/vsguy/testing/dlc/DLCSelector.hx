@@ -11,6 +11,11 @@ class DLCSelector extends MusicBeatState
 		DiscordClient.changePresence("DLC Testing", null);
 		#end
 
+		var title:FlxText = new FlxText();
+		title.text = "Dlc Testing State";
+		title.screenCenter();
+		add(title);
+
 		super.create();
 	}
 
