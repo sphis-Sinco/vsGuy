@@ -754,7 +754,10 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			startAndEnd();
+			if (!endingSong)
+				startAndEnd();
+			else
+				return;
 		}
 	}
 
