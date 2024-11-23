@@ -471,6 +471,8 @@ class PlayState extends MusicBeatState
 				#end
 			}
 		#end
+
+		diaCheck();
 			
 		var camPos:FlxPoint = FlxPoint.get(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
 		if(gf != null)
@@ -694,6 +696,58 @@ class PlayState extends MusicBeatState
 		cachePopUpScore();
 
 		if(eventNotes.length < 1) checkEventNote();
+	}
+
+	public function diaCheck()
+	{
+		var metadata = FreeplayMeta.getMeta(SONG.song);
+		if (metadata.dialogue)
+		{
+			var dialogueFile = 'dialogue';
+			var music = 'breakfast';
+
+			try {
+				dialogueFile = metadata.dialogueFile;
+			} catch(e) {
+				trace(e);
+			}
+
+			try {
+				music = metadata.dialogueMusic;
+			} catch(e) {
+				trace(e);
+			}
+
+			var path:String;
+			var songPath:String = Paths.formatToSongPath(Song.loadedSongName);
+			#if TRANSLATIONS_ALLOWED
+			path = Paths.getPath('data/$songPath/${dialogueFile}_${ClientPrefs.data.language}.json', TEXT);
+			#if MODS_ALLOWED
+			if(!FileSystem.exists(path))
+			#else
+			if(!Assets.exists(path, TEXT))
+			#end
+			#end
+			path = Paths.getPath('data/$songPath/$dialogueFile${metadata.censoredDialogue ? '-censored' : ''}.json', TEXT);
+
+			#if MODS_ALLOWED
+			if(FileSystem.exists(path))
+			#else
+			if(Assets.exists(path, TEXT))
+			#end
+			{
+				trace('Dialogue File Path: $path');
+				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
+				if(shit.dialogue.length > 0)
+				{
+					startDialogue(shit, music);
+				}
+			}
+			else
+			{
+				startAndEnd();
+			}
+		}
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -2540,6 +2594,8 @@ class PlayState extends MusicBeatState
 				ClientPrefs.data.playedSongs.push(playedSong);
 				trace('Newly played song: $playedSong');
 			}
+
+			diaCheck();
 
 			if (isStoryMode)
 			{

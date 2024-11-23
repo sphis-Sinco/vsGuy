@@ -1,0 +1,11 @@
+{
+    "Lua.diagnostics.globals": [
+        "onStartCountdown",
+        "seenCutscene",
+        "isStoryMode",
+        "naughtyness",
+        "startDialogue",
+        "Function_Stop",
+        "Function_Continue"
+    ]
+}
