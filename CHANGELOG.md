@@ -15,7 +15,6 @@
 - Custom Application Icons
 - Censored Results Screen "Shit" (when naughtyness is off)
 - Censored "Shit" popup (when naughtyness is off)
-- Base game Sticker Set with only the bf, gf and dad stickers active
 ### Fixed
 - Guy Week Dialogue
 ### Changed
