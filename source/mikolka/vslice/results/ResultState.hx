@@ -252,7 +252,7 @@ class ResultState extends MusicBeatSubState
               animation.onAnimationComplete.add((_name:String) -> {
                 if (animation != null)
                 {
-                  trace("AHAHAH");
+                  // trace("AHAHAH");
                   animation.anim.curFrame = animData.loopFrame ?? 0;
                   animation.anim.play(); // unpauses this anim, since it's on PlayOnce!
                 }
@@ -780,32 +780,14 @@ class ResultState extends MusicBeatSubState
       var targetState:flixel.FlxState = new MainMenuState(); //TODO Why do we create a state here???
       var shouldTween = false;
       var shouldUseSubstate = false;
+      
+      FlxG.sound.pause();
+      shouldTween = false;
 
       if (params.storyMode)
       {
-        FlxG.sound.pause(); //? fix sound
-        //TODO re-enable this
-        // if (PlayerRegistry.instance.hasNewCharacter())
-        // {
-        //   // New character, display the notif.
-        //   targetState = new StoryMenuState(null);
-
-        //   var newCharacters = PlayerRegistry.instance.listNewCharacters();
-
-        //   for (charId in newCharacters)
-        //   {
-        //     shouldTween = true;
-        //     // This works recursively, ehe!
-        //     targetState = new funkin.ui.charSelect.CharacterUnlockState(charId, targetState);
-        //   }
-        // }
-        // else
-        // {
-          // No new characters.
-          shouldTween = false;
           shouldUseSubstate = true;
           targetState = new StickerSubState(null, (sticker) -> new StoryMenuState(sticker));
-        //}
       }
       else
       {
@@ -832,9 +814,7 @@ class ResultState extends MusicBeatSubState
         }
         else
         {
-          FlxG.sound.pause(); //? fix sound
-          shouldTween = false;
-          controls.isInSubstate = shouldUseSubstate = true;
+          controls.isInSubstate = false;
           targetState = new StickerSubState(null, (sticker) -> FreeplayState.build(null, sticker));
         }
       }
