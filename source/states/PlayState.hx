@@ -2932,6 +2932,8 @@ class PlayState extends MusicBeatState
 		if (ClientPrefs.data.popUpRating)
 		{
 			rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiPostfix));
+			if (daRating.image == 'awful')
+				rating.scale.set(6,6);
 			rating.screenCenter();
 			rating.x = placement - 40;
 			rating.y -= 60;

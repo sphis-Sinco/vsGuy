@@ -43,8 +43,10 @@ class Rating
 		ratingsData.push(rating);
 
 		var rating:Rating = new Rating('shit');
-		if (ClientPrefs.data.naughtyness)
+		if (!ClientPrefs.data.naughtyness)
+		{
 			rating.image = 'awful';
+		}
 		rating.ratingMod = 0;
 		rating.score = 50;
 		rating.noteSplash = false;

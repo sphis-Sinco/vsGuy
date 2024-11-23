@@ -123,7 +123,7 @@ class ResultState extends MusicBeatSubState
     resultsAnim = FunkinSprite.createSparrow(-200, -10, "resultScreen/results");
 
     var poppedRates = "resultScreen/ratingsPopin";
-    if (ClientPrefs.data.naughtyness)
+    if (!ClientPrefs.data.naughtyness)
       poppedRates = "resultScreen/ratingsPopin-censored";
 
     ratingsPopin = FunkinSprite.createSparrow(-135, 135, poppedRates);
@@ -335,8 +335,8 @@ class ResultState extends MusicBeatSubState
     });
 
     var popinRates = "Categories";
-    if (ClientPrefs.data.naughtyness)
-      popinRates = "Categorites Censored";
+    if (!ClientPrefs.data.naughtyness)
+      popinRates = "Categories Censored";
 
     ratingsPopin.animation.addByPrefix("idle", popinRates, 24, false);
     ratingsPopin.visible = false;
