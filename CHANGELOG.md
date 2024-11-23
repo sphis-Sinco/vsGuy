@@ -10,6 +10,7 @@
   - `dialogueMusic` (String (default: "breakfast")) - controls the background music of the dialogue
 - Background to OutdatedState
 - Text gags to OutdatedState when you press enter to update your game and when you press escape to continue anyway
+- Custom Application Icons
 ### Fixed
 - Guy Week Dialogue
 ### Changed
