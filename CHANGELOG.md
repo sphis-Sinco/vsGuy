@@ -2,6 +2,12 @@
 ## v1.3-1 - November 22nd 2024
 ### Added
 - `source/objects/MenuBG.hx` - a QOL file to make adding menu backgrounds easier (this is now used in any menu (i remembered) that has a menuBG)
+- Optional Metadata Arguments for songs
+  - `dialogue` (Bool (default: false)) - controls if you have dialogue or not
+  - `censoredDialogue` (Bool (default: false)) - controls if you get your dialogue censored when little timmy turns of naughtyness cause his parents are watching
+  - `freeplayDialogue` (Bool (default: false)) - controls if the dialogue plays when entering the song from freeplay
+  - `dialogueFile` (String (default: "dialogue")) - tells the game the dialogue file name
+  - `dialogueMusic` (String (default: "breakfast")) - controls the background music of the dialogue
 ### Fixed
 - Guy Week Dialogue
 
