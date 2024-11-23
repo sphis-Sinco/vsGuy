@@ -116,7 +116,7 @@ class MasterEditorMenu extends MusicBeatState
 					openfl.Lib.current.loaderInfo.uncaughtErrorEvents.dispatchEvent(
 						new UncaughtErrorEvent(
 							openfl.events.UncaughtErrorEvent.UNCAUGHT_ERROR,
-							true,true,new openfl.errors.Error("You know what happened")));
+							true,true,new openfl.errors.Error("The devs are too stupid and they write way too long errors")));
 				}
 				#end
 				case 'Preview results (perfect)':
