@@ -11,7 +11,7 @@ class DLC
 {
 	public static var dlcs:Array<String> = [];
 
-	public static var DLC_FOLDER:String = './dlcs';
+	public static var DLC_FOLDER:String = 'dlcs';
     public static var DLC_APIVER:String = '0.0.1';
 
 	public static function updateDLCList(?checks:Int = 2)
