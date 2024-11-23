@@ -6,7 +6,7 @@ class MenuBG extends FlxSprite
     {
         super(x,y);
 
-        loadGraphic(Paths.image('menuBG'));
+        loadGraphic(Paths.image(bg));
 
         antialiasing = ClientPrefs.data.antialiasing;
 		scrollFactor.set(0, yScroll);
