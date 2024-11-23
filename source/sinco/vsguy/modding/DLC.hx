@@ -30,10 +30,11 @@ class DLC
 		}
 
         // trace(dlc_folders);
-        dlc_folders.push('');
+        // dlc_folders.push('');
 		
-        for (folder in dlc_folders)
+        for (i in 0...dlc_folders.length)
 		{
+            var folder = dlc_folder[i];
             var valid:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
 
