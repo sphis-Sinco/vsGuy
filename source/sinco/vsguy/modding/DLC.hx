@@ -10,8 +10,16 @@ class DLC
         var newlist:Array<String> = [];
 
         #if desktop
-        var dlc_folder:Array<String> = FileSystem.readDirectory('./dlcs/');
-        trace('DLC Folder Content: $dlc_folder');
+        var dlc_folders:Array<String> = FileSystem.readDirectory('./dlcs/');
+        for (file in dlc_folders)
+        {
+            if (file.contains('.'))
+            {
+                dlc_folders.remove(file);
+                trace('Removed file from dlc_folders: $file');
+            }
+        }
+        trace('DLC Folder Content: $dlc_folders');
         #end
     }
     
