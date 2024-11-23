@@ -4,7 +4,13 @@ class DLCSelector extends MusicBeatState
 {
 	override public function create()
 	{
-		trace(Mods.parseList().all);
+		// old mod system
+		// trace(Mods.parseList().all);
+
+		#if DISCORD_ALLOWED
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("DLC Testing", null);
+		#end
 
 		super.create();
 	}
