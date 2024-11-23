@@ -15,8 +15,7 @@ class MasterEditorMenu extends MusicBeatState
 		'Chart Editor', 
 		'Character Editor', 
 		'Stage Editor', 
-		'Week Editor', 
-		'Test stickers', 
+		'Week Editor',
 		'Menu Character Editor', 
 		'Dialogue Editor', 
 		'Dialogue Portrait Editor',
@@ -111,8 +110,6 @@ class MasterEditorMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new DialogueCharacterEditorState(), false);
 				case 'Note Splash Editor':
 					MusicBeatState.switchState(new NoteSplashEditorState());
-				case 'Test stickers':
-					MusicBeatState.switchState(new StickerTest());
 				#if debug
 				case 'Crash the game':{
 					@:privateAccess
