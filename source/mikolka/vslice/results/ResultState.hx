@@ -298,7 +298,7 @@ class ResultState extends MusicBeatSubState
     }
 
     var diffSpr:String = 'diff_${params?.difficultyId ?? 'Normal'}';
-    difficulty.loadGraphic(Paths.image("resultScreen/" + diffSpr));
+    // difficulty.loadGraphic(Paths.image("resultScreen/" + diffSpr));
     add(difficulty);
 
     add(songName);
