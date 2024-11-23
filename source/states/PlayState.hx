@@ -728,7 +728,7 @@ class PlayState extends MusicBeatState
 			if(!Assets.exists(path, TEXT))
 			#end
 			#end
-			path = Paths.getPath('data/$songPath/$dialogueFile${metadata.censoredDialogue ? '-censored' : ''}.json', TEXT);
+			path = Paths.getPath('data/$songPath/$dialogueFile${metadata.censoredDialogue && !ClientPrefs.data.naughtyness ? '-censored' : ''}.json', TEXT);
 
 			#if MODS_ALLOWED
 			if(FileSystem.exists(path))
