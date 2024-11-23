@@ -8,6 +8,8 @@
   - `freeplayDialogue` (Bool (default: false)) - controls if the dialogue plays when entering the song from freeplay
   - `dialogueFile` (String (default: "dialogue")) - tells the game the dialogue file name
   - `dialogueMusic` (String (default: "breakfast")) - controls the background music of the dialogue
+- Background to OutdatedState
+- Text gags to OutdatedState when you press enter to update your game and when you press escape to continue anyway
 ### Fixed
 - Guy Week Dialogue
 ### Changed
