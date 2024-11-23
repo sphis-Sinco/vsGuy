@@ -34,17 +34,8 @@ class DLC
 		{
 			var isfolder:Bool = false;
 			var path:String = '$DLC_FOLDER/$folder/';
-			try
-			{
-				isfolder = FileSystem.isDirectory(path);
-			}
-			catch (e)
-			{
-			}
-
-			if (isfolder)
-			{
-				if (FileSystem.readDirectory(path).contains('dlc.json'))
+			try {
+                if (FileSystem.readDirectory(path).contains('dlc.json'))
 				{
                     trace(path+'dlc.json');
                     try {
@@ -62,18 +53,13 @@ class DLC
 				{
 					dlc_folders.remove(folder);
 				}
-			}
-			else
-			{
-				dlc_folders.remove(folder);
-			}
+            } catch(e) {
+                dlc_folders.remove(folder);
+            }
 		}
-
-		trace('DLC Folder Content: $dlc_folders');
 
 		for (folder in dlc_folders)
 		{
-			trace('Added folder to newlist $folder');
 			newlist.push(folder);
 		}
 		#end
