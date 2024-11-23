@@ -44,7 +44,6 @@ class DLC
 
 			if (isfolder)
 			{
-				trace('$folder is a folder (with something in it)!');
 				if (FileSystem.readDirectory(path).contains('dlc.json'))
 				{
                     try {
@@ -54,19 +53,16 @@ class DLC
                             trace('$folder is a valid DLC');
 
                     } catch(e) {
-                        trace('$folder is not a valid DLC');
                         dlc_folders.remove(folder);
                     }
 				}
 				else
 				{
-					trace('$folder is not a valid DLC');
 					dlc_folders.remove(folder);
 				}
 			}
 			else
 			{
-				trace('$folder is not a folder (with anything in it)!');
 				dlc_folders.remove(folder);
 			}
 		}
