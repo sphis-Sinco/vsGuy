@@ -46,6 +46,7 @@ class DLC
 			{
 				if (FileSystem.readDirectory(path).contains('dlc.json'))
 				{
+                    trace(path+'dlc.json');
                     try {
                         var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
                         trace(dlcfile);
