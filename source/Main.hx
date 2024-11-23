@@ -135,7 +135,7 @@ class Main extends Sprite
 
 		#if DLC_TESTING
 		trace('DLC Testing');
-		game.initalState
+		game.initialState = DLCSelector;
 		#end
 
 		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
