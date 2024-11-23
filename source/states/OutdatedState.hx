@@ -27,10 +27,10 @@ class OutdatedState extends MusicBeatState
 		guh = "Sup "
 			+ homie
 			+ ", looks like you're running an   \n
-		outdated version of vs Guy plus! ("
+		outdated version of vs Guy plus! (v"
 			+ MainMenuState.modVer
 			+ "),\n
-		please update to "
+		please update to v"
 			+ TitleState.updateVersion
 			+ "!\n
 		Press "
