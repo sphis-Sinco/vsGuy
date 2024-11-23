@@ -130,6 +130,10 @@ class TitleState extends MusicBeatState
 			}
 
 			http.request();
+
+			#if OUTDATED
+			mustUpdate = true;
+			#end
 		}
 		#end
 
