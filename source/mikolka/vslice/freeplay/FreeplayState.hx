@@ -330,7 +330,6 @@ class FreeplayState extends MusicBeatSubstate
 			this.persistentDraw = true;
 
 			openSubState(stickerSubState);
-			stickerSubState.degenStickers();
 		}
 
 		#if discord_rpc
