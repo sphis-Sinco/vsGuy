@@ -701,6 +701,11 @@ class PlayState extends MusicBeatState
 		var metadata = FreeplayMeta.getMeta(SONG.song);
 		if (metadata.dialogue)
 		{
+			if (!isStoryMode && !metadata.freeplayDialogue) {
+				startAndEnd();
+				return;
+			}
+
 			var dialogueFile = 'dialogue';
 			var music = 'breakfast';
 
