@@ -17,7 +17,8 @@ class DLCSelector extends MusicBeatState
 
 		var title:FlxText = new FlxText();
 		title.text = "Dlc Testing State";
-		title.screenCenter();
+		title.size = 32;
+		title.screenCenter(X);
 		add(title);
 
 		super.create();
