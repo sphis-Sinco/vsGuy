@@ -1,5 +1,6 @@
 package states.editors;
 
+import objects.MenuBG;
 import objects.Note;
 import objects.NoteSplash;
 import objects.StrumNote;
@@ -45,10 +46,13 @@ class NoteSplashEditorState extends MusicBeatState
         DiscordClient.changePresence('Note Splash Editor');
         #end
 
-        var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+        var bg:MenuBG = new MenuBG('menuDesat');
 		bg.scrollFactor.set();
+		bg.scale.set(1,1);
+		bg.updateHitbox();
+		bg.screenCenter();
 		bg.color = 0xFF505050;
-		add(bg);      
+		add(bg);
 
         UI = new PsychUIBox(0, 0, 0, 0, ["Animation"]);
         UI.canMove = UI.canMinimize = false;

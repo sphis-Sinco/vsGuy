@@ -48,6 +48,8 @@ class MasterEditorMenu extends MusicBeatState
 		var bg:MenuBG = new MenuBG('menuDesat');
 		bg.scrollFactor.set();
 		bg.scale.set(1,1);
+		bg.updateHitbox();
+		bg.screenCenter();
 		bg.color = 0xFF4CAF50;
 		add(bg);
 

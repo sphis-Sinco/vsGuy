@@ -1,5 +1,7 @@
 package options;
 
+import objects.MenuBG;
+import objects.MenuBG;
 import states.TitleState;
 import states.MainMenuState;
 import backend.StageData;
@@ -88,11 +90,10 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
+		var bg:MenuBG = new MenuBG('menuDesat');
 		bg.color = 0xFFea71fd;
+		bg.scale.set(1,1);
 		bg.updateHitbox();
-
 		bg.screenCenter();
 		add(bg);
 

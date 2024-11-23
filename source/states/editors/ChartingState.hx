@@ -247,6 +247,8 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		bg = new MenuBG('menuDesat');
 		bg.scrollFactor.set();
 		bg.scale.set(1,1);
+		bg.updateHitbox();
+		bg.screenCenter();
 		add(bg);
 
 		if(chartEditorSave.data.autoSave != null) autoSaveCap = chartEditorSave.data.autoSave;

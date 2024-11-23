@@ -28,6 +28,8 @@ class CreditsState extends MusicBeatState
 		persistentUpdate = true;
 		bg = new MenuBG('menuDesat');
 		bg.scale.set(1,1);
+		bg.updateHitbox();
+		bg.screenCenter();
 		add(bg);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
