@@ -371,17 +371,6 @@ class FreeplayState extends MusicBeatSubstate
 					diffIdsTotalModBinds.set(difficulty, sngCard.folder);
 			}
 		}
-		// TODO put the method
-		//
-
-		// LOAD MUSIC
-
-		// LOAD CHARACTERS
-
-		///trace(FlxG.width);
-		// trace(FlxG.camera.zoom);
-		// trace(FlxG.camera.initialZoom);
-		// trace(FlxCamera.defaultZoom);
 
 		if (backingCard != null)
 		{
