@@ -12,6 +12,6 @@
   "stickerPacks": {
     "bf-gf": ["bf", "gf"],
     "parents": ["dad", "mom"],
-    "all": ["bf", "gf", "dad", "mom", "monster", "pico"]
+    "all": ["bf", "gf", "dad"]
   }
 }
