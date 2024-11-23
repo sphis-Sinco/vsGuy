@@ -27,7 +27,7 @@ class StickerSubState extends MusicBeatSubstate
 {
   var targetState:StickerSubState->FlxState;
 
-  public function new(?oldStickers:Array<StickerSprite>, ?targetState:StickerSubState->FlxState):Void
+  public function new(?oldStickers:Dynamic, ?targetState:StickerSubState->FlxState):Void
   {
     super();
 
