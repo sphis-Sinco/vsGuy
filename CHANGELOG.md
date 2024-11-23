@@ -1,6 +1,8 @@
 # vs Guy plus
-## v1.4 - November 23rd 2024
+## v1.4 [DLC Pack 1] - November 23rd 2024
 ### Added
+- JERY DLC PACK
+  - New Songs: Jerith and Overconfidence
 - `source/objects/MenuBG.hx` - a QOL file to make adding menu backgrounds easier (this is now used in any menu (i remembered) that has a menuBG)
 - Optional Metadata Arguments for songs
   - `dialogue` (Bool (default: false)) - controls if you have dialogue or not
