@@ -11,7 +11,7 @@ class DLC
 {
 	public static var dlcs:Array<String> = [];
 
-	public static var DLC_FOLDER:String = 'dlcs';
+	public static var DLC_FOLDER:String = './dlcs';
     public static var DLC_APIVER:String = '0.0.1';
 
 	public static function updateDLCList(?checks:Int = 2)
@@ -20,7 +20,7 @@ class DLC
         var loops:Int = 0;
 
 		#if desktop
-		var dlc_folders:Array<String> = FileSystem.readDirectory('$DLC_FOLDER/');
+		var dlc_folders:Array<String> = FileSystem.readDirectory('$DLC_FOLDER');
 
 		for (file in dlc_folders)
 		{
@@ -37,12 +37,12 @@ class DLC
             for (i in 0...dlc_folders.length)
             {
                 var folder = dlc_folders[i];
-                var path:String = '$DLC_FOLDER/$folder/';
+                var path:String = '$DLC_FOLDER/$folder';
 
                 try {
                     var dir = FileSystem.readDirectory(path);
                     
-                    var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
+                    var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'/dlc.json'));
 
                     if (dlcfile.api_version != DLC_APIVER) {
                         dlc_folders.remove(folder);
