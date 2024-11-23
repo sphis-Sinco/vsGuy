@@ -10,10 +10,24 @@ class PsliceRegistry {
     }
     function readJson(id:String):Dynamic {
         var char_path = FunkinPath.getPath('$regPath/$id.json');
-        if(!FileSystem.exists(char_path)) return null;
-        var text = File.getContent(char_path);
 
-        return Json.parse(text);// new PlayerData();
+        if(!FileSystem.exists(char_path)) return null;
+
+        var text = File.getContent(char_path);
+        var results = Json.parse(text);
+
+        #if MODS_ALLOWED
+        if (results == null)
+        {
+            char_path = Paths.modsJson('$regPath/$id');
+            if(!FileSystem.exists(char_path)) return null;
+
+            text = File.getContent(char_path);
+            results = Json.parse(text);
+        }
+        #end
+
+        return results;// new PlayerData();
     }
     function listJsons():Array<String> {
         var char_path = FunkinPath.getPath(regPath);
