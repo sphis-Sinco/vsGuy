@@ -1,5 +1,7 @@
 package;
 
+import sinco.vsguy.testing.dlc.DLCSelector;
+import flixel.util.typeLimit.NextState.InitialState;
 import openfl.display.FPS;
 import mikolka.vslice.components.MemoryCounter;
 import flixel.graphics.FlxGraphic;
@@ -130,7 +132,19 @@ class Main extends Sprite
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
 		
 		registery.hasNewCharacter(); // init it
-		var gameObject = new FlxGame(game.width, game.height, #if COPYSTATE_ALLOWED !CopyState.checkExistingFiles() ? CopyState : #end game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
+
+		var initState:InitialState;
+		#if COPYSTATE_ALLOWED
+		var copyStateCheck = !CopyState.checkExistingFiles();
+		#end
+
+		#if DLC_TESTING
+		initState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : DLCSelector;
+		#else
+		initState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
+		#end
+
+		var gameObject = new FlxGame(game.width, game.height, initState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
 		// FlxG.game._customSoundTray wants just the class, it calls new from
     	// create() in there, which gets called when it's added to stage
     	// which is why it needs to be added before addChild(game) here

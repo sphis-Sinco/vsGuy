@@ -1,6 +1,6 @@
 package sinco.vsguy.testing.dlc;
 
-class Selector extends MusicBeatState
+class DLCSelector extends MusicBeatState
 {
 	override public function create()
 	{
