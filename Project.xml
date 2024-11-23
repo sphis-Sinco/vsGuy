@@ -23,7 +23,7 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 	
 	<!-- ________________________ VS GUY + CUSTOMIZATION ________________________ -->
 
-	<define name="DLC_TESTING" if="dlc" />
+	<define name="DLC_TESTING" if="debug" />
 
 	<!-- ______________________ PSYCH ENGINE CUSTOMIZATION ______________________ -->
 

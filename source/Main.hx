@@ -133,16 +133,14 @@ class Main extends Sprite
 		
 		registery.hasNewCharacter(); // init it
 
-		var initState:InitialState;
-		#if COPYSTATE_ALLOWED
-		var copyStateCheck = !CopyState.checkExistingFiles();
-		#end
-
 		#if DLC_TESTING
 		trace('DLC Testing');
-		initState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end DLCSelector;
-		#else
-		initState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
+		game.initalState
+		#end
+
+		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
+		#if COPYSTATE_ALLOWED
+		var copyStateCheck = !CopyState.checkExistingFiles();
 		#end
 
 		var gameObject = new FlxGame(game.width, game.height, initState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
