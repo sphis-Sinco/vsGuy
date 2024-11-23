@@ -45,8 +45,6 @@ class DLC
 
                 if (dlcfile.api_version == DLC_APIVER) {
                     valid = true;
-                    trace(folder);
-                    trace(dlcfile);
                 }
             } catch(e)
             {
