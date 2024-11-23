@@ -50,6 +50,7 @@ class DLC
                 }
             } catch(e)
             {
+                valid = false;
                 trace(e);
             }
 
