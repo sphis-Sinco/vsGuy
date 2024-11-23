@@ -26,13 +26,13 @@ class DLC
 			if (file.contains('.') || file == 'readme.text')
 			{
 				dlc_folders.remove(file);
-				trace('Removed file from dlc_folders: $file');
 			}
 		}
 
 		for (folder in dlc_folders)
 		{
 			var path:String = '$DLC_FOLDER/$folder/';
+
 			try {
                 if (FileSystem.readDirectory(path).contains('dlc.json'))
 				{
@@ -53,6 +53,7 @@ class DLC
 					dlc_folders.remove(folder);
 				}
             } catch(e) {
+                trace(path+'\n$e');
                 dlc_folders.remove(folder);
             }
 		}
