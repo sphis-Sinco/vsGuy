@@ -27,6 +27,7 @@ enum abstract ScoringSystem(String)
 	 * Points Based On Timing scoring system, version 1
 	 * Scores the player based on the offset based on timing, represented by a sigmoid function.
 	 */
+	// Point bot 1
 	var PBOT1;
 }
 
