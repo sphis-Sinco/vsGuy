@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ratingsPopin-censored.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Categories Censored0000" x="4" y="4" width="448" height="36" frameX="0" frameY="-32" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0001" x="460" y="4" width="304" height="83" frameX="-204" frameY="0" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0002" x="772" y="4" width="448" height="128" frameX="-60" frameY="0" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0003" x="1228" y="4" width="368" height="178" frameX="-143" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0004" x="1604" y="4" width="379" height="232" frameX="-132" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0005" x="4" y="244" width="355" height="287" frameX="-154" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0006" x="367" y="244" width="373" height="342" frameX="-136" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0007" x="748" y="244" width="408" height="396" frameX="-100" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0008" x="1164" y="244" width="328" height="411" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0009" x="1500" y="244" width="328" height="411" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0010" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0011" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0012" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0013" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0014" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0015" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0016" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0017" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0018" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0019" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0020" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0021" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0022" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0023" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0024" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0025" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0026" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0027" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0028" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0029" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0030" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0031" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0032" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+	<SubTexture name="Categories Censored0033" x="4" y="663" width="328" height="405" frameX="-180" frameY="-7" frameWidth="511" frameHeight="418"/>
+</TextureAtlas>

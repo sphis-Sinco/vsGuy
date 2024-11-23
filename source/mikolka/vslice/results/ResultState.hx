@@ -122,7 +122,11 @@ class ResultState extends MusicBeatSubState
 
     resultsAnim = FunkinSprite.createSparrow(-200, -10, "resultScreen/results");
 
-    ratingsPopin = FunkinSprite.createSparrow(-135, 135, "resultScreen/ratingsPopin");
+    var poppedRates = "resultScreen/ratingsPopin";
+    if (ClientPrefs.data.naughtyness)
+      poppedRates = "resultScreen/ratingsPopin-censored";
+
+    ratingsPopin = FunkinSprite.createSparrow(-135, 135, poppedRates);
 
     scorePopin = FunkinSprite.createSparrow(-180, 515, "resultScreen/scorePopin");
 
@@ -330,7 +334,11 @@ class ResultState extends MusicBeatSubState
       resultsAnim.animation.play("result");
     });
 
-    ratingsPopin.animation.addByPrefix("idle", "Categories", 24, false);
+    var popinRates = "Categories";
+    if (ClientPrefs.data.naughtyness)
+      popinRates = "Categorites Censored";
+
+    ratingsPopin.animation.addByPrefix("idle", popinRates, 24, false);
     ratingsPopin.visible = false;
     ratingsPopin.zIndex = 1200;
     add(ratingsPopin);
@@ -707,33 +715,6 @@ class ResultState extends MusicBeatSubState
 
   override function update(elapsed:Float):Void
   {
-    // if(FlxG.keys.justPressed.R){
-    //   FlxG.switchState(() -> new funkin.play.ResultState(
-    //   {
-    //     storyMode: false,
-    //     title: "Cum Song Erect by Kawai Sprite",
-    //     songId: "cum",
-    //     difficultyId: "nightmare",
-    //     isNewHighscore: true,
-    //     scoreData:
-    //       {
-    //         score: 1_234_567,
-    //         tallies:
-    //           {
-    //             sick: 200,
-    //             good: 0,
-    //             bad: 0,
-    //             shit: 0,
-    //             missed: 0,
-    //             combo: 0,
-    //             maxCombo: 69,
-    //             totalNotesHit: 200,
-    //             totalNotes: 200 // 0,
-    //           }
-    //       },
-    //   }));
-    // }
-
     // maskShaderSongName.swagSprX = songName.x; //! monitor this
     maskShaderDifficulty.swagSprX = difficulty.x;
 
