@@ -1,10 +1,18 @@
 package sinco.vsguy.modding;
 
+import haxe.Json;
+import lime.utils.Assets;
+
+typedef DLCMeta = {
+    public var api_version:String;
+}
+
 class DLC
 {
 	public static var dlcs:Array<String> = [];
 
 	public static var DLC_FOLDER:String = './dlcs';
+    public static var DLC_APIVER:String = '0.0.1';
 
 	public static function updateDLCList()
 	{
@@ -39,7 +47,16 @@ class DLC
 				trace('$folder is a folder (with something in it)!');
 				if (FileSystem.readDirectory(path).contains('dlc.json'))
 				{
-					trace('$folder is a valid DLC');
+                    try {
+                        var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
+
+                        if (dlcfile.api_version == DLC_APIVER)
+                            trace('$folder is a valid DLC');
+
+                    } catch(e) {
+                        trace('$folder is not a valid DLC');
+                        dlc_folders.remove(folder);
+                    }
 				}
 				else
 				{
