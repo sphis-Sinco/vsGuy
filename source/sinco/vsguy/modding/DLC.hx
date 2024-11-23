@@ -21,10 +21,11 @@ class DLC
 
 		#if desktop
 		var dlc_folders:Array<String> = FileSystem.readDirectory('$DLC_FOLDER');
+        trace(dlc_folders);
 
 		for (file in dlc_folders)
 		{
-			if (file.contains('.') || file == 'readme.txt')
+			if (Assets.getText('$DLC_FOLDER/$file') != null)
 			{
 				dlc_folders.remove(file);
 			}
