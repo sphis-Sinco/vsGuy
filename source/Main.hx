@@ -132,16 +132,12 @@ class Main extends Sprite
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
 		
 		registery.hasNewCharacter(); // init it
-
-		#if DLC_TESTING
-		trace('DLC Testing');
-		// game.initialState = DLCSelector;
-		#end
-
-		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
+		
 		#if COPYSTATE_ALLOWED
 		var copyStateCheck = !CopyState.checkExistingFiles();
 		#end
+
+		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
 
 		var gameObject = new FlxGame(game.width, game.height, DLCSelector, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
 		// FlxG.game._customSoundTray wants just the class, it calls new from
