@@ -56,10 +56,12 @@ class OutdatedState extends MusicBeatState
 			{
 				leftState = true;
 				CoolUtil.browserLoad("https://github.com/sphis-Sinco/vsGuyPlus/releases");
+				warnText.text += "\nThere you go!";
 			}
 			else if (controls.BACK)
 			{
 				leftState = true;
+				warnText.text += "\nOkay...";
 			}
 
 			if (leftState)
