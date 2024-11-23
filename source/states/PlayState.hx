@@ -291,7 +291,7 @@ class PlayState extends MusicBeatState
 		nextReloadAll = false;
 
 		startCallback = diaCheck;
-		endCallback = endSong;
+		endCallback = diaCheck;
 
 		// for lua
 		instance = this;
@@ -2608,8 +2608,6 @@ class PlayState extends MusicBeatState
 				ClientPrefs.data.playedSongs.push(playedSong);
 				trace('Newly played song: $playedSong');
 			}
-
-			diaCheck();
 
 			if (isStoryMode)
 			{
