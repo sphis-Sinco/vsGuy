@@ -30,6 +30,7 @@ class DLC
 		}
 
         // trace(dlc_folders);
+        dlc_folders.push('');
 		
         for (folder in dlc_folders)
 		{
@@ -58,8 +59,11 @@ class DLC
 
 		for (folder in dlc_folders)
 		{
+			var path:String = '$DLC_FOLDER/$folder/';
+
 			if (!folder.contains('.') || folder != 'readme.txt')
                 {
+                   if (FileSystem.isDirectory(path))
                     newlist.push(folder);
                 }
 		}
