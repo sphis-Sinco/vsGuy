@@ -23,12 +23,13 @@ class DLC
 
 		for (file in dlc_folders)
 		{
-			if (file.contains('.') || file == 'readme.text')
+			if (file.contains('.') || file == 'readme.txt')
 			{
 				dlc_folders.remove(file);
 			}
 		}
 
+        trace(dlc_folders);
 		for (folder in dlc_folders)
 		{
             var valid:Bool = false;
@@ -36,23 +37,23 @@ class DLC
 
 			try {
                 var dir = FileSystem.readDirectory(path);
-                if (dir.contains('dlc.json'))
-				{
-                    try {
-                        var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
+                
+                var dlcfile:DLCMeta = Json.parse(Assets.getText(path+'dlc.json'));
 
-                        if (dlcfile.api_version == DLC_APIVER) {
-                            valid = true;
-                            trace('$folder is a valid DLC');
-                        }
-
-                    } catch(e) {}
-				}
-            } catch(e) {}
+                if (dlcfile.api_version == DLC_APIVER) {
+                    valid = true;
+                    trace('$folder is a valid DLC');
+                }
+            } catch(e)
+            {
+                trace(e);
+            }
 
             if (!valid)
 				dlc_folders.remove(folder);
 		}
+        
+        trace(dlc_folders);
 
 		for (folder in dlc_folders)
 		{
