@@ -25,10 +25,15 @@ class DLC
 
 		for (file in dlc_folders)
 		{
-			if (Assets.getText('$DLC_FOLDER/$file') != null)
-			{
-				dlc_folders.remove(file);
-			}
+			try {
+                if (Assets.getText('$DLC_FOLDER/$file') != null)
+                {
+                    dlc_folders.remove(file);
+                }
+            } catch(e) {
+                trace(e);
+            }
+
 		}
 
         // trace(dlc_folders);
