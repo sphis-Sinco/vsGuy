@@ -1,5 +1,6 @@
 package states;
 
+import objects.MenuBG;
 import backend.WeekData;
 import backend.Mods;
 import flixel.FlxBasic;
@@ -14,7 +15,7 @@ import lime.utils.Assets;
 
 class ModsMenuState extends MusicBeatState
 {
-	var bg:FlxSprite;
+	var bg:MenuBG;
 	var icon:FlxSprite;
 	var modName:Alphabet;
 	var modDesc:FlxText;
@@ -71,11 +72,9 @@ class ModsMenuState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new MenuBG('menuDesat');
 		bg.color = 0xFF665AFF;
-		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
-		bg.screenCenter();
 
 		bgList = FlxSpriteUtil.drawRoundRect(new FlxSprite(40, 40).makeGraphic(340, 440, FlxColor.TRANSPARENT), 0, 0, 340, 440, 15, 15, FlxColor.BLACK);
 		bgList.alpha = 0.6;
