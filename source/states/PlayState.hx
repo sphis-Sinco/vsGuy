@@ -1709,6 +1709,7 @@ class PlayState extends MusicBeatState
 			FlxTween.globalManager.forEach(function(twn:FlxTween) if(!twn.finished) twn.active = true);
 
 			paused = false;
+			canPause = true;
 			callOnScripts('onResume');
 			resetRPC(startTimer != null && startTimer.finished);
 		}
@@ -2053,6 +2054,7 @@ class PlayState extends MusicBeatState
 		persistentUpdate = false;
 		chartingMode = true;
 		paused = true;
+		canPause = false;
 
 		if(FlxG.sound.music != null)
 			FlxG.sound.music.stop();
@@ -2075,6 +2077,7 @@ class PlayState extends MusicBeatState
 		FlxG.camera.followLerp = 0;
 		persistentUpdate = false;
 		paused = true;
+		canPause = false;
 
 		if(FlxG.sound.music != null)
 			FlxG.sound.music.stop();
