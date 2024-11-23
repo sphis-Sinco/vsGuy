@@ -8,6 +8,7 @@ class DLCSelector extends MusicBeatState
 	{
 		trace('Old Mod System: '+Mods.parseList().all);
 
+		DLC.updateDLCList();
 		trace('New DLC System: ' + DLC.dlcs);
 
 		#if DISCORD_ALLOWED
