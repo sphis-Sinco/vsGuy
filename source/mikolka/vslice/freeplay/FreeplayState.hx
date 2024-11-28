@@ -55,6 +55,8 @@ using mikolka.funkin.utils.ArrayTools;
  */
 typedef FreeplayStateParams =
 {
+	?resultsLesserRank:Bool,
+
 	?fromCharSelect:Bool,
 
 	?fromResults:FromResultsParams,
@@ -2210,10 +2212,12 @@ class FreeplayState extends MusicBeatSubstate
 	public static function build(?params:FreeplayStateParams, ?stickers:StickerSubState):MusicBeatState
 	{
 		var result:MainMenuState;
-		if (params?.fromResults?.playRankAnim)
+
+		if (params?.fromResults?.playRankAnim || params.resultsLesserRank)
 			result = new MainMenuState(true);
 		else
 			result = new MainMenuState(false);
+
 		result.openSubState(new FreeplayState(params, stickers));
 		result.persistentUpdate = false;
 		result.persistentDraw = true;

@@ -801,7 +801,9 @@ class ResultState extends MusicBeatSubState
         else
         {
           controls.isInSubstate = false;
-          targetState = FreeplayState.build(null);
+          targetState = FreeplayState.build({
+            resultsLesserRank: true
+          });
         }
       }
 
