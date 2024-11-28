@@ -1909,7 +1909,7 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 					&& fullPath.contains('/images/'))
 				{
 					loadSprite(fullPath.substring(fullPath.indexOf('/images/') + '/images/'.length, fullPath.lastIndexOf('.')));
-					// trace('Inside Psych Engine Folder');
+					trace('Inside Psych Engine Folder');
 					return;
 				}
 			}

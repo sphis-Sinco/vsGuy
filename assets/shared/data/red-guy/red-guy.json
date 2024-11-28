@@ -1,6 +1,6 @@
 {
 	"speed": 2,
-	"stage": "stage",
+	"stage": "redroom",
 	"player1": "bf",
 	"player2": "redguy",
 	"events": [
