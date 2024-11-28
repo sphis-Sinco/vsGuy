@@ -1,0 +1,27 @@
+{
+	"songs": [
+		[
+			"red guy",
+			"redguy",
+			[
+				255,
+				113,
+				113
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "",
+	"weekCharacters": [
+		"redguy",
+		"bf",
+		"gf"
+	],
+	"storyName": "Red man",
+	"weekName": "week2",
+	"hideStoryMode": false,
+	"weekBefore": "week1",
+	"startUnlocked": true
+}
