@@ -8,7 +8,6 @@
 ### Removed
 - The song's Mod name from the Results Screen
 - V from `gitVersion.txt`
-- F1 Debug Keybind (caused issues)
 ### Fixed
 - Black screen bug after results screen on freeplay
 
