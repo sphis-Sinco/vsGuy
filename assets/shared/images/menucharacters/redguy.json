@@ -1,0 +1,8 @@
+{
+	"idle_anim": "redstory",
+	"confirm_anim": "redstory",
+	"antialiasing": true,
+	"position": [80, 50],
+	"scale": 0.8,
+	"image": "Menu_RedGuy"
+}
