@@ -159,7 +159,7 @@ class StickerSubState extends MusicBeatSubstate
 
     trace("Collecting stickers...");
     trace("Current mod: "+Mods.currentModDirectory);
-    var stickers:Null<StickerInfo> = null;
+    var stickers:StickerInfo;
 
     // var globalMods = Mods.getGlobalMods().map(s -> "mods/"+s);
     // globalMods.pushUnique("mods/"+Mods.currentModDirectory);

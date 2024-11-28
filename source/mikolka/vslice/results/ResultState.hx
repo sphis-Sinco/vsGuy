@@ -776,6 +776,7 @@ class ResultState extends MusicBeatSubState
 
         if (ScoringRank.getValue(rank) == ScoringRank.getValue(params.prevScoreRank))
           rankanim = false;
+        trace(rankanim);
         
         if (rankanim) //? refactor this??? // okay
         {
