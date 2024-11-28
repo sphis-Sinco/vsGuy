@@ -2819,7 +2819,7 @@ class PlayState extends MusicBeatState
 	  persistentUpdate = false;
 
 	  var modManifest = Mods.getPack();
-	  var fpText = modManifest != null ? '${curSong} from ${modManifest.name}' : curSong;
+	  var fpText = curSong;
 	  //Mods.loadTopMod();
 
 	  vocals.stop();
