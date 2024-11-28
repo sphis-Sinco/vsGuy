@@ -768,7 +768,7 @@ class ResultState extends MusicBeatSubState
       if (params.storyMode)
       {
           shouldUseSubstate = true;
-          targetState = new StickerSubState(null, (sticker) -> new StoryMenuState(sticker));
+          targetState = new StoryMenuState();
       }
       else
       {
@@ -801,7 +801,7 @@ class ResultState extends MusicBeatSubState
         else
         {
           controls.isInSubstate = false;
-          targetState = new StickerSubState(null, (sticker) -> FreeplayState.build(null, sticker));
+          targetState = FreeplayState.build(null);
         }
       }
 
