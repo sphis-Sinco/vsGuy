@@ -801,6 +801,7 @@ class ResultState extends MusicBeatSubState
         else
         {
           controls.isInSubstate = false;
+          controls.isInSubstate = FlxTransitionableState.skipNextTransOut = true;
           targetState = FreeplayState.build({
             resultsLesserRank: true
           });
