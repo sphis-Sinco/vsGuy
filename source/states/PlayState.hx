@@ -1965,13 +1965,6 @@ class PlayState extends MusicBeatState
 
 		setOnScripts('botPlay', cpuControlled);
 		callOnScripts('onUpdatePost', [elapsed]);
-
-		#if debug
-		if(FlxG.keys.justPressed.F1) { 
-			KillNotes();
-			endSong();
-		}
-		#end
 	}
 
 	// Health icon updaters
