@@ -1,5 +1,12 @@
 # vs Guy plus
-## v1.5 [Red Pack] - December 10th 2024
+## v1.5 [Red Pack] - November 30th 2024
+### Added
+- WEEK 2: RED MAN
+  - 1 New Song: Red Guy
+### Changed
+- Sinco Credit Icon
+### Removed
+- The song's Mod name from the Results Screen
 
 ## v1.4 [DLC Pack 1] - November 23rd 2024
 ### Added
