@@ -1970,6 +1970,7 @@ class PlayState extends MusicBeatState
 		#if debug
 		if(FlxG.keys.justPressed.F1) { 
 			KillNotes();
+			FlxG.sound.music.stop();
 			endSong();
 		}
 		#end
@@ -2613,6 +2614,8 @@ class PlayState extends MusicBeatState
 
 			var playedSong = curSong.toLowerCase().replace(' ', '-');
 
+			trace(playedSong);
+			trace(ClientPrefs.data.playedSongs);
 			if (!ClientPrefs.data.playedSongs.contains(playedSong))
 			{
 				ClientPrefs.data.playedSongs.push(playedSong);
