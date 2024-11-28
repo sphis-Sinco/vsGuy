@@ -4,6 +4,29 @@
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="down0000" x="4" y="4" width="415" height="343"/>
 	<SubTexture name="drinking0000" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0001" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0002" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0003" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0004" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0005" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0006" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0007" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0008" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0009" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0010" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0011" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0012" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0013" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0014" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0015" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0016" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0017" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0018" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0019" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0020" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0021" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0022" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="drinking0023" x="427" y="4" width="302" height="420"/>
 	<SubTexture name="idle0000" x="737" y="4" width="206" height="421"/>
 	<SubTexture name="left0000" x="951" y="4" width="379" height="396"/>
 	<SubTexture name="right0000" x="1338" y="4" width="423" height="332"/>
