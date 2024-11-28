@@ -2,7 +2,7 @@
 ## v1.5 [Red Pack] - November 30th 2024
 ### Added
 - WEEK 2: RED MAN
-  - 1 New Song: Red Guy
+  - 2 New Songs: Red Guy and Waste
 ### Changed
 - Sinco Credit Icon
 ### Removed

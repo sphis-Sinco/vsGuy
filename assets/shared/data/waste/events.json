@@ -1,0 +1,191 @@
+{
+	"events": [
+		[
+			24000,
+			[
+				["Change Character", "BF", "bf-annoyed"]
+			]
+		],
+		[
+			45000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			48000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			49500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			52500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			54000,
+			[
+				["Change Character", "BF", "bf"]
+			]
+		],
+		[
+			57000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			61500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			62250,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			63000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			63750,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			64500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			65250,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			66000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			66750,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			67500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			68250,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			69000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			69750,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			70500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			71250,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			72000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			72750,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			73500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			74250,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			75000,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			75750,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			78000,
+			[
+				["Change Character", "BF", "bf-annoyed"]
+			]
+		],
+		[
+			91500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			92062.5,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			92906.25,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}
