@@ -8,6 +8,7 @@
 ### Removed
 - The song's Mod name from the Results Screen
 - V from `gitVersion.txt`
+- Results Screen StickerSubState
 ### Fixed
 - Black screen bug after results screen on freeplay
 
