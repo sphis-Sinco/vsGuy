@@ -1,0 +1,63 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [265, -20],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [-6, -278],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [-10, 43],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [-47, -81],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [0, -10],
+			"indices": [],
+			"fps": 24,
+			"anim": "drink",
+			"loop": false,
+			"name": "drinking"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/redguy",
+	"position": [130, 100],
+	"healthicon": "redguy",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [-160, 70],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

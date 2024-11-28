@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="redguy.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="4" y="4" width="415" height="343"/>
+	<SubTexture name="drinking0000" x="427" y="4" width="302" height="420"/>
+	<SubTexture name="idle0000" x="737" y="4" width="206" height="421"/>
+	<SubTexture name="left0000" x="951" y="4" width="379" height="396"/>
+	<SubTexture name="right0000" x="1338" y="4" width="423" height="332"/>
+	<SubTexture name="up0000" x="1769" y="4" width="230" height="444"/>
+</TextureAtlas>
