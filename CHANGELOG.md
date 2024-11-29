@@ -5,6 +5,8 @@
   - 2 New Songs: Red Guy and Waste
 - Custom Mod Logo
 - Bonky credit (new team member)
+- New Optional Metadata Arguments for songs
+  - `endDialogue` (Bool (default: false)) - controls if you have dialogue at the end of your song
 ### Changed
 - Sinco Credit Icon
 - Title Logo Position (X centered now)
@@ -17,6 +19,7 @@
 ### Fixed
 - Black screen bug after results screen on freeplay
 - Random Character Select crash (it made 2 freeplay states)
+- Guy having the beginning dialogue repeat for the end
 
 ## v1.4 [DLC Pack 1] - November 23rd 2024
 ### Added

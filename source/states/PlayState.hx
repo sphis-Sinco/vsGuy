@@ -699,7 +699,7 @@ class PlayState extends MusicBeatState
 	public function diaCheck()
 	{
 		var metadata = FreeplayMeta.getMeta(SONG.song);
-		if (metadata.dialogue)
+		if (metadata.dialogue && !endingSong || metadata.endDialogue && endingSong)
 		{
 			if (!isStoryMode && !metadata.freeplayDialogue) {
 				startAndEnd();

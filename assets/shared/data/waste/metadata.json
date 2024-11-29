@@ -9,5 +9,6 @@
 	"censoredDialogue": false,
 	"freeplayDialogue": false,
 	"dialogueFile": "dialogue",
-	"dialogueMusic": "breakfast"
+	"dialogueMusic": "breakfast",
+	"endDialogue":false
 }

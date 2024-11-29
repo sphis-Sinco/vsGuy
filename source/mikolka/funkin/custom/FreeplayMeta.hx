@@ -17,6 +17,7 @@ class FreeplayMetaJSON {
     public var dialogue:Bool = false;
     public var censoredDialogue:Bool = false; // naughtyness check
     public var freeplayDialogue:Bool = false;
+    public var endDialogue:Bool = false;
     public var dialogueFile:String = 'dialogue';
     public var dialogueMusic:String = 'breakfast';
 }
