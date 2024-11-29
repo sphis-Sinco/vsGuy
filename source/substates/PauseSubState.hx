@@ -374,6 +374,8 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.canResync = false;
 					//! not yet
 					//Mods.loadTopMod();
+					
+					FlxG.sound.pause();
 					if (PlayState.isStoryMode)
 						{
 							PlayState.storyPlaylist = [];
@@ -381,7 +383,9 @@ class PauseSubState extends MusicBeatSubstate
 						}
 						else
 						{
-							FlxG.switchState(FreeplayState.build(null));
+							FlxG.switchState(FreeplayState.build({
+								resultsLesserRank: true
+							  }));
 						}
 					PlayState.changedDifficulty = false;
 					PlayState.chartingMode = false;
