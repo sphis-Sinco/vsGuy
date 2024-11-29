@@ -1821,16 +1821,15 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.anyJustReleased([LEFT, RIGHT, UP, DOWN]))
 		{
 			if (FlxG.keys.justReleased.LEFT)
-				popupShape.x -= 10;
+				popup.x -= 10;
 			if (FlxG.keys.justReleased.RIGHT)
-				popupShape.x += 10;
+				popup.x += 10;
 			if (FlxG.keys.justReleased.UP)
-				popupShape.y -= 10;
+				popup.y -= 10;
 			if (FlxG.keys.justReleased.DOWN)
-				popupShape.y += 10;
+				popup.y += 10;
 
-			popup.setPosition(popupShape.x + 30, popupShape.y + 60);
-			trace('popupShape pos update: [x:${popupShape.x}, y:${popupShape.y}]');
+			trace('popup pos update: [x:${popup.x}, y:${popup.y}]');
 		}
 
 		if(!inCutscene && !paused && !freezeCamera) {
