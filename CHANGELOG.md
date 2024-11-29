@@ -1,4 +1,6 @@
 # vs Guy plus
+## v1.6 - November 30th 2024
+
 ## v1.5-2 - November 29th 2024
 ### Added
 - New UI elements based on Arrow Funk

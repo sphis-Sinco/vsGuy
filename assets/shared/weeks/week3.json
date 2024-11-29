@@ -1,0 +1,45 @@
+{
+	"storyName": "guy",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"guy",
+			"guy",
+			[
+				106,
+				133,
+				253
+			]
+		],
+		[
+			"vex",
+			"guy",
+			[
+				106,
+				133,
+				253
+			]
+		],
+		[
+			"nerve",
+			"guy",
+			[
+				106,
+				133,
+				253
+			]
+		]
+	],
+	"weekCharacters": [
+		"guy",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "week3"
+}
