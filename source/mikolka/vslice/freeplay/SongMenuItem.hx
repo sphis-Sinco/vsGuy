@@ -105,7 +105,7 @@ class SongMenuItem extends FlxSpriteGroup
     weekType.animation.addByPrefix('WEEKEND', 'WEEKEND text instance 1', 24, false);
 
     weekType.setGraphicSize(Std.int(weekType.width * 0.9));
-    add(weekType);
+    // add(weekType);
 
     newText = new FlxSprite(454, 9);
     newText.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/new');
@@ -225,11 +225,11 @@ class SongMenuItem extends FlxSpriteGroup
     //? Added another week num. I should really make 3 of them
     var weekNumber:CapsuleNumber = new CapsuleNumber(355, 88.5, false, 0);
     var weekNumber2:CapsuleNumber = new CapsuleNumber(365, 88.5, false, 0);
-    add(weekNumber);
-    add(weekNumber2);
+    //add(weekNumber);
+   // add(weekNumber2);
 
-    weekNumbers.push(weekNumber);
-    weekNumbers.push(weekNumber2);
+    //weekNumbers.push(weekNumber);
+    //weekNumbers.push(weekNumber2);
 
     setVisibleGrp(false);
   }

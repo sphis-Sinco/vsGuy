@@ -9,6 +9,7 @@
 - The song's Mod name from the Results Screen
 - V from `gitVersion.txt`
 - Results Screen StickerSubState Transition
+- Freeplay Capsule Week Display Thing
 ### Fixed
 - Black screen bug after results screen on freeplay
 - Random Character Select crash (it made 2 freeplay states)
