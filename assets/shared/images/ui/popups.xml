@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="popups.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="popup-awful0000" x="4" y="4" width="263" height="178"/>
+	<SubTexture name="popup-bad0000" x="275" y="4" width="215" height="168"/>
+	<SubTexture name="popup-good0000" x="498" y="4" width="274" height="231"/>
+	<SubTexture name="popup-miss0000" x="4" y="243" width="291" height="200"/>
+	<SubTexture name="popup-shit0000" x="303" y="243" width="280" height="165"/>
+	<SubTexture name="popup-sick0000" x="591" y="243" width="299" height="244"/>
+</TextureAtlas>
