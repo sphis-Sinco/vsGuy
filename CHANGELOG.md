@@ -1,5 +1,7 @@
 # vs Guy plus
-## v1.5.1 - November 29th 2024
+## v1.5-2 - November 29th 2024
+
+## v1.5-1 - November 29th 2024
 ### Fixed
 - Pause Menu Exit to Button Crash
 - Songs with spaces (like "Red Guy") forever being considered a new song
