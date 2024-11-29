@@ -503,13 +503,14 @@ class PlayState extends MusicBeatState
 		comboGroup = new FlxSpriteGroup();
 		noteGroup = new FlxTypedGroup<FlxBasic>();
 		
-		var freeplay:FreeplayState = new FreeplayState();
-		var character = freeplay.curDJ();
+		var metadata = FreeplayMeta.getMeta(SONG.song);
+		var character = metadata.freeplayCharacter;
 
 		if (character == 'bf')
 			character = 'boyfriend';
 
 		var sheet = Paths.getSparrowAtlas('ui/popupShapes/$character');
+		// TODO: add check for if if the sparrowatlas doesnt exist and default it to bf
 		popupShape = new FlxSprite();
 		popupShape.frames = sheet;
 		
