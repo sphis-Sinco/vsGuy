@@ -612,7 +612,7 @@ class PlayState extends MusicBeatState
 		popupShape.animation.addByPrefix('intro', 'boyfriend popup', 24, false);
 		popupShape.animation.play('idle');
 		
-		popupShape.setPosition(0, 0);
+		popupShape.setPosition(-40, 320);
 		
 		popupShape.visible = true;
 		popupShape.cameras = [camHUD];
@@ -629,7 +629,7 @@ class PlayState extends MusicBeatState
 		popup.animation.addByPrefix('miss','popup-miss');
 		popup.animation.play('sick');
 		
-		popup.setPosition(popupShape.x, popupShape.y);
+		popup.setPosition(popupShape.x + 30, popupShape.y + 60);
 
 		popup.cameras = [camHUD];
 		popup.visible = popupShape.visible;
