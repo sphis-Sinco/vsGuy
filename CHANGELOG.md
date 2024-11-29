@@ -1,4 +1,10 @@
 # vs Guy plus
+## v1.5.1 - November 29th 2024
+### Fixed
+- StickerSubState Crashes (hopefully)
+### Added
+- More specification to the `Reset Save` Option's Description
+
 ## v1.5 [Red Pack] - November 28th 2024
 ### Added
 - WEEK 2: RED MAN

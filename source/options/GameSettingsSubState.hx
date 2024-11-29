@@ -10,7 +10,7 @@ class GameSettingsSubState extends BaseOptionsMenu
 		// todo
 
 		var option:Option = new Option('Reset Save (READ DESC)', //Name
-			'THIS WILL RESET YOUR ENTIRE SAVE.', //Description
+			'THIS WILL RESET YOUR ENTIRE SAVE'+"'S "+'DATA.', //Description
 			'resetSave', //Save data variable name
 			BOOL); //Variable type
 		if (!OptionsState.onPlayState) addOption(option);

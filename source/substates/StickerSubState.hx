@@ -151,7 +151,14 @@ class StickerSubState extends MusicBeatSubstate
   }
 
   function regenStickers():Void
-  {
+  { 
+    switchingState = true;
+
+    FlxTransitionableState.skipNextTransIn = true;
+    FlxTransitionableState.skipNextTransOut = true;
+    FlxG.switchState(targetState(this));
+    
+    /*
     if (grpStickers.members.length > 0)
     {
       grpStickers.clear();
@@ -302,7 +309,6 @@ class StickerSubState extends MusicBeatSubstate
 
               dipshit.addChild(bitmap);
               // FlxG.addChildBelowMouse(dipshit);
-             */
             FlxG.switchState(targetState(this)
             );
           }
@@ -323,6 +329,7 @@ class StickerSubState extends MusicBeatSubstate
     STICKER_SET = "stickers-set-1";
     STICKER_PACK = "all";
     Mods.loadTopMod(); // We won't be messing with mods from here on
+    */
   }
 
   override public function update(elapsed:Float):Void
