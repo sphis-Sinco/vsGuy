@@ -277,6 +277,9 @@ class PlayState extends MusicBeatState
 	public var luaTouchPad:TouchPad;
 	#end
 
+	public var popupShape:FlxSprite;
+	public var popup:FlxSprite;
+
 	override public function create()
 	{
 		this.variables = new JoinedLuaVariables();
@@ -600,6 +603,37 @@ class PlayState extends MusicBeatState
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
 		comboGroup.cameras = [camHUD];
+
+		var sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
+		popupShape = new FlxSprite();
+		popupShape.frames = sheet;
+		
+		popupShape.animation.addByPrefix('idle', 'boyfriend0');
+		popupShape.animation.addByPrefix('intro', 'boyfriend popup', 24, false);
+		popupShape.animation.play('idle');
+		
+		popupShape.setPosition(-100, FlxG.height - (popupShape.height / 1.2));
+		
+		popupShape.visible = true;
+		popupShape.cameras = [camHUD];
+
+		var sheet = Paths.getSparrowAtlas('ui/popups');
+		popup = new FlxSprite();
+		popup.frames = sheet;
+		
+		popup.animation.addByPrefix('sick','popup-sick');
+		popup.animation.addByPrefix('good','popup-good');
+		popup.animation.addByPrefix('bad','popup-bad');
+		popup.animation.addByPrefix('shit','popup-shit');
+		popup.animation.addByPrefix('awful','popup-awful');
+		popup.animation.addByPrefix('miss','popup-miss');
+		popup.animation.play('sick');
+		
+		popup.x = popupShape.x;
+		popup.y = popupShape.y;
+
+		popup.cameras = [camHUD];
+		popup.visible = popupShape.visible;
 
 		startingSong = true;
 
@@ -1245,6 +1279,7 @@ class PlayState extends MusicBeatState
 	// `updateScore = function(miss:Bool = false) { ... }
 	// its like if it was a variable but its just a function!
 	// cool right? -Crow
+	// good to know.
 	public dynamic function updateScore(miss:Bool = false)
 	{
 		var ret:Dynamic = callOnScripts('preUpdateScore', [miss], true);
@@ -1776,6 +1811,8 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		popup.visible = popupShape.visible;
+
 		if(!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 0.04 * cameraSpeed * playbackRate;
 			if(!startingSong && !endingSong && boyfriend.getAnimationName().startsWith('idle')) {
