@@ -3048,12 +3048,13 @@ class PlayState extends MusicBeatState
 			*/
 
 			popup.animation.play(daRating.image);
-			if (popupShape.visible == false){
+			if (!popupShape.visible){
 				popupShape.visible = true;
-				popupShape.animation.play('intro');
-				FlxTween.tween(popup, {alpha: 1}, 0.2 / playbackRate, {
-					startDelay: Conductor.crochet * 0.001 / playbackRate});
 			}
+
+			popupShape.animation.play('intro');
+			FlxTween.tween(popup, {alpha: 1}, 0.2 / playbackRate, {
+				startDelay: Conductor.crochet * 0.001 / playbackRate});
 
 			var daLoop:Int = 0;
 			var xThing:Float = 0;
@@ -3367,10 +3368,10 @@ class PlayState extends MusicBeatState
 
 		var lastCombo:Int = combo;
 		combo = 0;
-		if (popupShape.visible == false) {
+		if (!popupShape.visible) {
 			popupShape.visible = true;
-			popupShape.animation.play('intro');
 		}
+		popupShape.animation.play('intro');
 		popup.animation.play('miss');
 
 		health -= subtract * healthLoss;
