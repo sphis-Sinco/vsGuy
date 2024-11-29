@@ -1,5 +1,7 @@
 package states;
 
+import sinco.vsguy.stages.*;
+
 import mikolka.JoinedLuaVariables;
 import substates.StickerSubState;
 import mikolka.vslice.freeplay.FreeplayState;
@@ -414,6 +416,7 @@ class PlayState extends MusicBeatState
 			case 'limoRideErect': new LimoRideErect();  			//Week 4 Special 
 			case 'mallXmasErect': new MallXmasErect(); 				//Week 5 Special 
 			case 'phillyStreetsErect': new PhillyStreetsErect(); 	//Weekend 1 Special 
+			case 'galaxy': new Galaxy(); 	// Galaxy Stage
 		}
 		if(isPixelStage) introSoundsSuffix = '-pixel';
 

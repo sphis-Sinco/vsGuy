@@ -297,8 +297,10 @@
 			"sectionBeats": 4,
 			"sectionNotes": [
 				[39000, 1, 0],
-				[39187.5, 2, 0],
-				[39375, 0, 0],
+				[39000, 2, 0],
+				[39187.5, 1, 0],
+				[39187.5, 0, 0],
+				[39375, 2, 0],
 				[39562.5, 3, 0],
 				[39750, 2, 0],
 				[39937.5, 1, 0],
@@ -1111,10 +1113,11 @@
 	],
 	"gfVersion": "gf",
 	"offset": 0,
+	"__original_path": "C:/Users/porti/Downloads/FNF/vsGuyPlus/assets/shared/data/galaxy/galaxy.json",
 	"song": "Galaxy",
 	"stage": "galaxy",
 	"needsVoices": true,
 	"format": "psych_v1",
-	"speed": 2,
+	"speed": 2.5,
 	"bpm": 160
 }
