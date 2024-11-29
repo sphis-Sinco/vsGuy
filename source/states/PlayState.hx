@@ -1813,6 +1813,20 @@ class PlayState extends MusicBeatState
 	{
 		popup.visible = popupShape.visible;
 
+		if (FlxG.keys.anyJustReleased([LEFT, RIGHT, UP, DOWN]))
+		{
+			if (FlxG.keys.justReleased.LEFT)
+				popupShape.x -= 10;
+			if (FlxG.keys.justReleased.RIGHT)
+				popupShape.x += 10;
+			if (FlxG.keys.justReleased.UP)
+				popupShape.y -= 10;
+			if (FlxG.keys.justReleased.DOWN)
+				popupShape.y += 10;
+
+			trace('popupShape pos: [x:${popupShape.x}, y:${popupShape.y}]');
+		}
+
 		if(!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 0.04 * cameraSpeed * playbackRate;
 			if(!startingSong && !endingSong && boyfriend.getAnimationName().startsWith('idle')) {
