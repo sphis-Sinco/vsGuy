@@ -506,6 +506,42 @@ class PlayState extends MusicBeatState
 		add(uiGroup);
 		add(noteGroup);
 
+		
+		var sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
+		popupShape = new FlxSprite();
+		popupShape.frames = sheet;
+		
+		popupShape.animation.addByPrefix('idle', 'boyfriend0');
+		popupShape.animation.addByPrefix('intro', 'boyfriend popup', 24, false);
+		popupShape.animation.play('idle');
+		
+		popupShape.scale.set(0.5,0.5);
+		popupShape.setPosition(-40, 320);
+		
+		popupShape.visible = true;
+		popupShape.cameras = [camHUD];
+
+		var sheet = Paths.getSparrowAtlas('ui/popups');
+		popup = new FlxSprite();
+		popup.frames = sheet;
+		
+		popup.animation.addByPrefix('sick','popup-sick');
+		popup.animation.addByPrefix('good','popup-good');
+		popup.animation.addByPrefix('bad','popup-bad');
+		popup.animation.addByPrefix('shit','popup-shit');
+		popup.animation.addByPrefix('awful','popup-awful');
+		popup.animation.addByPrefix('miss','popup-miss');
+		popup.animation.play('sick');
+		
+		popup.scale.set(0.5,0.5);
+		popup.setPosition(popupShape.x + 30, popupShape.y + 60);
+
+		popup.cameras = [camHUD];
+		popup.visible = popupShape.visible;
+
+		add(popupShape);
+		add(popup);
+
 		Conductor.songPosition = -Conductor.crochet * 5 + Conductor.offset;
 		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled');
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
@@ -603,41 +639,6 @@ class PlayState extends MusicBeatState
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
 		comboGroup.cameras = [camHUD];
-
-		var sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
-		popupShape = new FlxSprite();
-		popupShape.frames = sheet;
-		
-		popupShape.animation.addByPrefix('idle', 'boyfriend0');
-		popupShape.animation.addByPrefix('intro', 'boyfriend popup', 24, false);
-		popupShape.animation.play('idle');
-		
-		popupShape.scale.set(0.5,0.5);
-		popupShape.setPosition(-40, 320);
-		
-		popupShape.visible = true;
-		popupShape.cameras = [camHUD];
-
-		var sheet = Paths.getSparrowAtlas('ui/popups');
-		popup = new FlxSprite();
-		popup.frames = sheet;
-		
-		popup.animation.addByPrefix('sick','popup-sick');
-		popup.animation.addByPrefix('good','popup-good');
-		popup.animation.addByPrefix('bad','popup-bad');
-		popup.animation.addByPrefix('shit','popup-shit');
-		popup.animation.addByPrefix('awful','popup-awful');
-		popup.animation.addByPrefix('miss','popup-miss');
-		popup.animation.play('sick');
-		
-		popup.scale.set(0.5,0.5);
-		popup.setPosition(popupShape.x + 30, popupShape.y + 60);
-
-		popup.cameras = [camHUD];
-		popup.visible = popupShape.visible;
-
-		add(popupShape);
-		add(popup);
 
 		startingSong = true;
 
