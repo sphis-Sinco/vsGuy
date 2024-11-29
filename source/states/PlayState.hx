@@ -3047,12 +3047,13 @@ class PlayState extends MusicBeatState
 			rating.updateHitbox();
 			*/
 
-			
+			popup.animation.play(daRating.image);
 			if (popupShape.visible == false){
 				popupShape.visible = true;
 				popupShape.animation.play('intro');
+				FlxTween.tween(popup, {alpha: 1}, 0.2 / playbackRate, {
+					startDelay: Conductor.crochet * 0.001 / playbackRate});
 			}
-			popup.animation.play(daRating.image);
 
 			var daLoop:Int = 0;
 			var xThing:Float = 0;
@@ -3094,7 +3095,7 @@ class PlayState extends MusicBeatState
 					xThing = numScore.x;
 			}
 			
-			FlxTween.tween(rating, {alpha: 0}, 0.2 / playbackRate, {
+			FlxTween.tween(popup, {alpha: 0}, 0.2 / playbackRate, {
 				startDelay: Conductor.crochet * 0.001 / playbackRate,
 				onComplete: function(twn:FlxTween) {
 					popupShape.animation.play('intro', false, true);
@@ -3377,8 +3378,6 @@ class PlayState extends MusicBeatState
 		if(!endingSong) songMisses++;
 		totalPlayed++;
 		RecalculateRating(true);
-
-		popUpScore();
 
 		// play character anims
 		var char:Character = boyfriend;
