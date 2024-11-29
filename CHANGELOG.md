@@ -1,15 +1,18 @@
 # vs Guy plus
-## v1.5 [Red Pack] - November 30th 2024
+## v1.5 [Red Pack] - November 28th 2024
 ### Added
 - WEEK 2: RED MAN
   - 2 New Songs: Red Guy and Waste
+- Custom Mod Logo
 ### Changed
 - Sinco Credit Icon
+- Title Logo Position (X centered now)
 ### Removed
 - The song's Mod name from the Results Screen
 - V from `gitVersion.txt`
 - Results Screen StickerSubState Transition
 - Freeplay Capsule Week Display Thing
+- Title GF
 ### Fixed
 - Black screen bug after results screen on freeplay
 - Random Character Select crash (it made 2 freeplay states)
