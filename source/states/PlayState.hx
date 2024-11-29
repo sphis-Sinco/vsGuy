@@ -612,7 +612,7 @@ class PlayState extends MusicBeatState
 		popupShape.animation.addByPrefix('intro', 'boyfriend popup', 24, false);
 		popupShape.animation.play('idle');
 		
-		popupShape.setPosition(-100, FlxG.height - (popupShape.height / 1.2));
+		popupShape.setPosition(0, 0);
 		
 		popupShape.visible = true;
 		popupShape.cameras = [camHUD];
@@ -629,8 +629,7 @@ class PlayState extends MusicBeatState
 		popup.animation.addByPrefix('miss','popup-miss');
 		popup.animation.play('sick');
 		
-		popup.x = popupShape.x;
-		popup.y = popupShape.y;
+		popup.setPosition(popupShape.x, popupShape.y);
 
 		popup.cameras = [camHUD];
 		popup.visible = popupShape.visible;
@@ -1824,7 +1823,8 @@ class PlayState extends MusicBeatState
 			if (FlxG.keys.justReleased.DOWN)
 				popupShape.y += 10;
 
-			trace('popupShape pos: [x:${popupShape.x}, y:${popupShape.y}]');
+			popupShape.visible = true;
+			trace('popupShape pos update: [x:${popupShape.x}, y:${popupShape.y}]');
 		}
 
 		if(!inCutscene && !paused && !freezeCamera) {
