@@ -70,6 +70,9 @@ class MainMenuState extends MusicBeatState
 		if (list.all.length > 0)
 			optionShit.push('dlcs');
 		#end
+		#if ACHIEVEMENTS_ALLOWED
+		optionShit.push('awards');
+		#end
 		optionShit.push('credits');
 		#if !switch
 		optionShit.push('donate');

@@ -1,5 +1,20 @@
 # vs Guy plus
-## v1.5.1 - November 29th 2024
+## v1.5-2 - November 29th 2024
+### Added
+- New UI elements based on Arrow Funk
+  - popups are now in the bottom left corner of your gameplay (upscroll, downscroll is top left corner)
+- Combo to songText
+- Achievements
+### Removed
+- Popup Sprite
+- Combo Popup
+- Combo Numbers Popup
+- Adjust Delay and Combo Option Selection
+- Achievements that dont apply to the mod (ex: week7_nomiss)
+### Fixed
+- Boyfriend great Rank animation offsets
+
+## v1.5-1 - November 29th 2024
 ### Fixed
 - Pause Menu Exit to Button Crash
 - Songs with spaces (like "Red Guy") forever being considered a new song

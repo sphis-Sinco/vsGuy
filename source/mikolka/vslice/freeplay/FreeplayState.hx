@@ -222,6 +222,11 @@ class FreeplayState extends MusicBeatSubstate
 
 	var fromCharSelect:Null<Bool> = null;
 
+	final public function curDJ()
+	{
+		return currentCharacterId;
+	}
+
 	public function new(?params:FreeplayStateParams, ?stickers:StickerSubState)
 	{
 		controls.isInSubstate = true;

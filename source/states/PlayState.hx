@@ -277,6 +277,9 @@ class PlayState extends MusicBeatState
 	public var luaTouchPad:TouchPad;
 	#end
 
+	public var popupShape:FlxSprite;
+	public var popup:FlxSprite;
+
 	override public function create()
 	{
 		this.variables = new JoinedLuaVariables();
@@ -499,9 +502,67 @@ class PlayState extends MusicBeatState
 		uiGroup = new FlxSpriteGroup();
 		comboGroup = new FlxSpriteGroup();
 		noteGroup = new FlxTypedGroup<FlxBasic>();
+		
+		var metadata = FreeplayMeta.getMeta(SONG.song);
+		var character = metadata.freeplayCharacter;
+
+		// if (character == 'bf')
+			// character = 'boyfriend';
+
+		var sheet = Paths.getSparrowAtlas('ui/popupShapes/$character');
+		popupShape = new FlxSprite();
+		popupShape.frames = sheet;
+
+		if (popupShape.frames == null)
+		{
+			character = 'boyfriend';
+			sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
+			popupShape.frames = sheet;
+		}
+		
+		popupShape.animation.addByPrefix('idle', '${character}0');
+		popupShape.animation.addByPrefix('intro', '$character popup', 24, false);
+		popupShape.animation.play('idle');
+		popupShape.animation.finishCallback = popupShapeChill;
+		
+		popupShape.scale.set(0.5,0.5);
+		popupShape.setPosition(-240, 410);
+		
+		popupShape.visible = false;
+		popupShape.cameras = [camHUD];
+
+		var sheet = Paths.getSparrowAtlas('ui/popups');
+		popup = new FlxSprite();
+		popup.frames = sheet;
+		
+		popup.animation.addByPrefix('sick','popup-sick');
+		popup.animation.addByPrefix('good','popup-good');
+		popup.animation.addByPrefix('bad','popup-bad');
+		popup.animation.addByPrefix('shit','popup-shit');
+		popup.animation.addByPrefix('awful','popup-awful');
+		popup.animation.addByPrefix('miss','popup-miss');
+		popup.animation.play('sick');
+		
+		popup.scale.set(0.5,0.5);
+
+		if (ClientPrefs.data.downScroll) {
+			popupShape.flipY = true;
+			popupShape.y = -150;
+			popup.angle = -60;
+		}
+
+		popup.setPosition(popupShape.x + 200, popupShape.y + 130);
+
+		popup.cameras = [camHUD];
+		popup.visible = popupShape.visible;
+
+		add(popupShape);
+		add(popup);
+	
 		add(comboGroup);
 		add(uiGroup);
 		add(noteGroup);
+
 
 		Conductor.songPosition = -Conductor.crochet * 5 + Conductor.offset;
 		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled');
@@ -694,6 +755,12 @@ class PlayState extends MusicBeatState
 		cachePopUpScore();
 
 		if(eventNotes.length < 1) checkEventNote();
+	}
+
+	public function popupShapeChill(name:String):Void
+	{
+		if (popupShape.animation.name == 'intro')
+			popupShape.animation.play('idle');
 	}
 
 	public function diaCheck()
@@ -1245,6 +1312,7 @@ class PlayState extends MusicBeatState
 	// `updateScore = function(miss:Bool = false) { ... }
 	// its like if it was a variable but its just a function!
 	// cool right? -Crow
+	// good to know.
 	public dynamic function updateScore(miss:Bool = false)
 	{
 		var ret:Dynamic = callOnScripts('preUpdateScore', [miss], true);
@@ -1261,8 +1329,8 @@ class PlayState extends MusicBeatState
 	public dynamic function updateScoreText()
 	{
 		var tempScore:String;
-		if(!instakillOnMiss) tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2}', [songScore, songMisses]);
-		else tempScore = Language.getPhrase('score_text_instakill', 'Score: {1}', [songScore]);
+		if(!instakillOnMiss) tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2} | Combo: {3}', [songScore, songMisses, combo]);
+		else tempScore = Language.getPhrase('score_text_instakill', 'Score: {1} | Combo: {2}', [songScore, combo]);
 		scoreTxt.text = tempScore;
 	}
 
@@ -1776,6 +1844,18 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		popup.visible = popupShape.visible;
+
+		if (FlxG.keys.anyJustReleased([LEFT, RIGHT, UP, DOWN]))
+		{
+			if (FlxG.keys.justReleased.LEFT)
+				popup.angle -= 10;
+			if (FlxG.keys.justReleased.RIGHT)
+				popup.angle += 10;
+			
+			trace('popup angle is ${popup.angle}');
+		}
+
 		if(!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 0.04 * cameraSpeed * playbackRate;
 			if(!startingSong && !endingSong && boyfriend.getAnimationName().startsWith('idle')) {
@@ -2577,7 +2657,7 @@ class PlayState extends MusicBeatState
 		seenCutscene = false;
 
 		#if ACHIEVEMENTS_ALLOWED
-		var weekNoMiss:String = WeekData.getWeekFileName() + '_nomiss';
+		var weekNoMiss:String = WeekData.getWeekFileName() + '-nomiss';
 		checkForAchievement([weekNoMiss, 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
 		#end
 
@@ -2871,7 +2951,7 @@ class PlayState extends MusicBeatState
 
 	private function cachePopUpScore()
 	{
-		var uiPrefix:String = '';
+		/*var uiPrefix:String = '';
 		var uiPostfix:String = '';
 		if (stageUI != "normal")
 		{
@@ -2885,7 +2965,7 @@ class PlayState extends MusicBeatState
 				Paths.image(uiPrefix + rating.image + uiPostfix);
 			for (i in 0...10)
 				Paths.image(uiPrefix + 'num' + i + uiPostfix);
-		}
+		}*/
 	}
 
 	private function popUpScore(note:Note = null):Void
@@ -2943,101 +3023,11 @@ class PlayState extends MusicBeatState
 
 		if (ClientPrefs.data.popUpRating)
 		{
-			rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiPostfix));
-			if (daRating.image == 'awful')
-				rating.scale.set(6,6);
-			rating.screenCenter();
-			rating.x = placement - 40;
-			rating.y -= 60;
-			rating.acceleration.y = 550 * playbackRate * playbackRate;
-			rating.velocity.y -= FlxG.random.int(140, 175) * playbackRate;
-			rating.velocity.x -= FlxG.random.int(0, 10) * playbackRate;
-			rating.visible = (!ClientPrefs.data.hideHud && showRating);
-			rating.x += ClientPrefs.data.comboOffset[0];
-			rating.y -= ClientPrefs.data.comboOffset[1];
-			rating.antialiasing = antialias;
-
-			var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(uiPrefix + 'combo' + uiPostfix));
-			comboSpr.screenCenter();
-			comboSpr.x = placement;
-			comboSpr.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
-			comboSpr.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
-			comboSpr.visible = (!ClientPrefs.data.hideHud && showCombo);
-			comboSpr.x += ClientPrefs.data.comboOffset[0];
-			comboSpr.y -= ClientPrefs.data.comboOffset[1];
-			comboSpr.antialiasing = antialias;
-			comboSpr.y += 60;
-			comboSpr.velocity.x += FlxG.random.int(1, 10) * playbackRate;
-			comboGroup.add(rating);
-
-			if (!PlayState.isPixelStage)
-			{
-				rating.setGraphicSize(Std.int(rating.width * 0.7));
-				comboSpr.setGraphicSize(Std.int(comboSpr.width * 0.7));
+			popup.animation.play(daRating.image);
+			if (!popupShape.visible) {
+				popupShape.visible = true;
+				popupShape.animation.play('intro');
 			}
-			else
-			{
-				rating.setGraphicSize(Std.int(rating.width * daPixelZoom * 0.85));
-				comboSpr.setGraphicSize(Std.int(comboSpr.width * daPixelZoom * 0.85));
-			}
-
-			comboSpr.updateHitbox();
-			rating.updateHitbox();
-
-			var daLoop:Int = 0;
-			var xThing:Float = 0;
-			if (showCombo)
-				comboGroup.add(comboSpr);
-
-			var separatedScore:String = Std.string(combo).lpad('0', 3);
-			for (i in 0...separatedScore.length)
-			{
-				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(uiPrefix + 'num' + Std.parseInt(separatedScore.charAt(i)) + uiPostfix));
-				numScore.screenCenter();
-				numScore.x = placement + (43 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
-				numScore.y += 80 - ClientPrefs.data.comboOffset[3];
-
-				if (!PlayState.isPixelStage)
-					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
-				else
-					numScore.setGraphicSize(Std.int(numScore.width * daPixelZoom));
-				numScore.updateHitbox();
-
-				numScore.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
-				numScore.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
-				numScore.velocity.x = FlxG.random.float(-5, 5) * playbackRate;
-				numScore.visible = !ClientPrefs.data.hideHud;
-				numScore.antialiasing = antialias;
-
-				// if (combo >= 10 || combo == 0)
-				if (showComboNum)
-					comboGroup.add(numScore);
-
-				FlxTween.tween(numScore, {alpha: 0}, 0.2 / playbackRate, {
-					onComplete: function(tween:FlxTween)
-					{
-						numScore.destroy();
-					},
-					startDelay: Conductor.crochet * 0.002 / playbackRate
-				});
-
-				daLoop++;
-				if (numScore.x > xThing)
-					xThing = numScore.x;
-			}
-			comboSpr.x = xThing + 50;
-			FlxTween.tween(rating, {alpha: 0}, 0.2 / playbackRate, {
-				startDelay: Conductor.crochet * 0.001 / playbackRate
-			});
-
-			FlxTween.tween(comboSpr, {alpha: 0}, 0.2 / playbackRate, {
-				onComplete: function(tween:FlxTween)
-				{
-					comboSpr.destroy();
-					rating.destroy();
-				},
-				startDelay: Conductor.crochet * 0.002 / playbackRate
-			});
 		}
 	}
 
@@ -3303,6 +3293,7 @@ class PlayState extends MusicBeatState
 
 		var lastCombo:Int = combo;
 		combo = 0;
+		popup.animation.play('miss');
 
 		health -= subtract * healthLoss;
 		if(!practiceMode) songScore -= 10;
@@ -3906,19 +3897,38 @@ class PlayState extends MusicBeatState
 		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice') || ClientPrefs.getGameplaySetting('botplay'));
 		if(cpuControlled) return;
 
+		var accPts = ratingPercent * totalPlayed;
+		var tempActiveTallises =
+			{
+          		score: songScore,
+		  		accPoints: accPts,
+				
+          		sick: ratingsData[0].hits,
+            	good: ratingsData[1].hits,
+              	bad: ratingsData[2].hits,
+          		shit: ratingsData[3].hits,
+          		missed: songMisses,
+          		combo: combo,
+            	maxCombo: maxCombo,
+              	totalNotesHit: totalPlayed,
+              	totalNotes: 69,
+            		
+        	};
+		var rank:Null<ScoringRank> = Scoring.calculateRank(tempActiveTallises) ?? SHIT;
+
 		for (name in achievesToCheck) {
 			if(!Achievements.exists(name)) continue;
 
 			var unlock:Bool = false;
-			if (name != WeekData.getWeekFileName() + '_nomiss') // common achievements
+			if (name != WeekData.getWeekFileName() + '-nomiss') // common achievements
 			{
 				switch(name)
 				{
 					case 'ur_bad':
-						unlock = (ratingPercent < 0.2 && !practiceMode);
+						unlock = (rank == SHIT && !practiceMode);
 
 					case 'ur_good':
-						unlock = (ratingPercent >= 1 && !usedPractice);
+						unlock = ((rank == PERFECT || rank == PERFECT_GOLD) && !usedPractice);
 
 					case 'oversinging':
 						unlock = (boyfriend.holdTimer >= 10 && !usedPractice);
@@ -3936,7 +3946,7 @@ class PlayState extends MusicBeatState
 						unlock = (songName == 'test' && !usedPractice);
 				}
 			}
-			else // any FC achievements, name should be "weekFileName_nomiss", e.g: "week3_nomiss";
+			else // any FC achievements, name should be "weekFileName-nomiss", e.g: "week3-nomiss";
 			{
 				if(isStoryMode && campaignMisses + songMisses < 1 && Difficulty.getString().toUpperCase() == 'HARD'
 					&& storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)

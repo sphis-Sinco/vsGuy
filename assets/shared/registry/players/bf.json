@@ -158,7 +158,7 @@
         "assetPath": "shared:resultScreen/results-bf/resultsGREAT/bf",
         "scale": 0.93,
         "zIndex": 500,
-        "offsets": [929, 363],
+        "offsets": [1100, 363],
 
         "loopFrame": 15
       }
