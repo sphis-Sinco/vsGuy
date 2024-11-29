@@ -516,7 +516,7 @@ class PlayState extends MusicBeatState
 		popupShape.animation.play('idle');
 		
 		popupShape.scale.set(0.5,0.5);
-		popupShape.setPosition(-40, 320);
+		popupShape.setPosition(-240, 410);
 		
 		popupShape.visible = true;
 		popupShape.cameras = [camHUD];
@@ -1829,7 +1829,7 @@ class PlayState extends MusicBeatState
 			if (FlxG.keys.justReleased.DOWN)
 				popupShape.y += 10;
 
-			popupShape.visible = true;
+			popup.setPosition(popupShape.x + 30, popupShape.y + 60);
 			trace('popupShape pos update: [x:${popupShape.x}, y:${popupShape.y}]');
 		}
 
