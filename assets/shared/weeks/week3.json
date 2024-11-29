@@ -1,32 +1,14 @@
 {
-	"storyName": "guy",
+	"storyName": "PURPLE GUY",
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "",
-	"weekBefore": "tutorial",
+	"weekBefore": "week2",
 	"startUnlocked": true,
 	"hideStoryMode": false,
 	"songs": [
 		[
-			"guy",
-			"guy",
-			[
-				106,
-				133,
-				253
-			]
-		],
-		[
-			"vex",
-			"guy",
-			[
-				106,
-				133,
-				253
-			]
-		],
-		[
-			"nerve",
+			"galaxy",
 			"guy",
 			[
 				106,
