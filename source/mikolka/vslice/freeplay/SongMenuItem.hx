@@ -251,27 +251,22 @@ class SongMenuItem extends FlxSpriteGroup
 
     
     //? code to handle multiple week digits
-    if (weekNum == 0)
-    {
-      weekType.visible = false;
-      weekNumbers[0].visible = false;
-      weekNumbers[1].visible = false;
-    }
-    else if(weekNum<10)
+    weekType.visible = false;
+    weekNumbers[0].visible = false;
+    weekNumbers[1].visible = false;
+
+    if(weekNum>0)
     {
       weekType.visible = true;
       weekNumbers[0].visible = true;
-      weekNumbers[1].visible = false;
       weekNumbers[0].digit = Std.int(Math.abs(weekNum));
     }
-    else 
+    if (weekNum > 9)
     {
-      weekType.visible = true;
-      weekNumbers[0].visible = true;
       weekNumbers[1].visible = true;
-      weekNumbers[1].digit = Std.int(Math.abs(weekNum%10));
       weekNumbers[0].digit = Std.int(Math.abs(weekNum/10));
     }
+
     if (weekNum > 0)
     {
       weekType.animation.play('WEEK', true);
