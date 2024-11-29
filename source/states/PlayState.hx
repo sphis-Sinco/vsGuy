@@ -515,6 +515,7 @@ class PlayState extends MusicBeatState
 
 		if (popupShape.frames == null)
 		{
+			character = 'boyfriend';
 			sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
 			popupShape.frames = sheet;
 		}
