@@ -1829,7 +1829,10 @@ class PlayState extends MusicBeatState
 			if (FlxG.keys.justReleased.DOWN)
 				popup.y += 10;
 
-			trace('popup pos update: [x:${popup.x}, y:${popup.y}]');
+			var shapeOffset:Array<Float> = [];
+			shapeOffset.push(popupShape.x - popup.x);
+			shapeOffset.push(popupShape.y - popup.y);
+			trace('popup position offsets $shapeOffset');
 		}
 
 		if(!inCutscene && !paused && !freezeCamera) {
