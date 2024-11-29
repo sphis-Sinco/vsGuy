@@ -634,6 +634,9 @@ class PlayState extends MusicBeatState
 		popup.cameras = [camHUD];
 		popup.visible = popupShape.visible;
 
+		add(popupShape);
+		add(popup);
+
 		startingSong = true;
 
 		#if LUA_ALLOWED
