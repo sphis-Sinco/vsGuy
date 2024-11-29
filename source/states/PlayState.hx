@@ -534,7 +534,7 @@ class PlayState extends MusicBeatState
 		popup.animation.play('sick');
 		
 		popup.scale.set(0.5,0.5);
-		popup.setPosition(popupShape.x + 30, popupShape.y + 60);
+		popup.setPosition(popupShape.x - 180, popupShape.y - 140);
 
 		popup.cameras = [camHUD];
 		popup.visible = popupShape.visible;
@@ -3002,6 +3002,8 @@ class PlayState extends MusicBeatState
 
 		if (ClientPrefs.data.popUpRating)
 		{
+			
+			/*
 			rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiPostfix));
 			if (daRating.image == 'awful')
 				rating.scale.set(6,6);
@@ -3042,11 +3044,12 @@ class PlayState extends MusicBeatState
 
 			comboSpr.updateHitbox();
 			rating.updateHitbox();
+			*/
+
+			popup.animation.play(daRating.image);
 
 			var daLoop:Int = 0;
 			var xThing:Float = 0;
-			if (showCombo)
-				comboGroup.add(comboSpr);
 
 			var separatedScore:String = Std.string(combo).lpad('0', 3);
 			for (i in 0...separatedScore.length)
@@ -3084,18 +3087,9 @@ class PlayState extends MusicBeatState
 				if (numScore.x > xThing)
 					xThing = numScore.x;
 			}
-			comboSpr.x = xThing + 50;
+			
 			FlxTween.tween(rating, {alpha: 0}, 0.2 / playbackRate, {
 				startDelay: Conductor.crochet * 0.001 / playbackRate
-			});
-
-			FlxTween.tween(comboSpr, {alpha: 0}, 0.2 / playbackRate, {
-				onComplete: function(tween:FlxTween)
-				{
-					comboSpr.destroy();
-					rating.destroy();
-				},
-				startDelay: Conductor.crochet * 0.002 / playbackRate
 			});
 		}
 	}
