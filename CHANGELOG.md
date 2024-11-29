@@ -4,11 +4,13 @@
 - New UI elements based on Arrow Funk
   - popups are now in the bottom left corner of your gameplay (upscroll, downscroll is top left corner)
 - Combo to songText
+- Achievements
 ### Removed
 - Popup Sprite
 - Combo Popup
 - Combo Numbers Popup
 - Adjust Delay and Combo Option Selection
+- Achievements that dont apply to the mod (ex: week7_nomiss)
 
 ## v1.5-1 - November 29th 2024
 ### Fixed
