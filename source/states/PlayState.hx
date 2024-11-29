@@ -2616,7 +2616,7 @@ class PlayState extends MusicBeatState
 
 			trace(playedSong);
 			trace(ClientPrefs.data.playedSongs);
-			if (!ClientPrefs.data.playedSongs.contains(playedSong))
+			if (!ClientPrefs.data.playedSongs.contains(playedSong) && (playedSong != null || playedSong != ''))
 			{
 				ClientPrefs.data.playedSongs.push(playedSong);
 				trace('Newly played song: $playedSong');

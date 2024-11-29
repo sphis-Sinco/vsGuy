@@ -2,8 +2,10 @@
 ## v1.5.1 - November 29th 2024
 ### Fixed
 - StickerSubState Crashes (hopefully)
+- Songs with spaces (like "Red Guy") forever being considered a new song
 ### Added
 - More specification to the `Reset Save` Option's Description
+- Checks to make sure null or blank song names are ignored and not added to the playedSongs list
 
 ## v1.5 [Red Pack] - November 28th 2024
 ### Added

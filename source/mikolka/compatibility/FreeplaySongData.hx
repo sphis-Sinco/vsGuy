@@ -139,7 +139,7 @@ using mikolka.funkin.utils.ArrayTools;
          // this.difficultyRating = songDifficulty.difficultyRating;
          this.scoringRank = Scoring.calculateRankForSong(Highscore.formatSong(songId, loadAndGetDiffId()));
  
-         this.isNew = !ClientPrefs.data.playedSongs.contains(songId.toLowerCase()); // song.isSongNew(currentDifficulty);
+         this.isNew = !ClientPrefs.data.playedSongs.contains(songId.toLowerCase().replace(' ', '-')); // song.isSongNew(currentDifficulty);
      }
      public function loadAndGetDiffId() {
          var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[levelId]);
