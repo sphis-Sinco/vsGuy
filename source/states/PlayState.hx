@@ -530,6 +530,13 @@ class PlayState extends MusicBeatState
 		popup.animation.play('sick');
 		
 		popup.scale.set(0.5,0.5);
+
+		if (ClientPrefs.data.downScroll) {
+			popupShape.flipY = true;
+			popupShape.y = -150;
+			popup.angle = -60;
+		}
+
 		popup.setPosition(popupShape.x + 200, popupShape.y + 130);
 
 		popup.cameras = [camHUD];
@@ -1822,18 +1829,11 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.anyJustReleased([LEFT, RIGHT, UP, DOWN]))
 		{
 			if (FlxG.keys.justReleased.LEFT)
-				popup.x -= 10;
+				popup.angle -= 10;
 			if (FlxG.keys.justReleased.RIGHT)
-				popup.x += 10;
-			if (FlxG.keys.justReleased.UP)
-				popup.y -= 10;
-			if (FlxG.keys.justReleased.DOWN)
-				popup.y += 10;
-
-			var shapeOffset:Array<Float> = [];
-			shapeOffset.push(popupShape.x - popup.x);
-			shapeOffset.push(popupShape.y - popup.y);
-			trace('popup position offsets $shapeOffset');
+				popup.angle += 10;
+			
+			trace('popup angle is ${popup.angle}');
 		}
 
 		if(!inCutscene && !paused && !freezeCamera) {
