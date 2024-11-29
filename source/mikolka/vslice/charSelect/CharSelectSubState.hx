@@ -703,8 +703,9 @@ class CharSelectSubState extends MusicBeatSubState
       {
         ease: FlxEase.backIn,
         onComplete: function(_) {
-          if(!FlxG.random.bool(0.01)) FlxTransitionableState.skipNextTransOut = true; //? a fix
-          FlxG.switchState(FreeplayState.build(null));
+          // if(!FlxG.random.bool(0.01))
+          FlxTransitionableState.skipNextTransOut = true; //? a fix // for what
+          // FlxG.switchState(FreeplayState.build(null));
           FlxG.switchState(FreeplayState.build(
             {
               {

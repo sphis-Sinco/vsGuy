@@ -11,6 +11,7 @@
 - Results Screen StickerSubState Transition
 ### Fixed
 - Black screen bug after results screen on freeplay
+- Guy week in freeplay not having the "week 1" text on the capsule
 
 ## v1.4 [DLC Pack 1] - November 23rd 2024
 ### Added
