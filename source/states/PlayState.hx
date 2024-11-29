@@ -503,12 +503,18 @@ class PlayState extends MusicBeatState
 		comboGroup = new FlxSpriteGroup();
 		noteGroup = new FlxTypedGroup<FlxBasic>();
 		
-		var sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
+		var freeplay:FreeplayState = new FreeplayState();
+		var character = freeplay.curDJ();
+
+		if (character == 'bf')
+			character = 'boyfriend';
+
+		var sheet = Paths.getSparrowAtlas('ui/popupShapes/$character');
 		popupShape = new FlxSprite();
 		popupShape.frames = sheet;
 		
-		popupShape.animation.addByPrefix('idle', 'boyfriend0');
-		popupShape.animation.addByPrefix('intro', 'boyfriend popup', 24, false);
+		popupShape.animation.addByPrefix('idle', '${character}0');
+		popupShape.animation.addByPrefix('intro', '$character popup', 24, false);
 		popupShape.animation.play('idle');
 		popupShape.animation.finishCallback = popupShapeChill;
 		
