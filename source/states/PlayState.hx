@@ -506,13 +506,18 @@ class PlayState extends MusicBeatState
 		var metadata = FreeplayMeta.getMeta(SONG.song);
 		var character = metadata.freeplayCharacter;
 
-		if (character == 'bf')
-			character = 'boyfriend';
+		// if (character == 'bf')
+			// character = 'boyfriend';
 
 		var sheet = Paths.getSparrowAtlas('ui/popupShapes/$character');
-		// TODO: add check for if if the sparrowatlas doesnt exist and default it to bf
 		popupShape = new FlxSprite();
 		popupShape.frames = sheet;
+
+		if (popupShape.frames == null)
+		{
+			sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
+			popupShape.frames = sheet;
+		}
 		
 		popupShape.animation.addByPrefix('idle', '${character}0');
 		popupShape.animation.addByPrefix('intro', '$character popup', 24, false);
