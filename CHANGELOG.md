@@ -11,6 +11,8 @@
 - Combo Numbers Popup
 - Adjust Delay and Combo Option Selection
 - Achievements that dont apply to the mod (ex: week7_nomiss)
+### Fixed
+- Boyfriend great Rank animation offsets
 
 ## v1.5-1 - November 29th 2024
 ### Fixed
