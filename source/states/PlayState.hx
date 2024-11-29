@@ -514,7 +514,7 @@ class PlayState extends MusicBeatState
 		popupShape.scale.set(0.5,0.5);
 		popupShape.setPosition(-240, 410);
 		
-		popupShape.visible = true;
+		popupShape.visible = false;
 		popupShape.cameras = [camHUD];
 
 		var sheet = Paths.getSparrowAtlas('ui/popups');
@@ -3047,6 +3047,11 @@ class PlayState extends MusicBeatState
 			rating.updateHitbox();
 			*/
 
+			
+			if (popupShape.visible == false){
+				popupShape.visible = true;
+				popupShape.animation.play('intro');
+			}
 			popup.animation.play(daRating.image);
 
 			var daLoop:Int = 0;
@@ -3090,7 +3095,11 @@ class PlayState extends MusicBeatState
 			}
 			
 			FlxTween.tween(rating, {alpha: 0}, 0.2 / playbackRate, {
-				startDelay: Conductor.crochet * 0.001 / playbackRate
+				startDelay: Conductor.crochet * 0.001 / playbackRate,
+				onComplete: function(twn:FlxTween) {
+					popupShape.animation.play('intro', false, true);
+					popupShape.visible = false;
+				}
 			});
 		}
 	}
@@ -3357,6 +3366,10 @@ class PlayState extends MusicBeatState
 
 		var lastCombo:Int = combo;
 		combo = 0;
+		if (popupShape.visible == false) {
+			popupShape.visible = true;
+			popupShape.animation.play('intro');
+		}
 		popup.animation.play('miss');
 
 		health -= subtract * healthLoss;
@@ -3364,6 +3377,8 @@ class PlayState extends MusicBeatState
 		if(!endingSong) songMisses++;
 		totalPlayed++;
 		RecalculateRating(true);
+
+		popUpScore();
 
 		// play character anims
 		var char:Character = boyfriend;
