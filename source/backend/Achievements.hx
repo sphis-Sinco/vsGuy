@@ -36,7 +36,7 @@ class Achievements {
 		createAchievement('week1-nomiss',			{name: "Stop bothering people", description: "Beat Week 1 on Hard with no Misses."});
 		createAchievement('week2-nomiss',			{name: "From the Beer to the Keys", description: "Beat Week 2 on Hard with no Misses."});
 		createAchievement('ur_bad',					{name: "What a Funkin' Disaster!", description: "Complete a Song with a rating lower than 20%."});
-		createAchievement('ur_good',				{name: "Perfectionist", description: "Complete a Song with a Gold Perfect"});
+		createAchievement('ur_good',				{name: "Perfectionist", description: "Complete a Song with a Gold Perfect/100%"});
 		createAchievement('oversinging', 			{name: "Oversinging Much...?", description: "Sing for 10 seconds without going back to Idle."});
 		createAchievement('hype',					{name: "Hyperactive", description: "Finish a Song without going back to Idle."});
 		createAchievement('two_keys',				{name: "Just the Two of Us", description: "Finish a Song pressing only two keys."});

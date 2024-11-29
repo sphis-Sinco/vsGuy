@@ -42,7 +42,21 @@ class AchievementPopup extends openfl.display.Sprite {
 		Mods.currentModDirectory = lastMod;
 		#end
 
-		if(graphic == null) graphic = Paths.image('unknownMod', false);
+		if (graphic == null)
+		{
+			image = 'achieveMens/$achieve';
+
+			if (Paths.fileExists('images/$image-pixel.png', IMAGE))
+			{
+				graphic = Paths.image('$image-pixel', false);
+				hasAntialias = false;
+			}
+			else
+				graphic = Paths.image(image, false);
+
+			if (graphic == null)
+				graphic = Paths.image('unknownMod', false);
+		}
 
 		var sizeX = 100;
 		var sizeY = 100;
