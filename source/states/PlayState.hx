@@ -3891,6 +3891,25 @@ class PlayState extends MusicBeatState
 		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice') || ClientPrefs.getGameplaySetting('botplay'));
 		if(cpuControlled) return;
 
+		var accPts = ratingPercent * totalPlayed;
+		var tempActiveTallises =
+			{
+          		score: songScore,
+		  		accPoints: accPts,
+				
+          		sick: ratingsData[0].hits,
+            	good: ratingsData[1].hits,
+              	bad: ratingsData[2].hits,
+          		shit: ratingsData[3].hits,
+          		missed: songMisses,
+          		combo: combo,
+            	maxCombo: maxCombo,
+              	totalNotesHit: totalPlayed,
+              	totalNotes: 69,
+            		
+        	};
+		var rank:Null<ScoringRank> = Scoring.calculateRank(tempActiveTallises) ?? SHIT;
+
 		for (name in achievesToCheck) {
 			if(!Achievements.exists(name)) continue;
 
@@ -3900,10 +3919,10 @@ class PlayState extends MusicBeatState
 				switch(name)
 				{
 					case 'ur_bad':
-						unlock = (ratingPercent < 0.2 && !practiceMode);
+						unlock = (rank == SHIT && !practiceMode);
 
 					case 'ur_good':
-						unlock = (ratingPercent >= 1 && !usedPractice);
+						unlock = ((rank == PERFECT || rank == PERFECT_GOLD) && !usedPractice);
 
 					case 'oversinging':
 						unlock = (boyfriend.holdTimer >= 10 && !usedPractice);
