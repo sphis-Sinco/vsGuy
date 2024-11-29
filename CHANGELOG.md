@@ -1,8 +1,10 @@
 # vs Guy plus
 ## v1.5-2 - November 29th 2024
 ### Added
-- New UI based on Arrow Funk
+- New UI elements based on Arrow Funk
   - popups are now in the bottom left corner of your gameplay (upscroll)
+### Removed
+- Old outdated UI elements
 
 ## v1.5-1 - November 29th 2024
 ### Fixed
