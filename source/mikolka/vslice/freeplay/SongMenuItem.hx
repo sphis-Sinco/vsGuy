@@ -62,7 +62,6 @@ class SongMenuItem extends FlxSpriteGroup
   // var diffRatingSprite:FlxSprite;
   public var bpmText:FlxSprite;
   public var difficultyText:FlxSprite;
-  public var weekType:FlxSprite;
 
   public var newText:FlxSprite;
 
@@ -70,8 +69,6 @@ class SongMenuItem extends FlxSpriteGroup
   public var bigNumbers:Array<CapsuleNumber> = [];
 
   public var smallNumbers:Array<CapsuleNumber> = [];
-
-  public var weekNumbers:Array<CapsuleNumber> = [];
 
   var impactThing:FunkinSprite;
 
@@ -87,7 +84,6 @@ class SongMenuItem extends FlxSpriteGroup
     capsule.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/capsule/freeplayCapsule');
     capsule.animation.addByPrefix('selected', 'mp3 capsule w backing0', 24);
     capsule.animation.addByPrefix('unselected', 'mp3 capsule w backing NOT SELECTED', 24);
-    // capsule.animation
     add(capsule);
 
     bpmText = new FlxSprite(144, 87).loadGraphic(Paths.image('freeplay/freeplayCapsule/bpmtext'));
@@ -98,27 +94,13 @@ class SongMenuItem extends FlxSpriteGroup
     difficultyText.setGraphicSize(Std.int(difficultyText.width * 0.9));
     add(difficultyText);
 
-    weekType = new FlxSprite(291, 87);
-    weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/weektypes');
-
-    weekType.animation.addByPrefix('WEEK', 'WEEK text instance 1', 24, false);
-    weekType.animation.addByPrefix('WEEKEND', 'WEEKEND text instance 1', 24, false);
-
-    weekType.setGraphicSize(Std.int(weekType.width * 0.9));
-    // add(weekType);
-
     newText = new FlxSprite(454, 9);
     newText.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/new');
     newText.animation.addByPrefix('newAnim', 'NEW notif', 24, true);
     newText.animation.play('newAnim', true);
     newText.setGraphicSize(Std.int(newText.width * 0.9));
 
-    // newText.visible = false;
-
     add(newText);
-
-    // var debugNumber2:CapsuleNumber = new CapsuleNumber(0, 0, true, 2);
-    // add(debugNumber2);
 
     for (i in 0...2)
     {
@@ -168,28 +150,7 @@ class SongMenuItem extends FlxSpriteGroup
 
     add(sparkle);
 
-    // ranking.loadGraphic(Paths.image('freeplay/ranks/' + rank));
-    // ranking.scale.x = ranking.scale.y = realScaled;
-    // ranking.alpha = 0.75;
-    // ranking.visible = false;
-    // ranking.origin.set(capsule.origin.x - ranking.x, capsule.origin.y - ranking.y);
-    // add(ranking);
-    // grpHide.add(ranking);
-
-    // switch (rank)
-    // {
-    //   case 'perfect':
-    //     ranking.x -= 10;
-    // }
-
     grayscaleShader = new Grayscale(1);
-
-    // diffRatingSprite = new FlxSprite(145, 90).loadGraphic(Paths.image('freeplay/diffRatings/diff00'));
-    // diffRatingSprite.shader = grayscaleShader;
-    // diffRatingSprite.origin.set(capsule.origin.x - diffRatingSprite.x, capsule.origin.y - diffRatingSprite.y);
-    // TODO: Readd once ratings are fully implemented
-    // add(diffRatingSprite);
-    // grpHide.add(diffRatingSprite);
 
     songText = new CapsuleText(capsule.width * 0.26, 45, 'Random', Std.int(40 * realScaled));
     add(songText);
@@ -222,15 +183,6 @@ class SongMenuItem extends FlxSpriteGroup
     favIcon.blend = BlendMode.ADD;
     add(favIcon);
 
-    //? Added another week num. I should really make 3 of them
-    var weekNumber:CapsuleNumber = new CapsuleNumber(355, 88.5, false, 0);
-    var weekNumber2:CapsuleNumber = new CapsuleNumber(365, 88.5, false, 0);
-    //add(weekNumber);
-   // add(weekNumber2);
-
-    //weekNumbers.push(weekNumber);
-    //weekNumbers.push(weekNumber2);
-
     setVisibleGrp(false);
   }
 
@@ -246,36 +198,6 @@ class SongMenuItem extends FlxSpriteGroup
   // negative values mean weekends
   function checkWeek(id:Int):Void
   {
-    // trace(name);
-    var weekNum:Int = id;
-
-    
-    //? code to handle multiple week digits
-    weekType.visible = false;
-    weekNumbers[0].visible = false;
-    weekNumbers[1].visible = false;
-
-    if(weekNum>0)
-    {
-      weekType.visible = true;
-      weekNumbers[0].visible = true;
-      weekNumbers[0].digit = Std.int(Math.abs(weekNum));
-    }
-    if (weekNum > 9)
-    {
-      weekNumbers[1].visible = true;
-      weekNumbers[0].digit = Std.int(Math.abs(weekNum/10));
-    }
-
-    if (weekNum > 0)
-    {
-      weekType.animation.play('WEEK', true);
-    }
-    else
-    {
-      weekType.animation.play('WEEKEND', true);
-      weekNumbers[0].offset.x -= 35;
-    }
   }
 
   /**
