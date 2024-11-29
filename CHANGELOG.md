@@ -3,8 +3,12 @@
 ### Added
 - New UI elements based on Arrow Funk
   - popups are now in the bottom left corner of your gameplay (upscroll, downscroll is top left corner)
+- Combo to songText
 ### Removed
-- Old outdated UI elements
+- Popup Sprite
+- Combo Popup
+- Combo Numbers Popup
+- Adjust Delay and Combo Option Selection
 
 ## v1.5-1 - November 29th 2024
 ### Fixed

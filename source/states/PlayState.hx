@@ -1322,8 +1322,8 @@ class PlayState extends MusicBeatState
 	public dynamic function updateScoreText()
 	{
 		var tempScore:String;
-		if(!instakillOnMiss) tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2}', [songScore, songMisses]);
-		else tempScore = Language.getPhrase('score_text_instakill', 'Score: {1}', [songScore]);
+		if(!instakillOnMiss) tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2} | Combo: {3}', [songScore, songMisses, combo]);
+		else tempScore = Language.getPhrase('score_text_instakill', 'Score: {1} | Combo: {2}', [songScore, combo]);
 		scoreTxt.text = tempScore;
 	}
 

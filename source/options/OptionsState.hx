@@ -17,7 +17,6 @@ class OptionsState extends MusicBeatState
 		'Game',
 		'Note Colors',
 		'Controls',
-		'Adjust Delay and Combo',
 		'Graphics',
 		'Visuals',
 		'Gameplay',
