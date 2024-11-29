@@ -4,6 +4,7 @@
 - WEEK 2: RED MAN
   - 2 New Songs: Red Guy and Waste
 - Custom Mod Logo
+- Bonky credit (new team member)
 ### Changed
 - Sinco Credit Icon
 - Title Logo Position (X centered now)

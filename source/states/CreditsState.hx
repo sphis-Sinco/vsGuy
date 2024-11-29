@@ -71,6 +71,14 @@ class CreditsState extends MusicBeatState
 				'https://www.youtube.com/@OgFoxerEpic',
 				'ff6600'
 			],
+			[
+				'Bonky',
+				'face',
+				'Composer',
+				'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+				'555555'
+			],
+			[""],
 			['P-Slice Engine Team'],
 			[
 				'Mikolka9144',
