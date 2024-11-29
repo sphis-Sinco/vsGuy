@@ -534,7 +534,7 @@ class PlayState extends MusicBeatState
 		popup.animation.play('sick');
 		
 		popup.scale.set(0.5,0.5);
-		popup.setPosition(popupShape.x - 180, popupShape.y - 140);
+		popup.setPosition(popupShape.x + 200, popupShape.y + 130);
 
 		popup.cameras = [camHUD];
 		popup.visible = popupShape.visible;
