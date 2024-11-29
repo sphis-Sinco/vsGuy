@@ -1,7 +1,7 @@
 # vs Guy plus
 ## v1.5.1 - November 29th 2024
 ### Fixed
-- StickerSubState Crashes (hopefully)
+- Pause Menu Exit to Button Crash
 - Songs with spaces (like "Red Guy") forever being considered a new song
 ### Added
 - More specification to the `Reset Save` Option's Description

@@ -156,6 +156,7 @@ class StickerSubState extends MusicBeatSubstate
 
     FlxTransitionableState.skipNextTransIn = true;
     FlxTransitionableState.skipNextTransOut = true;
+    
     FlxG.switchState(targetState(this));
     
     /*

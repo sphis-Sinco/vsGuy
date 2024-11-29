@@ -377,11 +377,11 @@ class PauseSubState extends MusicBeatSubstate
 					if (PlayState.isStoryMode)
 						{
 							PlayState.storyPlaylist = [];
-							openSubState(new StickerSubState(null, (sticker) -> new StoryMenuState(sticker)));
+							FlxG.switchState(new StoryMenuState());
 						}
 						else
 						{
-							openSubState(new StickerSubState(null, (sticker) -> FreeplayState.build(null, sticker)));
+							FlxG.switchState(FreeplayState.build(null));
 						}
 					PlayState.changedDifficulty = false;
 					PlayState.chartingMode = false;
