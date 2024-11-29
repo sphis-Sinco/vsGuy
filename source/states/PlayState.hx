@@ -502,10 +502,6 @@ class PlayState extends MusicBeatState
 		uiGroup = new FlxSpriteGroup();
 		comboGroup = new FlxSpriteGroup();
 		noteGroup = new FlxTypedGroup<FlxBasic>();
-		add(comboGroup);
-		add(uiGroup);
-		add(noteGroup);
-
 		
 		var sheet = Paths.getSparrowAtlas('ui/popupShapes/boyfriend');
 		popupShape = new FlxSprite();
@@ -541,6 +537,11 @@ class PlayState extends MusicBeatState
 
 		add(popupShape);
 		add(popup);
+	
+		add(comboGroup);
+		add(uiGroup);
+		add(noteGroup);
+
 
 		Conductor.songPosition = -Conductor.crochet * 5 + Conductor.offset;
 		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled');
@@ -3356,6 +3357,7 @@ class PlayState extends MusicBeatState
 
 		var lastCombo:Int = combo;
 		combo = 0;
+		popup.animation.play('miss');
 
 		health -= subtract * healthLoss;
 		if(!practiceMode) songScore -= 10;
