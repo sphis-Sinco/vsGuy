@@ -5,23 +5,23 @@
 	"weekBackground": "",
 	"weekBefore": "week2",
 	"startUnlocked": true,
+	"weekCharacters": [
+		"purpleguy",
+		"bf",
+		"gf"
+	],
 	"hideStoryMode": false,
 	"songs": [
 		[
 			"galaxy",
-			"guy",
+			"purpleguy",
 			[
-				106,
-				133,
-				253
+				95,
+				40,
+				135
 			]
 		]
 	],
-	"weekCharacters": [
-		"guy",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "week3"
+	"weekName": "week3",
+	"hiddenUntilUnlocked": false
 }
