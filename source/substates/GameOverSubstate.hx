@@ -87,7 +87,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			if (PlayState.LIVES - i > 0)
 				sprite.anim.play('live');
 
-			if (PlayState.LIVES - i == 1)
+			if (PlayState.LIVES - i == 0)
 				sprite.anim.play('death');
 
 			if (sprite.graphic == null)
