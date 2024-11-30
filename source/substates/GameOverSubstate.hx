@@ -69,34 +69,36 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		instance = this;
 
-		PlayState.LIVES -= 1;
+		/*
+			PlayState.LIVES -= 1;
 
-		var i = 3;
-		while (i-- > 0)
-		{
-			var sprite:FlxAnimate = new FlxAnimate(60, 0);
-			Paths.loadAnimateAtlas(sprite, 'ui/powerTubes');
-			sprite.anim.addBySymbol('live', 'tube live', 24, false);
-			sprite.anim.addBySymbol('hardcore live', 'tube hardcore live', 24, false);
-			sprite.anim.addBySymbol('dead', 'tube dead', 24, false);
-			sprite.anim.addBySymbol('death', 'tube death', 24, false);
-			sprite.anim.addBySymbol('hardcore death', 'tube hardcore death', 24, false);
-			sprite.anim.play('dead');
+			var i = 3;
+			while (i-- > 0)
+			{
+				var sprite:FlxAnimate = new FlxAnimate(60, 0);
+				Paths.loadAnimateAtlas(sprite, 'ui/powerTubes');
+				sprite.anim.addBySymbol('live', 'tube live', 24, false);
+				sprite.anim.addBySymbol('hardcore live', 'tube hardcore live', 24, false);
+				sprite.anim.addBySymbol('dead', 'tube dead', 24, false);
+				sprite.anim.addBySymbol('death', 'tube death', 24, false);
+				sprite.anim.addBySymbol('hardcore death', 'tube hardcore death', 24, false);
+				sprite.anim.play('dead');
 
-			if (PlayState.LIVES - i > 0)
-				sprite.anim.play('live');
+				if (PlayState.LIVES - i > 0)
+					sprite.anim.play('live');
 
-			if (PlayState.LIVES - i == 0)
-				sprite.anim.play('death');
+				if (PlayState.LIVES - i == 0)
+					sprite.anim.play('death');
 
-			if (sprite.graphic == null)
-				sprite.loadGraphic(Paths.image('num' + i));
+				if (sprite.graphic == null)
+					sprite.loadGraphic(Paths.image('num' + i));
 
-			sprite.screenCenter(Y);
-			sprite.x = -200 + (i * 240);
-			sprite.scrollFactor.set();
-			add(sprite);
-		}
+				sprite.screenCenter(Y);
+				sprite.x = -200 + (i * 240);
+				sprite.scrollFactor.set();
+				add(sprite);
+			}
+		 */
 
 		if (ClientPrefs.data.vibrating)
 			lime.ui.Haptic.vibrate(0, 500);
