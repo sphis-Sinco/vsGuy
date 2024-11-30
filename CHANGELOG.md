@@ -1,5 +1,9 @@
 # vs Guy plus
-## v1.6 - November 30th 2024
+## v1.6 [Purple Pack] - November 30th 2024
+### Added
+- WEEK 3: PURPLE GUY
+  - 1 New song: Galaxy
+- 10 Seconds into the past Keybind (debug only)
 
 ## v1.5-2 - November 29th 2024
 ### Added
