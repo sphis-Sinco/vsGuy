@@ -8,7 +8,8 @@ import backend.BaseStage;
 class Galaxy extends BaseStage {
 	override function create()
 	{
-		var bg:BGSprite = new BGSprite('galaxy', 729, -170);
+		var bg:BGSprite = new BGSprite('galaxy', -532, -680);
+        bg.scale.set(1.5,2);
 		add(bg);
 	}
     override function createPost() {
