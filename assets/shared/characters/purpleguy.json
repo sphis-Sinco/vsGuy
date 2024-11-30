@@ -1,53 +1,53 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "idle",
-			"indices": []
+			"indices": [],
+			"name": "idle"
 		},
 		{
+			"offsets": [85, 23],
 			"loop": false,
-			"offsets": [155, 10],
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
+			"indices": [],
+			"name": "left"
 		},
 		{
+			"offsets": [-50, -65],
 			"loop": false,
-			"offsets": [-16, -238],
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "down",
-			"indices": []
+			"indices": [],
+			"name": "down"
 		},
 		{
+			"offsets": [39, 17],
 			"loop": false,
-			"offsets": [10, 3],
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "up",
-			"indices": []
+			"indices": [],
+			"name": "up"
 		},
 		{
+			"offsets": [-25, -18],
 			"loop": false,
-			"offsets": [-97, -61],
-			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": true,
-	"image": "characters/guy",
+	"image": "characters/purpleguy",
 	"position": [130, 100],
-	"healthicon": "guy",
+	"healthicon": "purpleguy",
 	"flip_x": false,
-	"healthbar_colors": [51, 153, 255],
+	"healthbar_colors": [153, 51, 255],
 	"camera_position": [-140, 70],
 	"sing_duration": 4,
 	"scale": 1,
