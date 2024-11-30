@@ -773,9 +773,6 @@ class ResultState extends MusicBeatSubState
       else
       {
         var rankanim:Bool = ScoringRank.getValue(rank) > ScoringRank.getValue(params.prevScoreRank);
-
-        if (ScoringRank.getValue(rank) == ScoringRank.getValue(params.prevScoreRank))
-          rankanim = false;
         trace(rankanim);
         
         if (rankanim) //? refactor this??? // okay
