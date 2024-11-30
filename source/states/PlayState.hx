@@ -286,7 +286,7 @@ class PlayState extends MusicBeatState
 	public var popupShape:FlxSprite;
 	public var popup:FlxSprite;
 
-	public var LIVES:Int = 3;
+	public static var LIVES:Int = 3;
 
 	override public function create()
 	{

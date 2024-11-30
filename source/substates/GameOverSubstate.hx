@@ -12,8 +12,6 @@ import substates.StickerSubState;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
-	public var powerTubes:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
-
 	public var boyfriend:Character;
 
 	var camFollow:FlxObject;
@@ -70,6 +68,36 @@ class GameOverSubstate extends MusicBeatSubstate
 	override function create()
 	{
 		instance = this;
+		FlxG.camera.flash(0xffffff, 1);
+
+		PlayState.LIVES -= 1;
+
+		var i = 3;
+		while (i-- > 0)
+		{
+			var sprite:FlxAnimate = new FlxAnimate(60, 0);
+			Paths.loadAnimateAtlas(sprite, 'ui/powerTubes');
+			sprite.anim.addBySymbol('live', 'tube live', 24, false);
+			sprite.anim.addBySymbol('hardcore live', 'tube hardcore live', 24, false);
+			sprite.anim.addBySymbol('dead', 'tube dead', 24, false);
+			sprite.anim.addBySymbol('death', 'tube death', 24, false);
+			sprite.anim.addBySymbol('hardcore death', 'tube hardcore death', 24, false);
+			sprite.anim.play('dead');
+
+			if (PlayState.LIVES - i > 0)
+				sprite.anim.play('live');
+
+			if (PlayState.LIVES - i == 1)
+				sprite.anim.play('death');
+
+			if (sprite.graphic == null)
+				sprite.loadGraphic(Paths.image('num' + i));
+
+			sprite.screenCenter(Y);
+			sprite.x = -200 + (i * 120);
+			sprite.scrollFactor.set();
+			add(sprite);
+		}
 
 		if (ClientPrefs.data.vibrating)
 			lime.ui.Haptic.vibrate(0, 500);
@@ -97,8 +125,6 @@ class GameOverSubstate extends MusicBeatSubstate
 		FlxG.camera.focusOn(new FlxPoint(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2)));
 		FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		add(camFollow);
-
-		add(powerTubes);
 
 		PlayState.instance.setOnScripts('inGameOver', true);
 		PlayState.instance.callOnScripts('onGameOverStart', []);
