@@ -88,7 +88,7 @@ class StickerTest extends MusicBeatState {
                 #end
 
                 if(FlxG.keys.justPressed.ESCAPE || b_tapped){
-                    FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                    FlxG.sound.playMusic(Paths.music('FlexRack'));
                     FlxG.mouse.visible = false;
                     MusicBeatState.startTransition(new MasterEditorMenu());
                 }

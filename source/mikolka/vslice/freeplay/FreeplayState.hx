@@ -1795,7 +1795,7 @@ class FreeplayState extends MusicBeatSubstate
 				FlxTransitionableState.skipNextTransOut = true;
 				if (Type.getClass(_parentState) == MainMenuState)
 				{
-					FunkinSound.playMusic('freakyMenu', {
+					FunkinSound.playMusic('FlexRack', {
 						overrideExisting: true,
 						restartTrack: false
 					});

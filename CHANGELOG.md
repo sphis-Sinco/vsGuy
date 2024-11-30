@@ -4,6 +4,7 @@
 - WEEK 3: PURPLE GUY
   - 1 New song: Galaxy
 - 10 Seconds into the past Keybind (debug only)
+- New Title Screen Track (FlexRack)
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 
