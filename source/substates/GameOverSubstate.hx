@@ -94,7 +94,7 @@ class GameOverSubstate extends MusicBeatSubstate
 				sprite.loadGraphic(Paths.image('num' + i));
 
 			sprite.screenCenter(Y);
-			sprite.x = -200 + (i * 120);
+			sprite.x = -200 + (i * 240);
 			sprite.scrollFactor.set();
 			add(sprite);
 		}
