@@ -68,7 +68,6 @@ class GameOverSubstate extends MusicBeatSubstate
 	override function create()
 	{
 		instance = this;
-		FlxG.camera.flash(0xffffff, 1);
 
 		PlayState.LIVES -= 1;
 
