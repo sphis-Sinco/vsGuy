@@ -159,7 +159,7 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 			'If unchecked, hides FPS Counter.',
 			'showFPS',
 			BOOL);
-		addOption(option);
+		// addOption(option);
 		option.onChange = onChangeFPSCounter;
 
 		#if sys
