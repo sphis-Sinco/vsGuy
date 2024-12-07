@@ -5,10 +5,16 @@
   - 1 New song: Galaxy
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
 - Engine Watermark to Gameplay (bottom right)
+- Minecraft Font
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
 - Debug Keybinds for changing song position
+- Popup angle changing keybinds
+- Memory Counter
+### Changed
+- AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
+- FPS Counter positions
 
 ## v1.5-2 - November 29th 2024
 ### Added

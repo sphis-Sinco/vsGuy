@@ -31,6 +31,9 @@
 
 	<haxedef name="OUTDATED" if="OUTDATED" />
 
+	<define name="ATTRACT_ALLOWED" if="VIDEOS_ALLOWED" unless="debug" />
+	<haxedef name="ATTRACT_ALLOWED" if="ATTRACT_ALLOWED" />
+
 	<!-- ______________________ PSYCH ENGINE CUSTOMIZATION ______________________ -->
 
 	<!-- Compiles mod support for P-Slice. Feel free to disable if you're making a source mod -->

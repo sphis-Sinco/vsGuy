@@ -123,11 +123,11 @@ class MusicBeatState extends FlxState
 		timePassedOnState = 0;
 	
 		engineWatermark = new FlxText(10, 10, 0, "Guy Engine v2.0", 16);
-		engineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		engineWatermark.setFormat(Paths.font("mc.ttf"), 16, FlxColor.WHITE, RIGHT);
 		engineWatermark.scrollFactor.set(0,0);
-		engineWatermark.x = FlxG.width - engineWatermark.width / 2;
+		engineWatermark.x = FlxG.width - engineWatermark.width / 1;
 		engineWatermark.y = 4;
-		//engineWatermark.alpha = 1;
+		engineWatermark.alpha = 0.5;
 		engineWatermark.color = FlxColor.WHITE;
 		engineWatermark.visible = false;
 		add(engineWatermark);

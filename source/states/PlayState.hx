@@ -2005,6 +2005,7 @@ class PlayState extends MusicBeatState
 	{
 		popup.visible = popupShape.visible;
 
+		/*
 		if (FlxG.keys.anyJustReleased([LEFT, RIGHT, UP, DOWN]))
 		{
 			if (FlxG.keys.justReleased.LEFT)
@@ -2014,6 +2015,7 @@ class PlayState extends MusicBeatState
 
 			trace('popup angle is ${popup.angle}');
 		}
+		*/
 
 		if (!inCutscene && !paused && !freezeCamera)
 		{

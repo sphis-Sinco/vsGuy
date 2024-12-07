@@ -34,8 +34,6 @@ class CrashState extends FlxState
 	{
 		if (Main.fpsVar != null)
 			Main.fpsVar.visible = false;
-		if (Main.memoryCounter != null)
-			Main.memoryCounter.visible = false;
 		super.create();
 		var previousScreen = new FlxSprite(0, 0, screenBelow);
 		previousScreen.setGraphicSize(FlxG.width,FlxG.height);
@@ -107,10 +105,8 @@ class CrashState extends FlxState
 			TitleState.closedState = false;
 			#if LEGACY_PSYCH
 			if (Main.fpsVar != null) Main.fpsVar.visible = ClientPrefs.showFPS;
-			if (Main.memoryCounter != null) Main.memoryCounter.visible = ClientPrefs.showFPS;
 			#else
 			if (Main.fpsVar != null) Main.fpsVar.visible = ClientPrefs.data.showFPS;
-			if (Main.memoryCounter != null) Main.memoryCounter.visible = ClientPrefs.data.showFPS;
 			#end
 			FlxG.sound.pause();
 			FlxTween.globalManager.clear();

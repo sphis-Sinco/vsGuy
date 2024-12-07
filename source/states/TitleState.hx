@@ -853,7 +853,9 @@ class TitleState extends MusicBeatState
 	 */
 	function moveToAttract():Void
 	{	
+		#if ATTRACT_ALLOWED
 		if(!Std.isOfType(FlxG.state,TitleState)) return;
 		FlxG.switchState(() -> new AttractState());
+		#end
 	}
 }

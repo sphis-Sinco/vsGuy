@@ -1,5 +1,6 @@
 package;
 
+import debug.FPSCounter;
 import flixel.util.typeLimit.NextState.InitialState;
 import openfl.display.FPS;
 import mikolka.vslice.components.MemoryCounter;
@@ -41,7 +42,7 @@ class Main extends Sprite
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 
-	public static var fpsVar:FPS;
+	public static var fpsVar:FPSCounter;
 	public static var memoryCounter:MemoryCounter;
 	public static final platform:String = #if mobile "Phones" #else "PCs" #end;
 
@@ -149,7 +150,7 @@ class Main extends Sprite
 
 		addChild(gameObject);
 
-		fpsVar = new FPS(10, 3, 0xFFFFFF);
+		fpsVar = new FPSCounter(10, 10, 0xFFFFFF);
 		#if mobile
 		FlxG.game.addChild(fpsVar);
 	  	#else
@@ -161,20 +162,6 @@ class Main extends Sprite
 		{
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
-
-		#if !html5
-		// TODO: disabled on HTML5 (todo: find another method that works?)
-		memoryCounter = new MemoryCounter(10, 13, 0xFFFFFF);
-		#if mobile
-		FlxG.game.addChild(memoryCounter);
-	  	#else
-		addChild(memoryCounter);
-		#end
-		if (memoryCounter != null)
-		{
-			memoryCounter.visible = ClientPrefs.data.showFPS;
-		}
-		#end
 
 		
 
