@@ -1,5 +1,5 @@
 # vs Guy plus
-## v1.6 [Purple Pack] - November 30th 2024
+## 2.0 [Holiday Pack] - December 15th 2024
 ### Added
 - WEEK 3: PURPLE GUY
   - 1 New song: Galaxy
