@@ -5,7 +5,8 @@
   - 1 New song: Galaxy
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
 - Engine Watermark to Gameplay (bottom right)
-- Minecraft Font
+- Minecraft Font (unused)
+- Comic Sans Font
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
