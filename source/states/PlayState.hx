@@ -792,7 +792,8 @@ class PlayState extends MusicBeatState
 		if (eventNotes.length < 1)
 			checkEventNote();
 
-		add(engineWatermark);
+		engineWatermark.visible = true;
+		engineWatermark.cameras = [camHUD];
 	}
 
 	public function popupShapeChill(name:String):Void
