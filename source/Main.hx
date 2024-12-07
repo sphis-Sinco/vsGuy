@@ -1,5 +1,6 @@
 package;
 
+import states.editors.MasterEditorMenu;
 import debug.FPSCounter;
 import flixel.util.typeLimit.NextState.InitialState;
 import openfl.display.FPS;

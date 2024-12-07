@@ -7,6 +7,7 @@
 - Engine Watermark to Gameplay (bottom right)
 - Minecraft Font (unused)
 - Comic Sans Font
+- TRANSFER_CHARTEDIT Compiler Flag
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
@@ -16,6 +17,8 @@
 - FPS Counter
 ### Changed
 - AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
+- Width of Chart editor Main UI Box
+- Metadata tab in Chart Editor (many edits)
 
 ## v1.5-2 - November 29th 2024
 ### Added

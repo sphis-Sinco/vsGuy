@@ -382,7 +382,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		infoBox.getTab('Information').menu.add(infoText);
 		add(infoBox);
 
-		mainBox = new PsychUIBox(mainBoxPosition.x, mainBoxPosition.y, 340, 280, ['Charting', 'Data', 'Events', 'Note', 'Section', 'Song','Metadata']);
+		mainBox = new PsychUIBox(mainBoxPosition.x, mainBoxPosition.y, 400, 280, ['Charting', 'Data', 'Events', 'Note', 'Section', 'Song','Metadata']);
 		mainBox.selectedName = 'Song';
 		mainBox.scrollFactor.set();
 		mainBox.cameras = [camUI];
@@ -3568,18 +3568,23 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 	var prevEndInput:PsychUINumericStepper;
 	var characterName:PsychUIInputText;
 	var albumName:PsychUIInputText;
+	var artist:PsychUIInputText;
 	var exportMetadataBtn:PsychUIButton;
 	var maxTime:Float = 0.0;
+
 	function addMetadataTab()
 	{
+		var y_pad = 45;
+		var x_pad = 150;
 		var tab_group = mainBox.getTab('Metadata').menu;
 		ratingInput = new PsychUINumericStepper(20, 30,1,0,0,99,0,60);
-		prevStartInput = new PsychUINumericStepper(20, 100,1,0,0,999,2,80); 
-		prevEndInput = new PsychUINumericStepper(20, 150,1,0,0,999,2,80);
-		characterName = new PsychUIInputText(160,100,100,"",8);
-		albumName = new PsychUIInputText(160,150,100,"",8);
+		prevStartInput = new PsychUINumericStepper(ratingInput.x, ratingInput.y + y_pad,1,0,0,999,2,80); 
+		prevEndInput = new PsychUINumericStepper(ratingInput.x + x_pad, prevStartInput.y,1,0,0,999,2,80);
+		characterName = new PsychUIInputText(ratingInput.x, prevStartInput.y + y_pad,100,"",8);
+		albumName = new PsychUIInputText(ratingInput.x, characterName.y,100,"",8);
+		artist = new PsychUIInputText(ratingInput.x, characterName.y + y_pad, 100, "", 8);
 
-		exportMetadataBtn = new PsychUIButton(20,200,"Export metadata",onMetadataSaveClick.bind(),110);
+		exportMetadataBtn = new PsychUIButton(ratingInput.x, artist.y + y_pad,"Export metadata",onMetadataSaveClick.bind(),110);
 
 		tab_group.add(new FlxText(ratingInput.x, ratingInput.y - 15, 80, 'Rating:'));
 		tab_group.add(ratingInput);
@@ -3595,6 +3600,9 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 
 		tab_group.add(new FlxText(albumName.x, albumName.y - 15, 150, 'Song album:'));
 		tab_group.add(albumName);
+
+		tab_group.add(new FlxText(artist.x, artist.y - 15, 150, 'Song Artist:'));
+		tab_group.add(artist);
 
 		tab_group.add(exportMetadataBtn);
 	}
