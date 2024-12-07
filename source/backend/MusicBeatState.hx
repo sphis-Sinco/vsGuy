@@ -105,6 +105,8 @@ class MusicBeatState extends FlxState
 	public static function getVariables()
 		return getState().variables;
 
+	public var engineWatermark:FlxText = new FlxText(10, 10, 0, "Guy Engine v2.0", 16);
+
 	override function create() {
 		currentState = this;
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
@@ -119,6 +121,10 @@ class MusicBeatState extends FlxState
 		}
 		FlxTransitionableState.skipNextTransOut = false;
 		timePassedOnState = 0;
+	
+		engineWatermark.y = FlxG.height - engineWatermark.height + 16;
+		engineWatermark.alpha = 1;
+		engineWatermark.color = FlxColor.WHITE;
 	}
 
 	public function initPsychCamera():PsychCamera

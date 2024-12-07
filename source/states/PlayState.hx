@@ -791,6 +791,8 @@ class PlayState extends MusicBeatState
 
 		if (eventNotes.length < 1)
 			checkEventNote();
+
+		add(engineWatermark);
 	}
 
 	public function popupShapeChill(name:String):Void
@@ -2208,22 +2210,6 @@ class PlayState extends MusicBeatState
 			}
 			checkEventNote();
 		}
-
-		#if debug
-		if (!endingSong && !startingSong)
-		{
-			if (FlxG.keys.justPressed.ONE)
-			{ // Go 10 seconds into the future :O
-				setSongTime(Conductor.songPosition - 10000);
-				clearNotesBefore(Conductor.songPosition);
-			}
-			if (FlxG.keys.justPressed.TWO)
-			{ // Go 10 seconds into the future :O
-				setSongTime(Conductor.songPosition + 10000);
-				clearNotesBefore(Conductor.songPosition);
-			}
-		}
-		#end
 
 		setOnScripts('botPlay', cpuControlled);
 		callOnScripts('onUpdatePost', [elapsed]);

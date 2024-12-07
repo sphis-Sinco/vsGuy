@@ -3,10 +3,12 @@
 ### Added
 - WEEK 3: PURPLE GUY
   - 1 New song: Galaxy
-- 10 Seconds into the past Keybind (debug only)
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
+- Engine Watermark to Gameplay (bottom right)
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
+### Removed
+- Debug Keybinds for changing song position
 
 ## v1.5-2 - November 29th 2024
 ### Added
