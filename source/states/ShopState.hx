@@ -185,14 +185,16 @@ class ShopState extends MusicBeatState
 
 			itemDesc.text += currentItem.description;
 
-			if (currentItem.sincoReact)
-				if (currentItem.sincoInterested)
-					sinco.playAnim('interested');
-				else
-					sinco.playAnim('uninterested');
+			if (!ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
+				if (currentItem.sincoReact)
+					if (currentItem.sincoInterested)
+						sinco.playAnim('interested');
+					else
+						sinco.playAnim('uninterested');
 		} else {
 			itemName.text = 'No Shop Items';
 			itemDesc.text = '';
+			sinco.playAnim('uninterested');
 		}
 	}
 }
