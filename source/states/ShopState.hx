@@ -90,7 +90,7 @@ class ShopState extends MusicBeatState
 		itemName.y -= 340;
 
         itemDesc = new FlxText(0,0,0, "Description", 16);
-		itemDesc.setFormat(itemName.font, Math.round(itemName.size / 2), itemName.color, itemName.alignment);
+		itemDesc.setFormat(itemName.font, Math.round(itemName.size / 1.5), itemName.color, itemName.alignment);
 		itemDesc.setPosition(itemName.x + 20, itemName.y + 100);
 
 		// items.push(ShopItemManager.blankShopItem());
@@ -140,6 +140,7 @@ class ShopState extends MusicBeatState
 
 			if (currentSelection != previousSel) {
 				FlxG.sound.play(Paths.sound('scrollMenu'));
+				updateItem();
 				trace(currentSelection);
 			}
 		}
@@ -151,7 +152,16 @@ class ShopState extends MusicBeatState
 			
 			if (currentSelection != previousSel) {
 				FlxG.sound.play(Paths.sound('scrollMenu'));
+				updateItem();
 				trace(currentSelection);
+			}
+		}
+		if (controls.ACCEPT)
+		{
+			if (!ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
+			{
+				ClientPrefs.data.BoughtStoreItems.push(currentItem.name);
+				updateItem();
 			}
 		}
 
@@ -167,7 +177,12 @@ class ShopState extends MusicBeatState
 				currentItem = ShopItemManager.blankShopItem();
 
 			itemName.text = '${currentItem.name} - ${currentItem.price > 0.0 ? '${currentItem.price} XP' : 'Free'}';
-			itemDesc.text = currentItem.description;
+			itemDesc.text = '';
+
+			if (ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
+				itemDesc.text += 'BOUGHT';
+
+			itemDesc.text += currentItem.description;
 
 			if (currentItem.sincoReact)
 				if (currentItem.sincoInterested)
