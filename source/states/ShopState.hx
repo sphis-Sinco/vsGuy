@@ -41,7 +41,7 @@ class ShopState extends MusicBeatState
         itemDesc.setFormat(Paths.font("comicsans.ttf"), 32, itemName.color, itemName.alignment);
 		itemDesc.setPosition(itemName.x + 20, itemName.y + 100);
 
-		items.push(ShopItemManager.blankShopItem());
+		// items.push(ShopItemManager.blankShopItem());
 
 		updateItem();
 
@@ -74,23 +74,52 @@ class ShopState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
+		var previousSel:Int = currentSelection;
+		if (controls.UI_LEFT_R)
+		{
+			currentSelection -= 1;
+			if (currentSelection < 0)
+				currentSelection = 0;
+
+			if (currentSelection != previousSel) {
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				trace(currentSelection);
+			}
+		}
+		if (controls.UI_RIGHT_R)
+		{
+			currentSelection += 1;
+			if (currentSelection > items.length)
+				currentSelection = items.length;
+			
+			if (currentSelection != previousSel) {
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				trace(currentSelection);
+			}
+		}
+
 		super.update(elapsed);
 	}
 
 	public function updateItem()
 	{
-		currentItem = items[currentSelection];
+		if (items.length > 0) {
+			currentItem = items[currentSelection];
 
-		if (currentItem == null)
-			currentItem = ShopItemManager.blankShopItem();
+			if (currentItem == null)
+				currentItem = ShopItemManager.blankShopItem();
 
-		itemName.text = '${currentItem.name} - ${currentItem.price > 0.0 ? "$"+currentItem.price : 'Free'}';
-		itemDesc.text = currentItem.description;
+			itemName.text = '${currentItem.name} - ${currentItem.price > 0.0 ? "$"+currentItem.price : 'Free'}';
+			itemDesc.text = currentItem.description;
 
-		if (currentItem.sincoReact)
-			if (currentItem.sincoInterested)
-				sinco.playAnim('interested');
-			else
-				sinco.playAnim('uninterested');
+			if (currentItem.sincoReact)
+				if (currentItem.sincoInterested)
+					sinco.playAnim('interested');
+				else
+					sinco.playAnim('uninterested');
+		} else {
+			itemName.text = 'No Shop Items';
+			itemDesc.text = '';
+		}
 	}
 }
