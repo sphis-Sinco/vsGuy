@@ -2076,6 +2076,16 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 			0,FlxG.sound.music.length/1000);
 		characterName.text = songMetadata.freeplayCharacter;
 		albumName.text = songMetadata.albumId;
+
+		censoredDialogue.checked = songMetadata.censoredDialogue;
+		dialogue.checked = songMetadata.dialogue;
+		dialogueFile.text = songMetadata.dialogueFile;
+		dialogueMusic.text = songMetadata.dialogueMusic;
+		endDialogue.checked = songMetadata.endDialogue;
+		freeplayDialogue.checked = songMetadata.freeplayDialogue;
+		
+		artist.text = songMetadata.artist;
+		charter.text = songMetadata.charter;
 	}
 
 	function loadMusic(?killAudio:Bool = false)
