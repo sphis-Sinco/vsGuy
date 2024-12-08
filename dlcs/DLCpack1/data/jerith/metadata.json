@@ -1,13 +1,15 @@
 {
-	"songRating": 6,
-	"freeplayPrevStart": 0,
-	"freeplayPrevEnd": 15,
-	"freeplaySongLength": 87.272,
-	"freeplayCharacter": "bf",
-	"albumId": "dlcset1",
-	"dialogue": false,
-	"censoredDialogue": false,
-	"freeplayDialogue": false,
-	"dialogueFile": "dialogue",
-	"dialogueMusic": "breakfast"
+  "songRating": 6,
+  "freeplayPrevStart": 0,
+  "freeplayPrevEnd": 15,
+  "freeplaySongLength": 87.272,
+  "freeplayCharacter": "bf",
+  "albumId": "dlcset1",
+  "dialogue": false,
+  "censoredDialogue": false,
+  "freeplayDialogue": false,
+  "dialogueFile": "dialogue",
+  "dialogueMusic": "breakfast",
+  "artist": "Sinco",
+  "charter": "Sinco"
 }
