@@ -26,16 +26,37 @@ class ShopState extends MusicBeatState
 	{
 		currentItem = ShopItemManager.blankShopItem();
 
-		var tempList:Array<String> = CoolUtil.loadFileList('assets/shared/shop/', null, ['.json']);
+		#if sys
+		var tempList:Array<String> = FileSystem.readDirectory('assets/shared/shop/');
+		#if MODS_ALLOWED
+		var backup:Array<String> = tempList;
+		tempList = CoolUtil.loadFileList('assets/shared/shop/', null, ['.json']);
+		if (tempList.length < 1)
+			tempList = backup;
+		#end
+		#else
+		var tempList:Array<String> = [];
+		#end
+
 		trace('tempList: $tempList');
 		
+		var itemsList:Array<String> = [];
 		for (file in tempList)
 		{
-			items.push(Json.parse(Assets.getText(Paths.getFolderPath('$file.json', 'shared/shop'))));
-			if (!ClientPrefs.BoughtStoreItems.contains(file))
-				ClientPrefs.BoughtStoreItems.push(file);
+			if (file.endsWith('.json')) {
+				try {
+					items.push(Json.parse(Assets.getText(Paths.getFolderPath('$file', 'shared/shop'))));
+					
+					if (!ClientPrefs.BoughtStoreItems.contains(file))
+						ClientPrefs.BoughtStoreItems.push(file);
+
+					itemsList.push(items[items.length - 1].name);
+				} catch(e){
+					trace(e);
+				}
+			}
 		}
-		trace('items: $items');
+		trace('items: $itemsList');
 
 		// remove unused ones
 		for (item in tempList)
