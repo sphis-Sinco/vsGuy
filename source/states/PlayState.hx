@@ -805,7 +805,7 @@ class PlayState extends MusicBeatState
 		add(songStartDim);
 
 		songStartText = new FlxText(0, 0, FlxG.width, "", 20);
-		songStartText.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songStartText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songStartText.text = 'Now Playing: ${SONG.song} (Composed by ${songMeta.artist}, Charted by ${songMeta.charter})';
 		songStartText.borderSize = 1;
 		songStartText.scrollFactor.set();
@@ -813,7 +813,6 @@ class PlayState extends MusicBeatState
 		songStartText.updateHitbox();
 		songStartText.screenCenter();
 		songStartText.y += 210;
-		songStartText.scale.set(1, 1);
 		songStartText.cameras = [camHUD];
 		add(songStartText);
 
