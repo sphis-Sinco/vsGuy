@@ -508,18 +508,17 @@ class ResultState extends MusicBeatSubState
 		trace('XP penalty: $xpPenalty');
 		trace('XP earned (with penalty): $finalXP');
 
-		var doubleOrNothing:DoubleXP = new DoubleXP(0, 0);
+		var additional:Float = 0;
 
 		if (ClientPrefs.data.EnabledStoreItems.contains('Double XP'))
 		{
-			doubleOrNothing.screenCenter();
-			doubleOrNothing.start();
-
-			finalXP = finalXP * 2;
-			trace('XP earned (with penalty) doubled: $finalXP');
+			additional = finalXP;
+			trace('Final XP doubled: ${finalXP * 2}');
 		}
 
-		var popup:XPPopup = new XPPopup(finalXP, cameraEverything);
+		trace('Final XP: ${finalXP + additional}');
+
+		var popup:XPPopup = new XPPopup(finalXP, additional, cameraEverything);
 		add(popup);
 
 		ClientPrefs.data.XP += finalXP;
