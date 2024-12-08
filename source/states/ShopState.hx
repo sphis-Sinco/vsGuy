@@ -47,8 +47,8 @@ class ShopState extends MusicBeatState
 				try {
 					items.push(Json.parse(Assets.getText(Paths.getFolderPath('$file', 'shared/shop'))));
 					
-					if (!ClientPrefs.BoughtStoreItems.contains(file))
-						ClientPrefs.BoughtStoreItems.push(file);
+					if (!ClientPrefs.data.BoughtStoreItems.contains(file))
+						ClientPrefs.data.BoughtStoreItems.push(file);
 
 					itemsList.push(items[items.length - 1].name);
 				} catch(e){
@@ -61,8 +61,8 @@ class ShopState extends MusicBeatState
 		// remove unused ones
 		for (item in tempList)
 		{
-			if (!ClientPrefs.BoughtStoreItems.contains(item))
-				ClientPrefs.BoughtStoreItems.remove(item);
+			if (!ClientPrefs.data.BoughtStoreItems.contains(item))
+				ClientPrefs.data.BoughtStoreItems.remove(item);
 		}
 
 		sinco = new Character(0, 0, 'shop-sinco');
@@ -78,7 +78,7 @@ class ShopState extends MusicBeatState
 		xpText = new FlxText(0,0,0,"XP", 16);
 		xpText.setFormat(Paths.font("comicsans.ttf"), 64, FlxColor.RED, LEFT);
 		xpText.setPosition(10, 10);
-		xpText.text = 'XP: ${ClientPrefs.XP}';
+		xpText.text = 'XP: ${ClientPrefs.data.XP}';
 
 		itemName = new FlxText(0, 0, 0, "Item - Price XP", 16);
 		itemName.setFormat(Paths.font("vcr.ttf"), 48, FlxColor.RED, LEFT);
@@ -192,7 +192,7 @@ class XPPopup extends FlxSpriteGroup
 		this.y -= 100;
 		lerpScore = amount;
 
-		ClientPrefs.XP += amount;
+		ClientPrefs.data.XP += amount;
 
 		var colorShader:ColorShader = new ColorShader(0);
 

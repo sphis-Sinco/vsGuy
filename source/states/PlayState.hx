@@ -2956,7 +2956,7 @@ class PlayState extends MusicBeatState
 			trace('XP penalty: ${xpPenalty}');
 			trace('XP earned (with penalty): ${newXP - xpPenalty}');
 
-			ClientPrefs.XP += (newXP - xpPenalty);
+			ClientPrefs.data.XP += (newXP - xpPenalty);
 
 			var popup:XPPopup = new XPPopup((newXP - xpPenalty), camHUD);
 			add(popup);
