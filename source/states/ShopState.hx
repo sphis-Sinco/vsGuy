@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.popups.DoubleXP;
 import haxe.Json;
 import openfl.Assets;
 import shaders.ColorShader;
@@ -21,6 +22,8 @@ class ShopState extends MusicBeatState
 
 	public var itemName:FlxText;
 	public var itemDesc:FlxText;
+
+	public var doubleXp:DoubleXP;
 
 	override public function new()
 	{
@@ -94,6 +97,8 @@ class ShopState extends MusicBeatState
 
 		updateItem();
 
+		doubleXp = new DoubleXP(0,0);
+
 		super();
 	}
 
@@ -112,6 +117,8 @@ class ShopState extends MusicBeatState
 		add(itemName);
 		add(itemDesc);
 		add(xpText);
+
+		add(doubleXp);
 
 		super.create();
 	}
