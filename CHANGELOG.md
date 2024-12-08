@@ -8,6 +8,7 @@
 - SHOP MENU
 - SHOP ITEMS
   - Double XP: Doubles your XP at the end of a song (requires 7000 XP)
+- NEW CREDITS MENU BASED ON VSLICE
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
 - Engine Watermark to Gameplay (top right)
 - Minecraft Font (unused)

@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.states.credits.CreditsMenu;
 import objects.MenuBG;
 import mikolka.compatibility.ModsHelper;
 import mikolka.vslice.freeplay.FreeplayState;
@@ -229,7 +230,7 @@ class MainMenuState extends MusicBeatState
 							#end
 
 							case 'credits':
-								MusicBeatState.switchState(new CreditsState());
+								MusicBeatState.switchState(new CreditsMenu());
 							case 'options':
 								MusicBeatState.switchState(new OptionsState());
 								OptionsState.onPlayState = false;
