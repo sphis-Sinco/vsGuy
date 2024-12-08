@@ -1,0 +1,17 @@
+{
+    "api_ver": 0.1,
+	"credits": [
+		{
+			"header": {
+				"text": "Template",
+				"users": [
+					{
+						"person": "Sinco",
+						"role": "Creator"
+					}
+				]
+			}
+		}
+	
+    ]
+}
