@@ -512,7 +512,7 @@ class ResultState extends MusicBeatSubState
 
 		if (ClientPrefs.data.EnabledStoreItems.contains('Double XP'))
 		{
-			doubleOrNothing.setPosition(640, 360);
+			doubleOrNothing.screenCenter();
 			doubleOrNothing.start();
 
 			finalXP = finalXP * 2;
