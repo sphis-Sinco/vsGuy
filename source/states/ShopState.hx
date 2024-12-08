@@ -162,8 +162,10 @@ class ShopState extends MusicBeatState
 			{
 				trace('New Item bought: ${currentItem.name}');
 				ClientPrefs.data.BoughtStoreItems.push(currentItem.name);
+				ClientPrefs.data.EnabledStoreItems.push(currentItem.name);
 				ClientPrefs.data.XP -= currentItem.price;
 				updateItem();
+				xpText.text = 'XP: ${ClientPrefs.data.XP}';
 			}
 		}
 
