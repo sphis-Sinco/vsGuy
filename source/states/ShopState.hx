@@ -84,7 +84,7 @@ class ShopState extends MusicBeatState
 		xpText.text = 'XP: ${ClientPrefs.data.XP}';
 
 		itemName = new FlxText(0, 0, 0, "Item - Price XP", 16);
-		itemName.setFormat(Paths.font("vcr.ttf"), 48, FlxColor.RED, LEFT);
+		itemName.setFormat(Paths.font("vcr.ttf"), 48, FlxColor.BLACK, LEFT);
 		itemName.screenCenter();
 		itemName.x += 280;
 		itemName.y -= 340;
