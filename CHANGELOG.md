@@ -15,6 +15,7 @@
 - New Optional Metadata Arguments for songs
   - `artist` (String (default: 'Unknown')) - tells the artist of the song
   - `charter` (String (default: 'Unknown')) - tells the charter of the song
+  - These new Fields have been added to DLCPack1 (12/8/2024)
 - Automatic saving for any new Metadata arguments for songs (ex: `dialogueMusic`)
 - Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
 - InitState
