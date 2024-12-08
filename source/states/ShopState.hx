@@ -90,7 +90,7 @@ class ShopState extends MusicBeatState
 		itemName.y -= 340;
 
         itemDesc = new FlxText(0,0,0, "Description", 16);
-		itemDesc.setFormat(itemName.font, Math.round(itemName.size / 1.5), itemName.color, itemName.alignment);
+		itemDesc.setFormat(itemName.font, Math.round(itemName.size / 2), itemName.color, itemName.alignment);
 		itemDesc.setPosition(itemName.x + 20, itemName.y + 100);
 
 		// items.push(ShopItemManager.blankShopItem());
@@ -160,6 +160,7 @@ class ShopState extends MusicBeatState
 		{
 			if (!ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
 			{
+				trace('New Item bought: ${currentItem.name}');
 				ClientPrefs.data.BoughtStoreItems.push(currentItem.name);
 				ClientPrefs.data.XP -= currentItem.price;
 				updateItem();
@@ -181,7 +182,7 @@ class ShopState extends MusicBeatState
 			itemDesc.text = '';
 
 			if (ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
-				itemDesc.text += 'BOUGHT';
+				itemDesc.text += 'BOUGHT\n';
 
 			itemDesc.text += currentItem.description;
 

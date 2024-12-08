@@ -342,6 +342,10 @@ class ClientPrefs
 			}
 		}
 
+		data.XP = 0.0;
+		data.BoughtStoreItems = [];
+		data.EnabledStoreItems = [];
+
 		trace('Reset Save!');
 
 		saveSettings();
