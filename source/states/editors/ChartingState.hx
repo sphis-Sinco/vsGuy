@@ -374,7 +374,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		selectionBox.visible = false;
 		add(selectionBox);
 
-		infoBox = new PsychUIBox(infoBoxPosition.x, infoBoxPosition.y, 220, 220, ['Information']);
+		infoBox = new PsychUIBox(infoBoxPosition.x, infoBoxPosition.y + 250, 220, 220, ['Information']);
 		infoBox.scrollFactor.set();
 		infoBox.cameras = [camUI];
 		infoText = new FlxText(15, 15, 230, '', 16);
@@ -382,7 +382,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		infoBox.getTab('Information').menu.add(infoText);
 		add(infoBox);
 
-		mainBox = new PsychUIBox(mainBoxPosition.x, mainBoxPosition.y, 400, 280, ['Charting', 'Data', 'Events', 'Note', 'Section', 'Song','Metadata']);
+		mainBox = new PsychUIBox(mainBoxPosition.x, mainBoxPosition.y, 400, 350, ['Charting', 'Data', 'Events', 'Note', 'Section', 'Song','Metadata']);
 		mainBox.selectedName = 'Song';
 		mainBox.scrollFactor.set();
 		mainBox.cameras = [camUI];
@@ -3568,21 +3568,60 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 	var prevEndInput:PsychUINumericStepper;
 	var characterName:PsychUIInputText;
 	var albumName:PsychUIInputText;
+
+	var dialogue:PsychUICheckBox;
+	var censoredDialogue:PsychUICheckBox;
+	var freeplayDialogue:PsychUICheckBox;
+	var endDialogue:PsychUICheckBox;
+
+	var dialogueFile:PsychUIInputText;
+	var dialogueMusic:PsychUIInputText;
+
 	var artist:PsychUIInputText;
+	var charter:PsychUIInputText;
+
 	var exportMetadataBtn:PsychUIButton;
 	var maxTime:Float = 0.0;
 
 	function addMetadataTab()
 	{
-		var y_pad = 45;
+		var y_pad = 40;
+		var y_pad_checkbox = 25;
 		var x_pad = 150;
+		var x_pad_checkbox = 100;
 		var tab_group = mainBox.getTab('Metadata').menu;
-		ratingInput = new PsychUINumericStepper(20, 30,1,0,0,99,0,60);
+
+		ratingInput = new PsychUINumericStepper(20, 20, 1, 0, 0, 20, 0, 60);
 		prevStartInput = new PsychUINumericStepper(ratingInput.x, ratingInput.y + y_pad,1,0,0,999,2,80); 
 		prevEndInput = new PsychUINumericStepper(ratingInput.x + x_pad, prevStartInput.y,1,0,0,999,2,80);
 		characterName = new PsychUIInputText(ratingInput.x, prevStartInput.y + y_pad,100,"",8);
-		albumName = new PsychUIInputText(ratingInput.x, characterName.y,100,"",8);
-		artist = new PsychUIInputText(ratingInput.x, characterName.y + y_pad, 100, "", 8);
+		albumName = new PsychUIInputText(ratingInput.x + x_pad, characterName.y,100,"",8);
+
+		dialogue = new PsychUICheckBox(
+			ratingInput.x,
+			characterName.y + y_pad_checkbox,
+			"Dialogue File?",
+			100);
+		censoredDialogue = new PsychUICheckBox(
+			dialogue.x + x_pad_checkbox, 
+			dialogue.y, 
+			"Censored Dialogue File?", 
+			100);
+		freeplayDialogue = new PsychUICheckBox(
+			ratingInput.x, 
+			dialogue.y + y_pad_checkbox, 
+			"Dialogue in Freeplay", 
+			100);
+		endDialogue = new PsychUICheckBox(
+			freeplayDialogue.x + x_pad_checkbox, 
+			freeplayDialogue.y, 
+			"End of Song Dialogue File?", 
+			100);
+		dialogueFile = new PsychUIInputText(ratingInput.x, endDialogue.y + y_pad, 100, "dialogue", 8);
+		dialogueMusic = new PsychUIInputText(dialogueFile.x + x_pad, dialogueFile.y, 100, "breakfast", 8);
+
+		artist = new PsychUIInputText(ratingInput.x, dialogueMusic.y + y_pad, 100, "Unknown", 8);
+		charter = new PsychUIInputText(artist.x + x_pad, artist.y, 100, "Unknown", 8);
 
 		exportMetadataBtn = new PsychUIButton(ratingInput.x, artist.y + y_pad,"Export metadata",onMetadataSaveClick.bind(),110);
 
@@ -3601,8 +3640,22 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		tab_group.add(new FlxText(albumName.x, albumName.y - 15, 150, 'Song album:'));
 		tab_group.add(albumName);
 
+		tab_group.add(dialogue);
+		tab_group.add(censoredDialogue);
+		tab_group.add(freeplayDialogue);
+		tab_group.add(endDialogue);
+
+		tab_group.add(new FlxText(dialogueFile.x, dialogueFile.y - 15, 150, 'Dialogue File Name'));
+		tab_group.add(dialogueFile);
+
+		tab_group.add(new FlxText(dialogueMusic.x, dialogueMusic.y - 15, 150, 'Dialogue Background Music:'));
+		tab_group.add(dialogueMusic);
+
 		tab_group.add(new FlxText(artist.x, artist.y - 15, 150, 'Song Artist:'));
 		tab_group.add(artist);
+
+		tab_group.add(new FlxText(charter.x, charter.y - 15, 150, 'Song Charter:'));
+		tab_group.add(charter);
 
 		tab_group.add(exportMetadataBtn);
 	}
@@ -3616,6 +3669,16 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		meta.albumId = albumName.text;
 		meta.freeplayCharacter = characterName.text;
 		meta.freeplaySongLength = FlxG.sound.music.length/1000;
+
+		meta.dialogue = dialogue.checked;
+		meta.censoredDialogue = censoredDialogue.checked;
+		meta.freeplayDialogue = freeplayDialogue.checked;
+		meta.endDialogue = endDialogue.checked;
+		meta.dialogueFile = dialogueFile.text;
+		meta.dialogueMusic = dialogueMusic.text;
+
+		meta.artist = artist.text;
+		meta.charter = charter.text;
 		
 		var data:String = haxe.Json.stringify(meta, "\t");
 		#if mobile

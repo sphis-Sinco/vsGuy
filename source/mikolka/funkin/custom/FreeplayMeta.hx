@@ -5,6 +5,8 @@ using mikolka.funkin.custom.FunkinTools;
 
 class FreeplayMetaJSON {
     public function new() {}
+
+    // freeplay stuff
     public var songRating:Int = 0;
 
     public var freeplayPrevStart:Float = 0; // those are in seconds btw
@@ -20,6 +22,10 @@ class FreeplayMetaJSON {
     public var endDialogue:Bool = false;
     public var dialogueFile:String = 'dialogue';
     public var dialogueMusic:String = 'breakfast';
+
+    // pausemenu stuff
+	public var artist:String = 'Unknown';
+	public var charter:String = 'Unknown';
 }
 
 class FreeplayMeta {

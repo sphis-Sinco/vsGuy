@@ -7,7 +7,11 @@
 - Engine Watermark to Gameplay (bottom right)
 - Minecraft Font (unused)
 - Comic Sans Font
-- TRANSFER_CHARTEDIT Compiler Flag
+- New Optional Metadata Arguments for songs
+  - `artist` (String (default: 'Unknown')) - tells the artist of the song
+  - `charter` (String (default: 'Unknown')) - tells the charter of the song
+- Automatic saving for any new Metadata arguments for songs (ex: `dialogueMusic`)
+- Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
@@ -15,6 +19,7 @@
 - Popup angle changing keybinds
 - Memory Counter
 - FPS Counter
+- Ability to have Songs with a Rating over 20
 ### Changed
 - AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
 - Width of Chart editor Main UI Box
