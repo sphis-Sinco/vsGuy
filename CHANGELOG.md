@@ -19,6 +19,7 @@
 - Automatic saving for any new Metadata arguments for songs (ex: `dialogueMusic`)
 - Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
 - InitState
+- Credit Text at beginning of gameplay which says who made the song and who charted it
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
