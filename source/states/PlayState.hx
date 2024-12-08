@@ -813,7 +813,7 @@ class PlayState extends MusicBeatState
 		songStartText.updateHitbox();
 		songStartText.screenCenter();
 		songStartText.y += 210;
-		songStartText.scale.set(1.5, 1.5);
+		songStartText.scale.set(2, 2);
 		songStartText.cameras = [camHUD];
 		add(songStartText);
 
