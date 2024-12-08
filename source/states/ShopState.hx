@@ -73,7 +73,7 @@ class ShopState extends MusicBeatState
 
 		card = new FlxSprite(0, 0).loadGraphic(Paths.image('shop/Item Card'));
 		card.screenCenter();
-		card.x += 380;
+		card.x += 350;
 
 		xpText = new FlxText(0,0,0,"XP", 16);
 		xpText.setFormat(Paths.font("comicsans.ttf"), 64, FlxColor.RED, LEFT);
@@ -81,13 +81,13 @@ class ShopState extends MusicBeatState
 		xpText.text = 'XP: ${ClientPrefs.XP}';
 
 		itemName = new FlxText(0, 0, 0, "Item - Price XP", 16);
-		itemName.setFormat(Paths.font("comicsans.ttf"), 64, FlxColor.BLACK, LEFT);
+		itemName.setFormat(Paths.font("vcr.ttf"), 48, FlxColor.RED, LEFT);
 		itemName.screenCenter();
-		itemName.x += 300;
-		itemName.y -= 300;
+		itemName.x += 280;
+		itemName.y -= 340;
 
         itemDesc = new FlxText(0,0,0, "Description", 16);
-        itemDesc.setFormat(Paths.font("comicsans.ttf"), 32, itemName.color, itemName.alignment);
+		itemDesc.setFormat(itemName.font, Math.round(itemName.size / 2), itemName.color, itemName.alignment);
 		itemDesc.setPosition(itemName.x + 20, itemName.y + 100);
 
 		// items.push(ShopItemManager.blankShopItem());
@@ -139,8 +139,8 @@ class ShopState extends MusicBeatState
 		if (controls.UI_RIGHT_R)
 		{
 			currentSelection += 1;
-			if (currentSelection > items.length)
-				currentSelection = items.length;
+			if (currentSelection > items.length - 1)
+				currentSelection = items.length - 1;
 			
 			if (currentSelection != previousSel) {
 				FlxG.sound.play(Paths.sound('scrollMenu'));
