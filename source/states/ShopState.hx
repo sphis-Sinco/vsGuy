@@ -158,7 +158,7 @@ class ShopState extends MusicBeatState
 		}
 		if (controls.ACCEPT)
 		{
-			if (!ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
+			if (!ClientPrefs.data.BoughtStoreItems.contains(currentItem.name) && ClientPrefs.data.XP >= currentItem.price)
 			{
 				trace('New Item bought: ${currentItem.name}');
 				ClientPrefs.data.BoughtStoreItems.push(currentItem.name);
