@@ -11,7 +11,7 @@ class CreditsMenu extends MusicBeatState
 	override public function new()
 	{
 		credits = Json.parse(Assets.getText(Paths.json('credits')));
-        trace(credits.credits);
+        // trace(credits.credits);
 
 		super();
 	}
@@ -23,6 +23,9 @@ class CreditsMenu extends MusicBeatState
 
     override public function update(elapsed:Float)
     {
+        if (controls.BACK)
+            MusicBeatState.switchState(new MainMenuState());
+
         super.update(elapsed);
     }
     
