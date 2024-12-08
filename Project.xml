@@ -66,12 +66,12 @@
 	<define name="TOUCH_HERE_TO_PLAY" if="TOUCH_CONTROLS_ALLOWED" />
 
 	<!-- Not yet -->
-	<!-- <define name="TRANSLATIONS_ALLOWED" /> -->
 
 	<!-- Other stuff -->
 	<define name="SHOW_LOADING_SCREEN" />
 	<define name="COPYSTATE_ALLOWED" if="" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
+	<define name="TRANSLATIONS_ALLOWED" />
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 
