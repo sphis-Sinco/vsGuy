@@ -4,6 +4,7 @@
 - WEEK 3: PURPLE GUY
   - 1 New song: Galaxy
 - XP SYSTEM
+  - XP popup to results
 - SHOP MENU
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
 - Engine Watermark to Gameplay (top right)

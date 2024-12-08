@@ -458,7 +458,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		updateGridVisibility();
 
 		// CHARACTERS FOR THE DROP DOWNS
-		var gameOverCharacters:Array<String> = loadFileList('characters/', 'data/characterList.txt');
+		var gameOverCharacters:Array<String> = CoolUtil.loadFileList('characters/', 'data/characterList.txt');
 		var characterList:Array<String> = gameOverCharacters.filter((name:String) -> (!name.endsWith('-dead') && !name.endsWith('-death')));
 		playerDropDown.list = characterList;
 		opponentDropDown.list = characterList;
@@ -472,7 +472,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		});
 		gameOverCharDropDown.list = gameOverCharacters;
 
-		stageDropDown.list = loadFileList('stages/', 'data/stageList.txt');
+		stageDropDown.list = CoolUtil.loadFileList('stages/', 'data/stageList.txt');
 		onChartLoaded();
 
 		var tipText:FlxText = new FlxText(FlxG.width - 210, FlxG.height - 30, 200, 'Press ${controls.mobileC ? 'F' : 'F1'} for Help', 20);
@@ -3324,7 +3324,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		if(eventDropDown != null)
 		{
 			eventsList = [];
-			var eventFiles:Array<String> = loadFileList('custom_events/', ['.txt']);
+			var eventFiles:Array<String> = CoolUtil.loadFileList('custom_events/', ['.txt']);
 			for (file in eventFiles)
 			{
 				var desc:String = Paths.getTextFromFile('custom_events/$file.txt');
@@ -3355,7 +3355,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 			var exts:Array<String> = ['.txt'];
 			#if LUA_ALLOWED exts.push('.lua'); #end
 			#if HSCRIPT_ALLOWED exts.push('.hx'); #end
-			noteTypes = loadFileList('custom_notetypes/', exts);
+			noteTypes = CoolUtil.loadFileList('custom_notetypes/', exts);
 			for (id => noteType in Note.defaultNoteTypes)
 				if(!noteTypes.contains(noteType))
 					noteTypes.insert(id, noteType);
@@ -5138,45 +5138,6 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		MetaNote.noteTypeTexts = [];
 		fileDialog.destroy();
 		super.destroy();
-	}
-
-	function loadFileList(mainFolder:String, ?optionalList:String = null, ?fileTypes:Array<String> = null)
-	{
-		if(fileTypes == null) fileTypes = ['.json'];
-
-		var fileList:Array<String> = [];
-		if(optionalList != null)
-		{
-			for (file in Mods.mergeAllTextsNamed(optionalList))
-			{
-				file = file.trim();
-				if(file.length > 0 && !fileList.contains(file))
-					fileList.push(file);
-			}
-		}
-
-		#if MODS_ALLOWED
-		for (directory in Mods.directoriesWithFile(Paths.getSharedPath(), mainFolder))
-		{
-			for (file in FileSystem.readDirectory(directory))
-			{
-				var path = haxe.io.Path.join([directory, file.trim()]);
-				if (!FileSystem.isDirectory(path) && !file.startsWith('readme.'))
-				{
-					for (fileType in fileTypes)
-					{
-						var fileToCheck:String = file.substr(0, file.length - fileType.length);
-						if(fileToCheck.length > 0 && path.endsWith(fileType) && !fileList.contains(fileToCheck))
-						{
-							fileList.push(fileToCheck);
-							break;
-						}
-					}
-				}
-			}
-		}
-		#end
-		return fileList;
 	}
 	
 	function loadCharacterFile(char:String):CharacterFile

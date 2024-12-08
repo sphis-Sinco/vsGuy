@@ -1,5 +1,7 @@
 package states;
 
+import haxe.Json;
+import openfl.Assets;
 import shaders.ColorShader;
 import objects.Character;
 import sinco.vsguy.data.ShopItem.ShopItem;
@@ -23,6 +25,24 @@ class ShopState extends MusicBeatState
 	override public function new()
 	{
 		currentItem = ShopItemManager.blankShopItem();
+
+		var tempList:Array<String> = CoolUtil.loadFileList('assets/shared/shop/', null, ['.json']);
+		trace('tempList: $tempList');
+		
+		for (file in tempList)
+		{
+			items.push(Json.parse(Assets.getText(Paths.getFolderPath('$file.json', 'shared/shop'))));
+			if (!ClientPrefs.BoughtStoreItems.contains(file))
+				ClientPrefs.BoughtStoreItems.push(file);
+		}
+		trace('items: $items');
+
+		// remove unused ones
+		for (item in tempList)
+		{
+			if (!ClientPrefs.BoughtStoreItems.contains(item))
+				ClientPrefs.BoughtStoreItems.remove(item);
+		}
 
 		sinco = new Character(0, 0, 'shop-sinco');
 		sinco.screenCenter();
