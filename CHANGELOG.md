@@ -13,6 +13,7 @@
 - Automatic saving for any new Metadata arguments for songs (ex: `dialogueMusic`)
 - Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
 - Shop Menu
+- InitState
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
