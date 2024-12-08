@@ -807,7 +807,7 @@ class PlayState extends MusicBeatState
 		songStartText = new FlxText(0, 0, FlxG.width, "", 20);
 		songStartText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songStartText.text = 'Now Playing: ${SONG.song} (Composed by ${songMeta.artist}, Charted by ${songMeta.charter})';
-		songStartText.borderSize = 1;
+		songStartText.borderSize = 4;
 		songStartText.scrollFactor.set();
 		songStartText.alpha = 0;
 		songStartText.updateHitbox();
