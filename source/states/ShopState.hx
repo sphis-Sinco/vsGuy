@@ -14,6 +14,8 @@ class ShopState extends MusicBeatState
 	public var currentItem:ShopItem;
 	public var currentSelection:Int = 0;
 
+	public var xpText:FlxText;
+
 	public var itemName:FlxText;
 	public var itemDesc:FlxText;
 
@@ -31,10 +33,15 @@ class ShopState extends MusicBeatState
 		card.screenCenter();
 		card.x += 380;
 
-		itemName = new FlxText(0, 0, 0, "Item - $Price", 16);
-		itemName.setFormat(Paths.font("comicsans.ttf"), 64, FlxColor.RED, LEFT);
+		xpText = new FlxText(0,0,0,"XP", 16);
+		xpText.setFormat(Paths.font("comicsans.ttf"), 64, FlxColor.RED, LEFT);
+		xpText.setPosition(10, 10);
+		xpText.text = 'XP: ${ClientPrefs.XP}';
+
+		itemName = new FlxText(0, 0, 0, "Item - Price XP", 16);
+		itemName.setFormat(Paths.font("comicsans.ttf"), 64, FlxColor.BLACK, LEFT);
 		itemName.screenCenter();
-		itemName.x += 280;
+		itemName.x += 300;
 		itemName.y -= 300;
 
         itemDesc = new FlxText(0,0,0, "Description", 16);
@@ -62,6 +69,7 @@ class ShopState extends MusicBeatState
 
 		add(itemName);
 		add(itemDesc);
+		add(xpText);
 
 		super.create();
 	}
@@ -109,7 +117,7 @@ class ShopState extends MusicBeatState
 			if (currentItem == null)
 				currentItem = ShopItemManager.blankShopItem();
 
-			itemName.text = '${currentItem.name} - ${currentItem.price > 0.0 ? "$"+currentItem.price : 'Free'}';
+			itemName.text = '${currentItem.name} - ${currentItem.price > 0.0 ? '${currentItem.price} XP' : 'Free'}';
 			itemDesc.text = currentItem.description;
 
 			if (currentItem.sincoReact)

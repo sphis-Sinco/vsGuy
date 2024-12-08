@@ -2953,6 +2953,18 @@ class PlayState extends MusicBeatState
 				trace('Newly played song: $playedSong');
 			}
 
+			var newXP:Float = songScore * 50;
+			var xpPenalty:Float = (tempActiveTallises.missed) * 250; // 250 xp lost for each miss
+
+			if (newXP < 0)
+				newXP = 0;
+
+			trace('XP earned (no penalty): $newXP');
+			trace('XP penalty: ${xpPenalty}');
+			trace('XP earned (with penalty): ${newXP - xpPenalty}');
+
+			ClientPrefs.XP += (newXP - xpPenalty);
+
 			if (isStoryMode)
 			{
 				campaignScore += songScore;

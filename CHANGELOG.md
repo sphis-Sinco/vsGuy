@@ -3,8 +3,10 @@
 ### Added
 - WEEK 3: PURPLE GUY
   - 1 New song: Galaxy
+- XP SYSTEM
+- SHOP MENU
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
-- Engine Watermark to Gameplay (bottom right)
+- Engine Watermark to Gameplay (top right)
 - Minecraft Font (unused)
 - Comic Sans Font
 - New Optional Metadata Arguments for songs
@@ -12,7 +14,6 @@
   - `charter` (String (default: 'Unknown')) - tells the charter of the song
 - Automatic saving for any new Metadata arguments for songs (ex: `dialogueMusic`)
 - Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
-- Shop Menu
 - InitState
 ### Fixed
 - Rank changing when the rank is lower then the previous rank

@@ -185,6 +185,8 @@ class ClientPrefs
 	public static var defaultMobileBinds:Map<String, Array<MobileInputID>> = null;
 	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
 	public static var defaultButtons:Map<String, Array<FlxGamepadInputID>> = null;
+	
+	public static var XP:Float = 0.0;
 
 	public static function resetKeys(controller:Null<Bool> = null) // Null = both, False = Keyboard, True = Controller
 	{
