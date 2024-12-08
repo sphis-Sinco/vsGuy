@@ -1,0 +1,39 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 54],
+			"indices": [],
+			"fps": 24,
+			"anim": "interested",
+			"loop": false,
+			"name": "Sinco Interested"
+		},
+		{
+			"offsets": [0, 9],
+			"indices": [],
+			"fps": 24,
+			"anim": "uninterested",
+			"loop": false,
+			"name": "Sinco Uninterested"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "Sinco Idle"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "shop/Sinco",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

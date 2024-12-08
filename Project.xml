@@ -30,7 +30,9 @@
 	<!-- ________________________ VS GUY + CUSTOMIZATION ________________________ -->
 
 	<haxedef name="OUTDATED" if="OUTDATED" />
+
 	<haxedef name="CHARTING" if="charteditor" />
+	<haxedef name="SHOP" if="shop" />
 
 	<define name="ATTRACT_ALLOWED" if="VIDEOS_ALLOWED" unless="debug" />
 	<haxedef name="ATTRACT_ALLOWED" if="ATTRACT_ALLOWED" />

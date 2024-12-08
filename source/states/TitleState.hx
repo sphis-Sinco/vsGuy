@@ -1,6 +1,7 @@
 package states;
 
 import states.editors.ChartingState;
+import states.ShopState;
 import backend.WeekData;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -160,6 +161,8 @@ class TitleState extends MusicBeatState
 		FlxG.mouse.visible = false;
 		#if CHARTING
 		MusicBeatState.switchState(new ChartingState());
+		#elseif SHOP
+		MusicBeatState.switchState(new ShopState());
 		#else
 		if (FlxG.save.data.flashing == null && !FlashingState.leftState)
 		{

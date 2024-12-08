@@ -74,10 +74,8 @@ class MainMenuState extends MusicBeatState
 		optionShit.push('awards');
 		#end
 		optionShit.push('credits');
-		#if !switch
-		optionShit.push('donate');
-		#end
 		optionShit.push('options');
+		optionShit.push('shop');
 
 
 		persistentUpdate = persistentDraw = true;
@@ -237,6 +235,9 @@ class MainMenuState extends MusicBeatState
 									PlayState.SONG.splashSkin = null;
 									PlayState.stageUI = 'normal';
 								}
+
+							case 'shop':
+								MusicBeatState.switchState(new ShopState());
 						}
 					});
 

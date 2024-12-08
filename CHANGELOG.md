@@ -12,6 +12,7 @@
   - `charter` (String (default: 'Unknown')) - tells the charter of the song
 - Automatic saving for any new Metadata arguments for songs (ex: `dialogueMusic`)
 - Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
+- Shop Menu
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
@@ -20,6 +21,7 @@
 - Memory Counter
 - FPS Counter
 - Ability to have Songs with a Rating over 20
+- Donate Menu Item
 ### Changed
 - AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
 - Width of Chart editor Main UI Box
