@@ -10,6 +10,7 @@ class ShopState extends MusicBeatState
 	{
 		sinco = new Character(0, 0, 'shop-sinco');
         sinco.screenCenter();
+		sinco.y += 400;
 
 		super();
 	}

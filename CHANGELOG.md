@@ -26,6 +26,7 @@
 - AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
 - Width of Chart editor Main UI Box
 - Metadata tab in Chart Editor (many edits)
+- Size of Main Menu Menu Items
 
 ## v1.5-2 - November 29th 2024
 ### Added
