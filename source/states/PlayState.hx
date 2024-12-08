@@ -1,5 +1,6 @@
 package states;
 
+import states.ShopState.XPPopup;
 import sinco.vsguy.stages.*;
 import mikolka.JoinedLuaVariables;
 import substates.StickerSubState;
@@ -2943,15 +2944,7 @@ class PlayState extends MusicBeatState
 				return false;
 			}
 
-			var playedSong = curSong.toLowerCase().replace(' ', '-');
-
-			trace(playedSong);
-			trace(ClientPrefs.data.playedSongs);
-			if (!ClientPrefs.data.playedSongs.contains(playedSong) && (playedSong != null || playedSong != ''))
-			{
-				ClientPrefs.data.playedSongs.push(playedSong);
-				trace('Newly played song: $playedSong');
-			}
+			/*
 
 			var newXP:Float = songScore * 50;
 			var xpPenalty:Float = (tempActiveTallises.missed) * 250; // 250 xp lost for each miss
@@ -2964,6 +2957,21 @@ class PlayState extends MusicBeatState
 			trace('XP earned (with penalty): ${newXP - xpPenalty}');
 
 			ClientPrefs.XP += (newXP - xpPenalty);
+
+			var popup:XPPopup = new XPPopup((newXP - xpPenalty), camHUD);
+			add(popup);
+
+			*/
+
+			var playedSong = curSong.toLowerCase().replace(' ', '-');
+
+			trace(playedSong);
+			trace(ClientPrefs.data.playedSongs);
+			if (!ClientPrefs.data.playedSongs.contains(playedSong) && (playedSong != null || playedSong != ''))
+			{
+				ClientPrefs.data.playedSongs.push(playedSong);
+				trace('Newly played song: $playedSong');
+			}
 
 			if (isStoryMode)
 			{
@@ -3054,7 +3062,7 @@ class PlayState extends MusicBeatState
 	/**
 	 * Play the camera zoom animation and then move to the results screen once it's done.
 	 */
-	function zoomIntoResultsScreen(isNewHighscore:Bool, scoreData:SaveScoreData, prevScoreRank:ScoringRank):Void
+	function zoomIntoResultsScreen(isNewHighscore:Bool, scoreData:SaveScoreData, prevScoreRank:ScoringRank)
 	{
 		var botplay = ClientPrefs.getGameplaySetting('botplay');
 		if (!ClientPrefs.data.vsliceResults || botplay)

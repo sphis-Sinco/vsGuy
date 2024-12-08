@@ -1,5 +1,6 @@
 package mikolka.vslice.results;
 
+import states.ShopState.XPPopup;
 import mikolka.compatibility.ModsHelper;
 import mikolka.compatibility.VsliceOptions;
 import mikolka.funkin.FlxAtlasSprite;
@@ -487,6 +488,21 @@ class ResultState extends MusicBeatSubState
     refresh();
 
     super.create();
+
+		var newXP:Float = params.scoreData.score * 50;
+		var xpPenalty:Float = (params.scoreData.missed) * 250; // 250 xp lost for each miss
+
+		if (newXP < 0)
+			newXP = 0;
+
+		trace('XP earned (no penalty): $newXP');
+		trace('XP penalty: ${xpPenalty}');
+		trace('XP earned (with penalty): ${newXP - xpPenalty}');
+
+		ClientPrefs.XP += (newXP - xpPenalty);
+
+		var popup:XPPopup = new XPPopup((newXP - xpPenalty), cameraEverything);
+		add(popup);
   }
 
   function getMusicPath(playerCharacter:Null<PlayableCharacter>, rank:ScoringRank):String
