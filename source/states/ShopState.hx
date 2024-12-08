@@ -161,6 +161,7 @@ class ShopState extends MusicBeatState
 			if (!ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
 			{
 				ClientPrefs.data.BoughtStoreItems.push(currentItem.name);
+				ClientPrefs.data.XP -= currentItem.price;
 				updateItem();
 			}
 		}
