@@ -531,8 +531,7 @@ class PlayState extends MusicBeatState
 		comboGroup = new FlxSpriteGroup();
 		noteGroup = new FlxTypedGroup<FlxBasic>();
 
-		var metadata = FreeplayMeta.getMeta(SONG.song);
-		var character = metadata.freeplayCharacter;
+		var character = songMeta.freeplayCharacter;
 
 		// if (character == 'bf')
 		// character = 'boyfriend';
@@ -795,6 +794,66 @@ class PlayState extends MusicBeatState
 
 		engineWatermark.visible = true;
 		engineWatermark.cameras = [camHUD];
+
+		songStartDim = new FlxSprite().makeGraphic(1280,720, FlxColor.BLACK);
+		songStartDim = new FlxSprite(0, 0).makeGraphic(1280, 720, FlxColor.BLACK);
+		songStartDim.alpha = 0;
+		songStartDim.scrollFactor.set();
+		songStartDim.updateHitbox();
+		songStartDim.screenCenter();
+		songStartDim.cameras = [camHUD];
+		add(songStartDim);
+
+		songStartText = new FlxText(0, 0, FlxG.width, "", 20);
+		songStartText.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songStartText.text = 'Now Playing: ${SONG.song} (Composed by ${songMeta.artist}, Charted by ${songMeta.charter})';
+		songStartText.borderSize = 1;
+		songStartText.scrollFactor.set();
+		songStartText.alpha = 0;
+		songStartText.updateHitbox();
+		songStartText.screenCenter();
+		songStartText.y += 210;
+		songStartText.scale.set(1.5, 1.5);
+		songStartText.cameras = [camHUD];
+		add(songStartText);
+
+		songStartTextStartTween();
+
+		new FlxTimer().start(2, function(tmr:FlxTimer)
+		{
+			songStartTextEndTween();
+		});
+	}
+
+	public var songStartDim:FlxSprite;
+	public var songStartText:FlxText;
+	public var songMeta = FreeplayMeta.getMeta(SONG.song);
+
+	function songStartTextStartTween()
+	{
+		FlxTween.tween(songStartText, {alpha: 1}, 1, {ease: FlxEase.cubeInOut});
+
+		FlxTween.tween(songStartDim, {alpha: 0.3}, 1, {ease: FlxEase.cubeInOut});
+	}
+
+	function songStartTextEndTween()
+	{
+		FlxTween.tween(songStartText, {alpha: 0}, 2, {
+			ease: FlxEase.cubeInOut,
+			onComplete: function(twn:FlxTween)
+			{
+				songStartText.destroy();
+				// songStartText.visible = false;
+			}
+		});
+
+		FlxTween.tween(songStartDim, {alpha: 0}, 2, {
+			ease: FlxEase.cubeInOut,
+			onComplete: function(twn:FlxTween)
+			{
+				songStartDim.destroy();
+			}
+		});
 	}
 
 	public function popupShapeChill(name:String):Void
@@ -805,10 +864,9 @@ class PlayState extends MusicBeatState
 
 	public function diaCheck()
 	{
-		var metadata = FreeplayMeta.getMeta(SONG.song);
-		if (metadata.dialogue && !endingSong || metadata.endDialogue && endingSong)
+		if (songMeta.dialogue && !endingSong || songMeta.endDialogue && endingSong)
 		{
-			if (!isStoryMode && !metadata.freeplayDialogue)
+			if (!isStoryMode && !songMeta.freeplayDialogue)
 			{
 				startAndEnd();
 				return;
@@ -819,7 +877,7 @@ class PlayState extends MusicBeatState
 
 			try
 			{
-				dialogueFile = metadata.dialogueFile;
+				dialogueFile = songMeta.dialogueFile;
 			}
 			catch (e)
 			{
@@ -828,7 +886,7 @@ class PlayState extends MusicBeatState
 
 			try
 			{
-				music = metadata.dialogueMusic;
+				music = songMeta.dialogueMusic;
 			}
 			catch (e)
 			{
@@ -845,7 +903,7 @@ class PlayState extends MusicBeatState
 			if (!Assets.exists(path, TEXT))
 			#end
 			#end
-			path = Paths.getPath('data/$songPath/$dialogueFile${metadata.censoredDialogue && !ClientPrefs.data.naughtyness ? '-censored' : ''}.json', TEXT);
+			path = Paths.getPath('data/$songPath/$dialogueFile${songMeta.censoredDialogue && !ClientPrefs.data.naughtyness ? '-censored' : ''}.json', TEXT);
 
 			#if MODS_ALLOWED
 			if (FileSystem.exists(path))
