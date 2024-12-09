@@ -149,6 +149,7 @@
 
 	<section if="MODS_ALLOWED">
 		<assets path='dlc_folder' rename='dlcs' exclude="*.zip" embed='false' />
+		<assets path='thedlcs' rename='dlcs' exclude="*.zip" embed='false' if="debug" />
 	</section>
 
 	<assets path='art/readme.txt' rename='do NOT readme.txt' unless="mobile" />
