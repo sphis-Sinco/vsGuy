@@ -2,9 +2,9 @@ name: Main
 
 on:
   push:
-    branches: [master, master-dev]
+    branches: [master, indev]
   pull_request:
-    branches: [master, master-dev]
+    branches: [master, indev]
   workflow_dispatch:
 
 jobs:
