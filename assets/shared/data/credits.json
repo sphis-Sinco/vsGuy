@@ -39,6 +39,10 @@
         "text": "Places/Projects where Code was yoinked",
         "users": [
           {
+            "person": "FNF VSlice",
+            "role": "WindowUtil.hx"
+          },
+          {
             "person": "FNF Spooky Mix",
             "role": "Base Code for the Pause texts in the credits menu (and the whole inspiration for the menu too)"
           },
