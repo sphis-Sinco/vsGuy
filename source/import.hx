@@ -46,6 +46,10 @@ import sys.io.*;
 import js.html.*;
 #end
 
+//Vs Guy
+import sinco.vsguy.*;
+import sinco.vsguy.Constants as GuyConsts;
+
 //P-Slice
 import mikolka.funkin.*;
 import mikolka.funkin.utils.*;

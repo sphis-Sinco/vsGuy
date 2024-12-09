@@ -108,9 +108,10 @@ class MusicBeatState extends FlxState
 
 	public var engineWatermark:FlxText;
 
-	override function new(?windowsuffix:String) {
+	override function new(?windowsuffix:Null<String> = null)
+	{
 		super();
-		var windowTitle:String = 'FNF: vs Guy plus${windowsuffix}';
+		var windowTitle:String = '${GuyConsts.WINDOW_TITLE_PREFIX}${windowsuffix != null ? ' ${windowsuffix}' : ''}';
 
 		WindowUtil.setWindowTitle(windowTitle);
 	}
@@ -130,14 +131,7 @@ class MusicBeatState extends FlxState
 		FlxTransitionableState.skipNextTransOut = false;
 		timePassedOnState = 0;
 	
-		engineWatermark = new FlxText(10, 10, 0, "Guy Engine v2.0", 16);
-		engineWatermark.setFormat(Paths.font("comicsans.ttf"), 16, FlxColor.WHITE, RIGHT);
-		engineWatermark.scrollFactor.set(0,0);
-		engineWatermark.x = FlxG.width - engineWatermark.width / 1;
-		engineWatermark.y = 4;
-		engineWatermark.alpha = 0.5;
-		engineWatermark.color = FlxColor.WHITE;
-		engineWatermark.visible = false;
+		engineWatermark = GuyConsts.getEngineText();
 		add(engineWatermark);
 	}
 

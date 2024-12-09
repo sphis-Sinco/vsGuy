@@ -1,16 +1,22 @@
 package backend;
 
+import funkin.util.WindowUtil;
 import flixel.FlxSubState;
 
 class MusicBeatSubstate extends FlxSubState
 {
 	public static var instance:MusicBeatSubstate;
 
-	public function new()
+	public var engineWatermark:FlxText;
+
+	override function new(?windowsuffix:Null<String> = null)
 	{
 		instance = this;
-		//controls.isInSubstate = true;
+
 		super();
+		var windowTitle:String = '${GuyConsts.WINDOW_TITLE_PREFIX}${windowsuffix != null ? ' ${windowsuffix}' : ''}';
+
+		WindowUtil.setWindowTitle(windowTitle);
 	}
 
 	private var curSection:Int = 0;
@@ -107,6 +113,14 @@ class MusicBeatSubstate extends FlxSubState
 		super.destroy();
 	}
 	#end
+	override function create()
+	{
+		super.create();
+
+		engineWatermark = GuyConsts.getEngineText();
+		add(engineWatermark);
+	}
+
 	override function update(elapsed:Float)
 	{
 		//everyStep();
