@@ -38,7 +38,9 @@ class CreditsMenu extends MusicBeatState
 			var secondaryIndex:Int = 0;
             for (user in userList)
             {
-				var newuser = '${user.person}${user.role.length > 0 ? ' - ${user.role}' : ''}';
+				var newrole:Null<String> = '${user.role.length > 0 ? ' - ${user.role}' : ''}';
+				
+				var newuser = '${user.person}${newrole != null ? newrole : ''}';
 
 				var person:FlxText = new FlxText(header.x, yOffset, 0, newuser, Math.round(header.size / 2));
 				yOffset += 30;
