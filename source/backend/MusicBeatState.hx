@@ -1,5 +1,6 @@
 package backend;
 
+import funkin.util.WindowUtil;
 import flixel.FlxState;
 import backend.PsychCamera;
 
@@ -106,6 +107,13 @@ class MusicBeatState extends FlxState
 		return getState().variables;
 
 	public var engineWatermark:FlxText;
+
+	override function new(?windowsuffix:String) {
+		super();
+		var windowTitle:String = 'FNF: vs Guy plus${windowsuffix}';
+
+		WindowUtil.setWindowTitle(windowTitle);
+	}
 
 	override function create() {
 		currentState = this;
