@@ -26,19 +26,7 @@ class CreditsMenu extends MusicBeatState
 
         var index:Int = 0;
 
-        var num:Int = 0;
-		for (item in creditsFile.credits)
-		{
-			var userList:Array<CreditUser> = item.header.users;
-
-            num++;
-			for (user in userList)
-			{
-				num++;
-			}
-		}
-
-		var yOffset:Float = FlxG.height + num * 30;
+		var yOffset:Float = -FlxG.height * 30;
         for (item in creditsFile.credits)
         {
 			var userList:Array<CreditUser> = item.header.users;
