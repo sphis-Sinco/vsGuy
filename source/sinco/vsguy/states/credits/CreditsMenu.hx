@@ -9,12 +9,10 @@ import flixel.FlxG;
 
 class CreditsMenu extends MusicBeatState
 {
-    public var creditsFile:CreditsList = CreditManager.templateCredits();
+	public var creditsFile:CreditsList = CreditManager.templateCredits();
 	public var credits:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
-    public var textSpeed:Float = 5.0;
-
-	var scrollPaused:Bool = false;
+	public var textSpeed:Float = 0.0;
 
 	var pausedText:FlxText;
 	var howToPauseText:FlxText;
@@ -22,54 +20,66 @@ class CreditsMenu extends MusicBeatState
 	override public function new()
 	{
 		creditsFile = Json.parse(Assets.getText(Paths.json('credits')));
-        // trace(credits.credits);
+		// trace(credits.credits);
 
-        var index:Int = 0;
+		var index:Int = 0;
 
-		var yOffset:Float = -FlxG.height * 30;
-        for (item in creditsFile.credits)
-        {
-			var userList:Array<CreditUser> = item.header.users;
-		    var header:String;
-			
+		var yOffset:Float = 10;
+		for (item in creditsFile.credits)
+		{
+			var headerTxt:String = 'Undefined Header';
+
 			if (item.header.text != null)
-				header = item.header.text;
+				headerTxt = item.header.text;
 			else
-				header = item.text;
+				headerTxt = item.text;
 
-			var header:FlxText = new FlxText(10, yOffset, 0, header, 48);
+			var header:FlxText = new FlxText(10, yOffset, FlxG.width, headerTxt, 48);
 			yOffset += 60;
 			credits.add(header);
 
 			var secondaryIndex:Int = 0;
-            for (user in userList)
-            {
-				var newrole:Null<String> = '${user.role.length > 0 ? ' - ${user.role}' : ''}';
-				
-				var newuser = '${user.person}${newrole != null ? newrole : ''}';
+			var userList:Array<CreditUser> = item.header.users;
+			trace(headerTxt);
+			if (userList != null)
+			{
+				for (user in userList)
+				{
+					var newrole:Null<String> = null;
 
-				var person:FlxText = new FlxText(header.x, yOffset, 0, newuser, Math.round(header.size / 2));
-				yOffset += 30;
-				credits.add(person);
+					try
+					{
+						newrole = '${user.role.length > 0 ? ' - ${user.role}' : ''}';
+					}
+					catch (e)
+					{
+						newrole = '';
+					}
 
-                trace(newuser);
-				secondaryIndex++;
-            }
+					var newuser = '${user.person}${newrole != null ? newrole : ''}';
+
+					var person:FlxText = new FlxText(header.x, yOffset, FlxG.width, newuser, Math.round(header.size / 2));
+					yOffset += 30;
+					credits.add(person);
+
+					trace(newuser);
+					secondaryIndex++;
+				}
+			}
 			index++;
-        }
-        
+		}
+
 		pausedText = new FlxText(-10, 10, FlxG.width, 'PAUSED');
 		pausedText.setFormat(Paths.font('vcr.ttf'), 60, FlxColor.WHITE, FlxTextAlign.RIGHT);
 		pausedText.scrollFactor.set(0, 0);
-		pausedText.visible = false;
 
-        /*
-		var upDownText = new FlxText(-10, 670, FlxG.width, 'UP/DOWN to Navigate');
-		upDownText.setFormat(Paths.font('vcr.ttf'), 20, FlxColor.WHITE, FlxTextAlign.RIGHT);
-		upDownText.scrollFactor.set(0, 0);
-		upDownText.alpha = 0.4;
-		add(upDownText);
-        */
+		/*
+			var upDownText = new FlxText(-10, 670, FlxG.width, 'UP/DOWN to Navigate');
+			upDownText.setFormat(Paths.font('vcr.ttf'), 20, FlxColor.WHITE, FlxTextAlign.RIGHT);
+			upDownText.scrollFactor.set(0, 0);
+			upDownText.alpha = 0.4;
+			add(upDownText);
+		 */
 
 		howToPauseText = new FlxText(-10, 695, FlxG.width, 'SPACE/ENTER to Pause');
 		howToPauseText.setFormat(Paths.font('vcr.ttf'), 20, FlxColor.WHITE, FlxTextAlign.RIGHT);
@@ -88,31 +98,31 @@ class CreditsMenu extends MusicBeatState
 		super.create();
 	}
 
-    override public function update(elapsed:Float)
-    {
-        if (controls.BACK)
-            MusicBeatState.switchState(new MainMenuState());
+	override public function update(elapsed:Float)
+	{
+		if (controls.BACK)
+			MusicBeatState.switchState(new MainMenuState());
 
-        if (controls.ACCEPT)
-        {
+		if (controls.ACCEPT)
+		{
 			pausedText.visible = false;
-            if (textSpeed == 0)
+			if (textSpeed == 0)
 				FlxTween.tween(this, {textSpeed: 5}, 1.0);
-            else {
+			else
+			{
 				pausedText.visible = true;
 				FlxTween.tween(this, {textSpeed: 0}, 1.0);
-            }
-        }
+			}
+		}
 
-        for (text in credits)
-        {
+		for (text in credits)
+		{
 			text.y -= textSpeed;
 
-            if (text.y < (0 - credits.length * 30))
-                text.y = FlxG.height + credits.length * 30;
-        }
+			if (text.y < (0 - credits.length * 30))
+				text.y = FlxG.height + credits.length * 30;
+		}
 
-        super.update(elapsed);
-    }
-    
+		super.update(elapsed);
+	}
 }

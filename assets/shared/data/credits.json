@@ -5,10 +5,7 @@
       "header": {
         "text": "vs Guy Plus Team",
         "users": [
-          {
-            "person": "Sinco",
-            "role": "Director, Artist, Animator, Composer, Programmer"
-          },
+          { "person": "Sinco", "role": "Director, Artist, Animator, Composer, Programmer"},
           { "person": "Djotta Flow", "role": "Co-director, Artist, Animator" },
           { "person": "TJ The Hedgehog", "role": "Artist, Animator" },
           { "person": "Og Foxer", "role": "Artist, Animator, Composer" },
@@ -17,7 +14,7 @@
       }
     },
     {
-      "text": "---------------------------------------"
+      "header": {"text": "---------------------------------------"}
     },
     {
       "header": {
@@ -32,7 +29,7 @@
       }
     },
     {
-      "text": "---------------------------------------"
+      "header": {"text": "---------------------------------------"}
     },
     {
       "header": {
@@ -107,10 +104,10 @@
       }
     },
     {
-      "text": "---------------------------------------"
+      "header": {"text": "---------------------------------------"}
     },
     {
-      "text": "Friday Night Funkin': Spooky Mix"
+      "header": {"text": "Friday Night Funkin': Spooky Mix"}
     },
     {
       "header": {
@@ -194,7 +191,7 @@
       }
     },
     {
-      "text": "---------------------------------------"
+      "header": {"text": "---------------------------------------"}
     },
     {
       "header": {
