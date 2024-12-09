@@ -126,7 +126,7 @@ class CreditsMenu extends MusicBeatState
 			text.y -= textSpeed;
 
 			if (text.y < (0 - credits.length * 30))
-				text.y = FlxG.height + credits.length * 25;
+				text.y = FlxG.height + credits.length * 21;
 		}
 
 		super.update(elapsed);
