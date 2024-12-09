@@ -52,7 +52,7 @@ class CreditsMenu extends MusicBeatState
             {
 				var newuser = '${user.person}${user.role.length > 0 ? ' - ${user.role}' : ''}';
 
-				var person:FlxText = new FlxText(header.x, yOffset, 0, newuser, header.size / 2);
+				var person:FlxText = new FlxText(header.x, yOffset, 0, newuser, Math.round(header.size / 2));
 				yOffset += 30;
 				credits.add(person);
 
