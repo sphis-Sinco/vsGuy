@@ -17,6 +17,10 @@
       }
     },
     {
+      "header": "---------------------------------------",
+      "users": []
+    },
+    {
       "header": {
         "text": "P-Slice Engine Team",
         "users": [
@@ -27,6 +31,10 @@
           }
         ]
       }
+    },
+    {
+      "header": "---------------------------------------",
+      "users": []
     },
     {
       "header": {
@@ -99,6 +107,10 @@
           { "person": "CheemsAndFriends", "role": "Creator of FlxAnimate" }
         ]
       }
+    },
+    {
+      "header": "---------------------------------------",
+      "users": []
     },
     {
       "header": "Friday Night Funkin': Spooky Mix"
