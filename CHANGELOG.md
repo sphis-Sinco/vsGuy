@@ -35,7 +35,7 @@
 - Width of Chart editor Main UI Box
 - Metadata tab in Chart Editor (many edits)
 - Size of Main Menu Menu Items
-- Window Title
+- Default Window Title
 
 ## v1.5-2 - November 29th 2024
 ### Added
