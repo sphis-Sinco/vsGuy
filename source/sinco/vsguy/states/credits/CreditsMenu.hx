@@ -30,9 +30,12 @@ class CreditsMenu extends MusicBeatState
         for (item in creditsFile.credits)
         {
 			var userList:Array<CreditUser> = item.header.users;
-		    var header:Dynamic;
+		    var header:String;
 			
-			if (item.header.text != null) header = item.header.text; else header = item.text;
+			if (item.header.text != null)
+				header = item.header.text;
+			else
+				header = item.text;
 
 			var header:FlxText = new FlxText(10, yOffset, 0, header, 48);
 			yOffset += 60;

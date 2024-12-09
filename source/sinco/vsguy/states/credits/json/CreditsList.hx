@@ -10,6 +10,6 @@ typedef CreditsList =
 
 typedef CreditListItem =
 {
-	var text:String;
-	var header:CreditHeader;
+	var ?text:String;
+	var ?header:CreditHeader;
 }
