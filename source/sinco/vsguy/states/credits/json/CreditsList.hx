@@ -10,6 +10,6 @@ typedef CreditsList =
 
 typedef CreditListItem =
 {
-	// TODO: make it read as a string
-	var header:Dynamic;
+	var text:String;
+	var header:CreditHeader;
 }

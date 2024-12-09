@@ -17,8 +17,7 @@
       }
     },
     {
-      "header": "---------------------------------------",
-      "users": []
+      "text": "---------------------------------------"
     },
     {
       "header": {
@@ -33,8 +32,7 @@
       }
     },
     {
-      "header": "---------------------------------------",
-      "users": []
+      "text": "---------------------------------------"
     },
     {
       "header": {
@@ -109,331 +107,401 @@
       }
     },
     {
-      "header": "---------------------------------------",
-      "users": []
+      "text": "---------------------------------------"
     },
     {
-      "header": "Friday Night Funkin': Spooky Mix"
+      "text": "Friday Night Funkin': Spooky Mix"
     },
     {
-      "header": "Direction",
-      "users": [{ "person": "Denoohay" }]
+      "header": {
+        "text":"Direction",
+        "users": [
+          { "person": "Denoohay" }
+        ]
+      }
     },
     {
-      "header": "Artists",
-      "users": [
-        { "person": "Denoohay" },
-        { "person": "givemethesalt" },
-        { "person": "Andrewman_19" },
-        { "person": "SacredSky" },
-        { "person": "LeGooey" },
-        { "person": "swagsalt" }
-      ]
+      "header": {
+        "text": "Artists",
+        "users": [
+          { "person": "Denoohay" },
+          { "person": "givemethesalt" },
+          { "person": "Andrewman_19" },
+          { "person": "SacredSky" },
+          { "person": "LeGooey" },
+          { "person": "swagsalt" }
+        ]
+      }
     },
     {
-      "header": "Pixel Art",
-      "users": [{ "person": "Official_NO" }]
+      "header":{
+        "text": "Pixel Art",
+        "users": [{ "person": "Official_NO" }]
+      }
     },
     {
-      "header": "Music Production",
-      "users": [
-        { "person": "RubyyyButCool" },
-        { "person": "Andrewman_19" },
-        { "person": "SacredSky" },
-        { "person": "LeGooey" },
-        { "person": "swagsalt" },
-        { "person": "Clarky_Dev" },
-        { "person": "LimeIsHere" },
-        { "person": "ChuckySkullHead" },
-        { "person": "eden_essence" },
-        { "person": "Jotacast" },
-        { "person": "Y_F_MUS" },
-        { "person": "SBMB" },
-        { "person": "Vaderlings" },
-        { "person": "Rofos" },
-        { "person": "QuasarXP" },
-        { "person": "Thrick" },
-        { "person": "SolarDTM" },
-        { "person": "KrakenPower" },
-        { "person": "RandoHorn" },
-        { "person": "alewito" },
-        { "person": "Rareblin" }
-      ]
+      "header":{
+        "text": "Music Production",
+        "users": [
+          { "person": "RubyyyButCool" },
+          { "person": "Andrewman_19" },
+          { "person": "SacredSky" },
+          { "person": "LeGooey" },
+          { "person": "swagsalt" },
+          { "person": "Clarky_Dev" },
+          { "person": "LimeIsHere" },
+          { "person": "ChuckySkullHead" },
+          { "person": "eden_essence" },
+          { "person": "Jotacast" },
+          { "person": "Y_F_MUS" },
+          { "person": "SBMB" },
+          { "person": "Vaderlings" },
+          { "person": "Rofos" },
+          { "person": "QuasarXP" },
+          { "person": "Thrick" },
+          { "person": "SolarDTM" },
+          { "person": "KrakenPower" },
+          { "person": "RandoHorn" },
+          { "person": "alewito" },
+          { "person": "Rareblin" }
+        ]
+      }
     },
     {
-      "header": "Voice Acting",
-      "users": [{ "person": "RubyyyButCool (Voice of Moloch and Monster)" }]
+      "header": {
+        "text": "Voice Acting",
+        "users": [{ "person": "RubyyyButCool (Voice of Moloch and Monster)" }]
+      }
     },
     {
-      "header": "Programming",
-      "users": [{ "person": "Denoohay" }]
+      "header": {
+        "text": "Programming",
+        "users": [{ "person": "Denoohay" }]
+      }
     },
     {
-      "header": "Song Charting",
-      "users": [
-        { "person": "LimeIsHere" },
-        { "person": "RubyyyButCool" },
-        { "person": "LeGooey" },
-        { "person": "ChuckySkullHead" },
-        { "person": "Clarky_Dev" },
-        { "person": "swagsalt" },
-        { "person": "SacredSky" }
-      ]
+      "header": {
+        "text": "Song Charting",
+        "users": [
+          { "person": "LimeIsHere" },
+          { "person": "RubyyyButCool" },
+          { "person": "LeGooey" },
+          { "person": "ChuckySkullHead" },
+          { "person": "Clarky_Dev" },
+          { "person": "swagsalt" },
+          { "person": "SacredSky" }
+        ]
+      }
     },
     {
-      "header": "---------------------------------------",
-      "users": []
+      "text": "---------------------------------------"
     },
     {
-      "header": "Friday Night Funkin'",
-      "users": [
-        { "person": "A video game created by" },
-        { "person": "The Funkin' Crew Inc." }
-      ]
+      "header": {
+        "text": "Friday Night Funkin'",
+        "users": [
+          { "person": "A video game created by" },
+          { "person": "The Funkin' Crew Inc." }
+        ]
+      }
     },
     {
-      "header": "The Funkin' Crew Inc. Shareholders",
+      "header": {"text": "The Funkin' Crew Inc. Shareholders",
       "users": [
         { "person": "ninjamuffin99" },
         { "person": "PhantomArcade" },
         { "person": "Kawai Sprite" },
         { "person": "evilsk8r" }
-      ]
+      ]}
     },
     {
-      "header": "Direction and Art Lead",
-      "users": [{ "person": "PhantomArcade" }]
+      "header": {"text": "Direction and Art Lead",
+      "users": [{ "person": "PhantomArcade" }]}
     },
     {
-      "header": "Music Lead",
-      "users": [{ "person": "Isaac “Kawai Sprite” Garcia" }]
+      "header": {
+        "text": "Music Lead",
+        "users": [{ "person": "Isaac “Kawai Sprite” Garcia" }]
+      }
     },
     {
-      "header": "Co-Direction and Programming Lead",
-      "users": [{ "person": "ninjamuffin99" }]
+      "header": {
+        "text": "Co-Direction and Programming Lead",
+        "users": [{ "person": "ninjamuffin99" }]
+      }
     },
     {
-      "header": "Producer",
-      "users": [{ "person": "Kawa Teaño" }]
+      "header": { "text": "Producer", "users": [{ "person": "Kawa Teaño" }] }
     },
     {
-      "header": "Artists",
-      "users": [
-        { "person": "PhantomArcade" },
-        { "person": "evilsk8r" },
-        { "person": "beck" }
-      ]
+      "header": {
+        "text": "Artists",
+        "users": [
+          { "person": "PhantomArcade" },
+          { "person": "evilsk8r" },
+          { "person": "beck" }
+        ]
+      }
     },
     {
-      "header": "Pixel Art",
-      "users": [{ "person": "moawling" }]
+      "header": { "text": "Pixel Art", "users": [{ "person": "moawling" }] }
     },
     {
-      "header": "Cutscene Storyboards & SFX",
-      "users": [{ "person": "PhantomArcade" }]
+      "header": {
+        "text": "Cutscene Storyboards & SFX",
+        "users": [{ "person": "PhantomArcade" }]
+      }
     },
     {
-      "header": "Additional Background Design",
-      "users": [{ "person": "Red Minus" }]
+      "header": {
+        "text": "Additional Background Design",
+        "users": [{ "person": "Red Minus" }]
+      }
     },
     {
-      "header": "Cutscene Animation",
-      "users": [
-        { "person": "Figburn" },
-        { "person": "Sade" },
-        { "person": "Topium" },
-        { "person": "BlairTheUnseriousGuy" }
-      ]
+      "header": {
+        "text": "Cutscene Animation",
+        "users": [
+          { "person": "Figburn" },
+          { "person": "Sade" },
+          { "person": "Topium" },
+          { "person": "BlairTheUnseriousGuy" }
+        ]
+      }
     },
     {
-      "header": "Cutscene Cleanup",
-      "users": [{ "person": "PennilessRagamuffin" }, { "person": "beck" }]
+      "header": {
+        "text": "Cutscene Cleanup",
+        "users": [{ "person": "PennilessRagamuffin" }, { "person": "beck" }]
+      }
     },
     {
-      "header": "Cutscene Background Art",
-      "users": [{ "person": "beck" }]
+      "header": {
+        "text": "Cutscene Background Art",
+        "users": [{ "person": "beck" }]
+      }
     },
     {
-      "header": "Additional Art",
-      "users": [
-        { "person": "Jeff Bandelin" },
-        { "person": "Mogy64" },
-        { "person": "ChipsGoWoah" },
-        { "person": "Min Ho Kim (Deegeemin)" },
-        { "person": "PKettles" },
-        { "person": "peepo173" }
-      ]
+      "header": {
+        "text": "Additional Art",
+        "users": [
+          { "person": "Jeff Bandelin" },
+          { "person": "Mogy64" },
+          { "person": "ChipsGoWoah" },
+          { "person": "Min Ho Kim (Deegeemin)" },
+          { "person": "PKettles" },
+          { "person": "peepo173" }
+        ]
+      }
     },
     {
-      "header": "Music Production",
-      "users": [{ "person": "Saruky" }, { "person": "crisp" }]
+      "header": {
+        "text": "Music Production",
+        "users": [{ "person": "Saruky" }, { "person": "crisp" }]
+      }
     },
     {
-      "header": "Featured Guest Musicians (thus far)",
-      "users": [
-        { "person": "BassetFilms" },
-        { "person": "Kohta Takahashi" },
-        { "person": "Lotus Juice" },
-        { "person": "METAROOM" },
-        { "person": "nuphory" },
-        { "person": "Saster" },
-        { "person": "SixImpala" },
-        { "person": "TeraVex" },
-        { "person": "ThatAndyGuy" },
-        { "person": "tsuyunoshi" },
-        { "person": "xploshi" }
-      ]
+      "header": {
+        "text": "Featured Guest Musicians (thus far)",
+        "users": [
+          { "person": "BassetFilms" },
+          { "person": "Kohta Takahashi" },
+          { "person": "Lotus Juice" },
+          { "person": "METAROOM" },
+          { "person": "nuphory" },
+          { "person": "Saster" },
+          { "person": "SixImpala" },
+          { "person": "TeraVex" },
+          { "person": "ThatAndyGuy" },
+          { "person": "tsuyunoshi" },
+          { "person": "xploshi" }
+        ]
+      }
     },
     {
-      "header": "Programming",
-      "users": [
-        { "person": "Eric \"EliteMasterEric\" Myllyoja" },
-        { "person": "fabs" }
-      ]
+      "header": {
+        "text": "Programming",
+        "users": [
+          { "person": "Eric \"EliteMasterEric\" Myllyoja" },
+          { "person": "fabs" }
+        ]
+      }
     },
     {
-      "header": "Additional Programming",
-      "users": [
-        { "person": "Jenny Crowe" },
-        { "person": "ember ana" },
-        { "person": "Mike Welsh" },
-        { "person": "Saharan" },
-        { "person": "Ian Harrigan" },
-        { "person": "Osaka Red LLC: Thomas J Webb" },
-        { "person": "Emma (MtH)" },
-        { "person": "George Kurelic" },
-        { "person": "Will Blanton" },
-        { "person": "Victor - Cheemsandfriends" }
-      ]
+      "header": {
+        "text": "Additional Programming",
+        "users": [
+          { "person": "Jenny Crowe" },
+          { "person": "ember ana" },
+          { "person": "Mike Welsh" },
+          { "person": "Saharan" },
+          { "person": "Ian Harrigan" },
+          { "person": "Osaka Red LLC: Thomas J Webb" },
+          { "person": "Emma (MtH)" },
+          { "person": "George Kurelic" },
+          { "person": "Will Blanton" },
+          { "person": "Victor - Cheemsandfriends" }
+        ]
+      }
     },
     {
-      "header": "Devops and Additional Internal Tooling",
-      "users": [{ "person": "ember ana" }]
+      "header": {
+        "text": "Devops and Additional Internal Tooling",
+        "users": [{ "person": "ember ana" }]
+      }
     },
     {
-      "header": "Gameplay Design",
-      "users": [
-        { "person": "PhantomArcade" },
-        { "person": "Cameron Taylor" },
-        { "person": "Jenny Crowe" },
-        { "person": "Spazkid" },
-        { "person": "fabs" },
-        { "person": "Emma (MtH)" }
-      ]
+      "header": {
+        "text": "Gameplay Design",
+        "users": [
+          { "person": "PhantomArcade" },
+          { "person": "Cameron Taylor" },
+          { "person": "Jenny Crowe" },
+          { "person": "Spazkid" },
+          { "person": "fabs" },
+          { "person": "Emma (MtH)" }
+        ]
+      }
     },
     {
-      "header": "Kickstarter Backer Portal Programming",
-      "users": [{ "person": "Shingai Shamu" }]
+      "header": {
+        "text": "Kickstarter Backer Portal Programming",
+        "users": [{ "person": "Shingai Shamu" }]
+      }
     },
     {
-      "header": "Merchandise Partners and Designers",
-      "users": [
-        { "person": "Needlejuice Records: Jace McLain" },
-        { "person": "Needlejuice Records: Brandon Brown" },
-        { "person": "Type-4: Coby Win" },
-        { "person": "IvanAlmighty" },
-        { "person": "Mogy64" },
-        { "person": "ChipsGoWoah" },
-        { "person": "Min Ho Kim" },
-        { "person": "PKettles" },
-        { "person": "Jeff Bandelin" },
-        { "person": "PhantomArcade" },
-        { "person": "evilsk8r" },
-        { "person": "beck" }
-      ]
+      "header": {
+        "text": "Merchandise Partners and Designers",
+        "users": [
+          { "person": "Needlejuice Records: Jace McLain" },
+          { "person": "Needlejuice Records: Brandon Brown" },
+          { "person": "Type-4: Coby Win" },
+          { "person": "IvanAlmighty" },
+          { "person": "Mogy64" },
+          { "person": "ChipsGoWoah" },
+          { "person": "Min Ho Kim" },
+          { "person": "PKettles" },
+          { "person": "Jeff Bandelin" },
+          { "person": "PhantomArcade" },
+          { "person": "evilsk8r" },
+          { "person": "beck" }
+        ]
+      }
     },
     {
-      "header": "Production and Business Development Partner - Windflower Games",
-      "users": [{ "person": "Sunni Pavlovic" }, { "person": "Kristen Lynch" }]
+      "header": {
+        "text": "Production and Business Development Partner - Windflower Games",
+        "users": [{ "person": "Sunni Pavlovic" }, { "person": "Kristen Lynch" }]
+      }
     },
     {
-      "header": "Additional Administrative Assistance",
-      "users": [{ "person": "moawling" }]
+      "header": {
+        "text": "Additional Administrative Assistance",
+        "users": [{ "person": "moawling" }]
+      }
     },
     {
-      "header": "Quality Assurance - Indium Play",
-      "users": [
-        { "person": "Lead Tester: Mihajlo Vuković" },
-        { "person": "Dajana Dimovska" }
-      ]
+      "header": {
+        "text": "Quality Assurance - Indium Play",
+        "users": [
+          { "person": "Lead Tester: Mihajlo Vuković" },
+          { "person": "Dajana Dimovska" }
+        ]
+      }
     },
     {
-      "header": "Accounting: Molinari Oswald",
-      "users": [
-        { "person": "Francis Molinari" },
-        { "person": "Aaron Hofmann" },
-        { "person": "Katherine Stauffer" },
-        { "person": "Jane Haring" }
-      ]
+      "header": {
+        "text": "Accounting: Molinari Oswald",
+        "users": [
+          { "person": "Francis Molinari" },
+          { "person": "Aaron Hofmann" },
+          { "person": "Katherine Stauffer" },
+          { "person": "Jane Haring" }
+        ]
+      }
     },
     {
-      "header": "US Legal: Odin Law",
-      "users": [
-        { "person": "Brandon Huffman" },
-        { "person": "Michele Robichaux" },
-        { "person": "Connor Richards" },
-        { "person": "Pam Driver" },
-        { "person": "Jacob Barefoot" }
-      ]
+      "header": {
+        "text": "US Legal: Odin Law",
+        "users": [
+          { "person": "Brandon Huffman" },
+          { "person": "Michele Robichaux" },
+          { "person": "Connor Richards" },
+          { "person": "Pam Driver" },
+          { "person": "Jacob Barefoot" }
+        ]
+      }
     },
     {
-      "header": "CA Legal: DLA Piper",
-      "users": [{ "person": "Ryan Black" }, { "person": "Brian Wong" }]
+      "header": {
+        "text": "CA Legal: DLA Piper",
+        "users": [{ "person": "Ryan Black" }, { "person": "Brian Wong" }]
+      }
     },
     {
-      "header": "Special Thanks",
-      "users": [
-        { "person": "Tom Fulp" },
-        { "person": "Jeff Bandelin" },
-        { "person": "The entire Molinari Oswald Crew" },
-        { "person": "The entire Odin Law function" },
-        { "person": "SrPelo" }
-      ]
+      "header": {
+        "text": "Special Thanks",
+        "users": [
+          { "person": "Tom Fulp" },
+          { "person": "Jeff Bandelin" },
+          { "person": "The entire Molinari Oswald Crew" },
+          { "person": "The entire Odin Law function" },
+          { "person": "SrPelo" }
+        ]
+      }
     },
     {
-      "header": "Cameron would like to specially thank",
-      "users": [
-        { "person": "wanda, henry, snackers, digi, joemega, caddy, pewpew" },
-        { "person": "milkhead jack" },
-        { "person": "katt" },
-        { "person": "arko, pepe, cashu, ookiyo" },
-        {
-          "person": "Krystin, Kaye-lyn, and Cassidy, Mack, Levi, and Jasmine."
-        },
-        { "person": "Laurel" },
-        { "person": "Clone Hero" },
-        { "person": "Innersloth, Puffballs, Forest and Victoria" },
-        { "person": "StuffedWombat" },
-        { "person": "mmatt_ugh" },
-        { "person": "lucas and jack taterguy and marty emrox" },
-        { "person": "Luis" },
-        { "person": "GeoKureli, Will Blanton, Austin East, Squidly" },
-        { "person": "fizzd" },
-        { "person": "bbpanzu" },
-        { "person": "Etika" },
-        { "person": "Foamymuffin (insert travis scott lyrics here)" },
-        { "person": "SiIvaGunner" },
-        { "person": "Freddie Dredd" }
-      ]
+      "header": {
+        "text": "Cameron would like to specially thank",
+        "users": [
+          { "person": "wanda, henry, snackers, digi, joemega, caddy, pewpew" },
+          { "person": "milkhead jack" },
+          { "person": "katt" },
+          { "person": "arko, pepe, cashu, ookiyo" },
+          {
+            "person": "Krystin, Kaye-lyn, and Cassidy, Mack, Levi, and Jasmine."
+          },
+          { "person": "Laurel" },
+          { "person": "Clone Hero" },
+          { "person": "Innersloth, Puffballs, Forest and Victoria" },
+          { "person": "StuffedWombat" },
+          { "person": "mmatt_ugh" },
+          { "person": "lucas and jack taterguy and marty emrox" },
+          { "person": "Luis" },
+          { "person": "GeoKureli, Will Blanton, Austin East, Squidly" },
+          { "person": "fizzd" },
+          { "person": "bbpanzu" },
+          { "person": "Etika" },
+          { "person": "Foamymuffin (insert travis scott lyrics here)" },
+          { "person": "SiIvaGunner" },
+          { "person": "Freddie Dredd" }
+        ]
+      }
     },
     {
-      "header": "Kawa would like to specially thank",
-      "users": [
-        { "person": "Alexei Pepers" },
-        { "person": "Xalavier Nelson Jr." }
-      ]
+      "header": {
+        "text": "Kawa would like to specially thank",
+        "users": [
+          { "person": "Alexei Pepers" },
+          { "person": "Xalavier Nelson Jr." }
+        ]
+      }
     },
     {
-      "header": "Eric would like to specially thank",
-      "users": [
-        { "person": "Rob and Jill Myllyoja" },
-        { "person": "KadeDev" },
-        { "person": "Shadow Mario" }
-      ]
+      "header": {
+        "text": "Eric would like to specially thank",
+        "users": [
+          { "person": "Rob and Jill Myllyoja" },
+          { "person": "KadeDev" },
+          { "person": "Shadow Mario" }
+        ]
+      }
     },
     {
-      "header": "Hazel (Ravy) would like to specially thank",
-      "users": [{ "person": "d1ggo" }]
+      "header": {
+        "text": "Hazel (Ravy) would like to specially thank",
+        "users": [{ "person": "d1ggo" }]
+      }
     }
   ]
 }
