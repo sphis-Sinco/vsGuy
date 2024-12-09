@@ -36,11 +36,16 @@ class CreditsMenu extends MusicBeatState
 
 			var header:FlxText = new FlxText(10, yOffset, FlxG.width, headerTxt, 48);
 			yOffset += 60;
+
+			var limit1:String = 'Production and Business Development Partner';
+			if (headerTxt.length > limit1.length)
+				yOffset += 60;
+
 			credits.add(header);
 
 			var secondaryIndex:Int = 0;
 			var userList:Array<CreditUser> = item.header.users;
-			trace(headerTxt);
+			// trace(headerTxt);
 			if (userList != null)
 			{
 				for (user in userList)
@@ -59,10 +64,14 @@ class CreditsMenu extends MusicBeatState
 					var newuser = '${user.person}${newrole != null ? newrole : ''}';
 
 					var person:FlxText = new FlxText(header.x, yOffset, FlxG.width, newuser, Math.round(header.size / 2));
-					yOffset += 30;
+					yOffset += 45;
+
+					if (newuser.length > limit1.length * 2)
+						yOffset += 45;
+
 					credits.add(person);
 
-					trace(newuser);
+					// trace(newuser);
 					secondaryIndex++;
 				}
 			}
