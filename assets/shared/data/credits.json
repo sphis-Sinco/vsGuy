@@ -101,6 +101,78 @@
       }
     },
     {
+      "header": "Friday Night Funkin': Spooky Mix"
+    },
+    {
+      "header": "Direction",
+      "users": [{ "person": "Denoohay" }]
+    },
+    {
+      "header": "Artists",
+      "users": [
+        { "person": "Denoohay" },
+        { "person": "givemethesalt" },
+        { "person": "Andrewman_19" },
+        { "person": "SacredSky" },
+        { "person": "LeGooey" },
+        { "person": "swagsalt" }
+      ]
+    },
+    {
+      "header": "Pixel Art",
+      "users": [{ "person": "Official_NO" }]
+    },
+    {
+      "header": "Music Production",
+      "users": [
+        { "person": "RubyyyButCool" },
+        { "person": "Andrewman_19" },
+        { "person": "SacredSky" },
+        { "person": "LeGooey" },
+        { "person": "swagsalt" },
+        { "person": "Clarky_Dev" },
+        { "person": "LimeIsHere" },
+        { "person": "ChuckySkullHead" },
+        { "person": "eden_essence" },
+        { "person": "Jotacast" },
+        { "person": "Y_F_MUS" },
+        { "person": "SBMB" },
+        { "person": "Vaderlings" },
+        { "person": "Rofos" },
+        { "person": "QuasarXP" },
+        { "person": "Thrick" },
+        { "person": "SolarDTM" },
+        { "person": "KrakenPower" },
+        { "person": "RandoHorn" },
+        { "person": "alewito" },
+        { "person": "Rareblin" }
+      ]
+    },
+    {
+      "header": "Voice Acting",
+      "users": [{ "person": "RubyyyButCool (Voice of Moloch and Monster)" }]
+    },
+    {
+      "header": "Programming",
+      "users": [{ "person": "Denoohay" }]
+    },
+    {
+      "header": "Song Charting",
+      "users": [
+        { "person": "LimeIsHere" },
+        { "person": "RubyyyButCool" },
+        { "person": "LeGooey" },
+        { "person": "ChuckySkullHead" },
+        { "person": "Clarky_Dev" },
+        { "person": "swagsalt" },
+        { "person": "SacredSky" }
+      ]
+    },
+    {
+      "header": "---------------------------------------",
+      "users": []
+    },
+    {
       "header": "Friday Night Funkin'",
       "users": [
         { "person": "A video game created by" },
@@ -260,22 +332,22 @@
     },
     {
       "header": "Production and Business Development Partner - Windflower Games",
-      "body": [{ "person": "Sunni Pavlovic" }, { "person": "Kristen Lynch" }]
+      "users": [{ "person": "Sunni Pavlovic" }, { "person": "Kristen Lynch" }]
     },
     {
       "header": "Additional Administrative Assistance",
-      "body": [{ "person": "moawling" }]
+      "users": [{ "person": "moawling" }]
     },
     {
       "header": "Quality Assurance - Indium Play",
-      "body": [
+      "users": [
         { "person": "Lead Tester: Mihajlo Vuković" },
         { "person": "Dajana Dimovska" }
       ]
     },
     {
       "header": "Accounting: Molinari Oswald",
-      "body": [
+      "users": [
         { "person": "Francis Molinari" },
         { "person": "Aaron Hofmann" },
         { "person": "Katherine Stauffer" },
@@ -284,7 +356,7 @@
     },
     {
       "header": "US Legal: Odin Law",
-      "body": [
+      "users": [
         { "person": "Brandon Huffman" },
         { "person": "Michele Robichaux" },
         { "person": "Connor Richards" },
@@ -294,11 +366,11 @@
     },
     {
       "header": "CA Legal: DLA Piper",
-      "body": [{ "person": "Ryan Black" }, { "person": "Brian Wong" }]
+      "users": [{ "person": "Ryan Black" }, { "person": "Brian Wong" }]
     },
     {
       "header": "Special Thanks",
-      "body": [
+      "users": [
         { "person": "Tom Fulp" },
         { "person": "Jeff Bandelin" },
         { "person": "The entire Molinari Oswald Crew" },
@@ -308,12 +380,14 @@
     },
     {
       "header": "Cameron would like to specially thank",
-      "users":[
+      "users": [
         { "person": "wanda, henry, snackers, digi, joemega, caddy, pewpew" },
         { "person": "milkhead jack" },
         { "person": "katt" },
         { "person": "arko, pepe, cashu, ookiyo" },
-        { "person": "Krystin, Kaye-lyn, and Cassidy, Mack, Levi, and Jasmine." },
+        {
+          "person": "Krystin, Kaye-lyn, and Cassidy, Mack, Levi, and Jasmine."
+        },
         { "person": "Laurel" },
         { "person": "Clone Hero" },
         { "person": "Innersloth, Puffballs, Forest and Victoria" },
@@ -332,7 +406,10 @@
     },
     {
       "header": "Kawa would like to specially thank",
-      "users": [{ "person": "Alexei Pepers" }, { "person": "Xalavier Nelson Jr." }]
+      "users": [
+        { "person": "Alexei Pepers" },
+        { "person": "Xalavier Nelson Jr." }
+      ]
     },
     {
       "header": "Eric would like to specially thank",
