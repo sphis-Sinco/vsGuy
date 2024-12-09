@@ -10,5 +10,6 @@ typedef CreditsList =
 
 typedef CreditListItem =
 {
+	// TODO: make it read as a string
 	var header:CreditHeader;
 }
