@@ -3,23 +3,28 @@
   "credits": [
     {
       "header": {
-        "text": "Template",
+        "text": "Friday Night Funkin vs Guy Plus",
         "users": [
           {
             "person": "Sinco",
-            "role": "Creator"
-          }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Template 2",
-        "users": [
+            "role": "Director, Artist, Animator, Composer, Programmer"
+          },
           {
-            "person": "Sinco",
-            "role": "Creator"
-          }
+            "person": "Djotta Flow",
+            "role": "Co-director, Artist, Animator"
+          },
+          {
+            "person": "TJ The Hedgehog",
+            "role": "Artist, Animator"
+          },
+          {
+            "person": "Og Foxer",
+            "role": "Artist, Animator, Composer"
+          },
+		  {
+			"person": "Bonky",
+			"role": "Composer"
+		  }
         ]
       }
     }

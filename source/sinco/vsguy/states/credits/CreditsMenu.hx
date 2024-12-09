@@ -43,8 +43,8 @@ class CreditsMenu extends MusicBeatState
         {
 			var userList:Array<CreditUser> = item.header.users;
 
-			var header:FlxText = new FlxText(10, yOffset, 0, item.header.text, 64);
-			yOffset += 30;
+			var header:FlxText = new FlxText(10, yOffset, 0, item.header.text, 48);
+			yOffset += 60;
 			credits.add(header);
 
 			var secondaryIndex:Int = 0;
