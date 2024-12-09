@@ -114,6 +114,8 @@ class CreditsMenu extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
+
+			FlxTween.cancelTweensOf(this);
 			pausedText.visible = !pausedText.visible;
 			if (!pausedText.visible)
 				FlxTween.tween(this, {textSpeed: 5}, 1.0);
