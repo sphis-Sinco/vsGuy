@@ -11,6 +11,8 @@ class CreditsMenu extends MusicBeatState
     public var creditsFile:CreditsList = CreditManager.templateCredits();
 	public var credits:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
+    public var textSpeed:Float = 5.0;
+
 	override public function new()
 	{
 		creditsFile = Json.parse(Assets.getText(Paths.json('credits')));
@@ -55,6 +57,22 @@ class CreditsMenu extends MusicBeatState
     {
         if (controls.BACK)
             MusicBeatState.switchState(new MainMenuState());
+
+        if (controls.ACCEPT)
+        {
+            if (textSpeed == 0)
+				FlxTween.tween(this, {textSpeed: 5}, 1.0);
+            else
+				FlxTween.tween(this, {textSpeed: 0}, 1.0);
+        }
+
+        for (text in credits)
+        {
+			text.y -= textSpeed;
+
+            if (text.y < (0 - credits.length * 30))
+                text.y = FlxG.height + credits.length * 30;
+        }
 
         super.update(elapsed);
     }
