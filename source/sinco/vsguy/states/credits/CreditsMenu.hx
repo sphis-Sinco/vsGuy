@@ -90,7 +90,7 @@ class CreditsMenu extends MusicBeatState
 			add(upDownText);
 		 */
 
-		howToPauseText = new FlxText(-10, 695, FlxG.width, 'SPACE/ENTER to Pause');
+		howToPauseText = new FlxText(-10, 695, FlxG.width, '${ClientPrefs.keyBinds.get('accept')[0]}/${ClientPrefs.keyBinds.get('accept')[1]} to Pause');
 		howToPauseText.setFormat(Paths.font('vcr.ttf'), 20, FlxColor.WHITE, FlxTextAlign.RIGHT);
 		howToPauseText.scrollFactor.set(0, 0);
 		howToPauseText.alpha = 0.4;
@@ -114,14 +114,11 @@ class CreditsMenu extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
-			pausedText.visible = false;
-			if (textSpeed == 0)
+			pausedText.visible = !pausedText.visible;
+			if (!pausedText.visible)
 				FlxTween.tween(this, {textSpeed: 5}, 1.0);
 			else
-			{
-				pausedText.visible = true;
 				FlxTween.tween(this, {textSpeed: 0}, 1.0);
-			}
 		}
 
 		for (text in credits)
@@ -129,7 +126,7 @@ class CreditsMenu extends MusicBeatState
 			text.y -= textSpeed;
 
 			if (text.y < (0 - credits.length * 30))
-				text.y = FlxG.height + credits.length * 30;
+				text.y = FlxG.height + credits.length * 25;
 		}
 
 		super.update(elapsed);
