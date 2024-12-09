@@ -1,7 +1,7 @@
 package mikolka.vslice.results;
 
 import sinco.vsguy.popups.DoubleXP;
-import states.ShopState.XPPopup;
+import sinco.vsguy.states.shop.ShopState.XPPopup;
 import mikolka.compatibility.ModsHelper;
 import mikolka.compatibility.VsliceOptions;
 import mikolka.funkin.FlxAtlasSprite;

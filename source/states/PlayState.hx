@@ -1,6 +1,6 @@
 package states;
 
-import states.ShopState.XPPopup;
+import sinco.vsguy.states.shop.ShopState.XPPopup;
 import sinco.vsguy.stages.*;
 import mikolka.JoinedLuaVariables;
 import substates.StickerSubState;

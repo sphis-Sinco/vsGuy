@@ -1,7 +1,7 @@
 package states;
 
 import states.editors.ChartingState;
-import states.ShopState;
+import sinco.vsguy.states.shop.ShopState;
 import backend.WeekData;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.frames.FlxAtlasFrames;

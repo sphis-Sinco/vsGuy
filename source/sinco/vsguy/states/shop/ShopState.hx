@@ -1,4 +1,4 @@
-package states;
+package sinco.vsguy.states.shop;
 
 import sinco.vsguy.popups.DoubleXP;
 import haxe.Json;
