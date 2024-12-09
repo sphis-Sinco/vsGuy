@@ -38,8 +38,18 @@
       "header": {
         "text": "Places/Projects where Code was yoinked",
         "users": [
-          { "person": "FNF Spooky Mix", "role": "Pause text in the credits menu (and the whole inspiration for the menu)" },
-          { "person": "FNF vs Jellymid", "role": "Base for Credits text at the start of songs" }
+          {
+            "person": "FNF Spooky Mix",
+            "role": "Base Code for the Pause texts in the credits menu (and the whole inspiration for the menu too)"
+          },
+          {
+            "person": "FNF vs Jellymid",
+            "role": "Code Base for Credits text at the start of songs"
+          },
+          {
+            "person": "FNF vs Impostor v4",
+            "role": "Bean Popup code I used for the XP Popup"
+          }
         ]
       }
     },

@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.states.shop.ShopState;
 import sinco.vsguy.states.credits.CreditsMenu;
 import objects.MenuBG;
 import mikolka.compatibility.ModsHelper;
