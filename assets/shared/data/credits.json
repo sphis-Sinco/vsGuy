@@ -5,7 +5,10 @@
       "header": {
         "text": "vs Guy Plus Team",
         "users": [
-          { "person": "Sinco", "role": "Director, Artist, Animator, Composer, Programmer"},
+          {
+            "person": "Sinco",
+            "role": "Director, Artist, Animator, Composer, Programmer"
+          },
           { "person": "Djotta Flow", "role": "Co-director, Artist, Animator" },
           { "person": "TJ The Hedgehog", "role": "Artist, Animator" },
           { "person": "Og Foxer", "role": "Artist, Animator, Composer" },
@@ -14,7 +17,7 @@
       }
     },
     {
-      "header": {"text": "---------------------------------------"}
+      "header": { "text": "---------------------------------------" }
     },
     {
       "header": {
@@ -29,7 +32,19 @@
       }
     },
     {
-      "header": {"text": "---------------------------------------"}
+      "header": { "text": "---------------------------------------" }
+    },
+    {
+      "header": {
+        "text": "Places/Projects where Code was yoinked",
+        "users": [
+          { "person": "FNF Spooky Mix", "role": "Pause text in the credits menu (and the whole inspiration for the menu)" },
+          { "person": "FNF vs Jellymid", "role": "Base for Credits text at the start of songs" }
+        ]
+      }
+    },
+    {
+      "header": { "text": "---------------------------------------" }
     },
     {
       "header": {
@@ -104,400 +119,19 @@
       }
     },
     {
-      "header": {"text": "---------------------------------------"}
-    },
-    {
-      "header": {"text": "Friday Night Funkin': Spooky Mix"}
-    },
-    {
-      "header": {
-        "text":"Direction",
-        "users": [
-          { "person": "Denoohay" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Artists",
-        "users": [
-          { "person": "Denoohay" },
-          { "person": "givemethesalt" },
-          { "person": "Andrewman_19" },
-          { "person": "SacredSky" },
-          { "person": "LeGooey" },
-          { "person": "swagsalt" }
-        ]
-      }
-    },
-    {
-      "header":{
-        "text": "Pixel Art",
-        "users": [{ "person": "Official_NO" }]
-      }
-    },
-    {
-      "header":{
-        "text": "Music Production",
-        "users": [
-          { "person": "RubyyyButCool" },
-          { "person": "Andrewman_19" },
-          { "person": "SacredSky" },
-          { "person": "LeGooey" },
-          { "person": "swagsalt" },
-          { "person": "Clarky_Dev" },
-          { "person": "LimeIsHere" },
-          { "person": "ChuckySkullHead" },
-          { "person": "eden_essence" },
-          { "person": "Jotacast" },
-          { "person": "Y_F_MUS" },
-          { "person": "SBMB" },
-          { "person": "Vaderlings" },
-          { "person": "Rofos" },
-          { "person": "QuasarXP" },
-          { "person": "Thrick" },
-          { "person": "SolarDTM" },
-          { "person": "KrakenPower" },
-          { "person": "RandoHorn" },
-          { "person": "alewito" },
-          { "person": "Rareblin" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Voice Acting",
-        "users": [{ "person": "RubyyyButCool (Voice of Moloch and Monster)" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Programming",
-        "users": [{ "person": "Denoohay" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Song Charting",
-        "users": [
-          { "person": "LimeIsHere" },
-          { "person": "RubyyyButCool" },
-          { "person": "LeGooey" },
-          { "person": "ChuckySkullHead" },
-          { "person": "Clarky_Dev" },
-          { "person": "swagsalt" },
-          { "person": "SacredSky" }
-        ]
-      }
-    },
-    {
-      "header": {"text": "---------------------------------------"}
+      "header": { "text": "---------------------------------------" }
     },
     {
       "header": {
         "text": "Friday Night Funkin'",
         "users": [
-          { "person": "A video game created by" },
-          { "person": "The Funkin' Crew Inc." }
+          { "person": "Ninjamuffin99", "role": "Main Programmer" },
+          { "person": "EliteMasterEric", "role": "Assistant Programmer" },
+          { "person": "PhantomArcade", "role": "Main Artist/Animator" },
+          { "person": "Evilsk8r", "role": "Artist" },
+          { "person": "Kawai Sprite", "role": "Main Composer" },
+          { "person": "And MANY others" }
         ]
-      }
-    },
-    {
-      "header": {"text": "The Funkin' Crew Inc. Shareholders",
-      "users": [
-        { "person": "ninjamuffin99" },
-        { "person": "PhantomArcade" },
-        { "person": "Kawai Sprite" },
-        { "person": "evilsk8r" }
-      ]}
-    },
-    {
-      "header": {"text": "Direction and Art Lead",
-      "users": [{ "person": "PhantomArcade" }]}
-    },
-    {
-      "header": {
-        "text": "Music Lead",
-        "users": [{ "person": "Isaac “Kawai Sprite” Garcia" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Co-Direction and Programming Lead",
-        "users": [{ "person": "ninjamuffin99" }]
-      }
-    },
-    {
-      "header": { "text": "Producer", "users": [{ "person": "Kawa Teaño" }] }
-    },
-    {
-      "header": {
-        "text": "Artists",
-        "users": [
-          { "person": "PhantomArcade" },
-          { "person": "evilsk8r" },
-          { "person": "beck" }
-        ]
-      }
-    },
-    {
-      "header": { "text": "Pixel Art", "users": [{ "person": "moawling" }] }
-    },
-    {
-      "header": {
-        "text": "Cutscene Storyboards & SFX",
-        "users": [{ "person": "PhantomArcade" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Additional Background Design",
-        "users": [{ "person": "Red Minus" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Cutscene Animation",
-        "users": [
-          { "person": "Figburn" },
-          { "person": "Sade" },
-          { "person": "Topium" },
-          { "person": "BlairTheUnseriousGuy" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Cutscene Cleanup",
-        "users": [{ "person": "PennilessRagamuffin" }, { "person": "beck" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Cutscene Background Art",
-        "users": [{ "person": "beck" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Additional Art",
-        "users": [
-          { "person": "Jeff Bandelin" },
-          { "person": "Mogy64" },
-          { "person": "ChipsGoWoah" },
-          { "person": "Min Ho Kim (Deegeemin)" },
-          { "person": "PKettles" },
-          { "person": "peepo173" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Music Production",
-        "users": [{ "person": "Saruky" }, { "person": "crisp" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Featured Guest Musicians (thus far)",
-        "users": [
-          { "person": "BassetFilms" },
-          { "person": "Kohta Takahashi" },
-          { "person": "Lotus Juice" },
-          { "person": "METAROOM" },
-          { "person": "nuphory" },
-          { "person": "Saster" },
-          { "person": "SixImpala" },
-          { "person": "TeraVex" },
-          { "person": "ThatAndyGuy" },
-          { "person": "tsuyunoshi" },
-          { "person": "xploshi" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Programming",
-        "users": [
-          { "person": "Eric \"EliteMasterEric\" Myllyoja" },
-          { "person": "fabs" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Additional Programming",
-        "users": [
-          { "person": "Jenny Crowe" },
-          { "person": "ember ana" },
-          { "person": "Mike Welsh" },
-          { "person": "Saharan" },
-          { "person": "Ian Harrigan" },
-          { "person": "Osaka Red LLC: Thomas J Webb" },
-          { "person": "Emma (MtH)" },
-          { "person": "George Kurelic" },
-          { "person": "Will Blanton" },
-          { "person": "Victor - Cheemsandfriends" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Devops and Additional Internal Tooling",
-        "users": [{ "person": "ember ana" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Gameplay Design",
-        "users": [
-          { "person": "PhantomArcade" },
-          { "person": "Cameron Taylor" },
-          { "person": "Jenny Crowe" },
-          { "person": "Spazkid" },
-          { "person": "fabs" },
-          { "person": "Emma (MtH)" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Kickstarter Backer Portal Programming",
-        "users": [{ "person": "Shingai Shamu" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Merchandise Partners and Designers",
-        "users": [
-          { "person": "Needlejuice Records: Jace McLain" },
-          { "person": "Needlejuice Records: Brandon Brown" },
-          { "person": "Type-4: Coby Win" },
-          { "person": "IvanAlmighty" },
-          { "person": "Mogy64" },
-          { "person": "ChipsGoWoah" },
-          { "person": "Min Ho Kim" },
-          { "person": "PKettles" },
-          { "person": "Jeff Bandelin" },
-          { "person": "PhantomArcade" },
-          { "person": "evilsk8r" },
-          { "person": "beck" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Production and Business Development Partner - Windflower Games",
-        "users": [{ "person": "Sunni Pavlovic" }, { "person": "Kristen Lynch" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Additional Administrative Assistance",
-        "users": [{ "person": "moawling" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Quality Assurance - Indium Play",
-        "users": [
-          { "person": "Lead Tester: Mihajlo Vuković" },
-          { "person": "Dajana Dimovska" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Accounting: Molinari Oswald",
-        "users": [
-          { "person": "Francis Molinari" },
-          { "person": "Aaron Hofmann" },
-          { "person": "Katherine Stauffer" },
-          { "person": "Jane Haring" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "US Legal: Odin Law",
-        "users": [
-          { "person": "Brandon Huffman" },
-          { "person": "Michele Robichaux" },
-          { "person": "Connor Richards" },
-          { "person": "Pam Driver" },
-          { "person": "Jacob Barefoot" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "CA Legal: DLA Piper",
-        "users": [{ "person": "Ryan Black" }, { "person": "Brian Wong" }]
-      }
-    },
-    {
-      "header": {
-        "text": "Special Thanks",
-        "users": [
-          { "person": "Tom Fulp" },
-          { "person": "Jeff Bandelin" },
-          { "person": "The entire Molinari Oswald Crew" },
-          { "person": "The entire Odin Law function" },
-          { "person": "SrPelo" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Cameron would like to specially thank",
-        "users": [
-          { "person": "wanda, henry, snackers, digi, joemega, caddy, pewpew" },
-          { "person": "milkhead jack" },
-          { "person": "katt" },
-          { "person": "arko, pepe, cashu, ookiyo" },
-          {
-            "person": "Krystin, Kaye-lyn, and Cassidy, Mack, Levi, and Jasmine."
-          },
-          { "person": "Laurel" },
-          { "person": "Clone Hero" },
-          { "person": "Innersloth, Puffballs, Forest and Victoria" },
-          { "person": "StuffedWombat" },
-          { "person": "mmatt_ugh" },
-          { "person": "lucas and jack taterguy and marty emrox" },
-          { "person": "Luis" },
-          { "person": "GeoKureli, Will Blanton, Austin East, Squidly" },
-          { "person": "fizzd" },
-          { "person": "bbpanzu" },
-          { "person": "Etika" },
-          { "person": "Foamymuffin (insert travis scott lyrics here)" },
-          { "person": "SiIvaGunner" },
-          { "person": "Freddie Dredd" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Kawa would like to specially thank",
-        "users": [
-          { "person": "Alexei Pepers" },
-          { "person": "Xalavier Nelson Jr." }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Eric would like to specially thank",
-        "users": [
-          { "person": "Rob and Jill Myllyoja" },
-          { "person": "KadeDev" },
-          { "person": "Shadow Mario" }
-        ]
-      }
-    },
-    {
-      "header": {
-        "text": "Hazel (Ravy) would like to specially thank",
-        "users": [{ "person": "d1ggo" }]
       }
     }
   ]
