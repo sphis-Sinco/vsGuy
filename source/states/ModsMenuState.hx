@@ -50,7 +50,7 @@ class ModsMenuState extends MusicBeatState
 	public function new(startMod:String = null)
 	{
 		this.startMod = startMod;
-		super();
+		super('DLC Menu');
 	}
 
 	override function create()

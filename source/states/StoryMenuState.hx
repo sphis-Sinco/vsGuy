@@ -46,9 +46,9 @@ class StoryMenuState extends MusicBeatState
 	var loadedWeeks:Array<WeekData> = [];
 
 	var stickerSubState:StickerSubState;
-	public function new(?stickers:StickerSubState = null)
+	override public function new(?stickers:StickerSubState = null)
 	{
-		super();
+		super('Story Menu');
 	  
 		if (stickers != null)
 		{

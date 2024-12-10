@@ -37,6 +37,11 @@ class MasterEditorMenu extends MusicBeatState
 	private var curDirectory = 0;
 	private var directoryTxt:FlxText;
 
+	override public function new()
+	{
+		super('Master Editor');
+	}
+
 	override function create()
 	{
 		FlxG.camera.bgColor = FlxColor.BLACK;

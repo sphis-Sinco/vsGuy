@@ -19,6 +19,11 @@ class MenuCharacterEditorState extends MusicBeatState implements PsychUIEventHan
 	var defaultCharacters:Array<String> = ['dad', 'bf', 'gf'];
 	var unsavedProgress:Bool = false;
 
+	override public function new()
+	{
+		super('Menu Character Editor');
+	}
+
 	override function create() {
 		characterFile =
 		{

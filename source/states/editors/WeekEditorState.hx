@@ -31,9 +31,9 @@ class WeekEditorState extends MusicBeatState implements PsychUIEventHandler.Psyc
 	public static var unsavedProgress:Bool = false;
 
 	var weekFile:WeekFile = null;
-	public function new(weekFile:WeekFile = null)
+	override public function new(weekFile:WeekFile = null)
 	{
-		super();
+		super('Week Editor');
 		this.weekFile = WeekData.createWeekFile();
 		if(weekFile != null) this.weekFile = weekFile;
 		else weekFileName = 'week1';

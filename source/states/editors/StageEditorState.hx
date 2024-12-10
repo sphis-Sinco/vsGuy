@@ -38,11 +38,11 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 	var spriteList_box:PsychUIBox;
 	var stageSprites:Array<StageEditorMetaSprite> = [];
 
-	public function new(stageToLoad:String = 'stage', cachedJson:StageFile = null)
+	override public function new(stageToLoad:String = 'stage', cachedJson:StageFile = null)
 	{
 		lastLoadedStage = stageToLoad;
 		stageJson = cachedJson;
-		super();
+		super('Stage Editor');
 	}
 
 	var lastLoadedStage:String;

@@ -29,10 +29,10 @@ class MainMenuState extends MusicBeatState
 	var magenta:MenuBG;
 	var camFollow:FlxObject;
 
-	public function new(isDisplayingRank:Bool = false) {
+	override public function new(isDisplayingRank:Bool = false) {
 
 		//TODO
-		super();
+		super('Main Menu');
 	}
 
 	public static function modVerInit()

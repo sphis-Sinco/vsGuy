@@ -12,7 +12,7 @@ class ErrorState extends MusicBeatState
 		this.acceptCallback = accept;
 		this.backCallback = back;
 
-		super();
+		super('Error');
 	}
 
 	public var errorSine:Float = 0;

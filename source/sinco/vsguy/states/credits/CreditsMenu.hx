@@ -95,7 +95,7 @@ class CreditsMenu extends MusicBeatState
 		howToPauseText.scrollFactor.set(0, 0);
 		howToPauseText.alpha = 0.4;
 
-		super();
+		super('Credits');
 	}
 
 	override public function create()

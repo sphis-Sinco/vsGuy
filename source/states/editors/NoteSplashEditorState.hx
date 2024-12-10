@@ -29,7 +29,12 @@ class NoteSplashEditorState extends MusicBeatState
 
     var UI:PsychUIBox;
     var properUI:PsychUIBox;
-    var shaderUI:PsychUIBox;
+	var shaderUI:PsychUIBox;
+
+	override public function new()
+	{
+		super('Note Splash Editor');
+	}
 
     override function create()
     {
