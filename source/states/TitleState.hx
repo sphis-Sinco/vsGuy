@@ -205,7 +205,8 @@ class TitleState extends MusicBeatState
 		logoBl.screenCenter(X);
 		logoBl.updateHitbox();
 		logoBl.screenCenter();
-		logoBl.x += 400;
+		logoBl.x += 300;
+		logoBl.visible = false;
 		
 		if(ClientPrefs.data.shaders)
 		{
@@ -246,14 +247,33 @@ class TitleState extends MusicBeatState
 		ngSpr.antialiasing = ClientPrefs.data.antialiasing;
 		ngSpr.visible = false;
 
-		bf = new TitleBF(59.8, 126.95);
+		backdrop = new FlxSprite(0, 0).loadGraphic(Paths.image('titlescreen/backdrop'));
+		backdrop.screenCenter();
+		backdrop.visible = false;
+
+		bf = new TitleBF(60, 128);
 		bf.playAnimation('boyfriend idle dance');
 		bf.visible = false;
+
+		bars = new FlxSprite(0, 0).loadGraphic(Paths.image('titlescreen/bars'));
+		bars.screenCenter();
+		bars.visible = false;
+
+		press_play = new FlxSprite(60,200);
+		press_play.frames = Paths.getSparrowAtlas('titlescreen/press_play');
+		press_play.animation.addByPrefix('idle', 'press play idle', 24, false);
+		press_play.animation.addByPrefix('pressed', 'press play pressed', 24, false);
+		press_play.animation.play('idle');
+		press_play.screenCenter();
+		press_play.visible = false;
 		
-		add(logoBl);
 		add(credGroup);
 		add(ngSpr);
+
+		add(backdrop);
 		add(bf);
+		add(bars);
+		add(logoBl);
 
 		if (initialized)
 			skipIntro();
@@ -295,6 +315,13 @@ class TitleState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (backdrop != null)
+			if (logoBl.visible != bf.visible) {
+				backdrop.visible = bf.visible;
+				bars.visible = bf.visible;
+				logoBl.visible = bf.visible;
+			}
+
 		#if debug
 		if (controls.FAVORITE)
 			moveToAttract();

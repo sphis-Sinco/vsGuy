@@ -1,5 +1,6 @@
 package;
 
+import states.TitleState;
 import states.editors.MasterEditorMenu;
 import debug.FPSCounter;
 import flixel.util.typeLimit.NextState.InitialState;
@@ -35,7 +36,7 @@ class Main extends Sprite
 	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
-		initialState: TitleScreen, // initial game state
+		initialState: TitleState, // initial game state
 		zoom: -1.0, // game state bounds
 		framerate: 60, // default framerate
 		skipSplash: true, // if the default flixel splash screen should be skipped
