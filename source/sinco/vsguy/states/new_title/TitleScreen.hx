@@ -11,10 +11,17 @@ class TitleScreen extends MusicBeatState
     override public function new()
     {
         super();
+
+        Conductor.set_bpm(130);
+
+		bf = new TitleBF(0,0);
+		bf.playAnimation('boyfriend idle dance', false, false, true);
 	}
 
 	override public function create()
 	{
+        add(bf);
+
 		super.create();
 	}
 
