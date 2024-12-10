@@ -4,13 +4,23 @@
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="press play idle0000" x="4" y="4" width="503" height="211"/>
 	<SubTexture name="press play pressed0000" x="515" y="4" width="499" height="208" frameX="-9" frameY="-34" frameWidth="518" frameHeight="269"/>
-	<SubTexture name="press play pressed0001" x="1022" y="4" width="507" height="228" frameX="-5" frameY="-33" frameWidth="518" frameHeight="269"/>
-	<SubTexture name="press play pressed0002" x="1022" y="4" width="507" height="228" frameX="-5" frameY="-33" frameWidth="518" frameHeight="269"/>
-	<SubTexture name="press play pressed0003" x="4" y="240" width="518" height="269"/>
-	<SubTexture name="press play pressed0004" x="4" y="240" width="518" height="269"/>
-	<SubTexture name="press play pressed0005" x="530" y="240" width="491" height="230" frameX="-13" frameY="-16" frameWidth="518" frameHeight="269"/>
-	<SubTexture name="press play pressed0006" x="1029" y="240" width="497" height="208" frameX="-10" frameY="-25" frameWidth="518" frameHeight="269"/>
-	<SubTexture name="press play pressed0007" x="1534" y="240" width="502" height="210" frameX="-7" frameY="-35" frameWidth="518" frameHeight="269"/>
-	<SubTexture name="press play pressed0008" x="4" y="517" width="503" height="211" frameX="-7" frameY="-38" frameWidth="518" frameHeight="269"/>
-	<SubTexture name="press play pressed0009" x="4" y="517" width="503" height="211" frameX="-7" frameY="-38" frameWidth="518" frameHeight="269"/>
+	<SubTexture name="press play pressed0001" x="1016" y="281" width="507" height="228" frameX="-5" frameY="-33" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed0002" x="1016" y="281" width="507" height="228" frameX="-5" frameY="-33" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed0003" x="1022" y="4" width="518" height="269"/>
+	<SubTexture name="press play pressed0004" x="1022" y="4" width="518" height="269"/>
+	<SubTexture name="press play pressed0005" x="1548" y="4" width="491" height="230" frameX="-13" frameY="-16" frameWidth="518" frameHeight="269"/>
+	<SubTexture name="press play pressed0006" x="4" y="281" width="497" height="208" frameX="-10" frameY="-25" frameWidth="518" frameHeight="269"/>
+	<SubTexture name="press play pressed0007" x="1008" y="543" width="502" height="210" frameX="-7" frameY="-35" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed0008" x="1518" y="543" width="503" height="211" frameX="-7" frameY="-38" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed0009" x="1518" y="543" width="503" height="211" frameX="-7" frameY="-38" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0000" x="509" y="281" width="499" height="208" frameX="-4" frameY="-26" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0001" x="1016" y="281" width="507" height="228" frameX="0" frameY="-25" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0002" x="1016" y="281" width="507" height="228" frameX="0" frameY="-25" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0003" x="1531" y="281" width="483" height="254" frameX="-12" frameY="0" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0004" x="1531" y="281" width="483" height="254" frameX="-12" frameY="0" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0005" x="4" y="543" width="491" height="230" frameX="-8" frameY="-8" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0006" x="503" y="543" width="497" height="208" frameX="-5" frameY="-17" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0007" x="1008" y="543" width="502" height="210" frameX="-2" frameY="-27" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0008" x="1518" y="543" width="503" height="211" frameX="-2" frameY="-30" frameWidth="507" frameHeight="254"/>
+	<SubTexture name="press play pressed flashless0009" x="1518" y="543" width="503" height="211" frameX="-2" frameY="-30" frameWidth="507" frameHeight="254"/>
 </TextureAtlas>

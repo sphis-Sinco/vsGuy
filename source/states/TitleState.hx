@@ -1,5 +1,6 @@
 package states;
 
+import objects.Character;
 import states.editors.ChartingState;
 import sinco.vsguy.states.shop.ShopState;
 import backend.WeekData;
@@ -186,7 +187,7 @@ class TitleState extends MusicBeatState
 	public var backdrop:FlxSprite;
 	public var bf:TitleBF;
 	public var bars:FlxSprite;
-	public var press_play:FlxSprite;
+	public var press_play:Character;
 
 	function startIntro()
 	{
@@ -259,12 +260,8 @@ class TitleState extends MusicBeatState
 		bars.screenCenter();
 		bars.visible = false;
 
-		press_play = new FlxSprite(60,200);
-		press_play.frames = Paths.getSparrowAtlas('titlescreen/press_play');
-		press_play.animation.addByPrefix('idle', 'press play idle', 24, false);
-		press_play.animation.addByPrefix('pressed', 'press play pressed', 24, false);
-		press_play.animation.play('idle');
-		press_play.screenCenter();
+		press_play = new Character(40,FlxG.height - 200, 'press_play');
+		press_play.playAnim('idle');
 		press_play.visible = false;
 		
 		add(credGroup);
@@ -273,6 +270,7 @@ class TitleState extends MusicBeatState
 		add(backdrop);
 		add(bf);
 		add(bars);
+		add(press_play);
 		add(logoBl);
 
 		if (initialized)
@@ -320,6 +318,7 @@ class TitleState extends MusicBeatState
 				backdrop.visible = bf.visible;
 				bars.visible = bf.visible;
 				logoBl.visible = bf.visible;
+				press_play.visible = bf.visible;
 			}
 
 		#if debug
@@ -362,11 +361,13 @@ class TitleState extends MusicBeatState
 		}
 
 		// EASTER EGG
+		// Nuh uh
 
 		if (initialized && !transitioning && skippedIntro)
 		{
 			if (pressedEnter)
 			{
+				press_play.playAnim(ClientPrefs.data.flashing ? 'pressed' : 'pressed-flashless');
 
 				FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
