@@ -61,15 +61,6 @@ class TitleState extends MusicBeatState
 	var curWacky:Array<String> = [];
 
 	var wackyImage:FlxSprite;
-
-	#if TITLE_SCREEN_EASTER_EGG
-	final easterEggKeys:Array<String> = [
-		'SHADOW', 'RIVEREN', 'BBPANZU', 'PESSY'
-	];
-	final allowedKeys:String = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	var easterEggKeysBuffer:String = '';
-	#end
-
 	var mustUpdate:Bool = false;
 
 	var bf:TitleBF;
@@ -192,7 +183,6 @@ class TitleState extends MusicBeatState
 
 	var logoBl:FlxSprite;
 	var danceLeft:Bool = false;
-	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
 
 	function startIntro()
@@ -203,7 +193,7 @@ class TitleState extends MusicBeatState
 
 		Conductor.bpm = musicBPM;
 
-		logoBl = new FlxSprite(logoPosition.x, logoPosition.y);
+		logoBl = new FlxSprite(0,0);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin-guy');
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
 
@@ -211,39 +201,13 @@ class TitleState extends MusicBeatState
 		logoBl.animation.play('bump');
 		logoBl.screenCenter(X);
 		logoBl.updateHitbox();
+		logoBl.screenCenter();
+		logoBl.x += 400;
 		
 		if(ClientPrefs.data.shaders)
 		{
 			swagShader = new ColorSwap();
 			logoBl.shader = swagShader.shader;
-		}
-
-		var animFrames:Array<FlxFrame> = [];
-		titleText = new FlxSprite(enterPosition.x, enterPosition.y);
-		titleText.frames = Paths.getSparrowAtlas('titleEnter');
-		@:privateAccess
-		{
-			titleText.animation.findByPrefix(animFrames, "ENTER IDLE");
-			titleText.animation.findByPrefix(animFrames, "ENTER FREEZE");
-		}
-		
-		if (newTitle = animFrames.length > 0)
-		{
-			titleText.animation.addByPrefix('idle', "ENTER IDLE", 24);
-			titleText.animation.addByPrefix('press', ClientPrefs.data.flashing ? "ENTER PRESSED" : "ENTER FREEZE", 24);
-		}
-		else
-		{
-			titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
-			titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
-		}
-		titleText.animation.play('idle');
-		titleText.updateHitbox();
-
-		if (swagShader != null)
-		{
-			logoBl.shader = swagShader.shader;
-			titleText.shader = swagShader.shader;
 		}
 
 		blackScreen = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
@@ -279,12 +243,11 @@ class TitleState extends MusicBeatState
 		ngSpr.antialiasing = ClientPrefs.data.antialiasing;
 		ngSpr.visible = false;
 
-		bf = new TitleBF(0,0);
+		bf = new TitleBF(59.8, 126.95);
 		bf.playAnimation('boyfriend idle dance');
 		bf.visible = false;
 		
-		// add(gfDance);
-		add(logoBl); //FNF Logo
+		add(logoBl);
 		add(credGroup);
 		add(ngSpr);
 		add(bf);
@@ -294,16 +257,12 @@ class TitleState extends MusicBeatState
 		else
 			initialized = true;
 
-		// credGroup.add(credTextShit);
 	}
 
 	// JSON data
 	// nuh uh
-
-	var logoPosition:FlxPoint = FlxPoint.get(-150, -100);
 	var enterPosition:FlxPoint = FlxPoint.get(100, 576);
-	
-	var useIdle:Bool = false;
+
 	var musicBPM:Float = 130;
 
 	function getIntroTextShit():Array<Array<String>>
@@ -376,25 +335,8 @@ class TitleState extends MusicBeatState
 
 		if (initialized && !transitioning && skippedIntro)
 		{
-			if (newTitle && !pressedEnter)
-			{
-				var timer:Float = titleTimer;
-				if (timer >= 1)
-					timer = (-timer) + 2;
-
-				timer = FlxEase.quadInOut(timer);
-
-				titleText.color = FlxColor.interpolate(titleTextColors[0], titleTextColors[1], timer);
-				titleText.alpha = FlxMath.lerp(titleTextAlphas[0], titleTextAlphas[1], timer);
-			}
-
 			if (pressedEnter)
 			{
-				titleText.color = FlxColor.WHITE;
-				titleText.alpha = 1;
-
-				if (titleText != null)
-					titleText.animation.play('press');
 
 				FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
@@ -437,9 +379,6 @@ class TitleState extends MusicBeatState
 			if (controls.UI_RIGHT)
 				swagShader.hue += elapsed * 0.1;
 		}
-
-		if (Controls.instance.RESET)
-			ClientPrefs.resetSave();
 
 		super.update(elapsed);
 	}

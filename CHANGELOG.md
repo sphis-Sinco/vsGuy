@@ -31,6 +31,7 @@
 - FPS Counter
 - Ability to have Songs with a Rating over 20
 - Donate Menu Item
+- Titlestate keybind for reseting your save
 ### Changed
 - AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
 - Width of Chart editor Main UI Box
