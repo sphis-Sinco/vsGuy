@@ -63,8 +63,6 @@ class TitleState extends MusicBeatState
 	var wackyImage:FlxSprite;
 	var mustUpdate:Bool = false;
 
-	var bf:TitleBF;
-
 	public static var updateVersion:String = '';
 
 	override public function create():Void
@@ -184,6 +182,11 @@ class TitleState extends MusicBeatState
 	var logoBl:FlxSprite;
 	var danceLeft:Bool = false;
 	var swagShader:ColorSwap = null;
+
+	public var backdrop:FlxSprite;
+	public var bf:TitleBF;
+	public var bars:FlxSprite;
+	public var press_play:FlxSprite;
 
 	function startIntro()
 	{
