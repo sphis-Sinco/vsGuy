@@ -48,6 +48,13 @@ import js.html.*;
 
 //Vs Guy
 import sinco.vsguy.*;
+import sinco.vsguy.data.*;
+import sinco.vsguy.popups.*;
+import sinco.vsguy.stages.*;
+import sinco.vsguy.states.*;
+import sinco.vsguy.states.credits.*;
+import sinco.vsguy.states.new_title.*;
+import sinco.vsguy.states.shop.*;
 import sinco.vsguy.Constants as GuyConsts;
 
 //P-Slice
