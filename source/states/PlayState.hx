@@ -289,11 +289,6 @@ class PlayState extends MusicBeatState
 
 	public static var LIVES:Int = 3;
 
-	override public function new()
-	{
-		super('Now Playing: ${SONG.song}');
-	}
-
 	override public function create()
 	{
 		this.variables = new JoinedLuaVariables();

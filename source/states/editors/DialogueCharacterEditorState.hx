@@ -40,11 +40,6 @@ class DialogueCharacterEditorState extends MusicBeatState implements PsychUIEven
 	var curAnim:Int = 0;
 	var unsavedProgress:Bool = false;
 
-	override public function new()
-	{
-		super('Dialogue Character Editor');
-	}
-
 	override function create() {
 		persistentUpdate = persistentDraw = true;
 		camGame = initPsychCamera();

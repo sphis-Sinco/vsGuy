@@ -15,14 +15,14 @@ class StickerTest extends MusicBeatState {
 	var stickerSetInput:PsychUIInputText;
 	var stickerPackInput:PsychUIInputText;
 
-	override public function new(?stickers:StickerSubState = null,set:String = "stickers-set-1",pack:String = "all"){
+	public function new(?stickers:StickerSubState = null,set:String = "stickers-set-1",pack:String = "all"){
         stickerPack = pack;
         stickerSet = set;
         if (stickers != null)
         {
             stickerSubState = stickers;
         }
-        super('Sticker Test');
+        super();
     }
     override function create() {
         FlxG.sound.music.pause();

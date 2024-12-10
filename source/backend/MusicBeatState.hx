@@ -111,7 +111,7 @@ class MusicBeatState extends FlxState
 	override function new(?windowsuffix:Null<String> = null)
 	{
 		super();
-		var windowTitle:String = '${GuyConsts.WINDOW_TITLE_PREFIX}${windowsuffix != null ? ' | ${windowsuffix}' : ''}';
+		var windowTitle:String = '${GuyConsts.WINDOW_TITLE_PREFIX}${windowsuffix != null ? ' ${windowsuffix}' : ''}';
 
 		WindowUtil.setWindowTitle(windowTitle);
 	}

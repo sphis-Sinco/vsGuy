@@ -98,7 +98,7 @@ class ShopState extends MusicBeatState
 
 		doubleXp = new DoubleXP(0,0);
 
-		super('Shop');
+		super();
 	}
 
 	public function sincoFinishAnim(name:String)

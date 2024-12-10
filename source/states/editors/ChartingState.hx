@@ -199,10 +199,10 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 	var selectionBox:FlxSprite;
 
 	var _shouldReset:Bool = true;
-	override public function new(?shouldReset:Bool = true)
+	public function new(?shouldReset:Bool = true)
 	{
 		this._shouldReset = shouldReset;
-		super('Chart Editor');
+		super();
 	}
 
 	var bg:MenuBG;

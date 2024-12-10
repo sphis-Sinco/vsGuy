@@ -56,13 +56,13 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 
 	var selectedFormat:FlxTextFormat = new FlxTextFormat(FlxColor.LIME);
 
-	override public function new(char:String = null, goToPlayState:Bool = true)
+	public function new(char:String = null, goToPlayState:Bool = true)
 	{
 		this._char = char;
 		this._goToPlayState = goToPlayState;
 		if(this._char == null) this._char = Character.DEFAULT_CHARACTER;
 
-		super('Character Editor');
+		super();
 	}
 
 	override function create()
