@@ -71,7 +71,7 @@
 	<define name="SHOW_LOADING_SCREEN" />
 	<define name="COPYSTATE_ALLOWED" if="" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
-	<define name="TRANSLATIONS_ALLOWED" />
+	<!-- <define name="TRANSLATIONS_ALLOWED" />-->
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 
