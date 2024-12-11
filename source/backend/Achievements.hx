@@ -33,8 +33,11 @@ class Achievements {
 	public static function init()
 	{
 		createAchievement('friday_night_play',		{name: "Freaky on a Friday Night", description: "Play on a Friday... Night.", hidden: true});
+		
 		createAchievement('week1-nomiss',			{name: "Stop bothering people", description: "Beat Week 1 on Hard with no Misses."});
 		createAchievement('week2-nomiss',			{name: "From the Beer to the Keys", description: "Beat Week 2 on Hard with no Misses."});
+		createAchievement('week3-nomiss',			{name: "Galaxy Adventurist", description: "Beat Week 3 on Hard with no Misses."});
+
 		createAchievement('ur_bad',					{name: "What a Funkin' Disaster!", description: "Complete a Song with 60% or less"});
 		createAchievement('ur_good',				{name: "Perfectionist", description: "Complete a Song with 100%"});
 		createAchievement('oversinging', 			{name: "Oversinging Much...?", description: "Sing for 10 seconds without going back to Idle."});
