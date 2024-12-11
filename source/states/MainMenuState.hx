@@ -14,10 +14,6 @@ import options.OptionsState;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '1.0'; // This is also used for Discord RPC
-	public static var pSliceVersion:String = '2.1'; 
-	public static var modVer:String = '1.0'; 
-	public static var funkinVersion:String = '0.5.1'; // Version of funkin' we are emulating
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -33,11 +29,6 @@ class MainMenuState extends MusicBeatState
 
 		//TODO
 		super();
-	}
-
-	public static function modVerInit()
-	{
-		modVer = Application.current.meta.get('version');
 	}
 
 	override function create()
@@ -121,9 +112,11 @@ class MainMenuState extends MusicBeatState
 			}
 		}
 
-		var modVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer + #if debug '-indev' #else '' #end} (P-slice ${pSliceVersion})', 12);
+		var modVer:FlxText = new FlxText(0, FlxG.height - (18 * 2), FlxG.width,
+			'vs Guy Plus ${GuyConsts.MOD_VERSION + #if debug '-indev' #else '' #end}', 12);
 		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		modVer.scrollFactor.set();
+		modVer.text += "\n"+GuyConsts.getEngineStringWithPSliceVer();
 		add(modVer);
 		//var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' ", 12);
 	

@@ -1,14 +1,30 @@
 package sinco.vsguy;
 
+import lime.app.Application;
+
 class Constants
 {
+	public static var PSYCH_VERSION:String = '1.0';
+	
+	public static var PSLICE_VERSION:String = '2.1';
+
+	public static var MOD_VERSION:String = '1.0';
+
+	public static function initModVer()
+		MOD_VERSION = Application.current.meta.get('version');
+
+	public static var FUNKIN_EMULATION_VERSION:String = '0.5.1';
+
     public static var WINDOW_TITLE_PREFIX:String = "FNF: vs Guy Plus";
 
-	public static var ENGINE:String = "Guy Engine";
-	public static var ENGINE_VERSION:String = "v2.0";
+	public static var ENGINE:String = "Paint Engine";
+	public static var ENGINE_VERSION:String = "2.0";
 
-    public static function getEngineString():String
-        return '$ENGINE $ENGINE_VERSION';
+	public static function getEngineString():String
+		return '$ENGINE $ENGINE_VERSION';
+
+	public static function getEngineStringWithPSliceVer():String
+		return '${getEngineString()} (PSlice $PSLICE_VERSION)';
     
     public static function getEngineText():FlxText
     {

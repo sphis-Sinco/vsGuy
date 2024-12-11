@@ -64,7 +64,7 @@ class Main extends Sprite
 		Sys.setCwd(StorageUtil.getStorageDirectory());
 		#end
 		backend.CrashHandler.init();
-		MainMenuState.modVerInit();
+		GuyConsts.initModVer();
 
 		#if windows
 		@:functionCode("

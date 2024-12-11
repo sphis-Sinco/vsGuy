@@ -6,6 +6,7 @@
         "naughtyness",
         "startDialogue",
         "Function_Stop",
-        "Function_Continue"
+        "Function_Continue",
+        "setPropertyLuaSprite"
     ]
 }

@@ -28,7 +28,7 @@ class OutdatedState extends MusicBeatState
 			+ homie
 			+ ", looks like you're running an   \n
 		outdated version of vs Guy plus! (v"
-			+ MainMenuState.modVer
+			+ GuyConsts.MOD_VERSION
 			+ "),\n
 		please update to v"
 			+ TitleState.updateVersion

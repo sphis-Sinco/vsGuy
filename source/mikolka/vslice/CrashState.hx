@@ -116,7 +116,7 @@ class CrashState extends FlxState
 
 	function printError(error:CrashData)
 	{
-		printToTrace('VS GUY + ${MainMenuState.modVer}  (${error.message})');
+		printToTrace('VS GUY + ${GuyConsts.MOD_VERSION}  (${error.message})');
 		textNextY += 35;
 		FlxTimer.wait(1 / 24, () ->
 		{

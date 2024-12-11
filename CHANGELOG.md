@@ -22,6 +22,11 @@
 - Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
 - InitState
 - Credit Text at beginning of gameplay which says who made the song and who charted it
+- 4 new Lua Variables
+  - `mod_version` - returns the current mod version
+  - `pslice_version` - returns the current P-Slice version
+  - `funkin_version` - returns the current emulated FNF version
+  - `psych_version` - returns the current psych version
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
@@ -32,6 +37,7 @@
 - Ability to have Songs with a Rating over 20
 - Donate Menu Item
 - Titlestate keybind for reseting your save
+- `version` Lua Variable
 ### Changed
 - AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
 - Width of Chart editor Main UI Box
