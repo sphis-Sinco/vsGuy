@@ -3521,7 +3521,7 @@ class PlayState extends MusicBeatState
 					numScore.setGraphicSize(Std.int(numScore.width * daPixelZoom));
 				else if (PlayState.curStage == 'guymc') {
 					numScore.setGraphicSize(Std.int(numScore.width * 1));
-					numScore.x = placement + (50 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
+					numScore.x = placement + (45 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
 				}
 				else
 					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
