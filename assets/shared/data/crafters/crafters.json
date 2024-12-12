@@ -643,6 +643,7 @@
 	],
 	"player2": "guy-mc",
 	"offset": 0,
+	"gameOverChar": "bf-mc-dead",
 	"song": "crafters",
 	"needsVoices": true,
 	"stage": "guymc",

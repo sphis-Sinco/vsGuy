@@ -1,7 +1,7 @@
 {
   "directory": "weekMC",
   "defaultZoom": 1.5,
-  "stageUI": "",
+  "stageUI": "funky",
 
   "boyfriend": [725, 0],
   "girlfriend": [0, 0],

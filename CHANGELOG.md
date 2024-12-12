@@ -4,6 +4,8 @@
 - NOW RUNNING ON PAINT ENGINE 2.0 (just a heavily modified PSlice-Engine lol)
 - WEEK 3: PURPLE GUY
   - 1 New song: Galaxy
+- NEW SECRET SONG:
+  - Crafters
 - XP SYSTEM
   - XP popup to results
 - SHOP MENU

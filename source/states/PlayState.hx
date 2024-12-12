@@ -363,6 +363,9 @@ class PlayState extends MusicBeatState
 
 		curStage = SONG.stage;
 
+		if (SONG.gameOverChar == 'bf-mc-dead')
+			Paths.image('characters/mcBF-DEAD');
+
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		defaultCamZoom = stageData.defaultZoom;
 		defaultStageZoom = defaultCamZoom;
@@ -3285,7 +3288,7 @@ class PlayState extends MusicBeatState
 
 	private function cachePopUpScore()
 	{
-		/*var uiPrefix:String = '';
+		var uiPrefix:String = '';
 			var uiPostfix:String = '';
 			if (stageUI != "normal")
 			{
@@ -3299,7 +3302,7 @@ class PlayState extends MusicBeatState
 					Paths.image(uiPrefix + rating.image + uiPostfix);
 				for (i in 0...10)
 					Paths.image(uiPrefix + 'num' + i + uiPostfix);
-		}*/
+			}
 	}
 
 	private function popUpScore(note:Note = null):Void

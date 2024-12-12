@@ -376,7 +376,7 @@ class Note extends FlxSprite
 		var lastScaleY:Float = scale.y;
 		var skinPostfix:String = getNoteSkinPostfix();
 		var customSkin:String = skin + skinPostfix;
-		var path:String = PlayState.isPixelStage ? 'pixelUI/' : '';
+		var path:String = PlayState.isPixelStage ? 'pixelUI/' : (PlayState.stageUI != null ? '${PlayState.stageUI}/' : '');
 		if(customSkin == _lastValidChecked || Paths.fileExists('images/' + path + customSkin + '.png', IMAGE))
 		{
 			skin = customSkin;
@@ -384,12 +384,16 @@ class Note extends FlxSprite
 		}
 		else skinPostfix = '';
 
-		if(PlayState.isPixelStage) {
-			if(isSustainNote) {
+		if (PlayState.isPixelStage)
+		{
+			if (isSustainNote)
+			{
 				var graphic = Paths.image('pixelUI/' + skinPixel + 'ENDS' + skinPostfix);
 				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 2));
 				originalHeight = graphic.height / 2;
-			} else {
+			}
+			else
+			{
 				var graphic = Paths.image('pixelUI/' + skinPixel + skinPostfix);
 				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 5));
 			}
@@ -397,15 +401,43 @@ class Note extends FlxSprite
 			loadPixelNoteAnims();
 			antialiasing = false;
 
-			if(isSustainNote) {
+			if (isSustainNote)
+			{
 				offsetX += _lastNoteOffX;
 				_lastNoteOffX = (width - 7) * (PlayState.daPixelZoom / 2);
 				offsetX -= _lastNoteOffX;
 			}
-		} else {
+		}
+		else if (PlayState.curStage == 'guymc')
+		{
+			trace('WHY');
+			if (isSustainNote)
+			{
+				var graphic = Paths.image('funkyUI/' + skinPixel + 'ENDS' + skinPostfix);
+				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 2));
+				originalHeight = graphic.height / 2;
+			}
+			else
+			{
+				var graphic = Paths.image('funkyUI/' + skinPixel + skinPostfix);
+				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 5));
+			}
+			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+			loadPixelNoteAnims();
+			antialiasing = false;
+
+			if (isSustainNote)
+			{
+				offsetX += _lastNoteOffX;
+				_lastNoteOffX = (width - 7) * (PlayState.daPixelZoom / 2);
+				offsetX -= _lastNoteOffX;
+			}
+		}
+		else
+		{
 			frames = Paths.getSparrowAtlas(skin);
 			loadNoteAnims();
-			if(!isSustainNote)
+			if (!isSustainNote)
 			{
 				centerOffsets();
 				centerOrigin();
