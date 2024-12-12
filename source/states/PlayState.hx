@@ -587,8 +587,10 @@ class PlayState extends MusicBeatState
 		popup.cameras = [camHUD];
 		popup.visible = popupShape.visible;
 
-		add(popupShape);
-		add(popup);
+		if (curStage != 'guymc') {
+			add(popupShape);
+			add(popup);
+		}
 
 		add(comboGroup);
 		add(uiGroup);
@@ -601,6 +603,8 @@ class PlayState extends MusicBeatState
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
 		timeTxt.borderSize = 2;
+		if (curStage == 'guymc')
+			timeTxt.font = Paths.font("mc.ttf");
 		timeTxt.visible = updateTime = showTime;
 		if (ClientPrefs.data.downScroll)
 			timeTxt.y = FlxG.height - 44;
@@ -685,7 +689,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
 		updateScore(false);
-		if (curStage != 'guymc')
+		if (curStage == 'guymc')
 			scoreTxt.font = Paths.font("mc.ttf");
 		uiGroup.add(scoreTxt);
 
@@ -694,6 +698,8 @@ class PlayState extends MusicBeatState
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
 		botplayTxt.visible = cpuControlled;
+		if (curStage == 'guymc')
+			botplayTxt.font = Paths.font("mc.ttf");
 		uiGroup.add(botplayTxt);
 		if (ClientPrefs.data.downScroll)
 			botplayTxt.y = healthBar.y + 70;
@@ -803,6 +809,11 @@ class PlayState extends MusicBeatState
 
 		engineWatermark.visible = true;
 		engineWatermark.cameras = [camHUD];
+		if (curStage == 'guymc')
+		{
+			engineWatermark.font = Paths.font("mc.ttf");
+			engineWatermark.x = FlxG.width - engineWatermark.width / 1;
+		}
 
 		songStartDim = new FlxSprite().makeGraphic(1280,720, FlxColor.BLACK);
 		songStartDim = new FlxSprite(0, 0).makeGraphic(1280, 720, FlxColor.BLACK);
@@ -823,6 +834,8 @@ class PlayState extends MusicBeatState
 		songStartText.screenCenter();
 		songStartText.y += 210;
 		songStartText.cameras = [camHUD];
+		if (curStage == 'guymc')
+			songStartText.font = Paths.font("mc.ttf");
 		add(songStartText);
 
 		songStartTextStartTween();

@@ -414,7 +414,7 @@ class Note extends FlxSprite
 				offsetX -= _lastNoteOffX;
 
 				if (pixelFolder == 'funkyUI/')
-					offsetX += 16;
+					offsetX += 24 + 4;
 			}
 		}
 		else
