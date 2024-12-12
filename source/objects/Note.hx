@@ -222,6 +222,7 @@ class Note extends FlxSprite
 				case 'GF Sing':
 					gfNote = true;
 				case 'Arrow Dodge':
+					// we
 
 			}
 			if (value != null && value.length > 1) NoteTypesConfig.applyNoteTypeData(this, value);
