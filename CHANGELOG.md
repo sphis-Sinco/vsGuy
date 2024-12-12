@@ -15,7 +15,7 @@
 - NEW TITLE SCREEN
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
 - Engine Watermark to Gameplay (top right)
-- Minecraft Font (unused)
+- Minecraft Font
 - Comic Sans Font
 - New Optional Metadata Arguments for songs
   - `artist` (String (default: 'Unknown')) - tells the artist of the song

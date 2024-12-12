@@ -384,17 +384,23 @@ class Note extends FlxSprite
 		}
 		else skinPostfix = '';
 
-		if (PlayState.isPixelStage)
+		var pixelNotes:Bool = (PlayState.isPixelStage || PlayState.curStage == 'guymc');
+		var pixelFolder:String = 'pixelUI/';
+
+		if (PlayState.curStage == 'guymc')
+			pixelFolder = 'funkyUI/';
+
+		if (pixelNotes)
 		{
 			if (isSustainNote)
 			{
-				var graphic = Paths.image('pixelUI/' + skinPixel + 'ENDS' + skinPostfix);
+				var graphic = Paths.image('$pixelFolder' + skinPixel + 'ENDS' + skinPostfix);
 				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 2));
 				originalHeight = graphic.height / 2;
 			}
 			else
 			{
-				var graphic = Paths.image('pixelUI/' + skinPixel + skinPostfix);
+				var graphic = Paths.image('$pixelFolder' + skinPixel + skinPostfix);
 				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 5));
 			}
 			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
@@ -406,31 +412,9 @@ class Note extends FlxSprite
 				offsetX += _lastNoteOffX;
 				_lastNoteOffX = (width - 7) * (PlayState.daPixelZoom / 2);
 				offsetX -= _lastNoteOffX;
-			}
-		}
-		else if (PlayState.curStage == 'guymc')
-		{
-			trace('WHY');
-			if (isSustainNote)
-			{
-				var graphic = Paths.image('funkyUI/' + skinPixel + 'ENDS' + skinPostfix);
-				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 2));
-				originalHeight = graphic.height / 2;
-			}
-			else
-			{
-				var graphic = Paths.image('funkyUI/' + skinPixel + skinPostfix);
-				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 5));
-			}
-			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
-			loadPixelNoteAnims();
-			antialiasing = false;
 
-			if (isSustainNote)
-			{
-				offsetX += _lastNoteOffX;
-				_lastNoteOffX = (width - 7) * (PlayState.daPixelZoom / 2);
-				offsetX -= _lastNoteOffX;
+				if (pixelFolder == 'funkyUI/')
+					offsetX += 16;
 			}
 		}
 		else
