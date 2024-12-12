@@ -1,5 +1,6 @@
 package states;
 
+import backend.Song;
 import objects.Character;
 import states.editors.ChartingState;
 import sinco.vsguy.states.shop.ShopState;
@@ -411,7 +412,65 @@ class TitleState extends MusicBeatState
 				swagShader.hue += elapsed * 0.1;
 		}
 
+		if (!pressedEnter && skippedIntro && initialized)
+		{
+			if (FlxG.keys.justReleased.E)
+			{
+				playSong('crafters');
+
+				#if ACHIEVEMENTS_ALLOWED
+				Achievements.unlock('taking-inventory');
+				#if MODS_ALLOWED
+				Achievements.reloadList();
+				#end
+				#end
+			}
+		}
+
 		super.update(elapsed);
+	}
+
+	function playSong(song:String)
+	{
+		persistentUpdate = false;
+		var songLowercase:String = Paths.formatToSongPath(song);
+		var poop:String = Highscore.formatSong(songLowercase, 1);
+
+		try
+		{
+			Song.loadFromJson(poop, songLowercase);
+			PlayState.isStoryMode = false;
+			PlayState.storyDifficulty = 1;
+
+			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
+		}
+		catch (e:haxe.Exception)
+		{
+			var errorStr:String = e.message;
+			if (errorStr.contains('There is no TEXT asset with an ID of'))
+				errorStr = 'Missing file: ' + errorStr.substring(errorStr.indexOf(songLowercase), errorStr.length - 1); // Missing chart
+			else
+				errorStr += '\n\n' + e.stack;
+
+			/*missingText.text = 'ERROR WHILE LOADING CHART:\n$errorStr';
+			missingText.screenCenter(Y);
+			missingText.visible = true;
+			missingTextBG.visible = true; */
+			FlxG.sound.play(Paths.sound('cancelMenu'));
+			trace('ERROR! ${errorStr}');
+
+			return;
+		}
+
+		LoadingState.prepareToSong();
+		LoadingState.loadAndSwitchState(new PlayState());
+		#if !SHOW_LOADING_SCREEN FlxG.sound.music.stop(); #end
+		// stopMusicPlay = true;
+
+		// destroyFreeplayVocals();
+		#if (MODS_ALLOWED && DISCORD_ALLOWED)
+		DiscordClient.loadModRPC();
+		#end
 	}
 
 	function createCoolText(textArray:Array<String>, ?offset:Float = 0)

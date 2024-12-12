@@ -603,11 +603,20 @@ class PlayState extends MusicBeatState
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
 		timeTxt.borderSize = 2;
-		if (curStage == 'guymc')
+		if (curStage == 'guymc') {
 			timeTxt.font = Paths.font("mc.ttf");
+			timeTxt.y += 16;
+		}
 		timeTxt.visible = updateTime = showTime;
 		if (ClientPrefs.data.downScroll)
+		{
 			timeTxt.y = FlxG.height - 44;
+
+			if (curStage == 'guymc')
+			{
+				timeTxt.y -= 16;
+			}
+		}
 		if (ClientPrefs.data.timeBarType == 'Song Name')
 			timeTxt.text = SONG.song;
 
@@ -3392,6 +3401,161 @@ class PlayState extends MusicBeatState
 		}
 	}
 
+	private function popUpScoreVanilla(note:Note = null):Void
+	{
+		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.data.ratingOffset);
+		vocals.volume = 1;
+
+		if (!ClientPrefs.data.comboStacking && comboGroup.members.length > 0)
+		{
+			for (spr in comboGroup)
+			{
+				if (spr == null)
+					continue;
+
+				comboGroup.remove(spr);
+				spr.destroy();
+			}
+		}
+
+		var placement:Float = FlxG.width * 0.35;
+		var rating:FlxSprite = new FlxSprite();
+		var score:Int = 350;
+
+		// tryna do MS based judgment due to popular demand
+		var daRating:Rating = Conductor.judgeNote(ratingsData, noteDiff / playbackRate);
+
+		totalNotesHit += daRating.ratingMod;
+		note.ratingMod = daRating.ratingMod;
+		if (!note.ratingDisabled)
+			daRating.hits++;
+		note.rating = daRating.name;
+		score = daRating.score;
+
+		if (daRating.noteSplash && !note.noteSplashData.disabled)
+			spawnNoteSplashOnNote(note);
+
+		if (!practiceMode && !cpuControlled)
+		{
+			songScore += score;
+			if (!note.ratingDisabled)
+			{
+				songHits++;
+				totalPlayed++;
+				RecalculateRating(false);
+			}
+		}
+
+		var uiPrefix:String = "";
+		var uiPostfix:String = '';
+		var antialias:Bool = ClientPrefs.data.antialiasing;
+
+		if (stageUI != "normal")
+		{
+			uiPrefix = '${stageUI}UI/';
+			if (PlayState.isPixelStage)
+				uiPostfix = '-pixel';
+			antialias = !isPixelStage;
+		}
+
+		if (ClientPrefs.data.popUpRating)
+		{
+			rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiPostfix));
+			rating.screenCenter();
+			rating.x = placement - 40;
+			rating.y -= 60;
+			rating.acceleration.y = 550 * playbackRate * playbackRate;
+			rating.velocity.y -= FlxG.random.int(140, 175) * playbackRate;
+			rating.velocity.x -= FlxG.random.int(0, 10) * playbackRate;
+			rating.visible = (!ClientPrefs.data.hideHud && showRating);
+			rating.x += ClientPrefs.data.comboOffset[0];
+			rating.y -= ClientPrefs.data.comboOffset[1];
+			rating.antialiasing = antialias;
+
+			var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(uiPrefix + 'combo' + uiPostfix));
+			comboSpr.screenCenter();
+			comboSpr.x = placement;
+			comboSpr.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
+			comboSpr.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
+			comboSpr.visible = (!ClientPrefs.data.hideHud && showCombo);
+			comboSpr.x += ClientPrefs.data.comboOffset[0];
+			comboSpr.y -= ClientPrefs.data.comboOffset[1];
+			comboSpr.antialiasing = antialias;
+			comboSpr.y += 60;
+			comboSpr.velocity.x += FlxG.random.int(1, 10) * playbackRate;
+			comboGroup.add(rating);
+
+			if (!PlayState.isPixelStage)
+			{
+				rating.setGraphicSize(Std.int(rating.width * 0.7));
+				comboSpr.setGraphicSize(Std.int(comboSpr.width * 0.7));
+			}
+			else
+			{
+				rating.setGraphicSize(Std.int(rating.width * daPixelZoom * 0.85));
+				comboSpr.setGraphicSize(Std.int(comboSpr.width * daPixelZoom * 0.85));
+			}
+
+			comboSpr.updateHitbox();
+			rating.updateHitbox();
+
+			var daLoop:Int = 0;
+			var xThing:Float = 0;
+			if (showCombo)
+				comboGroup.add(comboSpr);
+
+			var separatedScore:String = Std.string(combo);
+			for (i in 0...separatedScore.length)
+			{
+				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(uiPrefix + 'num' + Std.parseInt(separatedScore.charAt(i)) + uiPostfix));
+				numScore.screenCenter();
+				numScore.x = placement + (43 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
+				numScore.y += 80 - ClientPrefs.data.comboOffset[3];
+
+				if (PlayState.isPixelStage || PlayState.curStage == 'guymc')
+					numScore.setGraphicSize(Std.int(numScore.width * daPixelZoom));
+				else
+					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
+				numScore.updateHitbox();
+
+				numScore.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
+				numScore.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
+				numScore.velocity.x = FlxG.random.float(-5, 5) * playbackRate;
+				numScore.visible = !ClientPrefs.data.hideHud;
+				numScore.antialiasing = antialias;
+
+				// if (combo >= 10 || combo == 0)
+				if (showComboNum)
+					comboGroup.add(numScore);
+
+				FlxTween.tween(numScore, {alpha: 0}, 0.2 / playbackRate, {
+					onComplete: function(tween:FlxTween)
+					{
+						numScore.destroy();
+					},
+					startDelay: Conductor.crochet * 0.002 / playbackRate
+				});
+
+				daLoop++;
+				if (numScore.x > xThing)
+					xThing = numScore.x;
+			}
+			comboSpr.x = xThing + 50;
+			FlxTween.tween(rating, {alpha: 0}, 0.2 / playbackRate, {
+				startDelay: Conductor.crochet * 0.001 / playbackRate
+			});
+
+			FlxTween.tween(comboSpr, {alpha: 0}, 0.2 / playbackRate, {
+				onComplete: function(tween:FlxTween)
+				{
+					comboSpr.destroy();
+					rating.destroy();
+				},
+				startDelay: Conductor.crochet * 0.002 / playbackRate
+			});
+		}
+	}
+
 	public var strumsBlocked:Array<Bool> = [];
 
 	private function onKeyPress(event:KeyboardEvent):Void
@@ -3888,7 +4052,10 @@ class PlayState extends MusicBeatState
 				maxCombo = FlxMath.maxInt(maxCombo, combo);
 				if (combo > 9999)
 					combo = 9999;
-				popUpScore(note);
+				if (curStage == 'guymc')
+					popUpScoreVanilla(note);
+				else
+					popUpScore(note);
 			}
 			var gainHealth:Bool = true; // prevent health gain, *if* sustains are treated as a singular note
 			if (guitarHeroSustains && note.isSustainNote)
@@ -4450,6 +4617,9 @@ class PlayState extends MusicBeatState
 
 					case 'debugger':
 						unlock = (songName == 'test' && !usedPractice);
+
+					case 'pvp':
+						unlock = (songName == 'crafters' && !usedPractice);
 				}
 			}
 			else // any FC achievements, name should be "weekFileName-nomiss", e.g: "week3-nomiss";

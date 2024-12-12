@@ -1,11 +1,11 @@
 # vs Guy plus
 ## 2.0 [Holiday Pack] - December 15th 2024
 ### Added
-- NOW RUNNING ON PAINT ENGINE 2.0 (just a heavily modified PSlice-Engine lol)
+- NOW RUNNING ON PAINT ENGINE 2.0 (just a heavily modified PSlice-Engine/Same shit lol)
 - WEEK 3: PURPLE GUY
   - 1 New song: Galaxy
 - NEW SECRET SONG:
-  - Crafters
+  - Crafters - press E on the title screen
 - XP SYSTEM
   - XP popup to results
 - SHOP MENU
@@ -30,6 +30,7 @@
   - `pslice_version` - returns the current P-Slice version
   - `funkin_version` - returns the current emulated FNF version
   - `psych_version` - returns the current psych version
+- Vanilla Popup scores (only fo crafters right now)
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
