@@ -36,7 +36,7 @@
     },
     {
       "header": {
-        "text": "Places/Projects where Code was yoinked",
+        "text": "Mod Credits",
         "users": [
           {
             "person": "FNF VSlice",
@@ -53,6 +53,10 @@
           {
             "person": "FNF vs Impostor v4",
             "role": "Bean Popup code I used for the XP Popup"
+          },
+          {
+            "person": "FNF Mob Mod",
+            "role": "Idea for the crafters song"
           }
         ]
       }

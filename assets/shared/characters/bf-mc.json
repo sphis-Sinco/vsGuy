@@ -1,12 +1,60 @@
 {
 	"animations": [
 		{
+			"loop": false,
+			"offsets": [0, 0],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idle",
+			"indices": []
+		},
+		{
 			"offsets": [0, 0],
 			"indices": [],
 			"fps": 24,
-			"anim": "idle",
+			"anim": "singLEFTmiss",
 			"loop": false,
-			"name": "idle"
+			"name": "leftMiss"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"loop": false,
+			"name": "downMiss"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUPmiss",
+			"loop": false,
+			"name": "upMiss"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"loop": false,
+			"name": "rightMiss"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "arrowDodge",
+			"loop": false,
+			"name": "arrowDodge0"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "arrowDodgeMiss",
+			"loop": false,
+			"name": "arrowDodgeMiss"
 		},
 		{
 			"offsets": [0, 0],
@@ -14,7 +62,7 @@
 			"fps": 24,
 			"anim": "singLEFT",
 			"loop": false,
-			"name": "left"
+			"name": "left0"
 		},
 		{
 			"offsets": [0, 0],
@@ -22,7 +70,7 @@
 			"fps": 24,
 			"anim": "singDOWN",
 			"loop": false,
-			"name": "down"
+			"name": "down0"
 		},
 		{
 			"offsets": [0, 0],
@@ -30,7 +78,7 @@
 			"fps": 24,
 			"anim": "singUP",
 			"loop": false,
-			"name": "up"
+			"name": "up0"
 		},
 		{
 			"offsets": [0, 0],
@@ -38,7 +86,7 @@
 			"fps": 24,
 			"anim": "singRIGHT",
 			"loop": false,
-			"name": "right"
+			"name": "right0"
 		}
 	],
 	"vocals_file": "",

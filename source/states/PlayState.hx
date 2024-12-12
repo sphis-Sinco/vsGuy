@@ -3812,6 +3812,12 @@ class PlayState extends MusicBeatState
 				if (char != null)
 				{
 					var canPlay:Bool = true;
+
+					if (note.noteType == 'Arrow Dodge')
+					{
+						animToPlay = 'arrowDodge';
+					}
+
 					if (note.isSustainNote)
 					{
 						var holdAnim:String = animToPlay + '-hold';
