@@ -168,6 +168,7 @@ class PlayState extends MusicBeatState
 
 	public var gfSpeed:Int = 1;
 	public var health(default, set):Float = 1;
+	public var hearts:Float = 10.0;
 
 	private var healthLerp:Float = 1;
 
@@ -605,7 +606,7 @@ class PlayState extends MusicBeatState
 		timeTxt.borderSize = 2;
 		if (curStage == 'guymc') {
 			timeTxt.font = Paths.font("mc.ttf");
-			timeTxt.y += 16;
+			timeTxt.y += 24;
 		}
 		timeTxt.visible = updateTime = showTime;
 		if (ClientPrefs.data.downScroll)
@@ -614,7 +615,7 @@ class PlayState extends MusicBeatState
 
 			if (curStage == 'guymc')
 			{
-				timeTxt.y -= 16;
+				timeTxt.y -= 24;
 			}
 		}
 		if (ClientPrefs.data.timeBarType == 'Song Name')
@@ -664,8 +665,12 @@ class PlayState extends MusicBeatState
 			if (ClientPrefs.data.vsliceSmoothBar)
 			{
 				healthLerp = FlxMath.lerp(healthLerp, health, 0.15);
+				hearts = 10.0 * FlxMath.roundDecimal(healthLerp, 1);
 				return healthLerp;
 			}
+
+			hearts = 10.0 * FlxMath.roundDecimal(health, 1);
+
 			return health;
 		}, 0, 2);
 		healthBar.screenCenter(X);
@@ -3512,8 +3517,12 @@ class PlayState extends MusicBeatState
 				numScore.x = placement + (43 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
 				numScore.y += 80 - ClientPrefs.data.comboOffset[3];
 
-				if (PlayState.isPixelStage || PlayState.curStage == 'guymc')
+				if (PlayState.isPixelStage)
 					numScore.setGraphicSize(Std.int(numScore.width * daPixelZoom));
+				else if (PlayState.curStage == 'guymc') {
+					numScore.setGraphicSize(Std.int(numScore.width * 1));
+					numScore.x = placement + (50 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
+				}
 				else
 					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
 				numScore.updateHitbox();
@@ -3522,7 +3531,7 @@ class PlayState extends MusicBeatState
 				numScore.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
 				numScore.velocity.x = FlxG.random.float(-5, 5) * playbackRate;
 				numScore.visible = !ClientPrefs.data.hideHud;
-				numScore.antialiasing = antialias;
+				numScore.antialiasing = antialias || PlayState.curStage == 'guymc';
 
 				// if (combo >= 10 || combo == 0)
 				if (showComboNum)
