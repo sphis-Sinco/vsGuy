@@ -333,11 +333,14 @@ class ClientPrefs
 		for (week in WeekData.weeksList)
 		{
 			trace(week);
-			try{
+			try
+			{
 				Highscore.resetWeek(week, 0);
 				Highscore.resetWeek(week, 1);
 				Highscore.resetWeek(week, 2);
-			}catch(e){
+			}
+			catch (e)
+			{
 				trace('$week save couldnt be reset');
 			}
 		}

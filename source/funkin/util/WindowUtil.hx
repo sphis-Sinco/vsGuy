@@ -83,49 +83,48 @@ class WindowUtil
 	 * For example, we can run a callback when the window is closed.
 	 */
 	/*
-	public static function initWindowEvents():Void
-	{
-		// onUpdate is called every frame just before rendering.
-
-		// onExit is called when the game window is closed.
-		openfl.Lib.current.stage.application.onExit.add(function(exitCode:Int)
+		public static function initWindowEvents():Void
 		{
-			windowExit.dispatch(exitCode);
-		});
+			// onUpdate is called every frame just before rendering.
 
-		#if FEATURE_DEBUG_TRACY
-		// Apply a marker to indicate frame end for the Tracy profiler.
-		// Do this only if Tracy is configured to prevent lag.
-		openfl.Lib.current.stage.addEventListener(openfl.events.Event.EXIT_FRAME, (e:openfl.events.Event) ->
-		{
-			cpp.vm.tracy.TracyProfiler.frameMark();
-		});
-		#end
-
-		openfl.Lib.current.stage.addEventListener(openfl.events.KeyboardEvent.KEY_DOWN, (e:openfl.events.KeyboardEvent) ->
-		{
-			for (key in PlayerSettings.player1.controls.getKeysForAction(WINDOW_FULLSCREEN))
+			// onExit is called when the game window is closed.
+			openfl.Lib.current.stage.application.onExit.add(function(exitCode:Int)
 			{
-				// FlxG.stage.focus is set to null by the debug console stuff,
-				// so when that's in focus, we don't want to toggle fullscreen using F
-				// (annoying when tying "FlxG" in console... lol)
-				#if FLX_DEBUG
-				@:privateAccess
-				if (FlxG.game.debugger.visible)
-				{
-					return;
-				}
-				#end
+				windowExit.dispatch(exitCode);
+			});
 
-				if (e.keyCode == key)
-				{
-					openfl.Lib.application.window.fullscreen = !openfl.Lib.application.window.fullscreen;
-				}
-			}
-		});
-	}
-	*/
+			#if FEATURE_DEBUG_TRACY
+			// Apply a marker to indicate frame end for the Tracy profiler.
+			// Do this only if Tracy is configured to prevent lag.
+			openfl.Lib.current.stage.addEventListener(openfl.events.Event.EXIT_FRAME, (e:openfl.events.Event) ->
+			{
+				cpp.vm.tracy.TracyProfiler.frameMark();
+			});
+			#end
 
+			openfl.Lib.current.stage.addEventListener(openfl.events.KeyboardEvent.KEY_DOWN, (e:openfl.events.KeyboardEvent) ->
+			{
+				for (key in PlayerSettings.player1.controls.getKeysForAction(WINDOW_FULLSCREEN))
+				{
+					// FlxG.stage.focus is set to null by the debug console stuff,
+					// so when that's in focus, we don't want to toggle fullscreen using F
+					// (annoying when tying "FlxG" in console... lol)
+					#if FLX_DEBUG
+					@:privateAccess
+					if (FlxG.game.debugger.visible)
+					{
+						return;
+					}
+					#end
+
+					if (e.keyCode == key)
+					{
+						openfl.Lib.application.window.fullscreen = !openfl.Lib.application.window.fullscreen;
+					}
+				}
+			});
+		}
+	 */
 	/**
 	 * Turns off that annoying "Report to Microsoft" dialog that pops up when the game crashes.
 	 */

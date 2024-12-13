@@ -1,55 +1,67 @@
 package mikolka.funkin.custom;
 
 import haxe.Json;
+
 using mikolka.funkin.custom.FunkinTools;
 
-class FreeplayMetaJSON {
-    public function new() {}
+class FreeplayMetaJSON
+{
+	public function new()
+	{
+	}
 
-    // freeplay stuff
-    public var songRating:Int = 0;
+	// freeplay stuff
+	public var songRating:Int = 0;
 
-    public var freeplayPrevStart:Float = 0; // those are in seconds btw
-    public var freeplayPrevEnd:Float = 0.2;// and this too
-    public var freeplaySongLength:Float = 1;// and this too
-    public var freeplayCharacter:String = "";
-    public var albumId:String = "";
+	public var freeplayPrevStart:Float = 0; // those are in seconds btw
+	public var freeplayPrevEnd:Float = 0.2; // and this too
+	public var freeplaySongLength:Float = 1; // and this too
+	public var freeplayCharacter:String = "";
+	public var albumId:String = "";
 
-    // gameplay stuff
-    public var dialogue:Bool = false;
-    public var censoredDialogue:Bool = false; // naughtyness check
-    public var freeplayDialogue:Bool = false;
-    public var endDialogue:Bool = false;
-    public var dialogueFile:String = 'dialogue';
-    public var dialogueMusic:String = 'breakfast';
+	// gameplay stuff
+	public var dialogue:Bool = false;
+	public var censoredDialogue:Bool = false; // naughtyness check
+	public var freeplayDialogue:Bool = false;
+	public var endDialogue:Bool = false;
+	public var dialogueFile:String = 'dialogue';
+	public var dialogueMusic:String = 'breakfast';
 
-    // pausemenu stuff
+	// pausemenu stuff
 	public var artist:String = 'Unknown';
 	public var charter:String = 'Unknown';
 }
 
-class FreeplayMeta {
-    public static function getMeta(songId:String):FreeplayMetaJSON {
-        var meta_file = Paths.getTextFromFile('data/${Paths.formatToSongPath(songId)}/metadata.json');
-        if(meta_file != null){
-            return getMetaFile(meta_file);
-        }
-        else {
-            return new FreeplayMetaJSON();
-        }
-    }
-    private static function getMetaFile(rawJson:String):FreeplayMetaJSON {
+class FreeplayMeta
+{
+	public static function getMeta(songId:String):FreeplayMetaJSON
+	{
+		var meta_file = Paths.getTextFromFile('data/${Paths.formatToSongPath(songId)}/metadata.json');
+		if (meta_file != null)
+		{
+			return getMetaFile(meta_file);
+		}
+		else
+		{
+			return new FreeplayMetaJSON();
+		}
+	}
 
-        try {
-            if(rawJson != null && rawJson.length > 0) {
-                return new FreeplayMetaJSON().mergeWithJson(Json.parse(rawJson));
-            }
-        }
-        catch(x){
-            trace("Malfolded json? tf did you do to it?");
-            trace(x.message);
-        }
-		
+	private static function getMetaFile(rawJson:String):FreeplayMetaJSON
+	{
+		try
+		{
+			if (rawJson != null && rawJson.length > 0)
+			{
+				return new FreeplayMetaJSON().mergeWithJson(Json.parse(rawJson));
+			}
+		}
+		catch (x)
+		{
+			trace("Malfolded json? tf did you do to it?");
+			trace(x.message);
+		}
+
 		return null;
 	}
 }

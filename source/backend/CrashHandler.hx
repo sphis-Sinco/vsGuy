@@ -29,7 +29,7 @@ class CrashHandler
 
 	private static function onUncaughtError(e:UncaughtErrorEvent):Void
 	{
-		var crashState = new CrashState(e.error,CallStack.exceptionStack(true));
+		var crashState = new CrashState(e.error, CallStack.exceptionStack(true));
 		e.preventDefault();
 		FlxG.switchState(crashState);
 	}
@@ -62,9 +62,7 @@ class CrashHandler
 			if (!FileSystem.exists('logs'))
 				FileSystem.createDirectory('logs');
 
-			File.saveContent('logs/'
-				+ Date.now().toString().replace(' ', '-').replace(':', "'")
-				+ '.txt', message);
+			File.saveContent('logs/' + Date.now().toString().replace(' ', '-').replace(':', "'") + '.txt', message);
 		}
 		catch (e:haxe.Exception)
 			trace('Couldn\'t save error message. (${e.message})');

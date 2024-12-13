@@ -21,379 +21,394 @@ import flxanimate.animate.FlxKeyFrame;
  */
 class FlxAtlasSprite extends PsychFlxAnimate
 {
-  static final SETTINGS:Settings =
-    {
-      // ?ButtonSettings:Map<String, flxanimate.animate.FlxAnim.ButtonSettings>,
-      FrameRate: 24.0,
-      Reversed: false,
-      // ?OnComplete:Void -> Void,
-      ShowPivot: false,
-      Antialiasing: true,
-      ScrollFactor: null,
-      // Offset: new FlxPoint(0, 0), // This is just FlxSprite.offset
-    };
+	static final SETTINGS:Settings = {
+		// ?ButtonSettings:Map<String, flxanimate.animate.FlxAnim.ButtonSettings>,
+		FrameRate: 24.0,
+		Reversed: false,
+		// ?OnComplete:Void -> Void,
+		ShowPivot: false,
+		Antialiasing: true,
+		ScrollFactor: null,
+		// Offset: new FlxPoint(0, 0), // This is just FlxSprite.offset
+	};
 
-  /**
-   * Signal dispatched when an animation advances to the next frame.
-   */
-  public var onAnimationFrame:FlxTypedSignal<String->Int->Void> = new FlxTypedSignal();
+	/**
+	 * Signal dispatched when an animation advances to the next frame.
+	 */
+	public var onAnimationFrame:FlxTypedSignal<String->Int->Void> = new FlxTypedSignal();
 
-  /**
-   * Signal dispatched when a non-looping animation finishes playing.
-   */
-  public var onAnimationComplete:FlxTypedSignal<String->Void> = new FlxTypedSignal();
+	/**
+	 * Signal dispatched when a non-looping animation finishes playing.
+	 */
+	public var onAnimationComplete:FlxTypedSignal<String->Void> = new FlxTypedSignal();
 
-  var currentAnimation:String;
+	var currentAnimation:String;
 
-  var canPlayOtherAnims:Bool = true;
+	var canPlayOtherAnims:Bool = true;
 
-  public function new(x:Float, y:Float, ?path:String, ?settings:Settings)
-  {
-    if (settings == null) settings = SETTINGS;
-    SETTINGS.Antialiasing = VsliceOptions.ANTIALIASING; //? bit dirty, but should work
-    if (path == null)
-    {
-      throw 'Null path specified for FlxAtlasSprite!';
-    }
+	public function new(x:Float, y:Float, ?path:String, ?settings:Settings)
+	{
+		if (settings == null)
+			settings = SETTINGS;
+		SETTINGS.Antialiasing = VsliceOptions.ANTIALIASING; // ? bit dirty, but should work
+		if (path == null)
+		{
+			throw 'Null path specified for FlxAtlasSprite!';
+		}
 
+		super(x, y, path, settings);
 
-    super(x, y, path, settings);
+		if (this.anim.stageInstance == null)
+		{
+			throw 'FlxAtlasSprite not initialized properly. Are you sure the path (${path}) exists?';
+		}
 
-    if (this.anim.stageInstance == null)
-    {
-      throw 'FlxAtlasSprite not initialized properly. Are you sure the path (${path}) exists?';
-    }
+		onAnimationComplete.add(cleanupAnimation);
 
-    onAnimationComplete.add(cleanupAnimation);
+		// This defaults the sprite to play the first animation in the atlas,
+		// then pauses it. This ensures symbols are intialized properly.
+		this.anim.play('');
+		this.anim.pause();
 
-    // This defaults the sprite to play the first animation in the atlas,
-    // then pauses it. This ensures symbols are intialized properly.
-    this.anim.play('');
-    this.anim.pause();
+		this.anim.onComplete.add(_onAnimationComplete);
+		this.anim.onFrame.add(_onAnimationFrame);
+	}
 
-    this.anim.onComplete.add(_onAnimationComplete);
-    this.anim.onFrame.add(_onAnimationFrame);
-  }
-  //? P-Slice fix for mods
-  override function loadAtlas(path:String) {
-    if(Assets.exists('$path/Animation.json')) {
-      super.loadAtlas(path);
-      return;
-    }
-    try{
-      trace(path);
-      super.loadAtlasEx(ModsHelper.loadabsoluteGraphic('$path/spritemap1.png'),
-      File.getContent('$path/spritemap1.json'),
-        File.getContent('$path/Animation.json')
-        );
-    }
-    catch(x){
-      FlxG.log.error('Failed to load "$path" via EXtended loader: $x');
-      trace('Failed to load "$path" via EXtended loader: $x');
-    }
-    
-    
-  }
-  /**
-   * @return A list of all the animations this sprite has available.
-   */
-  public function listAnimations():Array<String>
-  {
-    var mainSymbol = this.anim.symbolDictionary[this.anim.stageInstance.symbol.name];
-    if (mainSymbol == null)
-    {
-      FlxG.log.error('FlxAtlasSprite does not have its main symbol!');
-      return [];
-    }
-    return mainSymbol.getFrameLabels().map(keyFrame -> keyFrame.name).filter(s -> s != null);
-  }
+	// ? P-Slice fix for mods
+	override function loadAtlas(path:String)
+	{
+		if (Assets.exists('$path/Animation.json'))
+		{
+			super.loadAtlas(path);
+			return;
+		}
+		try
+		{
+			trace(path);
+			super.loadAtlasEx(ModsHelper.loadabsoluteGraphic('$path/spritemap1.png'), File.getContent('$path/spritemap1.json'),
+				File.getContent('$path/Animation.json'));
+		}
+		catch (x)
+		{
+			FlxG.log.error('Failed to load "$path" via EXtended loader: $x');
+			trace('Failed to load "$path" via EXtended loader: $x');
+		}
+	}
 
-  /**
-   * @param id A string ID of the animation.
-   * @return Whether the animation was found on this sprite.
-   */
-  public function hasAnimation(id:String):Bool
-  {
-    return getLabelIndex(id) != -1 || anim.symbolDictionary.exists(id);
-  }
+	/**
+	 * @return A list of all the animations this sprite has available.
+	 */
+	public function listAnimations():Array<String>
+	{
+		var mainSymbol = this.anim.symbolDictionary[this.anim.stageInstance.symbol.name];
+		if (mainSymbol == null)
+		{
+			FlxG.log.error('FlxAtlasSprite does not have its main symbol!');
+			return [];
+		}
+		return mainSymbol.getFrameLabels().map(keyFrame -> keyFrame.name).filter(s -> s != null);
+	}
 
-  /**
-   * @return The current animation being played.
-   */
-  public function getCurrentAnimation():String
-  {
-    return this.currentAnimation;
-  }
+	/**
+	 * @param id A string ID of the animation.
+	 * @return Whether the animation was found on this sprite.
+	 */
+	public function hasAnimation(id:String):Bool
+	{
+		return getLabelIndex(id) != -1 || anim.symbolDictionary.exists(id);
+	}
 
-  var _completeAnim:Bool = false;
+	/**
+	 * @return The current animation being played.
+	 */
+	public function getCurrentAnimation():String
+	{
+		return this.currentAnimation;
+	}
 
-  var fr:FlxKeyFrame = null;
+	var _completeAnim:Bool = false;
 
-  var looping:Bool = false;
+	var fr:FlxKeyFrame = null;
 
-  public var ignoreExclusionPref:Array<String> = [];
+	var looping:Bool = false;
 
-  /**
-   * Plays an animation.
-   * @param id A string ID of the animation to play.
-   * @param restart Whether to restart the animation if it is already playing.
-   * @param ignoreOther Whether to ignore all other animation inputs, until this one is done playing
-   * @param loop Whether to loop the animation
-   * @param startFrame The frame to start the animation on
-   * NOTE: `loop` and `ignoreOther` are not compatible with each other!
-   */
-  public function playAnimation(id:String, restart:Bool = false, ignoreOther:Bool = false, loop:Bool = false, startFrame:Int = 0):Void
-  {
-    // Skip if not allowed to play animations.
-    if ((!canPlayOtherAnims))
-    {
-      if (this.currentAnimation == id && restart) {}
-      else if (ignoreExclusionPref != null && ignoreExclusionPref.length > 0)
-      {
-        var detected:Bool = false;
-        for (entry in ignoreExclusionPref)
-        {
-          if (StringTools.startsWith(id, entry))
-          {
-            detected = true;
-            break;
-          }
-        }
-        if (!detected) return;
-      }
-      else
-        return;
-    }
+	public var ignoreExclusionPref:Array<String> = [];
 
-    if (anim == null) return;
+	/**
+	 * Plays an animation.
+	 * @param id A string ID of the animation to play.
+	 * @param restart Whether to restart the animation if it is already playing.
+	 * @param ignoreOther Whether to ignore all other animation inputs, until this one is done playing
+	 * @param loop Whether to loop the animation
+	 * @param startFrame The frame to start the animation on
+	 * NOTE: `loop` and `ignoreOther` are not compatible with each other!
+	 */
+	public function playAnimation(id:String, restart:Bool = false, ignoreOther:Bool = false, loop:Bool = false, startFrame:Int = 0):Void
+	{
+		// Skip if not allowed to play animations.
+		if ((!canPlayOtherAnims))
+		{
+			if (this.currentAnimation == id && restart)
+			{
+			}
+			else if (ignoreExclusionPref != null && ignoreExclusionPref.length > 0)
+			{
+				var detected:Bool = false;
+				for (entry in ignoreExclusionPref)
+				{
+					if (StringTools.startsWith(id, entry))
+					{
+						detected = true;
+						break;
+					}
+				}
+				if (!detected)
+					return;
+			}
+			else
+				return;
+		}
 
-    if (id == null || id == '') id = this.currentAnimation;
+		if (anim == null)
+			return;
 
-    if (this.currentAnimation == id && !restart)
-    {
-      if (!anim.isPlaying)
-      {
-        if (fr != null) anim.curFrame = fr.index + startFrame;
-        else
-          anim.curFrame = startFrame;
+		if (id == null || id == '')
+			id = this.currentAnimation;
 
-        // Resume animation if it's paused.
-        anim.resume();
-      }
+		if (this.currentAnimation == id && !restart)
+		{
+			if (!anim.isPlaying)
+			{
+				if (fr != null)
+					anim.curFrame = fr.index + startFrame;
+				else
+					anim.curFrame = startFrame;
 
-      return;
-    }
-    else if (!hasAnimation(id))
-    {
-      // Skip if the animation doesn't exist
-      trace('Animation ' + id + ' not found');
-      return;
-    }
+				// Resume animation if it's paused.
+				anim.resume();
+			}
 
-    this.currentAnimation = id;
-    anim.onComplete.removeAll();
-    anim.onComplete.add(function() {
-      _onAnimationComplete();
-    });
+			return;
+		}
+		else if (!hasAnimation(id))
+		{
+			// Skip if the animation doesn't exist
+			trace('Animation ' + id + ' not found');
+			return;
+		}
 
-    looping = loop;
+		this.currentAnimation = id;
+		anim.onComplete.removeAll();
+		anim.onComplete.add(function()
+		{
+			_onAnimationComplete();
+		});
 
-    // Prevent other animations from playing if `ignoreOther` is true.
-    if (ignoreOther) canPlayOtherAnims = false;
+		looping = loop;
 
-    // Move to the first frame of the animation.
-    // goToFrameLabel(id);
-    //trace('Playing animation $id');
-    if ((id == null || id == "") || this.anim.symbolDictionary.exists(id) || (this.anim.getByName(id) != null))
-    {
-      this.anim.play(id, restart, false, startFrame);
+		// Prevent other animations from playing if `ignoreOther` is true.
+		if (ignoreOther)
+			canPlayOtherAnims = false;
 
-      this.currentAnimation = anim.curSymbol.name;
+		// Move to the first frame of the animation.
+		// goToFrameLabel(id);
+		// trace('Playing animation $id');
+		if ((id == null || id == "") || this.anim.symbolDictionary.exists(id) || (this.anim.getByName(id) != null))
+		{
+			this.anim.play(id, restart, false, startFrame);
 
-      fr = null;
-    }
-    // Only call goToFrameLabel if there is a frame label with that name. This prevents annoying warnings!
-    if (getFrameLabelNames().indexOf(id) != -1)
-    {
-      goToFrameLabel(id);
-      fr = anim.getFrameLabel(id);
-      anim.curFrame += startFrame;
-    }
-  }
+			this.currentAnimation = anim.curSymbol.name;
 
-  override public function update(elapsed:Float)
-  {
-    super.update(elapsed);
-  }
+			fr = null;
+		}
+		// Only call goToFrameLabel if there is a frame label with that name. This prevents annoying warnings!
+		if (getFrameLabelNames().indexOf(id) != -1)
+		{
+			goToFrameLabel(id);
+			fr = anim.getFrameLabel(id);
+			anim.curFrame += startFrame;
+		}
+	}
 
-  /**
-   * Returns true if the animation has finished playing.
-   * Never true if animation is configured to loop.
-   */
-  public function isAnimationFinished():Bool
-  {
-    return this.anim.finished;
-  }
+	override public function update(elapsed:Float)
+	{
+		super.update(elapsed);
+	}
 
-  /**
-   * Returns true if the animation has reached the last frame.
-   * Can be true even if animation is configured to loop.
-   */
-  public function isLoopComplete():Bool
-  {
-    if (this.anim == null) return false;
-    if (!this.anim.isPlaying) return false;
+	/**
+	 * Returns true if the animation has finished playing.
+	 * Never true if animation is configured to loop.
+	 */
+	public function isAnimationFinished():Bool
+	{
+		return this.anim.finished;
+	}
 
-    if (fr != null) return (anim.reversed && anim.curFrame < fr.index || !anim.reversed && anim.curFrame >= (fr.index + fr.duration));
+	/**
+	 * Returns true if the animation has reached the last frame.
+	 * Can be true even if animation is configured to loop.
+	 */
+	public function isLoopComplete():Bool
+	{
+		if (this.anim == null)
+			return false;
+		if (!this.anim.isPlaying)
+			return false;
 
-    return (anim.reversed && anim.curFrame == 0 || !(anim.reversed) && (anim.curFrame) >= (anim.length - 1));
-  }
+		if (fr != null)
+			return (anim.reversed && anim.curFrame < fr.index || !anim.reversed && anim.curFrame >= (fr.index + fr.duration));
 
-  /**
-   * Stops the current animation.
-   */
-  public function stopAnimation():Void
-  {
-    if (this.currentAnimation == null) return;
+		return (anim.reversed && anim.curFrame == 0 || !(anim.reversed) && (anim.curFrame) >= (anim.length - 1));
+	}
 
-    this.anim.removeAllCallbacksFrom(getNextFrameLabel(this.currentAnimation));
+	/**
+	 * Stops the current animation.
+	 */
+	public function stopAnimation():Void
+	{
+		if (this.currentAnimation == null)
+			return;
 
-    goToFrameIndex(0);
-  }
+		this.anim.removeAllCallbacksFrom(getNextFrameLabel(this.currentAnimation));
 
-  function addFrameCallback(label:String, callback:Void->Void):Void
-  {
-    var frameLabel = this.anim.getFrameLabel(label);
-    frameLabel.add(callback);
-  }
+		goToFrameIndex(0);
+	}
 
-  function goToFrameLabel(label:String):Void
-  {
-    this.anim.goToFrameLabel(label);
-  }
+	function addFrameCallback(label:String, callback:Void->Void):Void
+	{
+		var frameLabel = this.anim.getFrameLabel(label);
+		frameLabel.add(callback);
+	}
 
-  function getFrameLabelNames(?layer:haxe.extern.EitherType<Int, String> = null)
-  {
-    var labels = this.anim.getFrameLabels(layer);
-    var array = [];
-    for (label in labels)
-    {
-      array.push(label.name);
-    }
+	function goToFrameLabel(label:String):Void
+	{
+		this.anim.goToFrameLabel(label);
+	}
 
-    return array;
-  }
+	function getFrameLabelNames(?layer:haxe.extern.EitherType<Int, String> = null)
+	{
+		var labels = this.anim.getFrameLabels(layer);
+		var array = [];
+		for (label in labels)
+		{
+			array.push(label.name);
+		}
 
-  function getNextFrameLabel(label:String):String
-  {
-    return listAnimations()[(getLabelIndex(label) + 1) % listAnimations().length];
-  }
+		return array;
+	}
 
-  function getLabelIndex(label:String):Int
-  {
-    return listAnimations().indexOf(label);
-  }
+	function getNextFrameLabel(label:String):String
+	{
+		return listAnimations()[(getLabelIndex(label) + 1) % listAnimations().length];
+	}
 
-  function goToFrameIndex(index:Int):Void
-  {
-    this.anim.curFrame = index;
-  }
+	function getLabelIndex(label:String):Int
+	{
+		return listAnimations().indexOf(label);
+	}
 
-  public function cleanupAnimation(_:String):Void
-  {
-    canPlayOtherAnims = true;
-    // this.currentAnimation = null;
-    this.anim.pause();
-  }
+	function goToFrameIndex(index:Int):Void
+	{
+		this.anim.curFrame = index;
+	}
 
-  function _onAnimationFrame(frame:Int):Void
-  {
-    if (currentAnimation != null)
-    {
-      onAnimationFrame.dispatch(currentAnimation, frame);
+	public function cleanupAnimation(_:String):Void
+	{
+		canPlayOtherAnims = true;
+		// this.currentAnimation = null;
+		this.anim.pause();
+	}
 
-      if (isLoopComplete())
-      {
-        anim.pause();
-        _onAnimationComplete();
+	function _onAnimationFrame(frame:Int):Void
+	{
+		if (currentAnimation != null)
+		{
+			onAnimationFrame.dispatch(currentAnimation, frame);
 
-        if (looping)
-        {
-          anim.curFrame = (fr != null) ? fr.index : 0;
-          anim.resume();
-        }
-        else if (fr != null && anim.curFrame != anim.length - 1)
-        {
-          anim.curFrame--;
-        }
-      }
-    }
-  }
+			if (isLoopComplete())
+			{
+				anim.pause();
+				_onAnimationComplete();
 
-  function _onAnimationComplete():Void
-  {
-    if (currentAnimation != null)
-    {
-      onAnimationComplete.dispatch(currentAnimation);
-    }
-    else
-    {
-      onAnimationComplete.dispatch('');
-    }
-  }
+				if (looping)
+				{
+					anim.curFrame = (fr != null) ? fr.index : 0;
+					anim.resume();
+				}
+				else if (fr != null && anim.curFrame != anim.length - 1)
+				{
+					anim.curFrame--;
+				}
+			}
+		}
+	}
 
-  var prevFrames:Map<Int, FlxFrame> = [];
+	function _onAnimationComplete():Void
+	{
+		if (currentAnimation != null)
+		{
+			onAnimationComplete.dispatch(currentAnimation);
+		}
+		else
+		{
+			onAnimationComplete.dispatch('');
+		}
+	}
 
-  public function replaceFrameGraphic(index:Int, ?graphic:FlxGraphicAsset):Void
-  {
-    if (graphic == null) //? removed this bitch: {|| !Assets.exists(graphic))}
-    {
-      var prevFrame:Null<FlxFrame> = prevFrames.get(index);
-      if (prevFrame == null) return;
+	var prevFrames:Map<Int, FlxFrame> = [];
 
-      prevFrame.copyTo(frames.getByIndex(index));
-      return;
-    }
+	public function replaceFrameGraphic(index:Int, ?graphic:FlxGraphicAsset):Void
+	{
+		if (graphic == null) // ? removed this bitch: {|| !Assets.exists(graphic))}
+		{
+			var prevFrame:Null<FlxFrame> = prevFrames.get(index);
+			if (prevFrame == null)
+				return;
 
-    var prevFrame:FlxFrame = prevFrames.get(index) ?? frames.getByIndex(index).copyTo();
-    prevFrames.set(index, prevFrame);
+			prevFrame.copyTo(frames.getByIndex(index));
+			return;
+		}
 
-    var frame = FlxG.bitmap.add(graphic).imageFrame.frame;
-    frame.copyTo(frames.getByIndex(index));
+		var prevFrame:FlxFrame = prevFrames.get(index) ?? frames.getByIndex(index).copyTo();
+		prevFrames.set(index, prevFrame);
 
-    // Additional sizing fix.
-    @:privateAccess
-    if (true)
-    {
-      var frame = frames.getByIndex(index);
-      frame.tileMatrix[0] = prevFrame.frame.width / frame.frame.width;
-      frame.tileMatrix[3] = prevFrame.frame.height / frame.frame.height;
-    }
-  }
+		var frame = FlxG.bitmap.add(graphic).imageFrame.frame;
+		frame.copyTo(frames.getByIndex(index));
 
-  public function getBasePosition():Null<FlxPoint>
-  {
-    // var stagePos = new FlxPoint(anim.stageInstance.matrix.tx, anim.stageInstance.matrix.ty);
-    var instancePos = new FlxPoint(anim.curInstance.matrix.tx, anim.curInstance.matrix.ty);
-    var firstElement = anim.curSymbol.timeline?.get(0)?.get(0)?.get(0);
-    if (firstElement == null) return instancePos;
-    var firstElementPos = new FlxPoint(firstElement.matrix.tx, firstElement.matrix.ty);
+		// Additional sizing fix.
+		@:privateAccess
+		if (true)
+		{
+			var frame = frames.getByIndex(index);
+			frame.tileMatrix[0] = prevFrame.frame.width / frame.frame.width;
+			frame.tileMatrix[3] = prevFrame.frame.height / frame.frame.height;
+		}
+	}
 
-    return instancePos + firstElementPos;
-  }
+	public function getBasePosition():Null<FlxPoint>
+	{
+		// var stagePos = new FlxPoint(anim.stageInstance.matrix.tx, anim.stageInstance.matrix.ty);
+		var instancePos = new FlxPoint(anim.curInstance.matrix.tx, anim.curInstance.matrix.ty);
+		var firstElement = anim.curSymbol.timeline?.get(0)?.get(0)?.get(0);
+		if (firstElement == null)
+			return instancePos;
+		var firstElementPos = new FlxPoint(firstElement.matrix.tx, firstElement.matrix.ty);
 
-  public function getPivotPosition():Null<FlxPoint>
-  {
-    return anim.curInstance.symbol.transformationPoint;
-  }
+		return instancePos + firstElementPos;
+	}
 
-  public override function destroy():Void
-  {
-    for (prevFrameId in prevFrames.keys())
-    {
-      replaceFrameGraphic(prevFrameId, null);
-    }
+	public function getPivotPosition():Null<FlxPoint>
+	{
+		return anim.curInstance.symbol.transformationPoint;
+	}
 
-    super.destroy();
-  }
+	public override function destroy():Void
+	{
+		for (prevFrameId in prevFrames.keys())
+		{
+			replaceFrameGraphic(prevFrameId, null);
+		}
+
+		super.destroy();
+	}
 }
