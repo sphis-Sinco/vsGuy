@@ -3249,6 +3249,7 @@ class PlayState extends MusicBeatState
 			}
 			else if (!isStoryMode)
 			{
+
 				openSubState(new StickerSubState(null, (sticker) -> FreeplayState.build({
 					{
 						fromResults: {
