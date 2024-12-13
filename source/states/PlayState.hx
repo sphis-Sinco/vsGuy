@@ -3871,6 +3871,7 @@ class PlayState extends MusicBeatState
 			}
 		stagesFunc(function(stage:BaseStage) stage.noteMissPress(direction));
 		callOnScripts('noteMissPress', [direction]);
+	}
 
 	function noteMissCommon(direction:Int, note:Note = null)
 	{
@@ -3956,11 +3957,11 @@ class PlayState extends MusicBeatState
 
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length - 1, direction)))] + 'miss' + postfix;
 			
-			switch(note.noteType)
+			if (note != null){switch(note.noteType)
 			{
 				case 'Arrow Dodge':
 					animToPlay = 'arrowDodgeMiss';
-			}
+			}}
 
 			char.playAnim(animToPlay, true);
 
@@ -3971,7 +3972,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 		vocals.volume = 0;
-		if (HEARTS_ENABLED){if (note.isSustainNote)
+		if (HEARTS_ENABLED && note != null){if (note.isSustainNote)
 			updateHearts(-0.25);
 		else
 			updateHearts(-0.5);}
@@ -4031,12 +4032,14 @@ class PlayState extends MusicBeatState
 		note.hitByOpponent = true;
 
 		stagesFunc(function(stage:BaseStage) stage.opponentNoteHit(note));
+		
 		var result:Dynamic = callOnLuas('opponentNoteHit', [
 			notes.members.indexOf(note),
 			Math.abs(note.noteData),
 			note.noteType,
 			note.isSustainNote
 		]);
+
 		if (result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll)
 			callOnHScript('opponentNoteHit', [note]);
 
