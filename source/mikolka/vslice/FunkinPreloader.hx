@@ -949,7 +949,7 @@ class FunkinPreloader extends FlxBasePreloader
       case FunkinPreloaderState.TouchHereToPlay:
         updateProgressLeftText(null);
       #end
-				//trace('Preloader state: ' + currentState + ' (' + percentage + '%, ' + elapsed + 's)');
+				trace('Preloader state: ' + currentState + ' (' + percentage + '%, ' + elapsed + 's)');
     }
 
     // Render percent text
