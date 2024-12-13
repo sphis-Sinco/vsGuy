@@ -455,8 +455,8 @@ class PlayState extends MusicBeatState
 		add(luaDebugGroup);
 		#end
 
-		if (curStage == 'guymc')
-			HEARTS_ENABLED = true;
+		// if (curStage == 'guymc')
+			// HEARTS_ENABLED = true;
 
 		if (!stageData.hide_girlfriend)
 		{
