@@ -22,7 +22,6 @@ import states.CopyState;
 #if mobile
 import mobile.backend.MobileScaleMode;
 #end
-
 #if linux
 import lime.graphics.Image;
 
@@ -131,21 +130,23 @@ class Main extends Sprite
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
-		
+
 		registery.hasNewCharacter(); // init it
-		
+
 		#if COPYSTATE_ALLOWED
 		var copyStateCheck = !CopyState.checkExistingFiles();
 		#end
 
-		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
+		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end
+		game.initialState;
 
-		var gameObject = new FlxGame(game.width, game.height, initState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
+		var gameObject = new FlxGame(game.width, game.height, initState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate,
+			game.skipSplash, game.startFullscreen);
 		// FlxG.game._customSoundTray wants just the class, it calls new from
-    	// create() in there, which gets called when it's added to stage
-    	// which is why it needs to be added before addChild(game) here
-    	@:privateAccess
-    	gameObject._customSoundTray = mikolka.vslice.components.FunkinSoundTray;
+		// create() in there, which gets called when it's added to stage
+		// which is why it needs to be added before addChild(game) here
+		@:privateAccess
+		gameObject._customSoundTray = mikolka.vslice.components.FunkinSoundTray;
 
 		Mods.readParsedMods(ALL);
 
@@ -153,9 +154,9 @@ class Main extends Sprite
 
 		fpsVar = new FPSCounter(10, 10, 0xFFFFFF);
 		#if mobile
-		//FlxG.game.addChild(fpsVar);
-	  	#else
-		//addChild(fpsVar);
+		// FlxG.game.addChild(fpsVar);
+		#else
+		// addChild(fpsVar);
 		#end
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -163,8 +164,6 @@ class Main extends Sprite
 		{
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
-
-		
 
 		// #if debug
 		// flixel.addons.studio.FlxStudio.create();

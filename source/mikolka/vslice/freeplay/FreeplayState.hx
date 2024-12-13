@@ -270,11 +270,11 @@ class FreeplayState extends MusicBeatSubstate
 	var fadeShader:BlueFade = new BlueFade();
 
 	public var angleMaskShader:AngleMask = new AngleMask();
+
 	var newChar:Bool = false;
 
 	override function create():Void
 	{
-
 		// ? Psych might've reloaded the mod list. Make sure we select current character's mod for the style
 		var saveBox = VsliceOptions.LAST_MOD;
 		if (ModsHelper.isModDirEnabled(saveBox.mod_dir))
@@ -640,8 +640,6 @@ class FreeplayState extends MusicBeatSubstate
 		// otherwise it won't be properly attatched to funnyCamera (relavent code should be at the bottom of create())
 		var onDJIntroDone = function()
 		{
-			
-
 			if (newChar)
 			{
 				dj.currentState = NewUnlock;

@@ -18,16 +18,14 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	var optionShit:Array<String> = [
-		
-	];
+	var optionShit:Array<String> = [];
 
 	var magenta:MenuBG;
 	var camFollow:FlxObject;
 
-	public function new(isDisplayingRank:Bool = false) {
-
-		//TODO
+	public function new(isDisplayingRank:Bool = false)
+	{
+		// TODO
 		super();
 	}
 
@@ -35,7 +33,7 @@ class MainMenuState extends MusicBeatState
 	{
 		Paths.clearUnusedMemory();
 		ModsHelper.clearStoredWithoutStickers();
-		
+
 		#if MODS_ALLOWED
 		Mods.pushGlobalMods();
 		#end
@@ -70,7 +68,6 @@ class MainMenuState extends MusicBeatState
 		optionShit.push('options');
 		optionShit.push('shop');
 
-
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
@@ -97,7 +94,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
-			menuItem.scale.set(.8,.8);
+			menuItem.scale.set(.8, .8);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if (optionShit.length < 6)
@@ -112,14 +109,13 @@ class MainMenuState extends MusicBeatState
 			}
 		}
 
-		var modVer:FlxText = new FlxText(0, FlxG.height - (18 * 2), FlxG.width,
-			'vs Guy Plus ${GuyConsts.MOD_VERSION + #if debug '-indev' #else '' #end}', 12);
+		var modVer:FlxText = new FlxText(0, FlxG.height - (18 * 2), FlxG.width, 'vs Guy Plus ${GuyConsts.MOD_VERSION + #if debug '-indev' #else '' #end}', 12);
 		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		modVer.scrollFactor.set();
-		modVer.text += "\n"+GuyConsts.getEngineStringWithPSliceVer();
+		modVer.text += "\n" + GuyConsts.getEngineStringWithPSliceVer();
 		add(modVer);
-		//var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' ", 12);
-	
+		// var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' ", 12);
+
 		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
@@ -155,8 +151,8 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * elapsed;
-			//if (FreeplayState.vocals != null)
-				//FreeplayState.vocals.volume += 0.5 * elapsed;
+			// if (FreeplayState.vocals != null)
+			// FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
 
 		if (!selectedSomethin)
@@ -199,25 +195,27 @@ class MainMenuState extends MusicBeatState
 						{
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
-							case 'freeplay':{
-								persistentDraw = true;
-								persistentUpdate = false;
-								// Freeplay has its own custom transition
-								FlxTransitionableState.skipNextTransIn = true;
-								FlxTransitionableState.skipNextTransOut = true;
+							case 'freeplay':
+								{
+									persistentDraw = true;
+									persistentUpdate = false;
+									// Freeplay has its own custom transition
+									FlxTransitionableState.skipNextTransIn = true;
+									FlxTransitionableState.skipNextTransOut = true;
 
-								openSubState(new FreeplayState());
-								subStateOpened.addOnce(state -> {
-									for (i in 0...menuItems.members.length) {
-										menuItems.members[i].revive();
-										menuItems.members[i].alpha = 1;
-										menuItems.members[i].visible = true;
-										selectedSomethin = false;
-									}
-									changeItem(0);
-								});
-								
-							}
+									openSubState(new FreeplayState());
+									subStateOpened.addOnce(state ->
+									{
+										for (i in 0...menuItems.members.length)
+										{
+											menuItems.members[i].revive();
+											menuItems.members[i].alpha = 1;
+											menuItems.members[i].visible = true;
+											selectedSomethin = false;
+										}
+										changeItem(0);
+									});
+								}
 
 							#if MODS_ALLOWED
 							case 'dlcs':

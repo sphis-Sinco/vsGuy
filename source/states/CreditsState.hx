@@ -27,7 +27,7 @@ class CreditsState extends MusicBeatState
 
 		persistentUpdate = true;
 		bg = new MenuBG('menuDesat');
-		bg.scale.set(1,1);
+		bg.scale.set(1, 1);
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
@@ -255,7 +255,8 @@ class CreditsState extends MusicBeatState
 			optionText.snapToPosition();
 			grpOptions.add(optionText);
 
-			if (!isSelectable) {
+			if (!isSelectable)
+			{
 				optionText.alignment = CENTERED;
 				continue;
 			}
@@ -279,7 +280,7 @@ class CreditsState extends MusicBeatState
 					str = fileName + '-pixel';
 			}
 			var icon:AttachedSprite;
-			
+
 			if (animated)
 				icon = new AttachedSprite(str, cred, null, true);
 			else
@@ -288,7 +289,8 @@ class CreditsState extends MusicBeatState
 			if (str.endsWith('-pixel'))
 				icon.antialiasing = false;
 			icon.xAdd = optionText.width + 10;
-			if (cred == 'sinco') {
+			if (cred == 'sinco')
+			{
 				icon.xAdd -= 40;
 				icon.yAdd -= 20;
 			}

@@ -34,7 +34,7 @@ typedef TitleData =
 	var gfy:Float;
 	var backgroundSprite:String;
 	var bpm:Float;
-	
+
 	@:optional var animation:String;
 	@:optional var dance_left:Array<Int>;
 	@:optional var dance_right:Array<Int>;
@@ -76,7 +76,7 @@ class TitleState extends MusicBeatState
 		super.create();
 		Paths.clearUnusedMemory();
 
-		if(!initialized)
+		if (!initialized)
 		{
 			ClientPrefs.loadPrefs();
 			Language.reloadPhrases();
@@ -100,10 +100,13 @@ class TitleState extends MusicBeatState
 
 				if (curVersion.contains('-'))
 				{
-					if (updateVersion.contains('-')) {
+					if (updateVersion.contains('-'))
+					{
 						updateVersion = updateVersion.split('-')[1];
 						curVersion = curVersion.split('-')[1];
-					} else {
+					}
+					else
+					{
 						curVersion = curVersion.split('-')[0];
 					}
 				}
@@ -132,7 +135,7 @@ class TitleState extends MusicBeatState
 		}
 		#end
 
-		if(!initialized)
+		if (!initialized)
 		{
 			if (FlxG.save.data != null && FlxG.save.data.fullscreen)
 			{
@@ -198,7 +201,7 @@ class TitleState extends MusicBeatState
 
 		Conductor.bpm = musicBPM;
 
-		logoBl = new FlxSprite(0,0);
+		logoBl = new FlxSprite(0, 0);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin-guy');
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
 
@@ -209,8 +212,8 @@ class TitleState extends MusicBeatState
 		logoBl.screenCenter();
 		logoBl.x += 300;
 		logoBl.visible = false;
-		
-		if(ClientPrefs.data.shaders)
+
+		if (ClientPrefs.data.shaders)
 		{
 			swagShader = new ColorSwap();
 			logoBl.shader = swagShader.shader;
@@ -261,10 +264,10 @@ class TitleState extends MusicBeatState
 		bars.screenCenter();
 		bars.visible = false;
 
-		press_play = new Character(40,FlxG.height - 200, 'press_play');
+		press_play = new Character(40, FlxG.height - 200, 'press_play');
 		press_play.playAnim('idle');
 		press_play.visible = false;
-		
+
 		add(credGroup);
 		add(ngSpr);
 
@@ -278,7 +281,6 @@ class TitleState extends MusicBeatState
 			skipIntro();
 		else
 			initialized = true;
-
 	}
 
 	// JSON data
@@ -315,7 +317,8 @@ class TitleState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		if (backdrop != null)
-			if (logoBl.visible != bf.visible) {
+			if (logoBl.visible != bf.visible)
+			{
 				backdrop.visible = bf.visible;
 				bars.visible = bf.visible;
 				logoBl.visible = bf.visible;
@@ -348,7 +351,8 @@ class TitleState extends MusicBeatState
 			#end
 		}
 
-		if(enterTimer != null && pressedEnter){
+		if (enterTimer != null && pressedEnter)
+		{
 			enterTimer.cancel();
 			enterTimer.onComplete(enterTimer);
 			enterTimer = null;
@@ -453,9 +457,9 @@ class TitleState extends MusicBeatState
 				errorStr += '\n\n' + e.stack;
 
 			/*missingText.text = 'ERROR WHILE LOADING CHART:\n$errorStr';
-			missingText.screenCenter(Y);
-			missingText.visible = true;
-			missingTextBG.visible = true; */
+				missingText.screenCenter(Y);
+				missingText.visible = true;
+				missingTextBG.visible = true; */
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			trace('ERROR! ${errorStr}');
 
@@ -529,7 +533,7 @@ class TitleState extends MusicBeatState
 
 		if (cheatActive && this.curBeat % 2 == 0 && swagShader != null)
 			swagShader.hue += 0.125;
-		
+
 		if (!closedState)
 		{
 			sickBeats++;
@@ -539,14 +543,14 @@ class TitleState extends MusicBeatState
 					// FlxG.sound.music.stop();
 					FlxG.sound.playMusic(Paths.music('FlexRack'), 0);
 					#if VIDEOS_ALLOWED
-						FlxG.sound.music.onComplete = moveToAttract;
+					FlxG.sound.music.onComplete = moveToAttract;
 					#end
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 					createCoolText(['Funkin Crew Inc']);
 				case 2:
 					addMoreText('Psych Engine Team');
 					addMoreText('PSlice Engine Team');
-					//'Psych Engine Team', 'PSlice Team', 'vs Guy Plus Team'
+				// 'Psych Engine Team', 'PSlice Team', 'vs Guy Plus Team'
 				case 3:
 					addMoreText('vs Guy Plus Team');
 				case 4:
@@ -563,10 +567,10 @@ class TitleState extends MusicBeatState
 					ngSpr.visible = false;
 				case 10:
 					createCoolText([curWacky[0]]);
-					// createCoolText(['hello']);
+				// createCoolText(['hello']);
 				case 12:
 					addMoreText(curWacky[1]);
-					// addMoreText('elomentoplayz');
+				// addMoreText('elomentoplayz');
 				case 13:
 					deleteCoolText();
 				case 14:
@@ -590,7 +594,7 @@ class TitleState extends MusicBeatState
 		if (!skippedIntro)
 		{
 			#if VIDEOS_ALLOWED
-				FlxG.sound.music.onComplete = moveToAttract;
+			FlxG.sound.music.onComplete = moveToAttract;
 			#end
 			{
 				remove(ngSpr);
@@ -614,7 +618,7 @@ class TitleState extends MusicBeatState
 		{
 			if (controls.NOTE_DOWN_P || controls.UI_DOWN_P || SwipeUtil.swipeUp)
 				codePress(FlxDirectionFlags.DOWN);
-			if (controls.NOTE_UP_P || controls.UI_UP_P  || SwipeUtil.swipeDown)
+			if (controls.NOTE_UP_P || controls.UI_UP_P || SwipeUtil.swipeDown)
 				codePress(FlxDirectionFlags.UP);
 			if (controls.NOTE_LEFT_P || controls.UI_LEFT_P || SwipeUtil.swipeRight)
 				codePress(FlxDirectionFlags.LEFT);
@@ -656,9 +660,10 @@ class TitleState extends MusicBeatState
 	 * After sitting on the title screen for a while, transition to the attract screen.
 	 */
 	function moveToAttract():Void
-	{	
+	{
 		#if ATTRACT_ALLOWED
-		if(!Std.isOfType(FlxG.state,TitleState)) return;
+		if (!Std.isOfType(FlxG.state, TitleState))
+			return;
 		FlxG.switchState(() -> new AttractState());
 		#end
 	}

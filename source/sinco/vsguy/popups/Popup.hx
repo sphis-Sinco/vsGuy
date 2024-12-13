@@ -4,9 +4,9 @@ import mikolka.compatibility.FunkinPath;
 
 class Popup extends FlxAtlasSprite
 {
-    public var animToPlay:String;
-    public var finishTimer:FlxTimer;
-    public var animLength:Float = 1.0;
+	public var animToPlay:String;
+	public var finishTimer:FlxTimer;
+	public var animLength:Float = 1.0;
 
 	public function new(x:Float, y:Float, path:String)
 	{
@@ -15,7 +15,7 @@ class Popup extends FlxAtlasSprite
 		this.visible = false;
 		this.animToPlay = path;
 
-        setPosition(x,y);
+		setPosition(x, y);
 
 		this.animation.pause();
 
@@ -26,9 +26,10 @@ class Popup extends FlxAtlasSprite
 	{
 		this.visible = true;
 		this.playAnimation('$animToPlay');
-		finishTimer.start(animLength, function(timer:FlxTimer) {
-            this.visible = false;
-            trace('$animToPlay is finished');
-        });
+		finishTimer.start(animLength, function(timer:FlxTimer)
+		{
+			this.visible = false;
+			trace('$animToPlay is finished');
+		});
 	}
 }

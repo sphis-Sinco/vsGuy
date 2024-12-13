@@ -4,7 +4,7 @@ import sinco.vsguy.states.credits.json.CreditsItem;
 
 typedef CreditsList =
 {
-    var api_ver:Float;
+	var api_ver:Float;
 	var credits:Array<CreditListItem>;
 }
 

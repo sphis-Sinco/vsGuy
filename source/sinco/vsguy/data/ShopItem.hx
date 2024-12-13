@@ -13,14 +13,14 @@ typedef ShopItem =
 
 class ShopItemManager
 {
-    public static function blankShopItem():ShopItem
-    {
-        return {
-            name: "Blank Item",
-            description: "A Blank Item most likely to avoid a\ngame crash",
-            price: 0.0,
-            sincoInterested: false,
+	public static function blankShopItem():ShopItem
+	{
+		return {
+			name: "Blank Item",
+			description: "A Blank Item most likely to avoid a\ngame crash",
+			price: 0.0,
+			sincoInterested: false,
 			sincoReact: true
-        };
-    }
+		};
+	}
 }

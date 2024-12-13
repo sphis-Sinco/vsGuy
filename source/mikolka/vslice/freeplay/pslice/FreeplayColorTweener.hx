@@ -2,7 +2,6 @@ package mikolka.vslice.freeplay.pslice;
 
 import mikolka.vslice.freeplay.backcards.BoyfriendCard;
 
-
 // ? P-Slice class
 // Made this static so that it isn't tied with freeplay as much
 class FreeplayColorTweener

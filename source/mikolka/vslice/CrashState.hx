@@ -23,7 +23,7 @@ class CrashState extends FlxState
 	var EMessage:String;
 	var callstack:Array<StackItem>;
 
-	public function new(EMessage:String,callstack:Array<StackItem>)
+	public function new(EMessage:String, callstack:Array<StackItem>)
 	{
 		this.EMessage = EMessage;
 		this.callstack = callstack;
@@ -36,7 +36,7 @@ class CrashState extends FlxState
 			Main.fpsVar.visible = false;
 		super.create();
 		var previousScreen = new FlxSprite(0, 0, screenBelow);
-		previousScreen.setGraphicSize(FlxG.width,FlxG.height);
+		previousScreen.setGraphicSize(FlxG.width, FlxG.height);
 		previousScreen.updateHitbox();
 
 		textBg = new FlxSprite();
@@ -75,7 +75,7 @@ class CrashState extends FlxState
 						case Method(classname, method):
 							var regex = ~/(([A-Z]+[A-z]*)\.?)+/g;
 							regex.match(classname);
-							line.push("CLS:" + regex.matched(0)+":"+method+"()");
+							line.push("CLS:" + regex.matched(0) + ":" + method + "()");
 						default:
 							Sys.println(stackItem);
 					}
@@ -104,9 +104,11 @@ class CrashState extends FlxState
 			TitleState.initialized = false;
 			TitleState.closedState = false;
 			#if LEGACY_PSYCH
-			if (Main.fpsVar != null) Main.fpsVar.visible = ClientPrefs.showFPS;
+			if (Main.fpsVar != null)
+				Main.fpsVar.visible = ClientPrefs.showFPS;
 			#else
-			if (Main.fpsVar != null) Main.fpsVar.visible = ClientPrefs.data.showFPS;
+			if (Main.fpsVar != null)
+				Main.fpsVar.visible = ClientPrefs.data.showFPS;
 			#end
 			FlxG.sound.pause();
 			FlxTween.globalManager.clear();
@@ -128,7 +130,7 @@ class CrashState extends FlxState
 					case 1:
 						printToTrace(line[0]);
 					case 2:
-						var first_line = line[0].rpad(" ", 33).replace("_","");
+						var first_line = line[0].rpad(" ", 33).replace("_", "");
 						printToTrace('${first_line}${line[1]}');
 					default:
 						printToTrace(" ");
@@ -146,7 +148,7 @@ class CrashState extends FlxState
 			printSpaceToTrace();
 			printToTrace('RUNTIME INFORMATION');
 			var date_split = error.date.split(" ");
-			printToTrace('TIME:${date_split[1].rpad(" ",9)} DATE:${date_split[0]}');
+			printToTrace('TIME:${date_split[1].rpad(" ", 9)} DATE:${date_split[0]}');
 			printSpaceToTrace();
 			printToTrace('REPORT TO github.com/sphis-Sinco/vsGuyPlus');
 			printToTrace('PRESS ENTER TO RESTART');
@@ -174,7 +176,7 @@ class CrashState extends FlxState
 
 		#if !LEGACY_PSYCH
 		@:privateAccess // lazy
-        backend.CrashHandler.saveErrorMessage(errMsg + '\n');
+		backend.CrashHandler.saveErrorMessage(errMsg + '\n');
 		#else
 		var path = './crash/' + 'VsGuyPlus_' + dateNow + '.txt';
 		File.saveContent(path, errMsg + '\n');

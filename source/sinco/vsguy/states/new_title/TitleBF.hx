@@ -6,6 +6,6 @@ class TitleBF extends FlxAtlasSprite
 {
 	public function new(x:Float, y:Float)
 	{
-        super(x, y, FunkinPath.animateAtlas('titlescreen/boyfriend'));
-    }
+		super(x, y, FunkinPath.animateAtlas('titlescreen/boyfriend'));
+	}
 }

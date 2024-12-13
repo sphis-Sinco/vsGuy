@@ -2,7 +2,7 @@ package sinco.vsguy.states.credits.json;
 
 class CreditManager
 {
-    public static var creditItemAPIVER:Float = 0.2;
+	public static var creditItemAPIVER:Float = 0.2;
 
 	public static function templateCredits():CreditsList
 	{

@@ -1,3 +1,5 @@
 package mikolka.vslice.charSelect;
 
-class CharIconLocked extends CharIcon {}
+class CharIconLocked extends CharIcon
+{
+}

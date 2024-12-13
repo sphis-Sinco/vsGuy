@@ -140,7 +140,6 @@ class LimoRideErect extends BaseStage
 		mist3.velocity.x = 900;
 		mist3.scale.set(1.5, 1.5);
 
-
 		mist4 = new FlxBackdrop(Paths.image('limo/erect/mistBack'), X);
 		mist4.setPosition(-650, -380);
 		mist4.scrollFactor.set(0.6, 0.6);
@@ -191,11 +190,11 @@ class LimoRideErect extends BaseStage
 		if (!VsliceOptions.LOW_QUALITY)
 		{
 			_timer += elapsed;
-			mist1.y = 100 + (Math.sin(_timer)*200);
-			mist2.y = 0 + (Math.sin(_timer*0.8)*100);
-			mist3.y = -20 + (Math.sin(_timer*0.5)*200);
-			mist4.y = -180 + (Math.sin(_timer*0.4)*300);
-			mist5.y = -450 + (Math.sin(_timer*0.2)*150);
+			mist1.y = 100 + (Math.sin(_timer) * 200);
+			mist2.y = 0 + (Math.sin(_timer * 0.8) * 100);
+			mist3.y = -20 + (Math.sin(_timer * 0.5) * 200);
+			mist4.y = -180 + (Math.sin(_timer * 0.4) * 300);
+			mist5.y = -450 + (Math.sin(_timer * 0.2) * 150);
 
 			grpLimoParticles.forEach(function(spr:BGSprite)
 			{

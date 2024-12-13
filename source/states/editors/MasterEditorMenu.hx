@@ -12,22 +12,22 @@ import states.MainMenuState;
 class MasterEditorMenu extends MusicBeatState
 {
 	var options:Array<String> = [
-		'Chart Editor', 
-		'Character Editor', 
-		'Stage Editor', 
-		'Week Editor', 
-		'Test stickers', 
-		'Menu Character Editor', 
-		'Dialogue Editor', 
+		'Chart Editor',
+		'Character Editor',
+		'Stage Editor',
+		'Week Editor',
+		'Test stickers',
+		'Menu Character Editor',
+		'Dialogue Editor',
 		'Dialogue Portrait Editor',
 		#if debug
 		'Crash the game',
 		#end
-		'Note Splash Editor', 
-		'Preview results (perfect)', 
-		'Preview results (excellent)', 
-		'Preview results (great)', 
-		'Preview results (good)', 
+		'Note Splash Editor',
+		'Preview results (perfect)',
+		'Preview results (excellent)',
+		'Preview results (great)',
+		'Preview results (good)',
 		'Preview results (shit)'
 	];
 	private var grpTexts:FlxTypedGroup<Alphabet>;
@@ -47,7 +47,7 @@ class MasterEditorMenu extends MusicBeatState
 
 		var bg:MenuBG = new MenuBG('menuDesat');
 		bg.scrollFactor.set();
-		bg.scale.set(1,1);
+		bg.scale.set(1, 1);
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.color = 0xFF4CAF50;
@@ -71,7 +71,7 @@ class MasterEditorMenu extends MusicBeatState
 		#if TOUCH_CONTROLS_ALLOWED
 		addTouchPad('UP_DOWN', 'A_B');
 		#end
-		
+
 		super.create();
 	}
 
@@ -114,13 +114,13 @@ class MasterEditorMenu extends MusicBeatState
 				case 'Test stickers':
 					MusicBeatState.switchState(new StickerTest());
 				#if debug
-				case 'Crash the game':{
-					@:privateAccess
-					openfl.Lib.current.loaderInfo.uncaughtErrorEvents.dispatchEvent(
-						new UncaughtErrorEvent(
-							openfl.events.UncaughtErrorEvent.UNCAUGHT_ERROR,
-							true,true,new openfl.errors.Error("The devs are too stupid and they write way too long errors")));
-				}
+				case 'Crash the game':
+					{
+						@:privateAccess
+						openfl.Lib.current.loaderInfo.uncaughtErrorEvents.dispatchEvent(new UncaughtErrorEvent(openfl.events.UncaughtErrorEvent.UNCAUGHT_ERROR,
+							true, true,
+							new openfl.errors.Error("The devs are too stupid and they write way too long errors")));
+					}
 				#end
 				case 'Preview results (perfect)':
 					runResults(200);

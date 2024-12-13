@@ -124,7 +124,6 @@ class PhillyStreets extends PicoCapableStage
 		if (ClientPrefs.data.shaders)
 			setupRainShader();
 
-
 		var _song = PlayState.SONG;
 		if (_song.gameOverSound == null || _song.gameOverSound.trim().length < 1)
 			GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pico';
@@ -199,7 +198,6 @@ class PhillyStreets extends PicoCapableStage
 
 		super.createPost();
 	}
-
 
 	var videoEnded:Bool = false;
 
@@ -390,22 +388,28 @@ class PhillyStreets extends PicoCapableStage
 		carSndAmbience.volume = 0.1;
 	}
 
-	override function openSubState(SubState:FlxSubState) {
+	override function openSubState(SubState:FlxSubState)
+	{
 		super.openSubState(SubState);
-		if(!Std.isOfType(SubState,PauseSubState) || inCutscene) return;
+		if (!Std.isOfType(SubState, PauseSubState) || inCutscene)
+			return;
 		// Temporarily stop ambiance.
-		if (rainSndAmbience != null) {
+		if (rainSndAmbience != null)
+		{
 			rainSndAmbience.pause();
 		}
-		if (carSndAmbience != null) {
+		if (carSndAmbience != null)
+		{
 			carSndAmbience.pause();
 		}
-		PlayState.instance.subStateClosed.addOnce((sub) ->{
+		PlayState.instance.subStateClosed.addOnce((sub) ->
+		{
 			carSndAmbience.volume = 0.1;
 			carSndAmbience.resume();
 			rainSndAmbience.resume();
 		});
 	}
+
 	function onNeneAnimationFinished(name:String)
 	{
 		if (!game.startedCountdown)

@@ -74,7 +74,7 @@ class ModsMenuState extends MusicBeatState
 
 		bg = new MenuBG('menuDesat');
 		bg.color = 0xFF665AFF;
-		bg.scale.set(1,1);
+		bg.scale.set(1, 1);
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);

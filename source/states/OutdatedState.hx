@@ -13,7 +13,7 @@ class OutdatedState extends MusicBeatState
 		super.create();
 
 		var bg:MenuBG = new MenuBG('menuDesat');
-		bg.scale.set(1,1);
+		bg.scale.set(1, 1);
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.color = 0x5c6579;
