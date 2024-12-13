@@ -615,17 +615,11 @@ class PlayState extends MusicBeatState
 		timeTxt.borderSize = 2;
 		if (curStage == 'guymc') {
 			timeTxt.font = Paths.font("mc.ttf");
-			timeTxt.y += 24;
 		}
 		timeTxt.visible = updateTime = showTime;
 		if (ClientPrefs.data.downScroll)
 		{
 			timeTxt.y = FlxG.height - 44;
-
-			if (curStage == 'guymc')
-			{
-				timeTxt.y -= 24;
-			}
 		}
 		if (ClientPrefs.data.timeBarType == 'Song Name')
 			timeTxt.text = SONG.song;
@@ -637,6 +631,16 @@ class PlayState extends MusicBeatState
 		timeBar.visible = showTime;
 		uiGroup.add(timeBar);
 		uiGroup.add(timeTxt);
+
+		if (curStage == 'guymc')
+		{
+			var padding:Float = -4;
+
+			if (ClientPrefs.data.downScroll)
+				timeTxt.y -= padding;
+			else
+				timeTxt.y += padding;
+		}
 
 		noteGroup.add(strumLineNotes);
 
