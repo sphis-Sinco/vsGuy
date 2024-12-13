@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.substates.f3scene.F3Scene;
 import sinco.vsguy.popups.XPPopup;
 import sinco.vsguy.stages.*;
 import mikolka.JoinedLuaVariables;
@@ -907,7 +908,12 @@ class PlayState extends MusicBeatState
 			}
 			updateHearts();
 		}
+
+		f3scene = new F3Scene(GAMEPLAY_STATE);
+		add(f3scene);
 	}
+
+	public var f3scene:F3Scene;
 
 	public var HEARTS_ENABLED:Bool = false;
 
@@ -2224,6 +2230,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		f3scene.f3check();
+
 		if (!endingSong && !inCutscene && allowDebugKeys)
 		{
 			if (controls.justPressed('debug_1'))
@@ -2392,6 +2400,8 @@ class PlayState extends MusicBeatState
 			endSong();
 		}
 		#end
+
+		f3scene.update(elapsed);
 	}
 
 	// Health icon updaters
