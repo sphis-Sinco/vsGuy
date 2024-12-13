@@ -674,11 +674,11 @@ class PlayState extends MusicBeatState
 			if (ClientPrefs.data.vsliceSmoothBar)
 			{
 				healthLerp = FlxMath.lerp(healthLerp, health, 0.15);
-				hearts = 10.0 * FlxMath.roundDecimal(healthLerp, 1);
+				if (HEARTS_ENABLED) hearts = 10.0 * FlxMath.roundDecimal(healthLerp, 1);
 				return healthLerp;
 			}
 
-			hearts = 10.0 * FlxMath.roundDecimal(health, 1);
+			if (HEARTS_ENABLED) hearts = 10.0 * FlxMath.roundDecimal(health, 1);
 
 			return health;
 		}, 0, 2);
@@ -871,32 +871,33 @@ class PlayState extends MusicBeatState
 			songStartTextEndTween();
 		});
 
-		var idx:Int = 0;
-		while (idx < 10)
-		{
-			idx++;
-			var heartScale:Float = 4.0;
-			var newheart:FlxSprite = new FlxSprite().loadGraphic(Paths.image('funkyUI/mcStuff/hearts'), true, 9, 9);
-			newheart.animation.add('empty', [0]);
-			newheart.animation.add('full', [1]);
-			newheart.animation.add('half', [2]);
-			newheart.animation.add('empty-flash', [6]);
-			newheart.animation.add('full-flash', [7]);
-			newheart.animation.add('half-flash', [8]);
-			newheart.animation.play('full');
-			newheart.ID = idx;
-			newheart.scale.set(heartScale, heartScale);
-			var heartPadding = (9 * heartScale);
-			newheart.setPosition(0, healthBar.y);
-			newheart.screenCenter(X);
-			newheart.x = newheart.x - ((-5 + idx) * heartPadding);
-
-			if (HEARTS_ENABLED)
-				heartGrp.add(newheart);
-		}
-
 		if (HEARTS_ENABLED)
-			updateHearts(0.0);
+		{
+			var idx:Int = 0;
+			while (idx < 10)
+			{
+				idx++;
+				var heartScale:Float = 4.0;
+				var newheart:FlxSprite = new FlxSprite().loadGraphic(Paths.image('funkyUI/mcStuff/hearts'), true, 9, 9);
+				newheart.animation.add('empty', [0]);
+				newheart.animation.add('full', [1]);
+				newheart.animation.add('half', [2]);
+				newheart.animation.add('empty-flash', [6]);
+				newheart.animation.add('full-flash', [7]);
+				newheart.animation.add('half-flash', [8]);
+				newheart.animation.play('full');
+				newheart.ID = idx;
+				newheart.scale.set(heartScale, heartScale);
+				var heartPadding = (9 * heartScale);
+				newheart.setPosition(0, healthBar.y);
+				newheart.screenCenter(X);
+				newheart.x = newheart.x - ((-5 + idx) * heartPadding);
+
+				if (HEARTS_ENABLED)
+					heartGrp.add(newheart);
+			}
+			updateHearts();
+		}
 	}
 
 	public var HEARTS_ENABLED:Bool = false;
@@ -2454,8 +2455,8 @@ class PlayState extends MusicBeatState
 			for (note in playerStrums)
 				if (note.animation.curAnim != null && note.animation.curAnim.name != 'static')
 				{
-					note.playAnim('static');
-					note.resetAnim = 0;
+					try {note.playAnim('static');
+					note.resetAnim = 0;} catch(e) {trace(e);}
 				}
 		}
 	}
@@ -3860,11 +3861,16 @@ class PlayState extends MusicBeatState
 		if (ClientPrefs.data.ghostTapping)
 			return; // fuck it
 
-		noteMissCommon(direction);
-		FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
+		noteMissCommon(direction, null);
+
+		try {
+			FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
+		} catch (e)
+			{
+				trace(e);
+			}
 		stagesFunc(function(stage:BaseStage) stage.noteMissPress(direction));
 		callOnScripts('noteMissPress', [direction]);
-	}
 
 	function noteMissCommon(direction:Int, note:Note = null)
 	{
@@ -3965,10 +3971,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 		vocals.volume = 0;
-		if (note.isSustainNote)
+		if (HEARTS_ENABLED){if (note.isSustainNote)
 			updateHearts(-0.25);
 		else
-			updateHearts(-0.5);
+			updateHearts(-0.5);}
 	}
 
 	function opponentNoteHit(note:Note):Void
