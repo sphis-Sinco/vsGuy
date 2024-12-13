@@ -290,8 +290,12 @@ class PlayState extends MusicBeatState
 
 	public static var LIVES:Int = 3;
 
+	// Stores Heart Objects in a Group
+	public var heartGrp:FlxSpriteGroup;
+
 	override public function create()
 	{
+		
 		this.variables = new JoinedLuaVariables();
 		// trace('Playback Rate: ' + playbackRate);
 		Paths.clearUnusedMemory();
@@ -451,6 +455,9 @@ class PlayState extends MusicBeatState
 		add(luaDebugGroup);
 		#end
 
+		if (curStage == 'guymc')
+			HEARTS_ENABLED = true;
+
 		if (!stageData.hide_girlfriend)
 		{
 			if (SONG.gfVersion == null || SONG.gfVersion.length < 1)
@@ -534,6 +541,7 @@ class PlayState extends MusicBeatState
 		uiGroup = new FlxSpriteGroup();
 		comboGroup = new FlxSpriteGroup();
 		noteGroup = new FlxTypedGroup<FlxBasic>();
+		heartGrp = new FlxSpriteGroup();
 
 		var character = songMeta.freeplayCharacter;
 
@@ -594,6 +602,7 @@ class PlayState extends MusicBeatState
 		}
 
 		add(comboGroup);
+		add(heartGrp);
 		add(uiGroup);
 		add(noteGroup);
 
@@ -680,21 +689,21 @@ class PlayState extends MusicBeatState
 		healthBar.alpha = ClientPrefs.data.healthBarAlpha;
 		reloadHealthBarColors();
 		
-		if (curStage != 'guymc')
+		if (HEARTS_ENABLED)
 			uiGroup.add(healthBar);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
 		iconP1.visible = !ClientPrefs.data.hideHud;
 		iconP1.alpha = ClientPrefs.data.healthBarAlpha;
-		if (curStage != 'guymc')
+		if (HEARTS_ENABLED)
 			uiGroup.add(iconP1);
 
 		iconP2 = new HealthIcon(dad.healthIcon, false);
 		iconP2.y = healthBar.y - 75;
 		iconP2.visible = !ClientPrefs.data.hideHud;
 		iconP2.alpha = ClientPrefs.data.healthBarAlpha;
-		if (curStage != 'guymc')
+		if (HEARTS_ENABLED)
 			uiGroup.add(iconP2);
 
 		scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 20);
@@ -703,8 +712,10 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
 		updateScore(false);
-		if (curStage == 'guymc')
+		if (HEARTS_ENABLED) {
 			scoreTxt.font = Paths.font("mc.ttf");
+			scoreTxt.screenCenter(X);
+		}
 		uiGroup.add(scoreTxt);
 
 		botplayTxt = new FlxText(400, healthBar.y - 90, FlxG.width - 800, Language.getPhrase("Botplay").toUpperCase(), 32);
@@ -721,6 +732,7 @@ class PlayState extends MusicBeatState
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
 		comboGroup.cameras = [camHUD];
+		heartGrp.cameras = [camHUD];
 
 		startingSong = true;
 
@@ -858,6 +870,51 @@ class PlayState extends MusicBeatState
 		{
 			songStartTextEndTween();
 		});
+
+		var idx:Int = 0;
+		while (idx < 10)
+		{
+			idx++;
+			var heartScale:Float = 4.0;
+			var newheart:FlxSprite = new FlxSprite().loadGraphic(Paths.image('funkyUI/mcStuff/hearts'), true, 9, 9);
+			newheart.animation.add('empty', [0]);
+			newheart.animation.add('full', [1]);
+			newheart.animation.add('half', [2]);
+			newheart.animation.add('empty-flash', [6]);
+			newheart.animation.add('full-flash', [7]);
+			newheart.animation.add('half-flash', [8]);
+			newheart.animation.play('full');
+			newheart.ID = idx;
+			newheart.scale.set(heartScale, heartScale);
+			var heartPadding = (9 * heartScale);
+			newheart.setPosition(0, healthBar.y);
+			newheart.screenCenter(X);
+			newheart.x = newheart.x - ((-5 + idx) * heartPadding);
+
+			if (HEARTS_ENABLED)
+				heartGrp.add(newheart);
+		}
+
+		if (HEARTS_ENABLED)
+			updateHearts(0.0);
+	}
+
+	public var HEARTS_ENABLED:Bool = false;
+
+	function updateHearts(amount:Float = 0.0)
+	{
+		if (!HEARTS_ENABLED) return;
+
+		hearts -= amount;
+		for (heart in heartGrp)
+		{
+			heart.animation.play('full');
+
+			if (heart.ID < hearts / 2)
+				heart.animation.play('empty');
+			else if (heart.ID == hearts / 2)
+				heart.animation.play('half');
+		}
 	}
 
 	public var songStartDim:FlxSprite;
@@ -1521,6 +1578,11 @@ class PlayState extends MusicBeatState
 		else
 			tempScore = Language.getPhrase('score_text_instakill', 'Score: {1} | Combo: {2}', [songScore, combo]);
 		scoreTxt.text = tempScore;
+
+		if (HEARTS_ENABLED)
+		{
+			scoreTxt.screenCenter(X);
+		}
 	}
 
 	public dynamic function fullComboFunction()
@@ -3903,6 +3965,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 		vocals.volume = 0;
+		if (note.isSustainNote)
+			updateHearts(-0.25);
+		else
+			updateHearts(-0.5);
 	}
 
 	function opponentNoteHit(note:Note):Void
@@ -4099,6 +4165,10 @@ class PlayState extends MusicBeatState
 		spawnHoldSplashOnNote(note);
 		if (!note.isSustainNote)
 			invalidateNote(note);
+		if (note.isSustainNote)
+			updateHearts(0.5);
+		else
+			updateHearts(1.0);
 	}
 
 	public function invalidateNote(note:Note):Void
