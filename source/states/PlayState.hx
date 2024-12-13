@@ -716,9 +716,9 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
 		updateScore(false);
-		if (HEARTS_ENABLED) {
+		if (curStage == 'guymc') {
 			scoreTxt.font = Paths.font("mc.ttf");
-			scoreTxt.screenCenter(X);
+			if (HEARTS_ENABLED) scoreTxt.screenCenter(X);
 		}
 		uiGroup.add(scoreTxt);
 
