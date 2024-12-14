@@ -257,7 +257,7 @@ class TitleState extends MusicBeatState
 		backdrop.visible = false;
 
 		bf = new TitleBF(60, 128);
-		bf.playAnimation('boyfriend idle dance');
+		bf.playAnimation('idle');
 		bf.visible = false;
 
 		bars = new FlxSprite(0, 0).loadGraphic(Paths.image('titlescreen/bars'));
@@ -314,6 +314,8 @@ class TitleState extends MusicBeatState
 	var newTitle:Bool = false;
 	var titleTimer:Float = 0;
 
+	var pressedEnter:Bool;
+
 	override function update(elapsed:Float)
 	{
 		if (backdrop != null)
@@ -336,7 +338,7 @@ class TitleState extends MusicBeatState
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
-		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT || (TouchUtil.justReleased && !SwipeUtil.swipeAny);
+		pressedEnter = FlxG.keys.justPressed.ENTER || controls.ACCEPT || (TouchUtil.justReleased && !SwipeUtil.swipeAny);
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
@@ -373,6 +375,7 @@ class TitleState extends MusicBeatState
 			if (pressedEnter)
 			{
 				press_play.playAnim(ClientPrefs.data.flashing ? 'pressed' : 'pressed-flashless');
+				bf.animation.play('hey');
 
 				FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
@@ -528,8 +531,8 @@ class TitleState extends MusicBeatState
 		if (logoBl != null)
 			logoBl.animation.play('bump', true);
 
-		if (curBeat % 2 == 0)
-			bf.playAnimation('boyfriend idle dance');
+		if (curBeat % 2 == 0 && !pressedEnter)
+			bf.animation.play('idle');
 
 		if (cheatActive && this.curBeat % 2 == 0 && swagShader != null)
 			swagShader.hue += 0.125;
