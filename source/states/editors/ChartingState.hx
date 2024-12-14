@@ -67,6 +67,10 @@ class ChartingState extends MenuState implements PsychUIEventHandler.PsychUIEven
 	public static final defaultEvents:Array<Array<String>> = [
 		['', "Nothing. Yep, that's right."], // Always leave this one empty pls
 		[
+			'Minecraft Chat',
+			"Value 1: Text\n\nValue 2: Character (BF, Dad)"
+		],
+		[
 			'Dadbattle Spotlight',
 			"Used in Dad Battle,\nValue 1: 0/1 = ON/OFF,\n2 = Target Dad\n3 = Target BF"
 		],

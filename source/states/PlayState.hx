@@ -1,5 +1,6 @@
 package states;
 
+import sinco.mc.chat.ChatMessage;
 import sinco.vsguy.substates.f3scene.F3Scene;
 import sinco.vsguy.popups.XPPopup;
 import sinco.vsguy.stages.*;
@@ -2608,6 +2609,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
+	public var mcChatGRP:FlxTypedGroup<ChatMessage>;
+
 	public function triggerEvent(eventName:String, value1:String, value2:String, strumTime:Float)
 	{
 		var flValue1:Null<Float> = Std.parseFloat(value1);
@@ -2619,6 +2622,50 @@ class PlayState extends MusicBeatState
 
 		switch (eventName)
 		{
+			case 'Minecraft Chat':
+				if (mcChatGRP == null) {
+					// do this
+					mcChatGRP = new FlxTypedGroup<ChatMessage>();
+					add(mcChatGRP);
+				} else {
+					// do that
+					for (message in mcChatGRP)
+					{
+						message.moveUp();
+					}
+				}
+
+				var mcChat:ChatMessage = new ChatMessage(value1);
+
+				var daddyChar:String = dad.curCharacter;
+				var keithChar:String = boyfriend.curCharacter;
+
+				switch (daddyChar)
+				{
+					case 'guy-mc':
+						daddyChar = 'guyUltimate';
+				}
+				switch (keithChar)
+				{
+					case 'bf-mc':
+						daddyChar = 'shortQueen';
+				}
+
+				switch(value2.toLowerCase())
+				{
+					case 'dad':
+						mcChat.textField.text = '<${daddyChar}>: $value1';
+						mcChat.textField.color = healthBar.leftBar.color;
+					
+					default:
+						mcChat.textField.text = '<${keithChar}>: $value1';
+						mcChat.textField.color = healthBar.rightBar.color;
+				}
+
+				mcChat.cameras = [camHUD];
+
+				mcChatGRP.add(mcChat);
+
 			case 'Hey!':
 				var value:Int = 2;
 				switch (value1.toLowerCase().trim())

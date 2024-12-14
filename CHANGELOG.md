@@ -2,9 +2,10 @@
 ## 2.0 [Holiday Pack] - December 15th 2024
 this changelog is experimental and follows an experimental new format
 ### Changelog
-- 🔵 other: Removal of Unserious Elements
-- ✨feature: `shared/characters` has been moved to `shared/data/characters`
+- ✨feature: Chat messages
 - 🐞 fix: Size of Score Text in `Crafters`
+- ✨feature: `shared/characters` has been moved to `shared/data/characters`
+- 🔵 other: Removal of Unserious Elements
 
 ## 1.9 [Elomento Pack 2] - December 14th 2024
 ### Added

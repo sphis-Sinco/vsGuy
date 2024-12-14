@@ -581,6 +581,12 @@
 	],
 	"events": [
 		[
+			0,
+			[
+				["Minecraft Chat", "BEEP", "BF"]
+			]
+		],
+		[
 			51000,
 			[
 				["Play Animation", "arrowShoot", "Dad"]
@@ -638,6 +644,30 @@
 			53906.25,
 			[
 				["Play Animation", "arrowDodgeMiss", "BF"]
+			]
+		],
+		[
+			60000,
+			[
+				["Minecraft Chat", "Wanna play Hypixel or smth?", "BF"]
+			]
+		],
+		[
+			63000,
+			[
+				["Minecraft Chat", "Sure", "Dad"]
+			]
+		],
+		[
+			63375,
+			[
+				["Minecraft Chat", "I guess...", "Dad"]
+			]
+		],
+		[
+			64500,
+			[
+				["Minecraft Chat", "ALRIGHT!!!!", "BF"]
 			]
 		]
 	],
