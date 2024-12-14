@@ -13,6 +13,8 @@
   - Double XP: Doubles your XP at the end of a song (requires 7000 XP)
 - NEW CREDITS MENU BASED ON VSLICE (+ spooky mix)
 - NEW TITLE SCREEN
+- F3 DEBUG MENU
+  - with a keybind for it (F3 (duh))
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
 - Engine Watermark to Gameplay (top right)
 - Minecraft Font
@@ -48,6 +50,7 @@
 - Metadata tab in Chart Editor (many edits)
 - Size of Main Menu Menu Items
 - Default Window Title
+- Default Screenshot keybind (now F2)
 
 ## v1.5-2 - November 29th 2024
 ### Added

@@ -142,7 +142,8 @@ class ClientPrefs
 		'accept' => [SPACE, ENTER],
 		'back' => [BACKSPACE, ESCAPE],
 		'pause' => [ENTER, ESCAPE],
-		'screenshot' => [F3],
+		'screenshot' => [F2],
+		'f3menu' => [F3],
 		'reset' => [R],
 		'volume_mute' => [ZERO],
 		'volume_up' => [NUMPADPLUS, PLUS],
@@ -167,6 +168,7 @@ class ClientPrefs
 		'back' => [B],
 		'pause' => [START],
 		'screenshot' => [],
+		'f3menu' => [],
 		'reset' => [BACK]
 	];
 	public static var mobileBinds:Map<String, Array<MobileInputID>> = [
@@ -185,6 +187,7 @@ class ClientPrefs
 		'back' => [B],
 		'pause' => [#if android NONE #else P #end],
 		'screenshot' => [NONE],
+		'f3menu' => [NONE],
 		'reset' => [NONE]
 	];
 	public static var defaultMobileBinds:Map<String, Array<MobileInputID>> = null;

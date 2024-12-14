@@ -124,6 +124,7 @@ class Controls
 	public var BACK(get, never):Bool;
 	public var PAUSE(get, never):Bool;
 	public var SCREENSHOT(get, never):Bool;
+	public var F3MENU(get, never):Bool;
 	public var RESET(get, never):Bool;
 	public var CHAR_SELECT(get, never):Bool;
 
@@ -148,6 +149,9 @@ class Controls
 	private function get_SCREENSHOT()
 		return justPressed('screenshot');
 
+	private function get_F3MENU()
+		return justPressed('f3menu');
+
 	private function get_RESET()
 		return justPressed('reset');
 
@@ -167,7 +171,8 @@ class Controls
 		if (result)
 			controllerMode = false;
 
-		return result || _myGamepadJustPressed(gamepadBinds[key]) == true #if TOUCH_CONTROLS_ALLOWED
+		return result
+			|| _myGamepadJustPressed(gamepadBinds[key]) == true #if TOUCH_CONTROLS_ALLOWED
 		|| hitboxJustPressed(mobileBinds[key]) == true
 		|| touchPadJustPressed(mobileBinds[key]) == true #end;
 	}
@@ -178,7 +183,8 @@ class Controls
 		if (result)
 			controllerMode = false;
 
-		return result || _myGamepadPressed(gamepadBinds[key]) == true #if TOUCH_CONTROLS_ALLOWED
+		return result
+			|| _myGamepadPressed(gamepadBinds[key]) == true #if TOUCH_CONTROLS_ALLOWED
 		|| hitboxPressed(mobileBinds[key]) == true
 		|| touchPadPressed(mobileBinds[key]) == true #end;
 	}
@@ -189,7 +195,8 @@ class Controls
 		if (result)
 			controllerMode = false;
 
-		return result || _myGamepadJustReleased(gamepadBinds[key]) == true #if TOUCH_CONTROLS_ALLOWED
+		return result
+			|| _myGamepadJustReleased(gamepadBinds[key]) == true #if TOUCH_CONTROLS_ALLOWED
 		|| hitboxJustReleased(mobileBinds[key]) == true
 		|| touchPadJustReleased(mobileBinds[key]) == true #end;
 	}

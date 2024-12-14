@@ -30,10 +30,10 @@ class F3Scene extends MusicBeatSubstate
 
 	public function f3check()
 	{
-		if (FlxG.keys.justReleased.F3)
+		if (controls.justReleased('f3menu'))
 		{
 			ENABLED = !ENABLED;
-			trace('F3 SCENE IS NOW ${ENABLED ? 'ENABLED' : 'DISABLED'}!');
+			trace('F3 SCENE IS NOW ${ENABLED ? 'ENABLED' : 'DISABLED'}! KEY PRESSED: ${ClientPrefs.keyBinds.get('f3menu')}');
 		}
 	}
 }
