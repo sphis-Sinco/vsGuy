@@ -53,7 +53,7 @@ class FreeplayHelpers
 			}
 		}
 
-		if (ClientPrefs.data.EnabledStoreItems.contains('Crafters'))
+		if (ClientPrefs.data.EnabledStoreItems.contains('Crafters Song'))
 		{
 			var sngCard = new FreeplaySongData(1, 'Crafters', 'guy', 0x0990f0);
 			songs.push(sngCard);
