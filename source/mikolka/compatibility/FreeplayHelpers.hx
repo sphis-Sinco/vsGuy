@@ -70,17 +70,10 @@ class FreeplayHelpers
 			diffId = 0;
 		}
 
+		PlayState.SONG = Song.loadFromJson(Highscore.formatSong('guy', 2), 'guy');
+
 		var songLowercase:String = Paths.formatToSongPath(cap.songId);
-		var poop:String = Highscore.formatSong(songLowercase, diffId); // TODO //currentDifficulty);
-		/*#if MODS_ALLOWED
-			if(!FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
-			#else
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-			#end
-				poop = songLowercase;
-				curDifficulty = 1;
-				trace('Couldnt find file');
-		}*/
+		var poop:String = Highscore.formatSong(songLowercase, diffId);
 		trace(poop);
 
 		try
@@ -90,6 +83,9 @@ class FreeplayHelpers
 			PlayState.storyDifficulty = diffId;
 
 			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
+
+			if (songLowercase == 'nerve')
+				PlayState.SONG = Song.loadFromJson(Highscore.formatSong('nerve', diffId), 'nerve');
 		}
 		catch (e:Dynamic)
 		{

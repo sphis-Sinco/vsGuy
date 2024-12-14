@@ -516,6 +516,7 @@ class ResultState extends MusicBeatSubState
 			trace('Final XP doubled: ${finalXP * 2}');
 
 			add(doubleXP);
+			doubleXP.start();
 		}
 
 		trace('Final XP: ${finalXP + additional}');
@@ -539,6 +540,12 @@ class ResultState extends MusicBeatSubState
 
 	function startRankTallySequence():Void
 	{
+		FlxTween.tween(doubleXP, {alpha: 0}, 5 / 24, {
+			onComplete: _ -> {
+				doubleXP.end();
+			}
+		});
+
 		bgFlash.visible = true;
 		FlxTween.tween(bgFlash, {alpha: 0}, 5 / 24);
 		var clearPercentFloat = (params.scoreData.accPoints / params.scoreData.totalNotesHit) * 100; // ? different rating system
@@ -668,7 +675,6 @@ class ResultState extends MusicBeatSubState
 
 	function afterRankTallySequence():Void
 	{
-		doubleXP.end();
 		showSmallClearPercent();
 
 		for (atlas in characterAtlasAnimations)
