@@ -103,6 +103,8 @@ class CharSelectSubState extends MusicBeatSubState
 			curChar = charData.char_name;
 		}
 		loadAvailableCharacters();
+		
+		sinco.vsguy.systems.Cache.Menus.cacheSounds('cs');
 	}
 
 	function loadAvailableCharacters():Void

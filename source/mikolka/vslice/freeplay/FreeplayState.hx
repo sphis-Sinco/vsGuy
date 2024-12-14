@@ -230,7 +230,6 @@ class FreeplayState extends MusicBeatSubstate
 	public function new(?params:FreeplayStateParams, ?stickers:StickerSubState)
 	{
 		controls.isInSubstate = true;
-		super();
 		var saveBox = VsliceOptions.LAST_MOD;
 		currentCharacterId = saveBox.char_name;
 		// switch to the character's mod to load her registry
@@ -265,6 +264,8 @@ class FreeplayState extends MusicBeatSubstate
 		{
 			stickerSubState = stickers;
 		}
+
+		sinco.vsguy.systems.Cache.Menus.cacheSounds('fp');
 	}
 
 	var fadeShader:BlueFade = new BlueFade();
