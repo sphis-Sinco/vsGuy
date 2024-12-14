@@ -1,10 +1,10 @@
 # vs Guy plus
 ## 2.0 [Holiday Pack] - December 15th 2024
 this changelog is experimental and follows an experimental new format
-### Removed
+### Changelog
 - 🔵 other: Removal of Unserious Elements
-### Changed
 - ✨feature: `shared/characters` has been moved to `shared/data/characters`
+- 🐞 fix: Size of Score Text in `Crafters`
 
 ## 1.9 [Elomento Pack 2] - December 14th 2024
 ### Added
