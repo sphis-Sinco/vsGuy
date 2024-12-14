@@ -85,7 +85,11 @@ class StrumNote extends FlxSprite
 		var pixelFolder:String = 'pixelUI/';
 
 		if (PlayState.curStage == 'guymc')
+		{
+			if (Difficulty.getString(PlayState.storyDifficulty) == 'Hell')
+				texture += '-hardcore';
 			pixelFolder = 'funkyUI/';
+		}
 
 		if (pixelNotes)
 		{

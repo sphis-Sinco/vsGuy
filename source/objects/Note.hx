@@ -418,7 +418,11 @@ class Note extends FlxSprite
 		var pixelFolder:String = 'pixelUI/';
 
 		if (PlayState.curStage == 'guymc')
+		{
 			pixelFolder = 'funkyUI/';
+			if (Difficulty.getString(PlayState.storyDifficulty) == 'Hell')
+				skinPostfix += '-hardcore';
+		}
 
 		if (pixelNotes)
 		{
