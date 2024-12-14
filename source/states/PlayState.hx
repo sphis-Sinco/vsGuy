@@ -772,7 +772,7 @@ class PlayState extends MusicBeatState
 
 		// SONG SPECIFIC SCRIPTS
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'data/$songName/'))
+		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'data/songs/$songName/'))
 			#if linux
 			for (file in CoolUtil.sortAlphabetically(Paths.readDirectory(folder)))
 			#else
@@ -1003,14 +1003,14 @@ class PlayState extends MusicBeatState
 			var path:String;
 			var songPath:String = Paths.formatToSongPath(Song.loadedSongName);
 			#if TRANSLATIONS_ALLOWED
-			path = Paths.getPath('data/$songPath/${dialogueFile}_${ClientPrefs.data.language}.json', TEXT);
+			path = Paths.getPath('data/songs/$songPath/${dialogueFile}_${ClientPrefs.data.language}.json', TEXT);
 			#if MODS_ALLOWED
 			if (!FileSystem.exists(path))
 			#else
 			if (!Assets.exists(path, TEXT))
 			#end
 			#end
-			path = Paths.getPath('data/$songPath/$dialogueFile${songMeta.censoredDialogue && !ClientPrefs.data.naughtyness ? '-censored' : ''}.json', TEXT);
+			path = Paths.getPath('data/songs/$songPath/$dialogueFile${songMeta.censoredDialogue && !ClientPrefs.data.naughtyness ? '-censored' : ''}.json', TEXT);
 
 			#if MODS_ALLOWED
 			if (FileSystem.exists(path))
@@ -3189,25 +3189,6 @@ class PlayState extends MusicBeatState
 				openChartEditor();
 				return false;
 			}
-
-			/*
-
-				var newXP:Float = songScore * 50;
-				var xpPenalty:Float = (tempActiveTallises.missed) * 250; // 250 xp lost for each miss
-
-				if (newXP < 0)
-					newXP = 0;
-
-				trace('XP earned (no penalty): $newXP');
-				trace('XP penalty: ${xpPenalty}');
-				trace('XP earned (with penalty): ${newXP - xpPenalty}');
-
-				ClientPrefs.data.XP += (newXP - xpPenalty);
-
-				var popup:XPPopup = new XPPopup((newXP - xpPenalty), camHUD);
-				add(popup);
-
-			 */
 
 			var playedSong = curSong.toLowerCase().replace(' ', '-');
 
