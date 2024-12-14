@@ -1,5 +1,6 @@
 package substates;
 
+import sinco.mc.chat.ChatMessage;
 import mikolka.stages.PicoCapableStage;
 import mikolka.vslice.freeplay.FreeplayState;
 import backend.WeekData;
@@ -154,6 +155,28 @@ class GameOverSubstate extends MusicBeatSubstate
 		addTouchPad('NONE', 'A_B');
 		addTouchPadCamera();
 		#end
+
+		var mcChat:ChatMessage;
+
+		if (PlayState.SONG.song == 'Crafters')
+		{
+			mcChat = new ChatMessage('shortQueen was shot by GuyUltimate');
+			add(mcChat);
+		}
+		else
+		{
+			mcChat = new ChatMessage('null');
+		}
+
+		mcChat.timer = new FlxTimer().start(3, _ ->
+		{
+			FlxTween.tween(mcChat, {alpha: 0}, 1.0, {
+				onComplete: _ ->
+				{
+					mcChat.destroy();
+				}
+			});
+		});
 
 		super.create();
 	}
