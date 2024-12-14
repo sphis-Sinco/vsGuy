@@ -37,7 +37,7 @@ class FunkinSound extends FlxSound
 	public static function load(embeddedSound:FlxSoundAsset, volume:Float = 1.0, looped:Bool = false, autoDestroy:Bool = false, autoPlay:Bool = false,
 			?onComplete:Void->Void, ?onLoad:Void->Void):Null<FunkinSound>
 	{
-		//? Why was that a thing again?
+		// ? Why was that a thing again?
 		// @:privateAccess
 		// if (SoundMixer.__soundChannels.length >= SoundMixer.MAX_ACTIVE_CHANNELS)
 		// {
@@ -48,7 +48,8 @@ class FunkinSound extends FlxSound
 		var sound:FunkinSound = new FunkinSound(); // pool.recycle(construct);
 
 		// Sets `exists = true` as a side effect.
-		if(embeddedSound is String) embeddedSound = Paths.sound(embeddedSound);
+		if (embeddedSound is String)
+			embeddedSound = Paths.sound(embeddedSound);
 		sound.loadEmbedded(embeddedSound, looped, autoDestroy, onComplete);
 
 		//   if (embeddedSound is String)
@@ -78,51 +79,63 @@ class FunkinSound extends FlxSound
 
 		return sound;
 	}
-	public static function playMusic(key:String, params:FunkinSoundPlayMusicParams):Bool {
-		if(params.pathsFunction == INST){
+
+	public static function playMusic(key:String, params:FunkinSoundPlayMusicParams):Bool
+	{
+		if (params.pathsFunction == INST)
+		{
 			var instPath = "";
-			
-			try{
-				//key = songData.songId
+
+			try
+			{
+				// key = songData.songId
 
 				instPath = 'assets/songs/${Paths.formatToSongPath(key)}/Inst.${Paths.SOUND_EXT}';
 				#if MODS_ALLOWED
 				var modsInstPath = Paths.modFolders('songs/${Paths.formatToSongPath(key)}/Inst.${Paths.SOUND_EXT}');
-				if(FileSystem.exists(modsInstPath)) instPath = modsInstPath;
+				if (FileSystem.exists(modsInstPath))
+					instPath = modsInstPath;
 				#end
-				
-				var future = FlxPartialSound.partialLoadFromFile(instPath,params.partialParams.start,params.partialParams.end);
-				if(future == null){
+
+				var future = FlxPartialSound.partialLoadFromFile(instPath, params.partialParams.start, params.partialParams.end);
+				if (future == null)
+				{
 					trace('Internal failure loading instrumentals for ${key} "${instPath}"');
 					return false;
 				}
 				future.future.onComplete(function(sound:Sound)
-					{
-						@:privateAccess{
-							if(!Std.isOfType(FlxG.state.subState,FreeplayState)) return;
-							var fp = cast (FlxG.state.subState,FreeplayState);
+				{
+					@:privateAccess {
+						if (!Std.isOfType(FlxG.state.subState, FreeplayState))
+							return;
+						var fp = cast(FlxG.state.subState, FreeplayState);
 
-							var cap = fp.grpCapsules.members[fp.curSelected];
-							if(cap.songData == null || cap.songData.songId != key || fp.busy) return;
-						}
-						
-						trace("Playing preview!");
-						FlxG.sound.playMusic(sound,0);
-						params.onLoad();
-					});
+						var cap = fp.grpCapsules.members[fp.curSelected];
+						if (cap.songData == null || cap.songData.songId != key || fp.busy)
+							return;
+					}
+
+					trace("Playing preview!");
+					FlxG.sound.playMusic(sound, 0);
+					params.onLoad();
+				});
 				return true;
 			}
-			catch (x){
-				var targetPath = instPath == "" ? "" : "from "+instPath;
+			catch (x)
+			{
+				var targetPath = instPath == "" ? "" : "from " + instPath;
 				trace('Failed to parialy load instrumentals for ${key} ${targetPath}');
 				return false;
 			}
 		}
-		else{
-			var targetPath = key+"/"+key;
-			if(key == "freakyMenu") targetPath = "freakyMenu";
-			FlxG.sound.playMusic(Paths.music(targetPath),params.startingVolume,params.loop);
-			if(params.onLoad!= null)params.onLoad();
+		else
+		{
+			var targetPath = key + "/" + key;
+			if (key == "FlexRack")
+				targetPath = "FlexRack";
+			FlxG.sound.playMusic(Paths.music(targetPath), params.startingVolume, params.loop);
+			if (params.onLoad != null)
+				params.onLoad();
 			return true;
 		}
 	}
@@ -131,67 +144,67 @@ class FunkinSound extends FlxSound
 /**
  * Additional parameters for `FunkinSound.playMusic()`
  */
- typedef FunkinSoundPlayMusicParams =
- {
-   /**
-	* The volume you want the music to start at.
-	* @default `1.0`
-	*/
-   var ?startingVolume:Float;
- 
-   /**
-	* The suffix of the music file to play. Usually for "-erect" tracks when loading an INST file
-	* @default ``
-	*/
-   var ?suffix:String;
- 
-   /**
-	* Whether to override music if a different track is already playing.
-	* @default `false`
-	*/
-   var ?overrideExisting:Bool;
- 
-   /**
-	* Whether to override music if the same track is already playing.
-	* @default `false`
-	*/
-   var ?restartTrack:Bool;
- 
-   /**
-	* Whether the music should loop or play once.
-	* @default `true`
-	*/
-   var ?loop:Bool;
- 
-   /**
-	* Whether to check for `SongMusicData` to update the Conductor with.
-	* @default `true`
-	*/
-   var ?mapTimeChanges:Bool;
- 
-   /**
-	* Which Paths function to use to load a song
-	* @default `MUSIC`
-	*/
-   var ?pathsFunction:PathsFunction;
- 
-   var ?partialParams:PartialSoundParams;
- 
-   var ?onComplete:Void->Void;
-   var ?onLoad:Void->Void;
- }
-
- typedef PartialSoundParams =
+typedef FunkinSoundPlayMusicParams =
 {
-  var loadPartial:Bool;
-  var start:Float;
-  var end:Float;
+	/**
+	 * The volume you want the music to start at.
+	 * @default `1.0`
+	 */
+	var ?startingVolume:Float;
+
+	/**
+	 * The suffix of the music file to play. Usually for "-erect" tracks when loading an INST file
+	 * @default ``
+	 */
+	var ?suffix:String;
+
+	/**
+	 * Whether to override music if a different track is already playing.
+	 * @default `false`
+	 */
+	var ?overrideExisting:Bool;
+
+	/**
+	 * Whether to override music if the same track is already playing.
+	 * @default `false`
+	 */
+	var ?restartTrack:Bool;
+
+	/**
+	 * Whether the music should loop or play once.
+	 * @default `true`
+	 */
+	var ?loop:Bool;
+
+	/**
+	 * Whether to check for `SongMusicData` to update the Conductor with.
+	 * @default `true`
+	 */
+	var ?mapTimeChanges:Bool;
+
+	/**
+	 * Which Paths function to use to load a song
+	 * @default `MUSIC`
+	 */
+	var ?pathsFunction:PathsFunction;
+
+	var ?partialParams:PartialSoundParams;
+
+	var ?onComplete:Void->Void;
+	var ?onLoad:Void->Void;
+}
+
+typedef PartialSoundParams =
+{
+	var loadPartial:Bool;
+	var start:Float;
+	var end:Float;
 }
 
 enum abstract PathsFunction(String)
 {
-  var MUSIC;
-  var INST;
-  var VOICES;
-  var SOUND;
+	var MUSIC;
+	var INST;
+	var VOICES;
+	var SOUND;
 }

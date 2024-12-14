@@ -6,109 +6,130 @@ import mikolka.compatibility.FunkinPath;
 
 using mikolka.funkin.custom.FunkinTools;
 using StringTools;
-//TODO softcode this soon
-class PlayerRegistry extends PsliceRegistry{
-    public static var instance:PlayerRegistry = new PlayerRegistry();
 
-    var chars:Array<String> = ClientPrefs.data.unlockedCharacters;
-    var files:Array<String> = [];
+// TODO softcode this soon
+class PlayerRegistry extends PsliceRegistry
+{
+	public static var instance:PlayerRegistry = new PlayerRegistry();
 
-    public function new() {
-        super('players');
-    }
+	var chars:Array<String> = ClientPrefs.data.unlockedCharacters;
+	var files:Array<String> = [];
 
-    public function isCharacterOwned(id:String):Bool {
-        return true;
-    }
-    public function hasNewCharacter():Bool {
-        var newchar:Bool = false;
-        chars = ClientPrefs.data.unlockedCharacters;
+	public function new()
+	{
+		super('players');
+	}
 
-        try { 
-            files = FileSystem.readDirectory(Paths.getPath('registry/players'));
-        } catch(e){
-            files = ['bf'];
-        }
-        // trace('Savedata Players Registery$chars');
-        // trace('Freeplay Players Registery: $files');
+	public function isCharacterOwned(id:String):Bool
+	{
+		return true;
+	}
 
-        var array = [];
-        for (file in files)
-        {
-           array.push(file.split('.json')[0]);
-        }
-        files = array;
+	public function hasNewCharacter():Bool
+	{
+		var newchar:Bool = false;
+		chars = ClientPrefs.data.unlockedCharacters;
 
-        trace(chars);
-        trace(files);
+		try
+		{
+			files = FileSystem.readDirectory(Paths.getPath('registry/players'));
+		}
+		catch (e)
+		{
+			files = ['bf'];
+		}
+		// trace('Savedata Players Registery$chars');
+		// trace('Freeplay Players Registery: $files');
 
-        newchar = chars != files;
+		var array = [];
+		for (file in files)
+		{
+			array.push(file.split('.json')[0]);
+		}
+		files = array;
 
-        if (newchar){
-            var newEntry:Bool = false;
-            var newEntryAm:Int = 0;
-            var newEntrys:Array<String> = [];
+		trace(chars);
+		trace(files);
 
-            for (i in 0...chars.length) {
-                if (!files.contains(chars[i]))
-                {
-                    newEntrys.push(chars[i].split('.json')[0]);
-                    chars.remove(chars[i]);
-                    newEntryAm++;
-                }
-            }
+		newchar = chars != files;
 
-            if (newEntryAm > 0) {
-                trace('Removed $newEntryAm unused Player Registries from Save data');
-                trace(newEntrys);
-            }
+		if (newchar)
+		{
+			var newEntry:Bool = false;
+			var newEntryAm:Int = 0;
+			var newEntrys:Array<String> = [];
 
-            newEntryAm = 0;
-            newEntrys = [];
+			for (i in 0...chars.length)
+			{
+				if (!files.contains(chars[i]))
+				{
+					newEntrys.push(chars[i].split('.json')[0]);
+					chars.remove(chars[i]);
+					newEntryAm++;
+				}
+			}
 
-            for (i in 0...files.length) {
-                if (!chars.contains(files[i]))
-                {
-                    newEntry = true;
-                    newEntryAm++;
-                    newEntrys.push(files[i].split('.json')[0]);
-                }
-            }
+			if (newEntryAm > 0)
+			{
+				trace('Removed $newEntryAm unused Player Registries from Save data');
+				trace(newEntrys);
+			}
 
-            if (!newEntry && newEntryAm == 0) return false;
+			newEntryAm = 0;
+			newEntrys = [];
 
-            ClientPrefs.data.unlockedCharacters = files; // TODO: make this based off of the unlocked key in the JSON
-            chars = ClientPrefs.data.unlockedCharacters;
-            trace('$newEntryAm new Player Registeries');
-            trace(newEntrys);
-            return true;
-        }
-        
-        return false;
-    }
-    public function fetchEntry(playableCharId:String):Null<PlayableCharacter> {
-        try {
-            var player_blob:Dynamic = readJson(playableCharId);// new PlayerData();
-            if(player_blob == null) return null;
-            var player_data = new PlayerData().mergeWithJson(player_blob,["freeplayDJ"]);
-            var dj = new PlayerFreeplayDJData().mergeWithJson(player_blob.freeplayDJ);
-            player_data.freeplayDJ = dj;
-            return new PlayableCharacter(player_data);
-        }
-        catch(x){
-            trace('Couldn\'t pull $playableCharId: ${x.message}');
-            return null;
-        }
-        
-    }
-    
-    // return ALL characters avaliable (from current mod)
-    public function listEntryIds():Array<String> {
-        return listJsons();
-    }
-    // This is only used to check if we should allow the player to open charSelect
-    public function countUnlockedCharacters():Int {
-        chars = ClientPrefs.data.unlockedCharacters;
-        return chars.length;
-    }
+			for (i in 0...files.length)
+			{
+				if (!chars.contains(files[i]))
+				{
+					newEntry = true;
+					newEntryAm++;
+					newEntrys.push(files[i].split('.json')[0]);
+				}
+			}
+
+			if (!newEntry && newEntryAm == 0)
+				return false;
+
+			ClientPrefs.data.unlockedCharacters = files; // TODO: make this based off of the unlocked key in the JSON
+			chars = ClientPrefs.data.unlockedCharacters;
+			trace('$newEntryAm new Player Registeries');
+			trace(newEntrys);
+			return true;
+		}
+
+		return false;
+	}
+
+	public function fetchEntry(playableCharId:String):Null<PlayableCharacter>
+	{
+		try
+		{
+			var player_blob:Dynamic = readJson(playableCharId); // new PlayerData();
+			if (player_blob == null)
+				return null;
+			var player_data = new PlayerData().mergeWithJson(player_blob, ["freeplayDJ"]);
+			var dj = new PlayerFreeplayDJData().mergeWithJson(player_blob.freeplayDJ);
+			player_data.freeplayDJ = dj;
+			return new PlayableCharacter(player_data);
+		}
+		catch (x)
+		{
+			trace('Couldn\'t pull $playableCharId: ${x.message}');
+			return null;
+		}
+	}
+
+	// return ALL characters avaliable (from current mod)
+	public function listEntryIds():Array<String>
+	{
+		return listJsons();
+	}
+
+	// This is only used to check if we should allow the player to open charSelect
+	public function countUnlockedCharacters():Int
+	{
+		chars = ClientPrefs.data.unlockedCharacters;
+		return chars.length;
+	}
 }

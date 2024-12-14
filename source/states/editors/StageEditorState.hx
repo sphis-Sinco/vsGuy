@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import backend.StageData;
 import backend.PsychCamera;
 import objects.Character;
@@ -19,7 +20,7 @@ import flash.net.FileFilter;
 import states.editors.content.Prompt;
 import states.editors.content.PreloadListSubState;
 
-class StageEditorState extends MusicBeatState implements PsychUIEventHandler.PsychUIEvent
+class StageEditorState extends MenuState implements PsychUIEventHandler.PsychUIEvent
 {
 	final minZoom = 0.1;
 	final maxZoom = 2;
@@ -42,7 +43,7 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 	{
 		lastLoadedStage = stageToLoad;
 		stageJson = cachedJson;
-		super();
+		super('stage editor');
 	}
 
 	var lastLoadedStage:String;
@@ -1050,7 +1051,7 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 		var tab_group = UI_box.getTab('Meta').menu;
 
 		var characterList = Mods.mergeAllTextsNamed('data/characterList.txt');
-		var foldersToCheck:Array<String> = Mods.directoriesWithFile(Paths.getSharedPath(), 'characters/');
+		var foldersToCheck:Array<String> = Mods.directoriesWithFile(Paths.getSharedPath(), 'data/characters/');
 		for (folder in foldersToCheck)
 			for (file in FileSystem.readDirectory(folder))
 				if (file.toLowerCase().endsWith('.json'))
@@ -1409,7 +1410,7 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 
 	override function update(elapsed:Float)
 	{
-		//? pulling key presses
+		// ? pulling key presses
 
 		var pressed_I = FlxG.keys.pressed.I;
 		var pressed_J = FlxG.keys.pressed.J;
@@ -1429,7 +1430,6 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 
 		var pressed_SHIFT = FlxG.keys.pressed.SHIFT;
 		#if TOUCH_CONTROLS_ALLOWED
-
 		pressed_I = pressed_I || touchPad.buttonG.pressed && touchPad.buttonUp.pressed;
 		pressed_J = pressed_J || touchPad.buttonG.pressed && touchPad.buttonLeft.pressed;
 		pressed_K = pressed_K || touchPad.buttonG.pressed && touchPad.buttonDown.pressed;
@@ -1463,14 +1463,12 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 		if (PsychUIInputText.focusOn != null)
 			return;
 
-		if (FlxG.keys.justPressed.ESCAPE 
-			#if android || FlxG.android.justPressed.BACK #end 
-			#if TOUCH_CONTROLS_ALLOWED || touchPad.buttonB.justPressed #end)
+		if (FlxG.keys.justPressed.ESCAPE #if android || FlxG.android.justPressed.BACK #end#if TOUCH_CONTROLS_ALLOWED || touchPad.buttonB.justPressed #end)
 		{
 			if (!unsavedProgress)
 			{
 				MusicBeatState.switchState(new states.editors.MasterEditorMenu());
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.sound.playMusic(Paths.music('FlexRack'));
 			}
 			else
 				openSubState(new ExitConfirmationPrompt());
@@ -1508,8 +1506,8 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 			helpTexts.visible = helpBg.visible;
 		}
 
-		if (#if FLX_DEBUG FlxG.keys.justPressed.F3 #else FlxG.keys.justPressed.F2 #end
-			#if TOUCH_CONTROLS_ALLOWED || (touchPad.buttonS.justPressed && !touchPad.buttonF.justPressed) #end)
+		if (#if FLX_DEBUG FlxG.keys.justPressed.F3 #else FlxG.keys.justPressed.F2 #end#if TOUCH_CONTROLS_ALLOWED || (touchPad.buttonS.justPressed
+			&& !touchPad.buttonF.justPressed) #end)
 		{
 			UI_box.visible = !UI_box.visible;
 			UI_box.active = !UI_box.active;
@@ -1599,15 +1597,14 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 				moveY += 5 * shiftMult * ctrlMult;
 		}
 		#else
-				if (FlxG.keys.justPressed.LEFT)
-					moveX -= 5 * shiftMult * ctrlMult;
-				if (FlxG.keys.justPressed.RIGHT)
-					moveX += 5 * shiftMult * ctrlMult;
-				if (FlxG.keys.justPressed.UP)
-					moveY -= 5 * shiftMult * ctrlMult;
-				if (FlxG.keys.justPressed.DOWN)
-					moveY += 5 * shiftMult * ctrlMult;
-			
+		if (FlxG.keys.justPressed.LEFT)
+			moveX -= 5 * shiftMult * ctrlMult;
+		if (FlxG.keys.justPressed.RIGHT)
+			moveX += 5 * shiftMult * ctrlMult;
+		if (FlxG.keys.justPressed.UP)
+			moveY -= 5 * shiftMult * ctrlMult;
+		if (FlxG.keys.justPressed.DOWN)
+			moveY += 5 * shiftMult * ctrlMult;
 		#end
 
 		if (FlxG.mouse.pressedRight && (FlxG.mouse.deltaScreenX != 0 || FlxG.mouse.deltaScreenY != 0))
@@ -2551,7 +2548,7 @@ class StageEditorAnimationSubstate extends MusicBeatSubstate
 		justPressed_S = justPressed_S || touchPad.buttonDown.justPressed;
 		justPressed_R = justPressed_R || touchPad.buttonZ.justPressed;
 
-		pressed_E = pressed_E || touchPad.buttonX.pressed; 
+		pressed_E = pressed_E || touchPad.buttonX.pressed;
 		pressed_Q = pressed_Q || touchPad.buttonY.pressed;
 
 		pressed_SHIFT = pressed_SHIFT || touchPad.buttonC.pressed;
@@ -2669,7 +2666,8 @@ class StageEditorAnimationSubstate extends MusicBeatSubstate
 				changedOffset = true;
 			}
 
-			if ((FlxG.keys.justPressed.R  && FlxG.keys.pressed.CONTROL) #if TOUCH_CONTROLS_ALLOWED || (touchPad.buttonZ.justPressed && touchPad.buttonC.pressed) #end)
+			if ((FlxG.keys.justPressed.R && FlxG.keys.pressed.CONTROL) #if TOUCH_CONTROLS_ALLOWED
+				|| (touchPad.buttonZ.justPressed && touchPad.buttonC.pressed) #end)
 			{
 				target.animations[curAnim].offsets = null;
 				spr.animOffsets.remove(anim);
@@ -2720,7 +2718,7 @@ class StageEditorAnimationSubstate extends MusicBeatSubstate
 		else if (pressed_Q && FlxG.camera.zoom > minZoom)
 			FlxG.camera.zoom = Math.max(minZoom, FlxG.camera.zoom - elapsed * FlxG.camera.zoom * shiftMult * ctrlMult);
 
-		if (FlxG.keys.justPressed.ESCAPE #if android || FlxG.android.justReleased.BACK #end #if TOUCH_CONTROLS_ALLOWED || touchPad.buttonB.justPressed #end)
+		if (FlxG.keys.justPressed.ESCAPE #if android || FlxG.android.justReleased.BACK #end#if TOUCH_CONTROLS_ALLOWED || touchPad.buttonB.justPressed #end)
 		{
 			persistentDraw = true;
 			close();

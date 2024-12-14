@@ -21,25 +21,30 @@ class OptionsState extends MusicBeatState
 		'Visuals',
 		'Gameplay',
 		'V-Slice Options',
-		#if TRANSLATIONS_ALLOWED  'Language', #end
-		#if (TOUCH_CONTROLS_ALLOWED || mobile)'Mobile Options' #end
+		#if TRANSLATIONS_ALLOWED 'Language', #end
+		#if (TOUCH_CONTROLS_ALLOWED || mobile) 'Mobile Options' #end
 	];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
+
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
+
 	#if (target.threaded) var mutex:Mutex = new Mutex(); #end
 
 	private var mainCam:FlxCamera;
+
 	public static var funnyCam:FlxCamera;
+
 	private var camFollow:FlxObject;
 	private var camFollowPos:FlxObject;
 
-	function openSelectedSubstate(label:String) {
+	function openSelectedSubstate(label:String)
+	{
 		if (label != "Adjust Delay and Combo")
 			funnyCam.visible = persistentUpdate = false;
 
-		switch(label)
+		switch (label)
 		{
 			case 'Game':
 				openSubState(new options.GameSettingsSubState());
@@ -91,7 +96,7 @@ class OptionsState extends MusicBeatState
 
 		var bg:MenuBG = new MenuBG('menuDesat');
 		bg.color = 0xFFea71fd;
-		bg.scale.set(1,1);
+		bg.scale.set(1, 1);
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
@@ -112,7 +117,8 @@ class OptionsState extends MusicBeatState
 		ClientPrefs.saveSettings();
 
 		#if (target.threaded)
-		Thread.create(()->{
+		Thread.create(() ->
+		{
 			mutex.acquire();
 
 			for (music in VisualsSettingsSubState.pauseMusics)
@@ -128,7 +134,7 @@ class OptionsState extends MusicBeatState
 		#if TOUCH_CONTROLS_ALLOWED
 		addTouchPad('UP_DOWN', 'A_B');
 		#end
-		
+
 		super.create();
 	}
 
@@ -141,14 +147,15 @@ class OptionsState extends MusicBeatState
 		#end
 		controls.isInSubstate = false;
 		persistentUpdate = funnyCam.visible = true;
-		
+
 		#if TOUCH_CONTROLS_ALLOWED
 		removeTouchPad();
 		addTouchPad('UP_DOWN', 'A_B');
 		#end
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
 		super.update(elapsed);
 
 		if (controls.UI_UP_P)
@@ -167,8 +174,10 @@ class OptionsState extends MusicBeatState
 			bullShit++;
 
 			var thing:Float = 0;
-			if (item.targetY == 0) {
-				if(grpOptions.members.length > 6) {
+			if (item.targetY == 0)
+			{
+				if (grpOptions.members.length > 6)
+				{
 					thing = grpOptions.members.length * 2;
 				}
 				camFollow.setPosition(635, item.getGraphicMidpoint().y + 100 - thing);
@@ -178,23 +187,27 @@ class OptionsState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if(onPlayState)
+			if (onPlayState)
 			{
 				StageData.loadDirectory(PlayState.SONG);
 				LoadingState.loadAndSwitchState(new PlayState());
 				FlxG.sound.music.volume = 0;
 			}
-			else {
-				if (ClientPrefs.data.resetSave) {
+			else
+			{
+				if (ClientPrefs.data.resetSave)
+				{
 					trace('Resetting Save...');
 					MusicBeatState.switchState(new TitleState());
-				} else
+				}
+				else
 					MusicBeatState.switchState(new MainMenuState());
 			}
 		}
-		else if (controls.ACCEPT) openSelectedSubstate(options[curSelected]);
+		else if (controls.ACCEPT)
+			openSelectedSubstate(options[curSelected]);
 	}
-	
+
 	function changeSelection(change:Int = 0)
 	{
 		curSelected = FlxMath.wrap(curSelected + change, 0, options.length - 1);

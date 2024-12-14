@@ -1,4 +1,83 @@
 # vs Guy plus
+## 2.0 [Holiday Pack] - December 14th 2024
+this changelog is experimental and follows an experimental new format
+### Changelog
+- 🐞 fix: guy-mc Health Bar Color
+- ✨feature: Colored Chat Text Option
+- ✨feature: Chat message on death (crafters)
+- ✨feature: HELL DIFFICULTY (Crafters only)
+- 🔵 other: BACK is now the first item in difficultyChoices for pause menu
+- 🐞 fix: Crafters Song Shop Item not funcitoning properly
+- ✨feature: Final Crafters Chart File
+- 🐞 fix: Failure to receive song metadata json
+- ✨feature: MC Chat messages
+- 🐞 fix: Stray Pixels on MC Sprites
+- ✨feature: Chat messages
+- 🐞 fix: Size of Score Text in `Crafters`
+- ✨feature: `shared/characters` has been moved to `shared/data/characters`
+- 🔵 other: Removal of Unserious Elements
+
+## 1.9 [Elomento Pack 2] - December 14th 2024
+### Added
+- NOW RUNNING ON PAINT ENGINE 2.0 (just a heavily modified PSlice-Engine/Same shit lol)
+- WEEK 3: PURPLE GUY
+  - 1 New song: Galaxy
+- NEW SECRET SONG:
+  - Crafters - press E on the title screen
+- XP SYSTEM
+  - XP popup to results
+- SHOP MENU
+  - WITH ABILITY TO TOGGLE SHOP ITEMS
+- SHOP ITEMS
+  - Double XP: Doubles your XP at the end of a song (requires 7000 XP)
+  - Crafters: Adds the new Secret Song Crafters to Freeplay
+- NEW CREDITS MENU BASED ON VSLICE (+ spooky mix)
+- NEW TITLE SCREEN
+- New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
+- Engine Watermark to Gameplay (top right)
+- Minecraft Font
+- Comic Sans Font
+- New Optional Metadata Arguments for songs
+  - `artist` (String (default: 'Unknown')) - tells the artist of the song
+  - `charter` (String (default: 'Unknown')) - tells the charter of the song
+  - These new Fields have been added to DLCPack1 (12/8/2024)
+- Automatic saving for any new Metadata arguments for songs (ex: `dialogueMusic`)
+- Buttons and Inputs for any new Metadata arguments for songs (ex: `censoredDialogue`)
+- InitState
+- Credit Text at beginning of gameplay which says who made the song and who charted it
+- 4 new Lua Variables
+  - `mod_version` - returns the current mod version
+  - `pslice_version` - returns the current P-Slice version
+  - `funkin_version` - returns the current emulated FNF version
+  - `psych_version` - returns the current psych version
+- Vanilla Popup scores (only fo crafters right now)
+- Build Trace at (about around) the start of the game
+- Image and Sound Caching for Menus (not all)
+- Songs folder in `assets/shared/data` for organization purposes
+- Comma-Seperated SongScore, SongMisses, Combo, and XP.
+- Build Number is now included in the mod version (debug only)
+- Fallback for if a Character Object doesnt have an idle animation (plays the first animation it can find)
+### Fixed
+- Rank changing when the rank is lower then the previous rank
+### Removed
+- Debug Keybinds for changing song position
+- Popup angle changing keybinds
+- Memory Counter
+- FPS Counter
+- Ability to have Songs with a Rating over 20
+- Donate Menu Item
+- Titlestate keybind for reseting your save
+- `version` Lua Variable
+- Arrow Directionals from character editor template
+### Changed
+- AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
+- Width of Chart editor Main UI Box
+- Metadata tab in Chart Editor (many edits)
+- Size of Main Menu Menu Items
+- Default Window Title
+- Default Screenshot keybind (now F2)
+- Every song is Uppercased (better explanation with example: `guy` is now `Guy`)
+
 ## v1.5-2 - November 29th 2024
 ### Added
 - New UI elements based on Arrow Funk

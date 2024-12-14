@@ -1,0 +1,39 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "press play idle"
+		},
+		{
+			"loop": false,
+			"offsets": [2, 30],
+			"anim": "pressed-flashless",
+			"fps": 24,
+			"name": "press play pressed flashless",
+			"indices": []
+		},
+		{
+			"offsets": [7, 38],
+			"indices": [],
+			"fps": 24,
+			"anim": "pressed",
+			"loop": false,
+			"name": "press play pressed0"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "titlescreen/press_play",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

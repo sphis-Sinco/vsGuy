@@ -31,6 +31,8 @@ art/build_html.bat
 art/build_html-debug.bat
 
 # mainly stuff for file size
-**.swf
-**.mp4
-**.zip
+.dev/mineimator/boyfriend/mcBF-2.zip
+.dev/mineimator/boyfriend/mcBF-DEAD.zip
+.dev/mineimator/boyfriend/mcBF.zip
+.dev/mineimator/guy/mcGUY-2.zip
+.dev/mineimator/guy/mcGUY.zip

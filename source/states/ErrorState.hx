@@ -1,6 +1,8 @@
 package states;
 
-class ErrorState extends MusicBeatState
+import sinco.vsguy.bases.MenuState;
+
+class ErrorState extends MenuState
 {
 	public var acceptCallback:Void->Void;
 	public var backCallback:Void->Void;
@@ -12,11 +14,12 @@ class ErrorState extends MusicBeatState
 		this.acceptCallback = accept;
 		this.backCallback = back;
 
-		super();
+		super('error');
 	}
 
 	public var errorSine:Float = 0;
 	public var errorText:FlxText;
+
 	override function create()
 	{
 		var bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
@@ -32,7 +35,7 @@ class ErrorState extends MusicBeatState
 		errorText.screenCenter();
 		add(errorText);
 		super.create();
-		
+
 		#if TOUCH_CONTROLS_ALLOWED
 		addTouchPad('NONE', 'A_B');
 		addTouchPadCamera();
@@ -44,9 +47,9 @@ class ErrorState extends MusicBeatState
 		errorSine += 180 * elapsed;
 		errorText.alpha = 1 - Math.sin((Math.PI * errorSine) / 180);
 
-		if(controls.ACCEPT && acceptCallback != null)
+		if (controls.ACCEPT && acceptCallback != null)
 			acceptCallback();
-		else if(controls.BACK && backCallback != null)
+		else if (controls.BACK && backCallback != null)
 			backCallback();
 
 		super.update(elapsed);

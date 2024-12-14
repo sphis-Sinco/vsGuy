@@ -32,16 +32,20 @@ class MobileOptionsSubState extends BaseOptionsMenu
 	#if android
 	var storageTypes:Array<String> = ["EXTERNAL_DATA", "EXTERNAL_OBB", "EXTERNAL_MEDIA", "EXTERNAL"];
 	var externalPaths:Array<String> = StorageUtil.checkExternalPaths(true);
+
 	public static final lastStorageType:String = ClientPrefs.data.storageType;
 	#end
+
 	final exControlTypes:Array<String> = ["NONE", "SINGLE", "DOUBLE"];
 	final hintOptions:Array<String> = ["No Gradient", "No Gradient (Old)", "Gradient", "Hidden"];
 	var option:Option;
 
 	public function new()
 	{
-		#if android if (!externalPaths.contains('\n'))
-			storageTypes = storageTypes.concat(externalPaths); #end
+		#if android
+		if (!externalPaths.contains('\n'))
+			storageTypes = storageTypes.concat(externalPaths);
+		#end
 		title = 'Mobile Options';
 		rpcTitle = 'Mobile Options Menu'; // for Discord Rich Presence, fuck it
 
@@ -81,8 +85,8 @@ class MobileOptionsSubState extends BaseOptionsMenu
 		option = new Option('Hitbox Design', 'Choose how your hitbox should look like.', 'hitboxType', STRING, hintOptions);
 		addOption(option);
 
-		option = new Option('Hitbox Position', 'If checked, the hitbox will be put at the bottom of the screen, otherwise will stay at the top.',
-			'hitbox2', BOOL);
+		option = new Option('Hitbox Position', 'If checked, the hitbox will be put at the bottom of the screen, otherwise will stay at the top.', 'hitbox2',
+			BOOL);
 		addOption(option);
 
 		option = new Option('Dynamic Controls Color',

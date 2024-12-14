@@ -13,7 +13,7 @@ class OutdatedState extends MusicBeatState
 		super.create();
 
 		var bg:MenuBG = new MenuBG('menuDesat');
-		bg.scale.set(1,1);
+		bg.scale.set(1, 1);
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.color = 0x5c6579;
@@ -28,7 +28,7 @@ class OutdatedState extends MusicBeatState
 			+ homie
 			+ ", looks like you're running an   \n
 		outdated version of vs Guy plus! (v"
-			+ MainMenuState.modVer
+			+ GuyConsts.MOD_VERSION
 			+ "),\n
 		please update to v"
 			+ TitleState.updateVersion

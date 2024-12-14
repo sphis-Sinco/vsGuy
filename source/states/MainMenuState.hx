@@ -1,5 +1,8 @@
 package states;
 
+import sinco.vsguy.bases.MenuState;
+import sinco.vsguy.states.shop.ShopState;
+import sinco.vsguy.states.credits.CreditsMenu;
 import objects.MenuBG;
 import mikolka.compatibility.ModsHelper;
 import mikolka.vslice.freeplay.FreeplayState;
@@ -10,39 +13,28 @@ import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 
-class MainMenuState extends MusicBeatState
+class MainMenuState extends MenuState
 {
-	public static var psychEngineVersion:String = '1.0'; // This is also used for Discord RPC
-	public static var pSliceVersion:String = '2.1'; 
-	public static var modVer:String = '1.0'; 
-	public static var funkinVersion:String = '0.5.1'; // Version of funkin' we are emulating
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	var optionShit:Array<String> = [
-		
-	];
+	var optionShit:Array<String> = [];
 
 	var magenta:MenuBG;
 	var camFollow:FlxObject;
 
-	public function new(isDisplayingRank:Bool = false) {
-
-		//TODO
-		super();
-	}
-
-	public static function modVerInit()
+	public function new(isDisplayingRank:Bool = false)
 	{
-		modVer = Application.current.meta.get('version');
+		// TODO
+		super('mainmenu');
 	}
 
 	override function create()
 	{
 		Paths.clearUnusedMemory();
 		ModsHelper.clearStoredWithoutStickers();
-		
+
 		#if MODS_ALLOWED
 		Mods.pushGlobalMods();
 		#end
@@ -74,11 +66,8 @@ class MainMenuState extends MusicBeatState
 		optionShit.push('awards');
 		#end
 		optionShit.push('credits');
-		#if !switch
-		optionShit.push('donate');
-		#end
 		optionShit.push('options');
-
+		optionShit.push('shop');
 
 		persistentUpdate = persistentDraw = true;
 
@@ -96,16 +85,17 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
+		var dlcIndex:Int = 0;
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140) + offset);
+			var menuItem:FlxSprite = new FlxSprite(0, (i * 100) + offset);
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
-			menuItem.scale.set(1,1);
+			menuItem.scale.set(.8, .8);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if (optionShit.length < 6)
@@ -114,15 +104,19 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 			menuItem.screenCenter(X);
 			if (optionShit[i] == 'dlcs')
-				offset += 10*7;
+			{
+				offset += 10 * 7;
+				dlcIndex = i;
+			}
 		}
 
-		var modVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'vs Guy Plus ${modVer + #if debug '-indev' #else '' #end} (P-slice ${pSliceVersion})', 12);
+		var modVer:FlxText = new FlxText(0, FlxG.height - (18 * 2), FlxG.width, 'vs Guy Plus ${GuyConsts.MOD_VERSION + #if debug '-indev' #else '' #end}', 12);
 		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		modVer.scrollFactor.set();
+		modVer.text += "\n" + GuyConsts.getEngineStringWithPSliceVer();
 		add(modVer);
-		//var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' ", 12);
-	
+		// var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' ", 12);
+
 		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
@@ -149,11 +143,17 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.sound.music == null)
+		{
+			FlxG.sound.playMusic(Paths.music('FlexRack'), 0);
+			FlxG.sound.music.fadeIn(4, 0, 0.7);
+		}
+
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * elapsed;
-			//if (FreeplayState.vocals != null)
-				//FreeplayState.vocals.volume += 0.5 * elapsed;
+			// if (FreeplayState.vocals != null)
+			// FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
 
 		if (!selectedSomethin)
@@ -196,25 +196,27 @@ class MainMenuState extends MusicBeatState
 						{
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
-							case 'freeplay':{
-								persistentDraw = true;
-								persistentUpdate = false;
-								// Freeplay has its own custom transition
-								FlxTransitionableState.skipNextTransIn = true;
-								FlxTransitionableState.skipNextTransOut = true;
+							case 'freeplay':
+								{
+									persistentDraw = true;
+									persistentUpdate = false;
+									// Freeplay has its own custom transition
+									FlxTransitionableState.skipNextTransIn = true;
+									FlxTransitionableState.skipNextTransOut = true;
 
-								openSubState(new FreeplayState());
-								subStateOpened.addOnce(state -> {
-									for (i in 0...menuItems.members.length) {
-										menuItems.members[i].revive();
-										menuItems.members[i].alpha = 1;
-										menuItems.members[i].visible = true;
-										selectedSomethin = false;
-									}
-									changeItem(0);
-								});
-								
-							}
+									openSubState(new FreeplayState());
+									subStateOpened.addOnce(state ->
+									{
+										for (i in 0...menuItems.members.length)
+										{
+											menuItems.members[i].revive();
+											menuItems.members[i].alpha = 1;
+											menuItems.members[i].visible = true;
+											selectedSomethin = false;
+										}
+										changeItem(0);
+									});
+								}
 
 							#if MODS_ALLOWED
 							case 'dlcs':
@@ -227,7 +229,7 @@ class MainMenuState extends MusicBeatState
 							#end
 
 							case 'credits':
-								MusicBeatState.switchState(new CreditsState());
+								MusicBeatState.switchState(new CreditsMenu());
 							case 'options':
 								MusicBeatState.switchState(new OptionsState());
 								OptionsState.onPlayState = false;
@@ -237,6 +239,9 @@ class MainMenuState extends MusicBeatState
 									PlayState.SONG.splashSkin = null;
 									PlayState.stageUI = 'normal';
 								}
+
+							case 'shop':
+								MusicBeatState.switchState(new ShopState());
 						}
 					});
 

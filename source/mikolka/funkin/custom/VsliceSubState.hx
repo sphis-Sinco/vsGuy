@@ -15,8 +15,11 @@ class VsliceSubState extends MusicBeatSubstate
 	{
 		sort(SortUtil.byZIndex, FlxSort.ASCENDING);
 	}
-	override function update(elapsed:Float) {
-		if(FlxG.sound.music != null)  FreeplayHelpers.updateConductorSongTime(FlxG.sound.music.time); //? update song position
+
+	override function update(elapsed:Float)
+	{
+		if (FlxG.sound.music != null)
+			FreeplayHelpers.updateConductorSongTime(FlxG.sound.music.time); // ? update song position
 		super.update(elapsed);
 	}
 }

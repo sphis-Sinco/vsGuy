@@ -1,0 +1,156 @@
+{
+  "api_ver": 0.2,
+  "credits": [
+    {
+      "header": {
+        "text": "vs Guy Plus Team",
+        "users": [
+          {
+            "person": "Sinco",
+            "role": "Director, Artist, Animator, Composer, Programmer"
+          },
+          { "person": "Djotta Flow", "role": "Co-director, Artist, Animator" },
+          { "person": "TJ The Hedgehog", "role": "Artist, Animator" },
+          { "person": "Og Foxer", "role": "Artist, Animator, Composer" },
+          { "person": "Bonky", "role": "Composer" }
+        ]
+      }
+    },
+    {
+      "header": { "text": "---------------------------------------" }
+    },
+    {
+      "header": {
+        "text": "P-Slice Engine Team",
+        "users": [
+          { "person": "Mikolka9144", "role": "Did everything for P-slice" },
+          {
+            "person": "Mcagabe19",
+            "role": "Porter of P-slice for mobile devices and creator of linc_luajit-rewritten (used for mobile builds)"
+          }
+        ]
+      }
+    },
+    {
+      "header": { "text": "---------------------------------------" }
+    },
+    {
+      "header": {
+        "text": "Mod Credits",
+        "users": [
+          {
+            "person": "FNF VSlice",
+            "role": "WindowUtil.hx, Code for coma-seperated counters"
+          },
+          {
+            "person": "FNF Spooky Mix",
+            "role": "Base Code for the Pause texts in the credits menu (and the whole inspiration for the menu too)"
+          },
+          {
+            "person": "FNF vs Jellymid",
+            "role": "Code Base for Credits text at the start of songs"
+          },
+          {
+            "person": "FNF vs Impostor v4",
+            "role": "Bean Popup code I used for the XP Popup"
+          },
+          {
+            "person": "FNF Mob Mod",
+            "role": "Idea for the crafters song"
+          }
+        ]
+      }
+    },
+    {
+      "header": { "text": "---------------------------------------" }
+    },
+    {
+      "header": {
+        "text": "Psych Engine Team",
+        "users": [
+          {
+            "person": "Shadow Mario",
+            "role": "Main Programmer and Head of Psych Engine"
+          },
+          {
+            "person": "Riveren",
+            "role": "Main Artist/Animator of Psych Engine"
+          }
+        ]
+      }
+    },
+    {
+      "header": {
+        "text": "Former Psych Engine Members",
+        "users": [
+          { "person": "BBpanzu", "role": "Ex-Programmer of Psych Engine" }
+        ]
+      }
+    },
+    {
+      "header": {
+        "text": "Psych Engine Contributors",
+        "users": [
+          {
+            "person": "Crowplexus",
+            "role": "HScript Iris, Input System v3, and Other PRs"
+          },
+          {
+            "person": "Kamizeta",
+            "role": "Creator of Pessy, Psych Engine's mascot."
+          },
+          {
+            "person": "MaxNeton",
+            "role": "Loading Screen Easter Egg Artist/Animator."
+          },
+          {
+            "person": "Keoiki",
+            "role": "Note Splash Animations and Latin Alphabet"
+          },
+          {
+            "person": "SqirraRNG",
+            "role": "Crash Handler and Base code for Chart Editor's Waveform"
+          },
+          {
+            "person": "EliteMasterEric",
+            "role": "Runtime Shaders support and Other PRs"
+          },
+          {
+            "person": "MAJigsaw77",
+            "role": ".MP4 Video Loader Library (hxvlc)"
+          },
+          {
+            "person": "Tahir Toprak Karabekiroglu",
+            "role": "Note Splash Editor and Other PRs"
+          },
+          {
+            "person": "iFlicky",
+            "role": "Composer of Psync and Tea Time And some sound effects"
+          },
+          {
+            "person": "KadeDev",
+            "role": "Fixed some issues on Chart Editor and Other PRs"
+          },
+          { "person": "Superpowers04", "role": "LUA JIT Fork" },
+          { "person": "CheemsAndFriends", "role": "Creator of FlxAnimate" }
+        ]
+      }
+    },
+    {
+      "header": { "text": "---------------------------------------" }
+    },
+    {
+      "header": {
+        "text": "Friday Night Funkin'",
+        "users": [
+          { "person": "Ninjamuffin99", "role": "Main Programmer" },
+          { "person": "EliteMasterEric", "role": "Assistant Programmer" },
+          { "person": "PhantomArcade", "role": "Main Artist/Animator" },
+          { "person": "Evilsk8r", "role": "Artist" },
+          { "person": "Kawai Sprite", "role": "Main Composer" },
+          { "person": "And MANY others" }
+        ]
+      }
+    }
+  ]
+}

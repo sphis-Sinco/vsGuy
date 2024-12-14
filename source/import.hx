@@ -1,19 +1,16 @@
 #if !macro
-//Discord API
+// Discord API
 #if DISCORD_ALLOWED
 import backend.Discord;
 #end
-
-//Psych
+// Psych
 #if LUA_ALLOWED
 import llua.*;
 import llua.Lua;
 #end
-
 #if ACHIEVEMENTS_ALLOWED
 import backend.Achievements;
 #end
-
 // Mobile Controls
 import mobile.input.MobileInputID;
 import mobile.backend.SwipeUtil;
@@ -25,7 +22,6 @@ import mobile.objects.TouchButton;
 import mobile.backend.MobileData;
 import mobile.input.MobileInputManager;
 #end
-
 // Android
 #if android
 import android.content.Context as AndroidContext;
@@ -38,23 +34,29 @@ import android.os.Build.VERSION as AndroidVersion;
 import android.os.Build.VERSION_CODES as AndroidVersionCode;
 import android.os.BatteryManager as AndroidBatteryManager;
 #end
-
 #if sys
 import sys.*;
 import sys.io.*;
 #elseif js
 import js.html.*;
 #end
-
-//P-Slice
+// Vs Guy
+import sinco.vsguy.*;
+import sinco.vsguy.data.*;
+import sinco.vsguy.popups.*;
+import sinco.vsguy.stages.*;
+import sinco.vsguy.states.*;
+import sinco.vsguy.states.credits.*;
+import sinco.vsguy.states.new_title.*;
+import sinco.vsguy.states.shop.*;
+import sinco.vsguy.Constants as GuyConsts;
+// P-Slice
 import mikolka.funkin.*;
 import mikolka.funkin.utils.*;
 import mikolka.funkin.custom.*;
 import mikolka.funkin.players.*;
-
 // Stage imports (for compatibility)
 import states.stages.objects.*;
-
 import backend.Paths;
 import backend.Controls;
 import backend.CoolUtil;
@@ -69,26 +71,20 @@ import backend.Mods;
 import backend.Highscore;
 import backend.Language;
 import mobile.backend.StorageUtil;
-
-import backend.ui.*; //Psych-UI
-
+import backend.ui.*; // Psych-UI
 import objects.Alphabet;
 import objects.BGSprite;
-
 import states.PlayState;
 import states.MainMenuState;
 import states.StoryMenuState;
 import states.LoadingState;
-
 #if flxanimate
 import flxanimate.*;
 import flxanimate.PsychFlxAnimate as FlxAnimate;
 #end
-
 // Mod libs
 import flixel.ui.FlxBar;
-
-//Flixel
+// Flixel
 import flixel.sound.FlxSound;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -98,6 +94,7 @@ import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.util.FlxStringUtil;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;

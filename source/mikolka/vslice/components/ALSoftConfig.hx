@@ -11,9 +11,9 @@ import lime.system.JNI;
 #end
 
 /*
-A class that simply points OpenALSoft to a custom configuration file when the game starts up.
-The config overrides a few global OpenALSoft settings with the aim of improving audio quality on desktop targets.
-*/
+	A class that simply points OpenALSoft to a custom configuration file when the game starts up.
+	The config overrides a few global OpenALSoft settings with the aim of improving audio quality on desktop targets.
+ */
 #if (!macro && android)
 @:build(mikolka.vslice.components.ALSoftConfig.setupConfig())
 #end
@@ -55,7 +55,8 @@ class ALSoftConfig
 		var fields = Context.getBuildFields();
 		var pos = Context.currentPos();
 
-		if (!FileSystem.exists('alsoft.txt')) return fields;
+		if (!FileSystem.exists('alsoft.txt'))
+			return fields;
 
 		var newFields = fields.copy();
 		for (i => field in fields)

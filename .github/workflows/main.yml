@@ -36,7 +36,12 @@ jobs:
             buildArgs: mac
             setupScript: sh ./setup/mobile.sh
             artifactName: P-Slice.1.0.macosarm64
-            artifactPath: export/release/macos/bin/*
+            artifactPath: export/release/macos/bin*
+          - name: Web
+            buildArgs: html5
+            setupScript: .\"setup/web.bat"
+            artifactName: P-Slice.1.0.web
+            artifactPath: export/release/html5/bin*
     uses: ./.github/workflows/build.yml
     with:
       name: ${{ matrix.name }}

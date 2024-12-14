@@ -145,7 +145,7 @@ class FreeplayState extends MusicBeatSubstate
 
 	var diffIdsCurrent:Array<String> = [];
 	// List of available difficulties for the total song list, without `-variation` at the end (no duplicates or nulls).
-	var diffIdsTotal:Array<String> = ['easy', "normal", "hard"]; // ? forcing this diff order
+	var diffIdsTotal:Array<String> = ['easy', "normal", "hard", "hell"]; // ? forcing this diff order
 
 	var curSelected:Int = 0;
 	var currentDifficulty:String = Constants.DEFAULT_DIFFICULTY;
@@ -230,7 +230,6 @@ class FreeplayState extends MusicBeatSubstate
 	public function new(?params:FreeplayStateParams, ?stickers:StickerSubState)
 	{
 		controls.isInSubstate = true;
-		super();
 		var saveBox = VsliceOptions.LAST_MOD;
 		currentCharacterId = saveBox.char_name;
 		// switch to the character's mod to load her registry
@@ -265,16 +264,18 @@ class FreeplayState extends MusicBeatSubstate
 		{
 			stickerSubState = stickers;
 		}
+
+		sinco.vsguy.systems.Cache.Menus.cacheSounds('fp');
 	}
 
 	var fadeShader:BlueFade = new BlueFade();
 
 	public var angleMaskShader:AngleMask = new AngleMask();
+
 	var newChar:Bool = false;
 
 	override function create():Void
 	{
-
 		// ? Psych might've reloaded the mod list. Make sure we select current character's mod for the style
 		var saveBox = VsliceOptions.LAST_MOD;
 		if (ModsHelper.isModDirEnabled(saveBox.mod_dir))
@@ -322,7 +323,7 @@ class FreeplayState extends MusicBeatSubstate
 		// ? end of init
 
 		super.create();
-		var diffIdsTotalModBinds:Map<String, String> = ["easy" => "", "normal" => "", "hard" => ""];
+		var diffIdsTotalModBinds:Map<String, String> = ["easy" => "", "normal" => "", "hard" => "", "hell" => ""];
 
 		FlxG.state.persistentUpdate = false;
 
@@ -640,8 +641,6 @@ class FreeplayState extends MusicBeatSubstate
 		// otherwise it won't be properly attatched to funnyCamera (relavent code should be at the bottom of create())
 		var onDJIntroDone = function()
 		{
-			
-
 			if (newChar)
 			{
 				dj.currentState = NewUnlock;
@@ -1795,7 +1794,7 @@ class FreeplayState extends MusicBeatSubstate
 				FlxTransitionableState.skipNextTransOut = true;
 				if (Type.getClass(_parentState) == MainMenuState)
 				{
-					FunkinSound.playMusic('freakyMenu', {
+					FunkinSound.playMusic('FlexRack', {
 						overrideExisting: true,
 						restartTrack: false
 					});

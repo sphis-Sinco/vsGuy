@@ -12,6 +12,7 @@ class ChartingGridSprite extends FlxSprite
 	public var stripes:Array<Int>;
 
 	var vortexLine:FlxSprite;
+
 	public var vortexLineEnabled:Bool = false;
 	public var vortexLineSpace:Float = 0;
 
@@ -51,10 +52,11 @@ class ChartingGridSprite extends FlxSprite
 
 	override function draw()
 	{
-		if(rows < 1) return;
+		if (rows < 1)
+			return;
 
 		super.draw();
-		if(rows == 1)
+		if (rows == 1)
 		{
 			_drawStripes();
 			return;
@@ -72,14 +74,15 @@ class ChartingGridSprite extends FlxSprite
 
 		_drawStripes();
 
-		if(vortexLineEnabled)
+		if (vortexLineEnabled)
 		{
 			vortexLine.x = this.x;
 			vortexLine.y = this.y - 1;
 			while (true)
 			{
 				vortexLine.y += vortexLineSpace;
-				if(vortexLine.y >= this.y + this.height) break;
+				if (vortexLine.y >= this.y + this.height)
+					break;
 
 				vortexLine.draw();
 			}
@@ -90,17 +93,18 @@ class ChartingGridSprite extends FlxSprite
 	{
 		for (i => column in stripes)
 		{
-			if(column == 0)
+			if (column == 0)
 				stripe.x = this.x;
-			else 
-				stripe.x = this.x + ChartingState.GRID_SIZE * column - stripe.width/2;
+			else
+				stripe.x = this.x + ChartingState.GRID_SIZE * column - stripe.width / 2;
 			stripe.draw();
 		}
 	}
 
 	public function updateStripes()
 	{
-		if(stripe == null || !stripe.exists) return;
+		if (stripe == null || !stripe.exists)
+			return;
 		stripe.y = this.y;
 		stripe.setGraphicSize(2, this.height);
 		stripe.updateHitbox();

@@ -15,13 +15,14 @@ class MallXmasErect extends PicoCapableStage
 	override function create()
 	{
 		var _song = PlayState.SONG;
-		
+
 		var bg:BGSprite = new BGSprite('christmas/erect/bgWalls', -1000, -500, 0.2, 0.2);
 		bg.setGraphicSize(Std.int(bg.width * 0.8));
 		bg.updateHitbox();
 		add(bg);
 
-		if(!VsliceOptions.LOW_QUALITY) {
+		if (!VsliceOptions.LOW_QUALITY)
+		{
 			upperBoppers = new BGSprite('christmas/erect/upperBop', -240, -90, 0.33, 0.33, ['upperBop']);
 			upperBoppers.setGraphicSize(Std.int(upperBoppers.width * 0.85));
 			upperBoppers.updateHitbox();
@@ -36,11 +37,11 @@ class MallXmasErect extends PicoCapableStage
 		var tree:BGSprite = new BGSprite('christmas/erect/christmasTree', 370, -250, 0.40, 0.40);
 		add(tree);
 
-		var fog = new BGSprite("christmas/erect/white",-1000,100,0.85,0.85);
-		fog.scale.set(0.9,0.9);
+		var fog = new BGSprite("christmas/erect/white", -1000, 100, 0.85, 0.85);
+		fog.scale.set(0.9, 0.9);
 		add(fog);
 
-		bottomBoppers = new MallCrowd(-300, 140,'christmas/erect/bottomBop',"bottomBop");
+		bottomBoppers = new MallCrowd(-300, 140, 'christmas/erect/bottomBop', "bottomBop");
 		add(bottomBoppers);
 
 		var fgSnow:BGSprite = new BGSprite('christmas/erect/fgSnow', -880, 700);
@@ -50,12 +51,15 @@ class MallXmasErect extends PicoCapableStage
 		add(santa);
 		setDefaultGF('gf-christmas');
 
-		if(isStoryMode && !seenCutscene)
+		if (isStoryMode && !seenCutscene)
 			setEndCallback(eggnogEndCutscene);
 	}
-	override function createPost() {
+
+	override function createPost()
+	{
 		super.createPost();
-		if(VsliceOptions.SHADERS){
+		if (VsliceOptions.SHADERS)
+		{
 			var colorShader = new AdjustColorShader();
 			colorShader.hue = 5;
 			colorShader.saturation = 20;
@@ -65,22 +69,27 @@ class MallXmasErect extends PicoCapableStage
 			dad.shader = colorShader;
 			santa.shader = colorShader;
 		}
-		
 		@:privateAccess
-		if(PicoCapableStage.NENE_LIST.contains(PlayState.SONG.gfVersion)) GameOverSubstate.characterName = 'pico-christmas-dead';
+		if (PicoCapableStage.NENE_LIST.contains(PlayState.SONG.gfVersion))
+			GameOverSubstate.characterName = 'pico-christmas-dead';
 	}
-	override function countdownTick(count:Countdown, num:Int) everyoneDance();
-	override function beatHit() {
+
+	override function countdownTick(count:Countdown, num:Int)
+		everyoneDance();
+
+	override function beatHit()
+	{
 		super.beatHit();
 		everyoneDance();
 	}
 
 	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
 	{
-		switch(eventName)
+		switch (eventName)
 		{
 			case "Hey!":
-				switch(value1.toLowerCase().trim()) {
+				switch (value1.toLowerCase().trim())
+				{
 					case 'bf' | 'boyfriend' | '0':
 						return;
 				}
@@ -91,7 +100,7 @@ class MallXmasErect extends PicoCapableStage
 
 	function everyoneDance()
 	{
-		if(!VsliceOptions.LOW_QUALITY)
+		if (!VsliceOptions.LOW_QUALITY)
 			upperBoppers.dance(true);
 
 		bottomBoppers.dance(true);
@@ -100,7 +109,7 @@ class MallXmasErect extends PicoCapableStage
 
 	function eggnogEndCutscene()
 	{
-		if(PlayState.storyPlaylist[1] == null)
+		if (PlayState.storyPlaylist[1] == null)
 		{
 			endSong();
 			return;

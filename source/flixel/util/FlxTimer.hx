@@ -28,11 +28,11 @@ class FlxTimer implements IFlxDestroyable
 	 * @param   onComplete  Triggered whenever the time runs out
 	 * @return  The `FlxTimer` instance
 	 */
-	public static inline function wait(time:Float, onComplete:()->Void)
+	public static inline function wait(time:Float, onComplete:() -> Void)
 	{
-		return new FlxTimer().start(time, (_)->onComplete());
+		return new FlxTimer().start(time, (_) -> onComplete());
 	}
-	
+
 	/**
 	 * Handy tool to create and start a `FlxTimer`
 	 * @param   time        The duration of the timer, in seconds. If `0` then `onComplete`
@@ -42,11 +42,11 @@ class FlxTimer implements IFlxDestroyable
 	 * @param   loops       How many times the timer should go off. `0` means "looping forever".
 	 * @return  The `FlxTimer` instance
 	 */
-	public static inline function loop(time:Float, onComplete:(loop:Int)->Void, loops:Int)
+	public static inline function loop(time:Float, onComplete:(loop:Int) -> Void, loops:Int)
 	{
-		return new FlxTimer().start(time, (t)->onComplete(t.elapsedLoops), loops);
+		return new FlxTimer().start(time, (t) -> onComplete(t.elapsedLoops), loops);
 	}
-	
+
 	/**
 	 * The global timer manager that handles global timers
 	 * @since 4.2.0
@@ -82,7 +82,7 @@ class FlxTimer implements IFlxDestroyable
 	/**
 	 * Called when timer completes. The function header should be `(timer:FlxTimer)`
 	 */
-	public var onComplete:(FlxTimer)->Void;
+	public var onComplete:(FlxTimer) -> Void;
 
 	/**
 	 * Read-only: check how much time is left on the timer.
@@ -147,7 +147,7 @@ class FlxTimer implements IFlxDestroyable
 	 * @param   loops       How many times the timer should go off. 0 means "looping forever".
 	 * @return  A reference to itself (handy for chaining or whatever).
 	 */
-	public function start(time:Float = 1, ?onComplete:(FlxTimer)->Void, loops:Int = 1):FlxTimer
+	public function start(time:Float = 1, ?onComplete:(FlxTimer) -> Void, loops:Int = 1):FlxTimer
 	{
 		if (manager != null && !_inManager)
 		{

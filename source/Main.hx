@@ -1,5 +1,8 @@
 package;
 
+import states.TitleState;
+import states.editors.MasterEditorMenu;
+import debug.FPSCounter;
 import flixel.util.typeLimit.NextState.InitialState;
 import openfl.display.FPS;
 import mikolka.vslice.components.MemoryCounter;
@@ -13,14 +16,12 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
-import states.TitleState;
 #if COPYSTATE_ALLOWED
 import states.CopyState;
 #end
 #if mobile
 import mobile.backend.MobileScaleMode;
 #end
-
 #if linux
 import lime.graphics.Image;
 
@@ -41,7 +42,7 @@ class Main extends Sprite
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 
-	public static var fpsVar:FPS;
+	public static var fpsVar:FPSCounter;
 	public static var memoryCounter:MemoryCounter;
 	public static final platform:String = #if mobile "Phones" #else "PCs" #end;
 
@@ -62,7 +63,7 @@ class Main extends Sprite
 		Sys.setCwd(StorageUtil.getStorageDirectory());
 		#end
 		backend.CrashHandler.init();
-		MainMenuState.modVerInit();
+		GuyConsts.initModVer();
 
 		#if windows
 		@:functionCode("
@@ -129,31 +130,34 @@ class Main extends Sprite
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
-		
+
 		registery.hasNewCharacter(); // init it
-		
+
 		#if COPYSTATE_ALLOWED
 		var copyStateCheck = !CopyState.checkExistingFiles();
 		#end
 
-		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end game.initialState;
+		var initState:InitialState = #if COPYSTATE_ALLOWED copyStateCheck ? CopyState : #end
+		game.initialState;
 
-		var gameObject = new FlxGame(game.width, game.height, initState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
+		var gameObject = new FlxGame(game.width, game.height, initState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate,
+			game.skipSplash, game.startFullscreen);
 		// FlxG.game._customSoundTray wants just the class, it calls new from
-    	// create() in there, which gets called when it's added to stage
-    	// which is why it needs to be added before addChild(game) here
-    	@:privateAccess
-    	gameObject._customSoundTray = mikolka.vslice.components.FunkinSoundTray;
+		// create() in there, which gets called when it's added to stage
+		// which is why it needs to be added before addChild(game) here
+		@:privateAccess
+		gameObject._customSoundTray = mikolka.vslice.components.FunkinSoundTray;
 
 		Mods.readParsedMods(ALL);
 
+		trace('BUILD: #${Application.current.meta.get('build')}');
 		addChild(gameObject);
 
-		fpsVar = new FPS(10, 3, 0xFFFFFF);
+		fpsVar = new FPSCounter(10, 10, 0xFFFFFF);
 		#if mobile
-		FlxG.game.addChild(fpsVar);
-	  	#else
-		addChild(fpsVar);
+		// FlxG.game.addChild(fpsVar);
+		#else
+		// addChild(fpsVar);
 		#end
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -161,22 +165,6 @@ class Main extends Sprite
 		{
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
-
-		#if !html5
-		// TODO: disabled on HTML5 (todo: find another method that works?)
-		memoryCounter = new MemoryCounter(10, 13, 0xFFFFFF);
-		#if mobile
-		FlxG.game.addChild(memoryCounter);
-	  	#else
-		addChild(memoryCounter);
-		#end
-		if (memoryCounter != null)
-		{
-			memoryCounter.visible = ClientPrefs.data.showFPS;
-		}
-		#end
-
-		
 
 		// #if debug
 		// flixel.addons.studio.FlxStudio.create();

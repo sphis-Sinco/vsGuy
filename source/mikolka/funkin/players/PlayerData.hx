@@ -5,7 +5,10 @@ import mikolka.compatibility.FunkinPath as Paths;
 @:nullSafety
 class PlayerData
 {
-	public function new() {}
+	public function new()
+	{
+	}
+
 	/**
 	 * The sematic version number of the player data JSON format.
 	 * Supports fancy comparisons like NPM does it's neat.
@@ -61,7 +64,6 @@ class PlayerFreeplayDJData
 {
 	var assetPath:String;
 	var animations:Array<AnimationData>;
-
 
 	var text1:String = "BOYFRIEND";
 
@@ -229,6 +231,7 @@ typedef PlayerCharSelectData =
 	 * and others get shifted over.
 	 */
 	public var position:Null<Int>;
+
 	public var gf:PlayerCharSelectGFData;
 }
 
@@ -245,11 +248,11 @@ typedef PlayerResultsData =
 
 typedef PlayerCharSelectGFData =
 {
-  public var assetPath:String;
+	public var assetPath:String;
 
-  public var animInfoPath:String;
+	public var animInfoPath:String;
 
-  public var visualizer:Bool;
+	public var visualizer:Bool;
 }
 
 typedef PlayerResultsMusicData =

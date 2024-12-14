@@ -5,7 +5,9 @@ import mikolka.vslice.results.Tallies.SaveScoreData;
 import Highscore;
 #else
 import backend.Highscore; // making exception for this one: identical in both versions
+
 #end
+
 /**
  * Which system to use when scoring and judging notes.
  */
@@ -37,16 +39,17 @@ enum abstract ScoringSystem(String)
 class Scoring
 {
 	public static function calculateRankForSong(formattedSngName:String):Null<ScoringRank>
-		{
-			if (!Highscore.songScores.exists(formattedSngName) || !Highscore.songRating.exists(formattedSngName))
-				return null;
-			var sngScore = Highscore.songScores.get(formattedSngName);
-			var sngAccuracy = Highscore.songRating.get(formattedSngName);
-			var sngFC = Highscore.songFCState.get(formattedSngName);
-			return Scoring.calculateRankFromData(sngScore, sngAccuracy, sngFC);
-		}
+	{
+		if (!Highscore.songScores.exists(formattedSngName) || !Highscore.songRating.exists(formattedSngName))
+			return null;
+		var sngScore = Highscore.songScores.get(formattedSngName);
+		var sngAccuracy = Highscore.songRating.get(formattedSngName);
+		var sngFC = Highscore.songFCState.get(formattedSngName);
+		return Scoring.calculateRankFromData(sngScore, sngAccuracy, sngFC);
+	}
 
-	public static function calculateRankFromData(sngScore:Int, sngAccuracy:Float, sngFC:Bool):Null<ScoringRank>{
+	public static function calculateRankFromData(sngScore:Int, sngAccuracy:Float, sngFC:Bool):Null<ScoringRank>
+	{
 		// Reminder that it MUSt be formatted first
 
 		// we can return null here, meaning that the player hasn't actually played and finished the song (thus has no data)
@@ -83,14 +86,15 @@ class Scoring
 			return ScoringRank.SHIT;
 		}
 	}
+
 	public static function calculateRank(scoreData:SaveScoreData):Null<ScoringRank>
-	{ 
+	{
 		var sngScore:Int = scoreData.score;
-		var sngAccuracy:Float = Math.min(1,scoreData.accPoints/scoreData.totalNotesHit);
+		var sngAccuracy:Float = Math.min(1, scoreData.accPoints / scoreData.totalNotesHit);
 		var sngFC:Bool = scoreData.missed == 0;
-		if(scoreData.totalNotesHit == 0) sngAccuracy = 0;
-		return calculateRankFromData(sngScore,sngAccuracy,sngFC);
-		
+		if (scoreData.totalNotesHit == 0)
+			sngAccuracy = 0;
+		return calculateRankFromData(sngScore, sngAccuracy, sngFC);
 	}
 }
 

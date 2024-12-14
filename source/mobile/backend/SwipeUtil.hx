@@ -31,6 +31,7 @@ class SwipeUtil
 
 		return false;
 	}
+
 	@:noCompletion
 	static function get_swipeRight():Bool
 	{

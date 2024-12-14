@@ -1,0 +1,27 @@
+{
+	"storyName": "PURPLE GUY",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "week2",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"purpleguy",
+		"bf",
+		"gf"
+	],
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Galaxy",
+			"purpleguy",
+			[
+				95,
+				40,
+				135
+			]
+		]
+	],
+	"weekName": "week3",
+	"hiddenUntilUnlocked": false
+}
