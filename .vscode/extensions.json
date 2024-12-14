@@ -5,7 +5,6 @@
         "rioukkevin.vscode-git-commit",
         "xuangeaha.vsmarketplace-badges",
         "esbenp.prettier-vscode",
-        "mhutchie.git-graph",
-        "danielchristianschroeter.git-tag-release-tracker"
+        "mhutchie.git-graph"
     ]
 }
