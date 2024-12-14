@@ -16,16 +16,30 @@ class F3Scene extends MusicBeatSubstate
 
 		this.ENABLED = enabled; // the new() param for enabled takes priority
 		this.CURRENT_STATE = state; // the new() param for state takes priority
+
+		leftText = new FlxText(0,0, FlxG.width, "Left Text", 16);
+		leftText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
+
+		rightText = new FlxText(0, 0, FlxG.width, "Right Text", 16);
+		rightText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
 	}
 
 	override public function create()
 	{
 		super.create();
+
+		add(leftText);
+		add(rightText);
 	}
 
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		if (leftText.visible != ENABLED && rightText.visible != ENABLED) {
+			leftText.visible = ENABLED;
+			rightText.visible = ENABLED;
+		}
 	}
 
 	public function f3check()
