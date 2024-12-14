@@ -150,6 +150,7 @@ class Main extends Sprite
 
 		Mods.readParsedMods(ALL);
 
+		trace('BUILD: #${Application.current.meta.get('build')}');
 		addChild(gameObject);
 
 		fpsVar = new FPSCounter(10, 10, 0xFFFFFF);

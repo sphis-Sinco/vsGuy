@@ -31,6 +31,7 @@
   - `funkin_version` - returns the current emulated FNF version
   - `psych_version` - returns the current psych version
 - Vanilla Popup scores (only fo crafters right now)
+- Build Trace to start of the game
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
