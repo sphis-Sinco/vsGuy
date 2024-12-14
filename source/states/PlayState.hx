@@ -1588,9 +1588,13 @@ class PlayState extends MusicBeatState
 	{
 		var tempScore:String;
 		if (!instakillOnMiss)
-			tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2} | Combo: {3}', [songScore, songMisses, combo]);
+			tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2} | Combo: {3}', [
+				FlxStringUtil.formatMoney(songScore, false, true),
+				FlxStringUtil.formatMoney(songMisses, false, true),
+				FlxStringUtil.formatMoney(combo, false, true)
+			]);
 		else
-			tempScore = Language.getPhrase('score_text_instakill', 'Score: {1} | Combo: {2}', [songScore, combo]);
+			tempScore = Language.getPhrase('score_text_instakill', 'Score: {1} | Combo: {2}', [FlxStringUtil.formatMoney(songScore, false, true), FlxStringUtil.formatMoney(combo, false, true)]);
 		scoreTxt.text = tempScore;
 
 		if (HEARTS_ENABLED)
@@ -3614,7 +3618,7 @@ class PlayState extends MusicBeatState
 					numScore.setGraphicSize(Std.int(numScore.width * daPixelZoom));
 				else if (PlayState.curStage == 'guymc')
 				{
-					numScore.setGraphicSize(Std.int(numScore.width * 1));
+					numScore.setGraphicSize(Std.int(numScore.width * 0.7));
 					numScore.x = placement + (45 * daLoop) - 90 + ClientPrefs.data.comboOffset[2];
 				}
 				else

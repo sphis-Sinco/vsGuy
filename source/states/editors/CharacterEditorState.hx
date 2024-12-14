@@ -427,11 +427,7 @@ class CharacterEditorState extends MenuState implements PsychUIEventHandler.Psyc
 		{
 			final _template:CharacterFile = {
 				animations: [
-					newAnim('idle', 'BF idle dance'),
-					newAnim('singLEFT', 'BF NOTE LEFT0'),
-					newAnim('singDOWN', 'BF NOTE DOWN0'),
-					newAnim('singUP', 'BF NOTE UP0'),
-					newAnim('singRIGHT', 'BF NOTE RIGHT0')
+					newAnim('idle', 'BF idle dance')
 				],
 				no_antialiasing: false,
 				flip_x: false,

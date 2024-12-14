@@ -19,21 +19,19 @@ class ShopState extends MenuState
 	public var currentSelection:Int = 0;
 
 	public var xpText:FlxText;
-
 	public var itemName:FlxText;
 	public var itemDesc:FlxText;
-
-	public var doubleXp:DoubleXP;
+	public var toggle:Character;
 
 	override public function new()
 	{
 		currentItem = ShopItemManager.blankShopItem();
 
 		#if sys
-		var tempList:Array<String> = FileSystem.readDirectory('assets/shared/shop/');
+		var tempList:Array<String> = FileSystem.readDirectory('assets/shared/data/shop/');
 		#if MODS_ALLOWED
 		var backup:Array<String> = tempList;
-		tempList = CoolUtil.loadFileList('assets/shared/shop/', null, ['.json']);
+		tempList = CoolUtil.loadFileList('assets/shared/data/shop/', null, ['.json']);
 		if (tempList.length < 1)
 			tempList = backup;
 		#end
@@ -48,7 +46,7 @@ class ShopState extends MenuState
 		{
 			if (file.endsWith('.json')) {
 				try {
-					items.push(Json.parse(Assets.getText(Paths.getFolderPath('$file', 'shared/shop'))));
+					items.push(Json.parse(Assets.getText(Paths.getFolderPath('$file', 'shared/data/shop'))));
 					
 					if (!ClientPrefs.data.BoughtStoreItems.contains(file))
 						ClientPrefs.data.BoughtStoreItems.push(file);
@@ -83,21 +81,20 @@ class ShopState extends MenuState
 		xpText.setPosition(10, 10);
 		xpText.text = 'XP: ${ClientPrefs.data.XP}';
 
-		itemName = new FlxText(0, 0, 0, "Item - Price XP", 16);
+		itemName = new FlxText(0, 0, 0, "Item\nPrice XP", 16);
 		itemName.setFormat(Paths.font("vcr.ttf"), 48, FlxColor.BLACK, LEFT);
 		itemName.screenCenter();
-		itemName.x += 280;
-		itemName.y -= 340;
+		itemName.x += 185;
+		itemName.y -= 320;
 
         itemDesc = new FlxText(0,0,0, "Description", 16);
 		itemDesc.setFormat(itemName.font, Math.round(itemName.size / 2), itemName.color, itemName.alignment);
 		itemDesc.setPosition(itemName.x + 20, itemName.y + 100);
 
+		toggle = new Character(FlxG.width - 400, FlxG.height - 250, 'toggle');
 		// items.push(ShopItemManager.blankShopItem());
 
 		updateItem();
-
-		doubleXp = new DoubleXP(0,0);
 
 		super('shop');
 	}
@@ -117,8 +114,9 @@ class ShopState extends MenuState
 		add(itemName);
 		add(itemDesc);
 		add(xpText);
+		add(toggle);
 
-		add(doubleXp);
+		xpText.text = 'XP: ${FlxStringUtil.formatMoney(ClientPrefs.data.XP, false, true)}';
 
 		super.create();
 	}
@@ -153,7 +151,7 @@ class ShopState extends MenuState
 			if (currentSelection != previousSel) {
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				updateItem();
-				trace(currentSelection);
+				// trace(currentSelection);
 			}
 		}
 		if (controls.ACCEPT)
@@ -165,7 +163,27 @@ class ShopState extends MenuState
 				ClientPrefs.data.EnabledStoreItems.push(currentItem.name);
 				ClientPrefs.data.XP -= currentItem.price;
 				updateItem();
-				xpText.text = 'XP: ${ClientPrefs.data.XP}';
+				xpText.text = 'XP: ${FlxStringUtil.formatMoney(ClientPrefs.data.XP, false, true)}';
+			} else if (ClientPrefs.data.BoughtStoreItems.contains(currentItem.name)){
+				trace('Updated Store Item: ${currentItem.name}');
+
+				if (ClientPrefs.data.EnabledStoreItems.contains(currentItem.name))
+				{
+					// toggle.playAnim('toggle-off');
+					ClientPrefs.data.EnabledStoreItems.remove(currentItem.name);
+					trace('${currentItem.name} is now disabled');
+				}
+				else
+				{
+					// toggle.playAnim('toggle-on');
+					ClientPrefs.data.EnabledStoreItems.push(currentItem.name);
+					trace('${currentItem.name} is now enabled');
+				}
+
+				updateItem();
+				/*toggle.animation.finishCallback = function(name:String) {
+					updateItem();
+				}*/
 			}
 		}
 
@@ -174,13 +192,14 @@ class ShopState extends MenuState
 
 	public function updateItem()
 	{
+		toggle.playAnim('off');
 		if (items.length > 0) {
 			currentItem = items[currentSelection];
 
 			if (currentItem == null)
 				currentItem = ShopItemManager.blankShopItem();
 
-			itemName.text = '${currentItem.name} - ${currentItem.price > 0.0 ? '${currentItem.price} XP' : 'Free'}';
+			itemName.text = '${currentItem.name}\n${currentItem.price > 0.0 ? '${FlxStringUtil.formatMoney(currentItem.price, false, true)} XP' : 'Free'}';
 			itemDesc.text = '';
 
 			if (ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
@@ -194,6 +213,9 @@ class ShopState extends MenuState
 						sinco.playAnim('interested');
 					else
 						sinco.playAnim('uninterested');
+
+			if (ClientPrefs.data.EnabledStoreItems.contains(currentItem.name))
+				toggle.playAnim('on');
 		} else {
 			itemName.text = 'No Shop Items';
 			itemDesc.text = '';

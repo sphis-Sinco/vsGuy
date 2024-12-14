@@ -397,6 +397,9 @@ class Character extends FlxSprite
 			}
 			else if (hasAnimation('idle' + idleSuffix))
 				playAnim('idle' + idleSuffix);
+			else
+				if (animation.getAnimationList().length >= 1)
+					playAnim(animation.getAnimationList()[0].name);
 		}
 	}
 

@@ -52,6 +52,13 @@ class FreeplayHelpers
 				songs.push(sngCard);
 			}
 		}
+
+		if (ClientPrefs.data.EnabledStoreItems.contains('Crafters'))
+		{
+			var sngCard = new FreeplaySongData(1, 'Crafters', 'guy', 0x0990f0);
+			songs.push(sngCard);
+		}
+
 		return songs;
 	}
 
@@ -69,8 +76,6 @@ class FreeplayHelpers
 			trace("SELECTED DIFFICULTY IS MISSING: " + currentDifficulty);
 			diffId = 0;
 		}
-
-		PlayState.SONG = Song.loadFromJson(Highscore.formatSong('guy', 2), 'guy');
 
 		var songLowercase:String = Paths.formatToSongPath(cap.songId);
 		var poop:String = Highscore.formatSong(songLowercase, diffId);

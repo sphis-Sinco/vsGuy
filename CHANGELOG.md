@@ -9,8 +9,10 @@
 - XP SYSTEM
   - XP popup to results
 - SHOP MENU
+  - WITH ABILITY TO TOGGLE SHOP ITEMS
 - SHOP ITEMS
   - Double XP: Doubles your XP at the end of a song (requires 7000 XP)
+  - Crafters: Adds the new Secret Song Crafters to Freeplay
 - NEW CREDITS MENU BASED ON VSLICE (+ spooky mix)
 - NEW TITLE SCREEN
 - New Title Screen Track (FlexRack) which replaces every instance of freakyMenu
@@ -32,7 +34,11 @@
   - `psych_version` - returns the current psych version
 - Vanilla Popup scores (only fo crafters right now)
 - Build Trace at (about around) the start of the game
-- I
+- Image and Sound Caching for Menus (not all)
+- Songs folder in `assets/shared/data` for organization purposes
+- Comma-Seperated SongScore, SongMisses, Combo, and XP.
+- Build Number is now included in the mod version (debug only)
+- Fallback for if a Character Object doesnt have an idle animation (plays the first animation it can find)
 ### Fixed
 - Rank changing when the rank is lower then the previous rank
 ### Removed
@@ -44,6 +50,7 @@
 - Donate Menu Item
 - Titlestate keybind for reseting your save
 - `version` Lua Variable
+- Arrow Directionals from character editor template
 ### Changed
 - AttractState can now be toggled if you have the flag `ATTRACT_ALLOWED` enabled
 - Width of Chart editor Main UI Box

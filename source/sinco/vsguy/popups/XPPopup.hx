@@ -43,7 +43,7 @@ class XPPopup extends FlxSpriteGroup
 		bean.scrollFactor.set();
 		// add(bean);
 
-		theText = new FlxText(popupBG.x + 90, popupBG.y + 35, 200, Std.string(amount), 35);
+		theText = new FlxText(popupBG.x + 90, popupBG.y + 35, 200, Std.string(FlxStringUtil.formatMoney(amount, false, true)), 35);
 		theText.setFormat(Paths.font("comicsans.ttf"), 35, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		theText.setPosition(popupBG.getGraphicMidpoint().x - 10, popupBG.getGraphicMidpoint().y - (theText.height / 2));
 		theText.updateHitbox();
@@ -52,7 +52,7 @@ class XPPopup extends FlxSpriteGroup
 		theText.antialiasing = true;
 		add(theText);
 
-		theTextAdditional = new FlxText(theText.x, theText.y + 35, 200, Std.string(additional), 35);
+		theTextAdditional = new FlxText(theText.x, theText.y + 35, 200, Std.string(FlxStringUtil.formatMoney(additional, false, true)), 35);
 		theTextAdditional.setFormat(theText.font, theText.size, FlxColor.GREEN, theText.alignment, theText.borderStyle, theText.borderColor);
 		theTextAdditional.updateHitbox();
 		theTextAdditional.borderSize = theText.borderSize;

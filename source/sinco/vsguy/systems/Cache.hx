@@ -4,30 +4,40 @@ class Cacher
 {
 	public static function cacheImg(image:String)
 	{
+		var cached:Bool = true;
+
 		try
 		{
-			trace('trying to cache image("$image")');
 			Paths.image(image);
 			Paths.modsImages(image);
 		}
 		catch (e)
 		{
 			trace('Error with caching image("$image"): $e');
+			cached = false;
 		}
+
+		if (cached)
+			trace('cached image("$image")');
 	}
 
 	public static function cacheSound(sound:String)
 	{
+		var cached:Bool = true;
+
 		try
 		{
-			trace('trying to cache sound("$sound")');
 			Paths.sound(sound);
 			Paths.modsSounds(sound, '');
 		}
 		catch (e)
 		{
 			trace('Error with caching sound("$sound"): $e');
+			cached = false;
 		}
+
+		if (cached)
+			trace('cached sound("$sound")');
 	}
 }
 

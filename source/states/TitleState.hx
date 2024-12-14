@@ -99,7 +99,7 @@ class TitleState extends MenuState
 			http.onData = function(data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = GuyConsts.MOD_VERSION.trim();
+				var curVersion:String = GuyConsts.MOD_VERSION_REG.trim();
 				var ogcurVersion:String = curVersion;
 				var ogupdateVersion:String = updateVersion;
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);

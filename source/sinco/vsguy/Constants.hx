@@ -9,9 +9,12 @@ class Constants
 	public static var PSLICE_VERSION:String = '2.1';
 
 	public static var MOD_VERSION:String = '1.0';
+	public static var MOD_VERSION_REG:String = '1.0';
 
-	public static function initModVer()
-		MOD_VERSION = Application.current.meta.get('version');
+	public static function initModVer() {
+		MOD_VERSION_REG = Application.current.meta.get('version');
+		MOD_VERSION = MOD_VERSION_REG #if debug + '-#${Application.current.meta.get('build')}' #end;
+	}
 
 	public static var FUNKIN_EMULATION_VERSION:String = '0.5.1';
 

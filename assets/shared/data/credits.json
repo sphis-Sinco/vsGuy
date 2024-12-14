@@ -40,7 +40,7 @@
         "users": [
           {
             "person": "FNF VSlice",
-            "role": "WindowUtil.hx"
+            "role": "WindowUtil.hx, Code for coma-seperated counters"
           },
           {
             "person": "FNF Spooky Mix",
