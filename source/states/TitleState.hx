@@ -373,35 +373,7 @@ class TitleState extends MusicBeatState
 		{
 			if (pressedEnter)
 			{
-				press_play.playAnim(ClientPrefs.data.flashing ? 'pressed' : 'pressed-flashless');
-				bf.animation.play('hey');
-
-				FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
-				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-
-				transitioning = true;
-				// FlxG.sound.music.stop();
-
-				enterTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
-					if (mustUpdate)
-					{
-						MusicBeatState.switchState(new OutdatedState());
-					}
-					else
-					{
-						if (cheatActive)
-						{
-							FlxG.sound.playMusic(Paths.music('FlexRack'), 0);
-							FlxG.sound.music.fadeIn(4, 0, 0.7);
-						}
-						FlxTransitionableState.skipNextTransIn = true;
-						MusicBeatState.switchState(new MainMenuState());
-					}
-
-					closedState = true;
-				});
-				// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
+				play();
 			}
 		}
 
@@ -530,7 +502,7 @@ class TitleState extends MusicBeatState
 		if (logoBl != null)
 			logoBl.animation.play('bump', true);
 
-		if (curBeat % 2 == 0 && !pressedEnter)
+		if (curBeat % 2 == 0 && !pressedEnter && bf.animation.name != 'hey')
 			bf.animation.play('idle');
 
 		if (cheatActive && this.curBeat % 2 == 0 && swagShader != null)
@@ -672,5 +644,38 @@ class TitleState extends MusicBeatState
 			return;
 		FlxG.switchState(() -> new AttractState());
 		#end
+	}
+
+	function play()
+	{
+		press_play.playAnim(ClientPrefs.data.flashing ? 'pressed' : 'pressed-flashless');
+		bf.animation.play('hey');
+
+		FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
+		FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+
+		transitioning = true;
+		// FlxG.sound.music.stop();
+
+		enterTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
+		{
+			if (mustUpdate)
+			{
+				MusicBeatState.switchState(new OutdatedState());
+			}
+			else
+			{
+				if (cheatActive)
+				{
+					FlxG.sound.playMusic(Paths.music('FlexRack'), 0);
+					FlxG.sound.music.fadeIn(4, 0, 0.7);
+				}
+				FlxTransitionableState.skipNextTransIn = true;
+				MusicBeatState.switchState(new MainMenuState());
+			}
+
+			closedState = true;
+		});
+		// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 	}
 }
