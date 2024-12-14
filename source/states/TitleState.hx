@@ -530,17 +530,17 @@ class TitleState extends MenuState
 					FlxG.sound.music.onComplete = moveToAttract;
 					#end
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
-					createCoolText(['Piss']);
-					//createCoolText(['Funkin Crew Inc']);
+					//createCoolText(['Piss']);
+					createCoolText(['Funkin Crew Inc']);
 				case 2:
-					addMoreText('Piss');
-					addMoreText('Piss');
-					//addMoreText('Psych Engine Team');
-					//addMoreText('PSlice Engine Team');
+					//addMoreText('Piss');
+					//addMoreText('Piss');
+					addMoreText('Psych Engine Team');
+					addMoreText('PSlice Engine Team');
 				// 'Psych Engine Team', 'PSlice Team', 'vs Guy Plus Team'
 				case 3:
-					addMoreText('Piss');
-					//addMoreText('vs Guy Plus Team');
+					//addMoreText('Piss');
+					addMoreText('vs Guy Plus Team');
 				case 4:
 					addMoreText('present');
 				case 5:
