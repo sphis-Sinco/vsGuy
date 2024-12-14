@@ -2655,11 +2655,11 @@ class PlayState extends MusicBeatState
 				{
 					case 'dad':
 						mcChat.textField.text = '<${daddyChar}>: $value1';
-						mcChat.textField.color = healthBar.leftBar.color;
+						if (ClientPrefs.data.colorChat) mcChat.textField.color = healthBar.leftBar.color;
 					
 					default:
 						mcChat.textField.text = '<${keithChar}>: $value1';
-						mcChat.textField.color = healthBar.rightBar.color;
+						if (ClientPrefs.data.colorChat) mcChat.textField.color = healthBar.rightBar.color;
 				}
 
 				mcChat.cameras = [camHUD];

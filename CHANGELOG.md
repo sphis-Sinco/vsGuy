@@ -1,9 +1,12 @@
 # vs Guy plus
-## 2.0 [Holiday Pack] - December 15th 2024
+## 2.0 [Holiday Pack] - December 14th 2024
 this changelog is experimental and follows an experimental new format
 ### Changelog
+- 🐞 fix: guy-mc Health Bar Color
+- ✨feature: Colored Chat Text Option
 - ✨feature: Chat message on death (crafters)
 - ✨feature: HELL DIFFICULTY (Crafters only)
+- 🔵 other: BACK is now the first item in difficultyChoices for pause menu
 - 🐞 fix: Crafters Song Shop Item not funcitoning properly
 - ✨feature: Final Crafters Chart File
 - 🐞 fix: Failure to receive song metadata json

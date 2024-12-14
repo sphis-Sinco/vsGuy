@@ -117,6 +117,9 @@ import states.TitleState;
 	public var XP:Float = 0.0;
 	public var BoughtStoreItems:Array<Dynamic> = [];
 	public var EnabledStoreItems:Array<Dynamic> = [];
+
+	// minecraft chat
+	public var colorChat:Bool = false;
 }
 
 class ClientPrefs
@@ -351,6 +354,8 @@ class ClientPrefs
 		data.XP = 0.0;
 		data.BoughtStoreItems = [];
 		data.EnabledStoreItems = [];
+
+		data.colorChat = false;
 
 		trace('Reset Save!');
 

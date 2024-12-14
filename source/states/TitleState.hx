@@ -540,7 +540,7 @@ class TitleState extends MenuState
 				// 'Psych Engine Team', 'PSlice Team', 'vs Guy Plus Team'
 				case 3:
 					//addMoreText('Piss');
-					addMoreText('vs Guy Plus Team');
+					addMoreText('Man Team');
 				case 4:
 					addMoreText('present');
 				case 5:
