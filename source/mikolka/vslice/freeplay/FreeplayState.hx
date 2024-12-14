@@ -145,7 +145,7 @@ class FreeplayState extends MusicBeatSubstate
 
 	var diffIdsCurrent:Array<String> = [];
 	// List of available difficulties for the total song list, without `-variation` at the end (no duplicates or nulls).
-	var diffIdsTotal:Array<String> = ['easy', "normal", "hard"]; // ? forcing this diff order
+	var diffIdsTotal:Array<String> = ['easy', "normal", "hard", "hell"]; // ? forcing this diff order
 
 	var curSelected:Int = 0;
 	var currentDifficulty:String = Constants.DEFAULT_DIFFICULTY;
@@ -323,7 +323,7 @@ class FreeplayState extends MusicBeatSubstate
 		// ? end of init
 
 		super.create();
-		var diffIdsTotalModBinds:Map<String, String> = ["easy" => "", "normal" => "", "hard" => ""];
+		var diffIdsTotalModBinds:Map<String, String> = ["easy" => "", "normal" => "", "hard" => "", "hell" => ""];
 
 		FlxG.state.persistentUpdate = false;
 

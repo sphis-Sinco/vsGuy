@@ -91,12 +91,17 @@ class PauseSubState extends MusicBeatSubstate
 		else
 			menuItems = menuItemsOG;
 
+		difficultyChoices.push('BACK');
 		for (i in 0...Difficulty.list.length)
 		{
 			var diff:String = Difficulty.getString(i);
 			difficultyChoices.push(diff);
 		}
-		difficultyChoices.push('BACK');
+
+		if (PlayState.SONG.song == 'Crafters') {
+			difficultyChoices = ['Normal'];
+			difficultyChoices.insert(0, 'BACK');
+		}
 
 		pauseMusic = new FlxSound();
 		try

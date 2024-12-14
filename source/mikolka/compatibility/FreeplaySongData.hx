@@ -129,6 +129,14 @@ class FreeplaySongData
 					diffNames.insert(0, "easy");
 				if (diffNames.remove("hard"))
 					diffNames.insert(2, "hard");
+
+				switch (this.songName.toLowerCase()) 
+				{
+					case 'crafters':
+						if (diffNames.remove("hell"))
+							diffNames.insert(3, "hell");
+				}
+
 				this.songDifficulties = diffNames;
 			}
 			else
@@ -155,6 +163,7 @@ class FreeplaySongData
 	{
 		var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[levelId]);
 		Difficulty.loadFromWeek(leWeek);
+
 		return Difficulty.list.findIndex(s -> s.trim().toLowerCase() == currentDifficulty);
 	}
 }

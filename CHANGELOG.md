@@ -2,6 +2,7 @@
 ## 2.0 [Holiday Pack] - December 15th 2024
 this changelog is experimental and follows an experimental new format
 ### Changelog
+- ✨feature: HELL DIFFICULTY (Crafters only)
 - 🐞 fix: Crafters Song Shop Item not funcitoning properly
 - ✨feature: Final Crafters Chart File
 - 🐞 fix: Failure to receive song metadata json
