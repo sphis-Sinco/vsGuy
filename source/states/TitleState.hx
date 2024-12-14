@@ -213,12 +213,6 @@ class TitleState extends MusicBeatState
 		logoBl.x += 300;
 		logoBl.visible = false;
 
-		if (ClientPrefs.data.shaders)
-		{
-			swagShader = new ColorSwap();
-			logoBl.shader = swagShader.shader;
-		}
-
 		blackScreen = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
 		blackScreen.scale.set(FlxG.width, FlxG.height);
 		blackScreen.updateHitbox();
@@ -275,6 +269,16 @@ class TitleState extends MusicBeatState
 		add(bars);
 		add(press_play);
 		add(logoBl);
+
+		if (ClientPrefs.data.shaders)
+		{
+			swagShader = new ColorSwap();
+			
+			logoBl.shader = swagShader.shader;
+			bf.shader = swagShader.shader;
+			backdrop.shader = swagShader.shader;
+			press_play.shader = swagShader.shader;
+		}
 
 		if (initialized)
 			skipIntro();
