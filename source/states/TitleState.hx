@@ -257,7 +257,6 @@ class TitleState extends MusicBeatState
 		backdrop.visible = false;
 
 		bf = new TitleBF(60, 128);
-		bf.playAnimation('idle');
 		bf.visible = false;
 
 		bars = new FlxSprite(0, 0).loadGraphic(Paths.image('titlescreen/bars'));
