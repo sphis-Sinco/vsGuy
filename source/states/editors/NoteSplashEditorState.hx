@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import objects.MenuBG;
 import objects.Note;
 import objects.NoteSplash;
@@ -13,7 +14,7 @@ import openfl.net.FileReference;
 import haxe.Json;
 
 @:access(objects.NoteSplash)
-class NoteSplashEditorState extends MusicBeatState
+class NoteSplashEditorState extends MenuState
 {
 	var strums:FlxTypedSpriteGroup<StrumNote> = new FlxTypedSpriteGroup();
 	var splashes:FlxTypedSpriteGroup<NoteSplash> = new FlxTypedSpriteGroup();
@@ -30,6 +31,11 @@ class NoteSplashEditorState extends MusicBeatState
 	var UI:PsychUIBox;
 	var properUI:PsychUIBox;
 	var shaderUI:PsychUIBox;
+
+	override public function new()
+	{
+		super('notesplash editor');
+	}
 
 	override function create()
 	{

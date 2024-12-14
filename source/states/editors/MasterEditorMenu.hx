@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import objects.MenuBG;
 import openfl.events.UncaughtErrorEvent;
 import mikolka.compatibility.VsliceOptions;
@@ -9,7 +10,7 @@ import mikolka.vslice.results.ResultState;
 import objects.Character;
 import states.MainMenuState;
 
-class MasterEditorMenu extends MusicBeatState
+class MasterEditorMenu extends MenuState
 {
 	var options:Array<String> = [
 		'Chart Editor',

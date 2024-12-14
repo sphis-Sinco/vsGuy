@@ -1,5 +1,6 @@
 package sinco.vsguy.states.credits;
 
+import sinco.vsguy.bases.MenuState;
 import sinco.vsguy.states.credits.json.CreditsItem.CreditUser;
 import sinco.vsguy.states.credits.json.CreditsList;
 import openfl.Assets;
@@ -7,7 +8,7 @@ import haxe.Json;
 import sinco.vsguy.states.credits.json.*;
 import flixel.FlxG;
 
-class CreditsMenu extends MusicBeatState
+class CreditsMenu extends MenuState
 {
 	public var creditsFile:CreditsList = CreditManager.templateCredits();
 	public var credits:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
@@ -95,7 +96,7 @@ class CreditsMenu extends MusicBeatState
 		howToPauseText.scrollFactor.set(0, 0);
 		howToPauseText.alpha = 0.4;
 
-		super();
+		super('credits');
 	}
 
 	override public function create()

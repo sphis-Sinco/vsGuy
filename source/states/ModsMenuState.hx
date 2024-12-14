@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.bases.MenuState;
 import objects.MenuBG;
 import backend.WeekData;
 import backend.Mods;
@@ -13,7 +14,7 @@ import options.ModSettingsSubState;
 import openfl.display.BitmapData;
 import lime.utils.Assets;
 
-class ModsMenuState extends MusicBeatState
+class ModsMenuState extends MenuState
 {
 	var bg:MenuBG;
 	var icon:FlxSprite;

@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.bases.MenuState;
 import mikolka.compatibility.ModsHelper;
 import backend.WeekData;
 import backend.Highscore;
@@ -13,7 +14,7 @@ import substates.ResetScoreSubState;
 import substates.StickerSubState;
 import backend.StageData;
 
-class StoryMenuState extends MusicBeatState
+class StoryMenuState extends MenuState
 {
 	public static var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
 
@@ -46,7 +47,7 @@ class StoryMenuState extends MusicBeatState
 
 	public function new(?stickers:StickerSubState = null)
 	{
-		super();
+		super('storymenu');
 
 		if (stickers != null)
 		{

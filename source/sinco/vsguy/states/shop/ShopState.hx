@@ -1,5 +1,6 @@
 package sinco.vsguy.states.shop;
 
+import sinco.vsguy.bases.MenuState;
 import sinco.vsguy.popups.DoubleXP;
 import haxe.Json;
 import openfl.Assets;
@@ -7,7 +8,7 @@ import objects.Character;
 import sinco.vsguy.data.ShopItem.ShopItem;
 import sinco.vsguy.data.ShopItem.ShopItemManager;
 
-class ShopState extends MusicBeatState
+class ShopState extends MenuState
 {
 	public var sinco:Character;
 	public var card:FlxSprite;
@@ -98,7 +99,7 @@ class ShopState extends MusicBeatState
 
 		doubleXp = new DoubleXP(0,0);
 
-		super();
+		super('shop');
 	}
 
 	public function sincoFinishAnim(name:String)

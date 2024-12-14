@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
@@ -11,7 +12,7 @@ import cutscenes.DialogueBoxPsych;
 import cutscenes.DialogueCharacter;
 import states.editors.content.Prompt;
 
-class DialogueCharacterEditorState extends MusicBeatState implements PsychUIEventHandler.PsychUIEvent
+class DialogueCharacterEditorState extends MenuState implements PsychUIEventHandler.PsychUIEvent
 {
 	var box:FlxSprite;
 	var daText:TypedAlphabet = null;
@@ -36,6 +37,11 @@ class DialogueCharacterEditorState extends MusicBeatState implements PsychUIEven
 
 	var curAnim:Int = 0;
 	var unsavedProgress:Bool = false;
+
+	override public function new()
+	{
+		super('dialogue character editor');
+	}
 
 	override function create()
 	{

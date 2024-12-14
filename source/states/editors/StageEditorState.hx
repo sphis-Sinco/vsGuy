@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import backend.StageData;
 import backend.PsychCamera;
 import objects.Character;
@@ -19,7 +20,7 @@ import flash.net.FileFilter;
 import states.editors.content.Prompt;
 import states.editors.content.PreloadListSubState;
 
-class StageEditorState extends MusicBeatState implements PsychUIEventHandler.PsychUIEvent
+class StageEditorState extends MenuState implements PsychUIEventHandler.PsychUIEvent
 {
 	final minZoom = 0.1;
 	final maxZoom = 2;
@@ -42,7 +43,7 @@ class StageEditorState extends MusicBeatState implements PsychUIEventHandler.Psy
 	{
 		lastLoadedStage = stageToLoad;
 		stageJson = cachedJson;
-		super();
+		super('stage editor');
 	}
 
 	var lastLoadedStage:String;

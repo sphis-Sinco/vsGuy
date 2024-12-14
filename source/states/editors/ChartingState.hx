@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import objects.MenuBG;
 import mikolka.funkin.custom.FreeplayMeta.FreeplayMetaJSON;
 import openfl.net.FileReference;
@@ -61,7 +62,7 @@ enum abstract WaveformTarget(String)
 	var OPPONENT = 'opp';
 }
 
-class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychUIEvent
+class ChartingState extends MenuState implements PsychUIEventHandler.PsychUIEvent
 {
 	public static final defaultEvents:Array<Array<String>> = [
 		['', "Nothing. Yep, that's right."], // Always leave this one empty pls
@@ -218,7 +219,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 	public function new(?shouldReset:Bool = true)
 	{
 		this._shouldReset = shouldReset;
-		super();
+		super('charting');
 	}
 
 	var bg:MenuBG;

@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
@@ -9,13 +10,18 @@ import objects.MenuCharacter;
 import states.editors.content.Prompt;
 import states.editors.content.PsychJsonPrinter;
 
-class MenuCharacterEditorState extends MusicBeatState implements PsychUIEventHandler.PsychUIEvent
+class MenuCharacterEditorState extends MenuState implements PsychUIEventHandler.PsychUIEvent
 {
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 	var characterFile:MenuCharacterFile = null;
 	var txtOffsets:FlxText;
 	var defaultCharacters:Array<String> = ['dad', 'bf', 'gf'];
 	var unsavedProgress:Bool = false;
+
+	override public function new()
+	{
+		super('menucharacter editor');
+	}
 
 	override function create()
 	{

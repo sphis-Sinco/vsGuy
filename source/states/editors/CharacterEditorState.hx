@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import flixel.graphics.FlxGraphic;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import flixel.util.FlxDestroyUtil;
@@ -13,7 +14,7 @@ import objects.Bar;
 import states.editors.content.Prompt;
 import states.editors.content.PsychJsonPrinter;
 
-class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler.PsychUIEvent
+class CharacterEditorState extends MenuState implements PsychUIEventHandler.PsychUIEvent
 {
 	var character:Character;
 	var ghost:FlxSprite;
@@ -59,7 +60,7 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 		if (this._char == null)
 			this._char = Character.DEFAULT_CHARACTER;
 
-		super();
+		super('character editor');
 	}
 
 	override function create()

@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.bases.MenuState;
 import sinco.vsguy.states.shop.ShopState;
 import sinco.vsguy.states.credits.CreditsMenu;
 import objects.MenuBG;
@@ -12,7 +13,7 @@ import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 
-class MainMenuState extends MusicBeatState
+class MainMenuState extends MenuState
 {
 	public static var curSelected:Int = 0;
 
@@ -26,7 +27,7 @@ class MainMenuState extends MusicBeatState
 	public function new(isDisplayingRank:Bool = false)
 	{
 		// TODO
-		super();
+		super('mainmenu');
 	}
 
 	override function create()

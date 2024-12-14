@@ -1,5 +1,6 @@
 package states.editors;
 
+import sinco.vsguy.bases.MenuState;
 import objects.MenuBG;
 import backend.WeekData;
 import openfl.utils.Assets;
@@ -15,7 +16,7 @@ import objects.MenuItem;
 import states.editors.MasterEditorMenu;
 import states.editors.content.Prompt;
 
-class WeekEditorState extends MusicBeatState implements PsychUIEventHandler.PsychUIEvent
+class WeekEditorState extends MenuState implements PsychUIEventHandler.PsychUIEvent
 {
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
@@ -31,7 +32,7 @@ class WeekEditorState extends MusicBeatState implements PsychUIEventHandler.Psyc
 
 	public function new(weekFile:WeekFile = null)
 	{
-		super();
+		super('week editor');
 		this.weekFile = WeekData.createWeekFile();
 		if (weekFile != null)
 			this.weekFile = weekFile;

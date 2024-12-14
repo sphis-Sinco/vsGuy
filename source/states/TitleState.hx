@@ -1,5 +1,6 @@
 package states;
 
+import sinco.vsguy.bases.MenuState;
 import backend.Song;
 import objects.Character;
 import states.editors.ChartingState;
@@ -41,7 +42,7 @@ typedef TitleData =
 	@:optional var idle:Bool;
 }
 
-class TitleState extends MusicBeatState
+class TitleState extends MenuState
 {
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
@@ -66,6 +67,11 @@ class TitleState extends MusicBeatState
 	var mustUpdate:Bool = false;
 
 	public static var updateVersion:String = '';
+
+	override public function new()
+	{
+		super('title');
+	}
 
 	override public function create():Void
 	{

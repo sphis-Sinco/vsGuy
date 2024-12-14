@@ -1,6 +1,8 @@
 package states;
 
-class ErrorState extends MusicBeatState
+import sinco.vsguy.bases.MenuState;
+
+class ErrorState extends MenuState
 {
 	public var acceptCallback:Void->Void;
 	public var backCallback:Void->Void;
@@ -12,7 +14,7 @@ class ErrorState extends MusicBeatState
 		this.acceptCallback = accept;
 		this.backCallback = back;
 
-		super();
+		super('error');
 	}
 
 	public var errorSine:Float = 0;
