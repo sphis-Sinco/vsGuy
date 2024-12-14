@@ -2648,7 +2648,7 @@ class PlayState extends MusicBeatState
 				switch (keithChar)
 				{
 					case 'bf-mc':
-						daddyChar = 'shortQueen';
+						keithChar = 'shortQueen';
 				}
 
 				switch(value2.toLowerCase())
@@ -2663,8 +2663,18 @@ class PlayState extends MusicBeatState
 				}
 
 				mcChat.cameras = [camHUD];
-
 				mcChatGRP.add(mcChat);
+				mcChat.timer = new FlxTimer().start(3, _ ->
+				{
+					FlxTween.tween(mcChat, {alpha: 0}, 1.0, {
+						onComplete: _ ->
+						{
+							mcChatGRP.remove(mcChat);
+							mcChat.destroy();
+						}
+					});
+				});
+				
 
 			case 'Hey!':
 				var value:Int = 2;

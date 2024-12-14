@@ -2,6 +2,7 @@
 ## 2.0 [Holiday Pack] - December 15th 2024
 this changelog is experimental and follows an experimental new format
 ### Changelog
+- ✨feature: MC Chat messages
 - 🐞 fix: Stray Pixels on MC Sprites
 - ✨feature: Chat messages
 - 🐞 fix: Size of Score Text in `Crafters`

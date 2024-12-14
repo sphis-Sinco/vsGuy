@@ -8,6 +8,5 @@ class ChatBox extends FlxSprite
         super(x,y);
 
         makeGraphic(320, 20, FlxColor.BLACK);
-        
     }
 }
