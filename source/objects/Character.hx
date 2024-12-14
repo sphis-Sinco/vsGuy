@@ -105,7 +105,7 @@ class Character extends FlxSprite
 		animationsArray = [];
 		animOffsets = [];
 		curCharacter = character;
-		var characterPath:String = 'characters/$character.json';
+		var characterPath:String = 'data/characters/$character.json';
 
 		var path:String = Paths.getPath(characterPath, TEXT);
 		#if MODS_ALLOWED

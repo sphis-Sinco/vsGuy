@@ -24,7 +24,7 @@ class ChatMessage extends FlxSpriteGroup
 		textField.setPosition(messageBox.x - textFieldPadding, messageBox.y - textFieldPadding);
 		textField.scrollFactor.set(0, 0);
 
-		messageBox.makeGraphic(640, Math.round(20 + (textField.height - 20)), FlxColor.BLACK);
+		messageBox.makeGraphic(640, Math.round(20 + (textField.height - 24)), FlxColor.BLACK);
 
 		add(messageBox);
 		add(textField);
