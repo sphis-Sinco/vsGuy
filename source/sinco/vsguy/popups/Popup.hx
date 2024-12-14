@@ -15,7 +15,7 @@ class Popup extends FlxAtlasSprite
 		this.visible = false;
 		this.animToPlay = path;
 
-		setPosition(x, y);
+		this.scrollFactor.set(0, 0);
 
 		this.animation.pause();
 
@@ -28,8 +28,12 @@ class Popup extends FlxAtlasSprite
 		this.playAnimation('$animToPlay');
 		finishTimer.start(animLength, function(timer:FlxTimer)
 		{
-			this.visible = false;
-			trace('$animToPlay is finished');
+			end();
 		});
+	}
+
+	dynamic public function end()
+	{
+		this.destroy();
 	}
 }

@@ -512,8 +512,10 @@ class ResultState extends MusicBeatSubState
 
 		if (ClientPrefs.data.EnabledStoreItems.contains('Double XP'))
 		{
-			additional = finalXP;
+			additional += finalXP;
 			trace('Final XP doubled: ${finalXP * 2}');
+
+			add(doubleXP);
 		}
 
 		trace('Final XP: ${finalXP + additional}');
@@ -523,6 +525,8 @@ class ResultState extends MusicBeatSubState
 
 		ClientPrefs.data.XP += finalXP;
 	}
+
+	var doubleXP:DoubleXP = new DoubleXP(50, 200);
 
 	function getMusicPath(playerCharacter:Null<PlayableCharacter>, rank:ScoringRank):String
 	{
@@ -664,6 +668,7 @@ class ResultState extends MusicBeatSubState
 
 	function afterRankTallySequence():Void
 	{
+		doubleXP.end();
 		showSmallClearPercent();
 
 		for (atlas in characterAtlasAnimations)
