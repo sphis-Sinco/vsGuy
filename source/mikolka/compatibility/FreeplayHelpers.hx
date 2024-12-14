@@ -83,9 +83,6 @@ class FreeplayHelpers
 			PlayState.storyDifficulty = diffId;
 
 			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-
-			if (songLowercase == 'nerve')
-				PlayState.SONG = Song.loadFromJson(Highscore.formatSong('nerve', diffId), 'nerve');
 		}
 		catch (e:Dynamic)
 		{

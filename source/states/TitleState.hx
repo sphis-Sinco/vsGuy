@@ -420,7 +420,7 @@ class TitleState extends MusicBeatState
 		{
 			if (FlxG.keys.justReleased.E)
 			{
-				playSong('crafters');
+				playSong('Crafters');
 
 				#if ACHIEVEMENTS_ALLOWED
 				Achievements.unlock('taking-inventory');

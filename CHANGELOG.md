@@ -49,6 +49,7 @@
 - Size of Main Menu Menu Items
 - Default Window Title
 - Default Screenshot keybind (now F2)
+- Every song is Uppercased (better explanation with example: `guy` is now `Guy`)
 
 ## v1.5-2 - November 29th 2024
 ### Added
