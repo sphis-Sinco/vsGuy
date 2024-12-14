@@ -15,7 +15,7 @@ class Constants
 
 	public static var FUNKIN_EMULATION_VERSION:String = '0.5.1';
 
-	public static var WINDOW_TITLE_PREFIX:String = "FNF: vs Guy Plus";
+	public static var WINDOW_TITLE_PREFIX:String = "FNF: vs Piss Plus";
 
 	public static var ENGINE:String = "Paint Engine";
 	public static var ENGINE_VERSION:String = "2.0";

@@ -1,5 +1,7 @@
 # vs Guy plus
 ## 2.0 [Holiday Pack] - December 15th 2024
+
+## 1.9 [Elomento Pack 2] - December 14th 2024
 ### Added
 - NOW RUNNING ON PAINT ENGINE 2.0 (just a heavily modified PSlice-Engine/Same shit lol)
 - WEEK 3: PURPLE GUY

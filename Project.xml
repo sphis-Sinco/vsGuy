@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="FNF: vs Guy plus" file="GuyPlus" main="Main" version="2.0"
+	<app title="FNF: vs Guy plus" file="GuyPlus" main="Main" version="1.9"
 		company="guyPlusTeam" />
 
 	<!--Switch
