@@ -909,11 +909,8 @@ class PlayState extends MusicBeatState
 			updateHearts();
 		}
 
-		f3scene = new F3Scene(GAMEPLAY_STATE);
-		add(f3scene);
+		openSubState(new F3Scene(GAMEPLAY_STATE));
 	}
-
-	public var f3scene:F3Scene;
 
 	public var HEARTS_ENABLED:Bool = false;
 
@@ -2230,8 +2227,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		f3scene.f3check();
-
 		if (!endingSong && !inCutscene && allowDebugKeys)
 		{
 			if (controls.justPressed('debug_1'))
@@ -2400,8 +2395,6 @@ class PlayState extends MusicBeatState
 			endSong();
 		}
 		#end
-
-		f3scene.update(elapsed);
 	}
 
 	// Health icon updaters
