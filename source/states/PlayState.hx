@@ -1191,7 +1191,7 @@ class PlayState extends MusicBeatState
 		// HScript
 		#if HSCRIPT_ALLOWED
 		var doPush:Bool = false;
-		var scriptFile:String = 'characters/' + name + '.hx';
+		var scriptFile:String = 'data/characters/' + name + '.hx';
 		#if MODS_ALLOWED
 		var replacePath:String = Paths.modFolders(scriptFile);
 		if (FileSystem.exists(replacePath))
