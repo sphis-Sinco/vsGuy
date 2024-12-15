@@ -1,0 +1,23 @@
+{
+	"events": [
+		[
+			13500,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			14437.5,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		],
+		[
+			15375,
+			[
+				["Play Animation", "drink", "Dad"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}
