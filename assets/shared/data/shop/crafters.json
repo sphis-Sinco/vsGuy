@@ -1,0 +1,7 @@
+{
+  "name": "Crafters Song",
+  "description": "This item will add the song\ncrafters to the freeplay menu",
+  "price": 75000000,
+  "sincoInterested": true,
+  "sincoReact": true
+}

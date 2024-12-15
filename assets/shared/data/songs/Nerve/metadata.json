@@ -1,0 +1,16 @@
+{
+	"songRating": 6,
+	"freeplayPrevStart": 0,
+	"freeplayPrevEnd": 15,
+	"freeplaySongLength": 109.999,
+	"freeplayCharacter": "bf",
+	"albumId": "guy1",
+	"dialogue": false,
+	"censoredDialogue": false,
+	"freeplayDialogue": false,
+	"endDialogue": false,
+	"dialogueFile": "dialogue",
+	"dialogueMusic": "breakfast",
+	"artist": "Sinco",
+	"charter": "Sinco"
+}

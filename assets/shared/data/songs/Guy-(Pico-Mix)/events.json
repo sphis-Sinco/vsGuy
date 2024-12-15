@@ -1,0 +1,17 @@
+{
+	"events": [
+		[
+			0,
+			[
+				["Camera Follow Pos", "450", "350"]
+			]
+		],
+		[
+			16695.652173913,
+			[
+				["Camera Follow Pos", "", ""]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

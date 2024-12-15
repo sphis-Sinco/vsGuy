@@ -5,8 +5,8 @@
 	xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Funkin SMP" file="FunkinSMP" main="Main" version="1.0"
-		company="manTeam" />
+	<app title="FNF: vs Guy plus" file="GuyPlus" main="Main" version="2.0"
+		company="guyPlusTeam" />
 
 	<!--Switch
 	Export with Unique ApplicationID and Icon-->
@@ -28,8 +28,6 @@
 	<set name="SWF_VERSION" value="11.8" />
 
 	<!-- ________________________ VS GUY + CUSTOMIZATION ________________________ -->
-
-	<haxedef name="FUNKIN_SMP" />
 
 	<haxedef name="OUTDATED" if="OUTDATED" />
 
@@ -276,10 +274,10 @@
 
 	<!-- _________________________________ Custom _______________________________ -->
 
-	<assets path='.dev/vs_guy/iconOG.png' rename='icon.png' if="linux" />
+	<assets path='.dev/iconOG.png' rename='icon.png' if="linux" />
 
-	<icon path=".dev/vs_guy/icon16.png" size='16' />
-	<icon path=".dev/vs_guy/icon32.png" size='32' />
-	<icon path=".dev/vs_guy/icon64.png" size='64' />
-	<icon path=".dev/vs_guy/iconOG.png" />
+	<icon path=".dev/icon16.png" size='16' />
+	<icon path=".dev/icon32.png" size='32' />
+	<icon path=".dev/icon64.png" size='64' />
+	<icon path=".dev/iconOG.png" />
 </project>
