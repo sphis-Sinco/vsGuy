@@ -1,6 +1,6 @@
-package sinco.vsguy.substates.f3scene;
+package sinco.funkin_smp.substates.f3scene;
 
-import sinco.vsguy.substates.f3scene.components.*;
+import sinco.funkin_smp.substates.f3scene.components.*;
 
 class F3Scene extends MusicBeatSubstate
 {
@@ -18,10 +18,10 @@ class F3Scene extends MusicBeatSubstate
 		this.CURRENT_STATE = state; // the new() param for state takes priority
 
 		leftText = new FlxText(10, 10, 0, "Left Text", 16);
-		leftText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
+		leftText.setFormat(Paths.font(GuyConst.DEFAULT_FONT), 16, FlxColor.WHITE, LEFT);
 
 		rightText = new FlxText(10, 10, 0, "Right Text", 16);
-		rightText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
+		rightText.setFormat(Paths.font(GuyConst.DEFAULT_FONT), 16, FlxColor.WHITE, RIGHT);
 
 		leftText.scrollFactor.set(0, 0);
 		rightText.scrollFactor.set(0, 0);

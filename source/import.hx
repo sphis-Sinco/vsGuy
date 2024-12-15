@@ -49,7 +49,7 @@ import sinco.vsguy.states.*;
 import sinco.vsguy.states.credits.*;
 import sinco.vsguy.states.new_title.*;
 import sinco.vsguy.states.shop.*;
-import sinco.vsguy.Constants as GuyConsts;
+import sinco.Constants as GuyConsts;
 // P-Slice
 import mikolka.funkin.*;
 import mikolka.funkin.utils.*;

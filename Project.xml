@@ -5,8 +5,8 @@
 	xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="FNF: vs Guy plus" file="GuyPlus" main="Main" version="2.0"
-		company="guyPlusTeam" />
+	<app title="Funkin SMP" file="FunkinSMP" main="Main" version="0.1"
+		company="manTeam" />
 
 	<!--Switch
 	Export with Unique ApplicationID and Icon-->

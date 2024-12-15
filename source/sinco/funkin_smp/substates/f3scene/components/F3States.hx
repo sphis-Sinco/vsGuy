@@ -1,4 +1,4 @@
-package sinco.vsguy.substates.f3scene.components;
+package sinco.funkin_smp.substates.f3scene.components;
 
 enum abstract F3States(String) from String to String
 {
