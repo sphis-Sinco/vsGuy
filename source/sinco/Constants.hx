@@ -4,6 +4,16 @@ import lime.app.Application;
 
 class Constants
 {
+	public static var GIT_PAGE(get, never):String;
+
+	public static function get_GIT_PAGE():String {
+		#if FUNKIN_SMP
+		return 'FunkinSMP';
+		#end
+
+		return 'VsGuyPlus';
+	}
+
 	public static var DEFAULT_FONT:String = 'vcr.tff';
 	public static var MINECRAFT_FONT:String = 'mc.tff';
 
