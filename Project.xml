@@ -29,6 +29,8 @@
 
 	<!-- ________________________ VS GUY + CUSTOMIZATION ________________________ -->
 
+	<haxedef name="FUNKIN_SMP" />
+
 	<haxedef name="OUTDATED" if="OUTDATED" />
 
 	<haxedef name="CHARTING" if="charteditor" />
