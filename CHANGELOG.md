@@ -1,4 +1,7 @@
 # vs Guy plus
+## 2.1 - December 15th 2024
+### Changelog
+
 ## 2.0 [Holiday Pack] - December 14th 2024
 this changelog is experimental and follows an experimental new format
 ### Changelog
