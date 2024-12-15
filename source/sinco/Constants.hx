@@ -6,12 +6,25 @@ class Constants
 {
 	public static var GIT_PAGE(get, never):String;
 
-	public static function get_GIT_PAGE():String {
+	public static function get_GIT_PAGE():String
+	{
 		#if FUNKIN_SMP
+		trace('FUNKIN_SMP');
 		return 'FunkinSMP';
 		#end
 
 		return 'VsGuyPlus';
+	}
+
+	public static var SAVE(get, never):String;
+
+	public static function get_SAVE():String
+	{
+		#if FUNKIN_SMP
+		return 'funkin_smp';
+		#end
+
+		return 'guy+';
 	}
 
 	public static var DEFAULT_FONT:String = 'vcr.tff';
