@@ -276,10 +276,10 @@
 
 	<!-- _________________________________ Custom _______________________________ -->
 
-	<assets path='.dev/iconOG.png' rename='icon.png' if="linux" />
+	<assets path='.dev/vs_guy/iconOG.png' rename='icon.png' if="linux" />
 
-	<icon path=".dev/icon16.png" size='16' />
-	<icon path=".dev/icon32.png" size='32' />
-	<icon path=".dev/icon64.png" size='64' />
-	<icon path=".dev/iconOG.png" />
+	<icon path=".dev/vs_guy/icon16.png" size='16' />
+	<icon path=".dev/vs_guy/icon32.png" size='32' />
+	<icon path=".dev/vs_guy/icon64.png" size='64' />
+	<icon path=".dev/vs_guy/iconOG.png" />
 </project>

@@ -3,3 +3,4 @@
 this version uses Paint Engine 2.1
 this changelog takes place after vs guy plus 2.0
 ### Changelog
+- ✨feature: Starter Song
