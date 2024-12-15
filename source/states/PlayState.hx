@@ -1,7 +1,7 @@
 package states;
 
 import sinco.mc.chat.ChatMessage;
-import sinco.vsguy.substates.f3scene.F3Scene;
+import sinco.funkin_smp.substates.f3scene.F3Scene;
 import sinco.vsguy.popups.XPPopup;
 import sinco.vsguy.stages.*;
 import mikolka.JoinedLuaVariables;
