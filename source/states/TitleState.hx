@@ -94,7 +94,7 @@ class TitleState extends MenuState
 		if (ClientPrefs.data.checkForUpdates && !closedState)
 		{
 			trace('checking for update');
-			var http = new haxe.Http('https://raw.githubusercontent.com/sphis-Sinco/${GuyConsts.GIT_PAGE}/refs/heads/master/gitVersion.txt');
+			var http = new haxe.Http("https://raw.githubusercontent.com/sphis-Sinco/vsGuyPlus/refs/heads/master/gitVersion.txt");
 
 			http.onData = function(data:String)
 			{

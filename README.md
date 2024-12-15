@@ -1,12 +1,11 @@
-# Paint Engine || Funkin SMP
+# Vs Guy Plus
 
 [![OS - Windows](https://img.shields.io/badge/OS-Windows-blue?logo=windows&logoColor=white)](https://www.microsoft.com/ "Go to Microsoft homepage")
-![Engine Version - v2.1](https://img.shields.io/badge/Engine_Version-v2.1-0077ff)
-[![Mod Version - v0.1](https://img.shields.io/badge/Mod_Version-v0.1-0077ff)](./gitVersion.txt)
+[![Version - v2.0](https://img.shields.io/badge/Version-v2.0-0077ff)](https://github.com/sphis-Sinco/vsGuyPlus/blob/master/gitVersion.txt)
 
 ## Game
 ### Story
-BF and GF are playin Minecraft
+Boyfriend and Girlfriend decide to fuck around with the guys and now they are fucked.
 
 ## Source code
 You need haxe.
