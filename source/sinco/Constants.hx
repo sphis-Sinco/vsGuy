@@ -5,6 +5,7 @@ import lime.app.Application;
 class Constants
 {
 	public static var DEFAULT_FONT:String = 'vcr.tff';
+	public static var MINECRAFT_FONT:String = 'mc.tff';
 
 	public static var PSYCH_VERSION:String = '1.0';
 
