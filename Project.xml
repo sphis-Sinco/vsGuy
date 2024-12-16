@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="FNF: vs Guy plus" file="GuyPlus" main="Main" version="2.1"
+	<app title="FNF: Vs Guy" file="GuyPlus" main="Main" version="2.0-1"
 		company="guyPlusTeam" />
 
 	<!--Switch
@@ -56,7 +56,7 @@
 	<define name="TOUCH_CONTROLS_ALLOWED" if="mobile || web" />
 
 	<!-- Do you want to check for P-Slice updates?-->
-	<!-- No I want to check for VsGuy+ Updates-->
+	<!-- No I want to check for Vsguy Updates-->
 	<define name="CHECK_FOR_UPDATES" />
 
 	<!-- Do you want to support playing videos in your build?-->

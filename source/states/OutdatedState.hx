@@ -27,7 +27,7 @@ class OutdatedState extends MusicBeatState
 		guh = "Sup "
 			+ homie
 			+ ", looks like you're running an   \n
-		outdated version of vs Guy plus! (v"
+		outdated version of Vs Guy! (v"
 			+ GuyConsts.MOD_VERSION
 			+ "),\n
 		please update to v"
