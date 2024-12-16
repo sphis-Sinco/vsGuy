@@ -115,9 +115,6 @@
 
 	<assets path="assets/mobile" rename="assets/shared/mobile" if="TOUCH_CONTROLS_ALLOWED" />
 
-	<assets path="assets/shared" exclude="*.ogg" if="web" />
-	<assets path="assets/shared" exclude="*.mp3" unless="web" />
-
 	<assets path="assets/embed" exclude="*.ogg" if="web" embed="true" />
 	<assets path="assets/embed" exclude="*.mp3" unless="web" embed="true" />
 
@@ -131,11 +128,6 @@
 
 	<assets path="assets/menus" rename="assets/shared" exclude="*.ogg" if="web" />
 	<assets path="assets/menus" rename="assets/shared" exclude="*.mp3" unless="web" />
-
-	<section if="TITLE_SCREEN_EASTER_EGG">
-		<assets path="assets/secrets" rename="assets/shared" exclude="*.ogg" if="web" />
-		<assets path="assets/secrets" rename="assets/shared" exclude="*.mp3" unless="web" />
-	</section>
 
 	<section if="TRANSLATIONS_ALLOWED">
 		<assets path="assets/translations" rename="assets" exclude="*.ogg" if="web" />
