@@ -1,7 +1,7 @@
 # Vs Guy
 
 [![OS - Windows](https://img.shields.io/badge/OS-Windows-blue?logo=windows&logoColor=white)](https://www.microsoft.com/ "Go to Microsoft homepage")
-[![Version - v2.0](https://img.shields.io/badge/Version-v2.0-0077ff)](https://github.com/sphis-Sinco/vsGuyPlus/blob/master/gitVersion.txt)
+[![Version - v2.0-1](https://img.shields.io/badge/Version-v2.0--1-0077ff)](./gitVersion.txt)
 
 ## Game
 ### Story
