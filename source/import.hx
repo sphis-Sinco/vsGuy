@@ -44,6 +44,7 @@ import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
 import mikolka.funkin.*;
+import mikolka.funkin.Constants;
 import mikolka.funkin.custom.*;
 import mikolka.funkin.players.*;
 import mikolka.funkin.utils.*;
