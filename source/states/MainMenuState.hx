@@ -110,7 +110,7 @@ class MainMenuState extends MenuState
 			}
 		}
 
-		var modVer:FlxText = new FlxText(0, FlxG.height - (18 * 2), FlxG.width, 'vs Guy Plus ${GuyConsts.MOD_VERSION + #if debug '-indev' #else '' #end}', 12);
+		var modVer:FlxText = new FlxText(0, FlxG.height - (18 * 2), FlxG.width, 'Vs Guy ${GuyConsts.MOD_VERSION + #if debug '-indev' #else '' #end}', 12);
 		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		modVer.scrollFactor.set();
 		modVer.text += "\n" + GuyConsts.getEngineStringWithPSliceVer();

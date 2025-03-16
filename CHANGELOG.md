@@ -1,4 +1,11 @@
-# vs Guy plus
+# vs Guy
+## 2.0-1 - March 15th 2025
+the mod has been renamed from "Vs Guy Plus" to "Vs Guy" and the OG "Vs Guy" has been renamed to "Vs Guy (CONCEPT EDITION)"
+THIS HAS WIPED SAVES (sorry)
+### Changelog
+- 🐞 fix: Man Team Credits
+- 🔵 other: Updated any and all references to "Vs Guy Plus"
+
 ## 2.0 [Holiday Pack] - December 14th 2024
 this changelog is experimental and follows an experimental new format
 ### Changelog

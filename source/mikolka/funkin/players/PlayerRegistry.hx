@@ -1,11 +1,11 @@
 package mikolka.funkin.players;
 
 import haxe.Json;
-import mikolka.funkin.players.PlayerData;
 import mikolka.compatibility.FunkinPath;
+import mikolka.funkin.players.PlayerData;
 
-using mikolka.funkin.custom.FunkinTools;
 using StringTools;
+using mikolka.funkin.custom.FunkinTools;
 
 // TODO softcode this soon
 class PlayerRegistry extends PsliceRegistry
@@ -30,73 +30,76 @@ class PlayerRegistry extends PsliceRegistry
 		var newchar:Bool = false;
 		chars = ClientPrefs.data.unlockedCharacters;
 
-		try
+		TryCatch.tryCatch(() ->
 		{
-			files = FileSystem.readDirectory(Paths.getPath('registry/players'));
-		}
-		catch (e)
-		{
-			files = ['bf'];
-		}
-		// trace('Savedata Players Registery$chars');
-		// trace('Freeplay Players Registery: $files');
-
-		var array = [];
-		for (file in files)
-		{
-			array.push(file.split('.json')[0]);
-		}
-		files = array;
-
-		trace(chars);
-		trace(files);
-
-		newchar = chars != files;
-
-		if (newchar)
-		{
-			var newEntry:Bool = false;
-			var newEntryAm:Int = 0;
-			var newEntrys:Array<String> = [];
-
-			for (i in 0...chars.length)
+			TryCatch.tryCatch(() ->
 			{
-				if (!files.contains(chars[i]))
-				{
-					newEntrys.push(chars[i].split('.json')[0]);
-					chars.remove(chars[i]);
-					newEntryAm++;
-				}
+				files = FileManager.readDirectory(Paths.getPath('registry/players'));
+			}, {
+					errFunc: () ->
+					{
+						files = ['bf'];
+					}
+			});
+			var array = [];
+			for (file in files)
+			{
+				array.push(file.split('.json')[0]);
 			}
+			files = array;
 
-			if (newEntryAm > 0)
+			trace(chars);
+			trace(files);
+
+			newchar = chars != files;
+
+			if (newchar)
 			{
-				trace('Removed $newEntryAm unused Player Registries from Save data');
+				var newEntry:Bool = false;
+				var newEntryAm:Int = 0;
+				var newEntrys:Array<String> = [];
+
+				for (i in 0...chars.length)
+				{
+					if (!files.contains(chars[i]))
+					{
+						newEntrys.push(chars[i].split('.json')[0]);
+						chars.remove(chars[i]);
+						newEntryAm++;
+					}
+				}
+
+				if (newEntryAm > 0)
+				{
+					trace('Removed $newEntryAm unused Player Registries from Save data');
+					trace(newEntrys);
+				}
+
+				newEntryAm = 0;
+				newEntrys = [];
+
+				for (i in 0...files.length)
+				{
+					if (!chars.contains(files[i]))
+					{
+						newEntry = true;
+						newEntryAm++;
+						newEntrys.push(files[i].split('.json')[0]);
+					}
+				}
+
+				if (!newEntry && newEntryAm == 0)
+					return false;
+
+				ClientPrefs.data.unlockedCharacters = files; // TODO: make this based off of the unlocked key in the JSON
+				chars = ClientPrefs.data.unlockedCharacters;
+				trace('$newEntryAm new Player Registeries');
 				trace(newEntrys);
+				return true;
 			}
 
-			newEntryAm = 0;
-			newEntrys = [];
-
-			for (i in 0...files.length)
-			{
-				if (!chars.contains(files[i]))
-				{
-					newEntry = true;
-					newEntryAm++;
-					newEntrys.push(files[i].split('.json')[0]);
-				}
-			}
-
-			if (!newEntry && newEntryAm == 0)
-				return false;
-
-			ClientPrefs.data.unlockedCharacters = files; // TODO: make this based off of the unlocked key in the JSON
-			chars = ClientPrefs.data.unlockedCharacters;
-			trace('$newEntryAm new Player Registeries');
-			trace(newEntrys);
-			return true;
-		}
+			return false;
+		});
 
 		return false;
 	}
