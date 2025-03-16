@@ -6,7 +6,7 @@
 	<!-- _________________________ Application Settings _________________________ -->
 
 	<app title="FNF: Vs Guy" file="Guy" main="Main" version="2.1"
-		company="guyTeam" />
+		company="manTeam" />
 
 	<!--Switch
 	Export with Unique ApplicationID and Icon-->

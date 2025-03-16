@@ -1,16 +1,15 @@
 package sinco.vsguy.states.shop;
 
-import sinco.vsguy.bases.MenuState;
-import sinco.vsguy.popups.DoubleXP;
 import haxe.Json;
-import openfl.Assets;
 import objects.Character;
+import openfl.Assets;
+import sinco.vsguy.bases.MenuState;
 import sinco.vsguy.data.ShopItem.ShopItem;
 import sinco.vsguy.data.ShopItem.ShopItemManager;
 
 class ShopState extends MenuState
 {
-	public var sinco:Character;
+	public var sinco:Sinco;
 	public var card:FlxSprite;
 
 	public var items:Array<ShopItem> = [];
@@ -66,7 +65,7 @@ class ShopState extends MenuState
 				ClientPrefs.data.BoughtStoreItems.remove(item);
 		}
 
-		sinco = new Character(0, 0, 'shop-sinco');
+		sinco = new Sinco(0,0);
 		sinco.screenCenter();
 		sinco.x -= 200;
 		sinco.y += 180;
@@ -101,8 +100,8 @@ class ShopState extends MenuState
 
 	public function sincoFinishAnim(name:String)
 	{
-		if (sinco.animation.name != 'idle')
-			sinco.playAnim('idle');
+		if (sinco.animation.name != 'Sinco Idle')
+			sinco.animation.play('Sinco Idle');
 	}
 
 	override public function create()
@@ -210,16 +209,16 @@ class ShopState extends MenuState
 			if (!ClientPrefs.data.BoughtStoreItems.contains(currentItem.name))
 				if (currentItem.sincoReact)
 					if (currentItem.sincoInterested)
-						sinco.playAnim('interested');
+						sinco.animation.play('Sinco Interested');
 					else
-						sinco.playAnim('uninterested');
+						sinco.animation.play('Sinco Uninterested');
 
 			if (ClientPrefs.data.EnabledStoreItems.contains(currentItem.name))
 				toggle.playAnim('on');
 		} else {
 			itemName.text = 'No Shop Items';
 			itemDesc.text = '';
-			sinco.playAnim('uninterested');
+			sinco.animation.play('Sinco Uninterested');
 		}
 	}
 }

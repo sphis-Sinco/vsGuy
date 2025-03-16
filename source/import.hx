@@ -43,6 +43,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
+import mikolka.compatibility.*;
 import mikolka.funkin.*;
 import mikolka.funkin.Constants;
 import mikolka.funkin.custom.*;
