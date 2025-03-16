@@ -1,12 +1,12 @@
 package sinco.vsguy.states.credits;
 
+import flixel.FlxG;
+import haxe.Json;
+import openfl.Assets;
 import sinco.vsguy.bases.MenuState;
+import sinco.vsguy.states.credits.json.*;
 import sinco.vsguy.states.credits.json.CreditsItem.CreditUser;
 import sinco.vsguy.states.credits.json.CreditsList;
-import openfl.Assets;
-import haxe.Json;
-import sinco.vsguy.states.credits.json.*;
-import flixel.FlxG;
 
 class CreditsMenu extends MenuState
 {
@@ -17,6 +17,8 @@ class CreditsMenu extends MenuState
 
 	var pausedText:FlxText;
 	var howToPauseText:FlxText;
+        
+	var TEXT_SPEED_MAX:Float = 2.5;
 
 	override public function new()
 	{
@@ -118,7 +120,7 @@ class CreditsMenu extends MenuState
 			FlxTween.cancelTweensOf(this);
 			pausedText.visible = !pausedText.visible;
 			if (!pausedText.visible)
-				FlxTween.tween(this, {textSpeed: 5}, 1.0);
+				FlxTween.tween(this, {textSpeed: TEXT_SPEED_MAX}, 1.0);
 			else
 				FlxTween.tween(this, {textSpeed: 0}, 1.0);
 		}

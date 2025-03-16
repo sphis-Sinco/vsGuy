@@ -1,5 +1,8 @@
 # vs Guy
 ## 2.1
+### Changelog
+- Modification: Credits menu credits scroll is now slower
+- Addition: Paul leps is now apart of Man Team
 
 ## 2.0-1 - March 16th 2025
 the mod has been renamed from "Vs Guy Plus" to "Vs Guy" and the OG "Vs Guy" has been renamed to "Vs Guy (CONCEPT EDITION)"
