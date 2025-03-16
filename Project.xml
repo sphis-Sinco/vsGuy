@@ -185,6 +185,8 @@
 
 	<define name="x86_BUILD" if="32bits" />
 
+	<haxelib name="sinlib" />
+
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
 	<!--Enable
