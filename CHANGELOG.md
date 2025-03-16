@@ -1,5 +1,5 @@
 # vs Guy
-## 2.0-1 - March 15th 2025
+## 2.0-1 - March 16th 2025
 the mod has been renamed from "Vs Guy Plus" to "Vs Guy" and the OG "Vs Guy" has been renamed to "Vs Guy (CONCEPT EDITION)"
 THIS HAS WIPED SAVES (sorry)
 ### Changelog
