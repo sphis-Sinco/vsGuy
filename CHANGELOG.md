@@ -206,7 +206,6 @@ this changelog is experimental and follows an experimental new format
 - NEW SONG: Vex
 - ElomentoPlayz everywhere
 
-
 ## v1.1 - November 16th 2024
 ### Changed
 - OutdatedState now checks for if the Current Version is lower than the online (github) Version
