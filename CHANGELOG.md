@@ -1,7 +1,6 @@
 # vs Guy
 ## 2.1
 ### Changelog
-- Modification: Shop sinco now is a texture atlas
 - Modification: Shop sinco now has new assets
 - Modification: Company name (This also wipes saves, apologies.)
 - Modification: Executable name
